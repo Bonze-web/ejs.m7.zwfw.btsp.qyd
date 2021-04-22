@@ -58,9 +58,9 @@
 
             var isCanProxy = (isAutoProxy && newOptions.isAutoProxy !== false) || newOptions.isAutoProxy === true;
               // header方式
-            //   newOptions.headers = newOptions.headers || {};
-            //   newOptions.headers.Authorization = 'Bearer ' + 'f15a5556a9bdaa9ca610cd914b36d429';
-            //   resolve(newOptions);
+              newOptions.headers = newOptions.headers || {};
+              newOptions.headers.Authorization = 'Bearer ' + 'f15a5556a9bdaa9ca610cd914b36d429';
+              resolve(newOptions);
             if (isCanProxy) {
                 if (injectType === ajaxInjectType.INJECT_TYPE_HEADERS) {
                     getTokenByApi(function(token) {

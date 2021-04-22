@@ -1,7 +1,7 @@
 /*
  * @作者: 杨宗标
  * @创建时间: 2021-04-14 10:15:58
- * @修改时间: 2021-04-22 18:54:24
+ * @修改时间: 2021-04-22 17:43:29
  * @版本: [1.0]
  * @版权: 国泰新点软件股份有限公司
  * @描述:
@@ -171,7 +171,6 @@
                             guid: self.examineguid
                         },
                         success: function(result) {
-                            console.log("城建");
                            self.initListeners();
                         },
                         error: function(error) {}
