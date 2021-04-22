@@ -1,0 +1,165 @@
+<!--
+        作者：戴荔春
+        创建时间: 2017/06/05
+        版本: [3.0, 2017/05/05 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： ejs v3 API
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>EJS 3.X</title>
+    <script>
+        document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './_common/common.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="mui-content pt0" id="ejs-app">
+
+    </div>
+    <script>
+        document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        "use strict";
+
+        let localPath = null;
+
+        Util.loadJs(
+            './_common/bizlogic_common_ready.js',
+            function () {
+                const href = window.location.href;
+
+                localPath = href.slice(0, href.lastIndexOf('/') + 1);
+
+                Util.bizlogic.ready(initPage);
+            });
+
+        function initPage() {
+            var litemplate = new Util.litemplate.listLitemplate({
+                isIndex: false,
+                title: 'EJS 3.X',
+                ejsApi: [{
+                    'id': 'page',
+                    'text': 'page模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_page.html');
+                    }
+                }, {
+                    'id': 'ui',
+                    'text': 'ui模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_ui.html');
+                    }
+                }, {
+                    'id': 'navigator',
+                    'text': 'navigator模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_navigator.html');
+                    }
+                }, {
+                    'id': 'runtime',
+                    'text': 'runtime模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_runtime.html');
+                    }
+                }, {
+                    'id': 'device',
+                    'text': 'device模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_device.html');
+                    }
+                }, {
+                    'id': 'storage',
+                    'text': 'storage模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_storage.html');
+                    }
+                }, {
+                    'id': 'auth',
+                    'text': 'auth模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_auth.html');
+                    }
+                }, {
+                    'id': 'util',
+                    'text': 'util模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_util.html');
+                    }
+                }, {
+                    'id': 'io',
+                    'text': 'io模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_io.html');
+                    }
+                }, {
+                    'id': 'event',
+                    'text': 'event模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_event.html');
+                    }
+                }, {
+                    'id': 'stream',
+                    'text': 'stream模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_stream.html');
+                    }
+                }, {
+                    'id': 'contact',
+                    'text': 'contact模块',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_contact.html');
+                    }
+                }, {
+                    'id': 'biz',
+                    'text': '一些特定业务',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_biz.html');
+                    }
+                }, {
+                    'id': 'callapi',
+                    'text': '自定义API调用',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_callapi.html');
+                    }
+                }, {
+                    'id': 'promise',
+                    'text': 'Promise的使用',
+                    'runCode': function () {
+                        ejs.page.open('./ejs_api_v3_promise.html');
+                    }
+                },
+                    // {
+                    //     'id': 'card',
+                    //     'text': 'card的使用',
+                    //     'runCode': function() {
+                    //         ejs.page.openLocal({
+                    //             className: 'com.epoint.app.project.view.CardActivity',
+                    //             data: {
+                    //                 pageUrl: localPath + 'ejs_api_v3_card.html',
+                    //                 cardTitle: 'ejs.card'
+                    //             }
+                    //         });
+                    //     }
+                    // }
+                ]
+            });
+        }
+    </script>
+</body>
+
+</html>

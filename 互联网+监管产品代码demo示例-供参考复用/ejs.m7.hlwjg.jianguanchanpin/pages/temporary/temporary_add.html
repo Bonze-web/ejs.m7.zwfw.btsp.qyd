@@ -1,0 +1,162 @@
+<!--
+    作者：彭屹尧
+    创建时间：2019-11-20
+    版本：[1.0, 2019-11-20]
+    版权：江苏国泰新点软件有限公司
+    描述：临时检查新增页
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>随机检查</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,iosviewport-fit=cover" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name=" format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/temporary_details.css'
+        ]);
+    </script>
+    <style>
+        .lawcontainer {
+            width: 230px;
+        }
+
+        /* .mui-table-view-cell:active,
+        .mui-table-view:active {
+            background: #fff;
+        } */
+
+        /* mui-table-view-cell  */
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <!--基本信息-->
+        <div class="content-contrainer" id="baselist">
+            <div class="baseinfo">
+                <div class="baseinfo-title">任务基本信息<span class="colred">*</span></div>
+                <ul class="mui-table-view" id="baseList">
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>任务名称：</div>
+                        <div class="unit-item-right">
+                            <input class="item-value" id="taskname" type="text" placeholder="请输入">
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>行政相对人类别：</div>
+                        <div class="unit-item-right" id="">
+                            <input class="item-value arrow txt-over" id="personclass" type="text" placeholder="请选择"
+                                readonly="readonly" />
+                        </div>
+                    </li>
+                    <!-- <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>行政相对人类别：</div>
+                        <div class="unit-item-right flex-row" id="">
+                            <textarea name="" id="personclass" placeholder="请选择" readonly></textarea>
+                            <img src="./img/img_arrow.png" alt="" class="img-row">
+                        </div>
+                    </li> -->
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>行政相对人：</div>
+                        <!-- <div class="unit-item-right" id="">
+                            <input class="item-value arrow txt-over" id="person" type="text" placeholder="请选择"
+                                readonly="readonly" unselectable="on" οnfοcus="this.blur()" -webkit-user-select:none />
+                        </div> -->
+                        <div class="unit-item-right flex-row" id="">
+                            <textarea name="" id="person" placeholder="请选择" readonly unselectable="on"
+                                οnfοcus="this.blur()" -webkit-user-select:none></textarea>
+                            <img src="./img/img_arrow.png" alt="" class="img-row">
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>行政相对人性质：</div>
+                        <div class="unit-item-right" id="personnature"></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>行政相对人证件类型：</div>
+                        <div class="unit-item-right" id="personcard"></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>行政相对人证件编码：</div>
+                        <div class="unit-item-right" id="personnumber"></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>监管事项：</div>
+                        <div class="unit-item-right" id="thingname"></div>
+                        <div class="btn-addaction unit-item-left" id="btn-thing">+&nbsp;&nbsp;添加监管事项</div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="colred">*</span>执法人员：</div>
+                        <div class="unit-item-right" id="lawname"></div>
+                        <div class="btn-addaction unit-item-left" id="btn-law">+&nbsp;&nbsp;添加执法人员</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 监管行为信息 -->
+            <div class="baseinfo mb50">
+                <div class="baseinfo-title">监管行为信息<span class="color-red">*</span></div>
+                <div class="btn-addaction" id="btn-addaction">+&nbsp;&nbsp;添加监管行为</div>
+                <ul class="mui-table-view action" id="supervisionList" id="checkdetail">
+
+                </ul>
+            </div>
+        </div>
+
+        <!--操作按钮-->
+        <div class="operation">
+            <button class="l" id="btn-save">添&nbsp;&nbsp;加</button>
+            <button class="l" id="btn-handle">关&nbsp;&nbsp;闭</button>
+        </div>
+    </div>
+
+    <!-- 监管行为信息模板 -->
+    <script type="text/x-tpl" id="supervision-template">
+        {{#supervisionfo}}
+        <li class="mui-table-view-cell unit-item pb12 supervision-item"  data-checkresultstatusvalue="{{checkresultvalue}}">
+            <div class="action-item">
+                <div class="action-item-title">
+                    <i></i>
+                    <span class="bold font16 mr10">{{createuser}}</span>
+                    <span class="color-gray">{{createdate}}</span>
+                    <span class="edit-action"  data-objguid="{{objguid}}" data-objname="{{objname}}" data-objtype="{{objtype}}" data-objtypevalue="{{objtypevalue}}" data-behaviorobjguid="{{behaviorobjguid}}"><i></i></span>
+                    <span class="del-action" data-rowguid="{{behaviorobjguid}}"><i></i></span>
+                </div>
+                <div class="action-item-cont">
+                    <div class="unit-item-left">检查对象类别：</div>
+                    <div class="unit-item-right">{{objtype}}</div>
+                </div>
+                <div class="action-item-cont">
+                    <div class="unit-item-left">检查对象：</div>
+                    <div class="unit-item-right">{{objname}}</div>
+                </div>
+                <div class="action-item-cont">
+                    <div class="unit-item-left">检查结果状态：</div>
+                    <div class="unit-item-right"><i class="ispass checkstatus{{checkstatus}}"></i>{{checkresult}}</div>
+                </div>
+            </div>
+        </li>
+        {{/supervisionfo}}
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/temporary_add.js',
+        ]);
+    </script>
+
+</body>
+
+</html>

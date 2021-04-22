@@ -1,0 +1,97 @@
+/**
+ * 作者:沈凡琪
+ * 创建时间:2019/01/14 15:52:34
+ * 版本:[1.0, 2019/01/14]
+ * 版权:江苏国泰新点软件有限公司
+ * 描述:通用样式
+ */
+
+
+/*tab*/
+
+.tab {
+	width: 100%;
+	display: flex;
+	border-top: 1px solid #f5f5f5;
+	border-bottom: 1px solid #f5f5f5;
+	line-height: 52px;
+	background: #ffffff;
+}
+
+.tab-cell {
+	font-size: 15px;
+	color: #333333;
+	flex: 1;
+	text-align: center;
+}
+
+.tab-cell:nth-child(1) {
+	border-right: 1px solid #f5f5f5;
+}
+
+.active-line .line {
+	border-bottom: 4px solid #1492ff;
+	/*margin: 0px 31.5%;*/
+	margin-left: calc(50% - 32px);
+	width: 64px;
+}
+
+
+/*底部菜单*/
+
+.bottomnav {
+	clear: both;
+	display: flex;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-top: 1px solid #e6e6e6;
+	background: #FFFFFF;
+	padding-bottom: 2px;
+}
+
+.bottom-cell {
+	flex: 1;
+	float: left;
+	text-align: center;
+	font-size: 12px;
+	color: #738595;
+	padding-top: 6px;
+}
+
+.bottom-cell img {
+	width: 22px;
+	height: 25px;
+	padding-top: 3px;
+}
+
+.bottom-cell div {
+	font-size: 12px;
+}
+
+.tab-active {
+	color: #1492ff
+}
+
+.btm-search {
+	float: left;
+	margin-top: -20px;
+}
+
+.btm-search img {
+	width: 50px;
+	height: 50px;
+}
+
+
+/*空数据*/
+
+
+/*null*/
+
+.null img {
+	padding: 20%;
+	width: 100%;
+	height: 100%;
+}

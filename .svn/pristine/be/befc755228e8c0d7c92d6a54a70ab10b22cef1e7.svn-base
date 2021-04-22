@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>控件示例</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/common.new.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="page-loading"></div>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">下拉选择控件</h1>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <ul class="editor-list">
+            <li class="editor-list-item icon-right">
+                <p class="l label">
+                    <span>选项一：</span>
+                </p>
+                <input class="ep-mui-combobox" id="combobox-4jjckd8ld" bind="title" action="getTitle" type="text">
+            </li>
+            <li class="editor-list-item icon-right">
+                <p class="l label">
+                    <span>选项二：</span>
+                </p>
+                <input class="ep-mui-combobox" id="combobox-af13i7f37" bind="title" action="getTitle" type="text">
+            </li>
+            <li class="editor-list-item icon-right">
+                <p class="l label">
+                    <span>选项三：</span>
+                </p>
+                <input class="ep-mui-combobox" id="combobox-1hmdmaot9" bind="title" action="getTitle" type="text">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        Util.loadJs(initPage);
+
+        function initPage() {
+            epointm.initPage("data/combobox.json", null, null, null, {
+                method: "GET"
+            });
+
+            window.onchange = function (value, text) {
+                console.log(value, text)
+            }
+        }
+    </script>
+</body>
+
+</html>

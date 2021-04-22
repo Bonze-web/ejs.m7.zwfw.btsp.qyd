@@ -1,0 +1,91 @@
+<!-- 
+        作者：郭天琦
+        创建时间: 2017/06/19
+        版本: [1.0, 2017/06/19 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：地区选择
+-->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <title>地区选择组件</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            SrcBoot.output([
+                'js/widgets/addrselect/addrselect.css'
+            ]);
+        </script>
+        <style>
+            body {
+                background-color: #fff;
+            }
+            
+            ul,
+            li {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            #btn {
+                position: fixed;
+                bottom: 0;
+            }
+            
+            #choice {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: .90rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">地区选择</h1>
+            <a href="javascript:void(0);" id="choice">选择</a>
+        </header>
+
+        <!-- 地区 -->
+        <div class="em-addrselect" id="em-addrselect"></div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+        <script>
+            (function(exports) {
+                "use strict";
+
+                Util.loadJs([
+                    'js/widgets/addrselect/city.data-3.js',
+                    'js/widgets/addrselect/addrselect.js'
+                ], initPage);
+
+                function initPage() {
+                    var choiceEle = document.getElementById('choice');
+
+                    var addrSelect = new AddrSelect({
+                        container: '#em-addrselect',
+                        top: '44px',
+                        itemClick: function(result) {
+                            console.log(JSON.stringify(result));
+                        }
+                    });
+
+                    choiceEle.addEventListener('tap', function() {
+                        addrSelect.toggle();
+                    });
+                }
+            }({}));
+        </script>
+    </body>
+
+</html>

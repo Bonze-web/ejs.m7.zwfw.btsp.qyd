@@ -1,0 +1,93 @@
+<!--
+	作者 :张金锁
+	创建时间 :2021/04/06 14:57:36
+	版本 :[1.0]
+	版权：江苏国泰新点软件有限公司
+	描述：每日菜谱
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+        <meta name="format-detection" content="telephone=no, email=no" />
+
+        <title>每日菜谱</title>
+        <script>
+            document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + 'ipt>');
+        </script>
+        <script>
+            SrcBoot.output(['./css/flava_menu.css']);
+        </script>
+    </head>
+
+    <body>
+        <div class="em-tabview">
+            <div class="em-tab-selector em-active">早餐</div>
+            <div class="em-tab-selector">午餐</div>
+            <div class="em-tab-selector">晚餐</div>
+        </div>
+        <div class="main-item">
+            <div class="em-title-space">
+                <span class="em-title">主食</span>
+                <img src="./img/icon_add.png" class="em-add-icon" />
+            </div>
+            <ul class="em-list">
+                <li class="em-item">
+                    <span class="em-type">小米粥</span>
+                    <img src="./img/icon_del.png" class="em-delete" />
+                </li>
+                <li class="em-item">
+                    <span class="em-type">小米粥</span>
+                    <img src="./img/icon_del.png" class="em-delete" />
+                </li>
+            </ul>
+        </div>
+        <div class="main-item">
+            <div class="em-title-space">
+                <span class="em-title">素菜</span>
+                <img src="./img/icon_add.png" class="em-add-icon" />
+            </div>
+            <ul class="em-list">
+                <li class="em-item">
+                    <span class="em-type">香菇青菜</span>
+                    <img src="./img/icon_del.png" class="em-delete" />
+                </li>
+                <li class="em-item">
+                    <span class="em-type">清炒木耳</span>
+                    <img src="./img/icon_del.png" class="em-delete" />
+                </li>
+            </ul>
+        </div>
+        <div class="main-item">
+            <div class="em-title-space">
+                <span class="em-title">荤菜</span>
+                <img src="./img/icon_add.png" class="em-add-icon" />
+            </div>
+        </div>
+        <div class="main-item">
+            <div class="em-title-space">
+                <span class="em-title">菜谱类型名称</span>
+                <img src="./img/icon_add.png" class="em-add-icon" />
+            </div>
+        </div>
+        <div class="main-item">
+            <div class="em-title-space">
+                <span class="em-title">菜谱类型名称</span>
+                <img src="./img/icon_add.png" class="em-add-icon" />
+            </div>
+        </div>
+        <script>
+            document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + 'ipt>');
+        </script>
+        <script>
+            SrcBoot.output(['./js/flava_menu.js']);
+        </script>
+    </body>
+</html>

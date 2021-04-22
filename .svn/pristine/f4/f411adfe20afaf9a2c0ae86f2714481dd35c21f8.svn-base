@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>控件示例</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/common.new.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="page-loading"></div>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">日期选择</h1>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <ul class="editor-list">
+            <li class="editor-list-item icon-right">
+                <p class="l label">
+                    <span>选择日期</span>
+                </p>
+                <input type="text" id="datetime" bind="myinfomodifyaction.user.datetime" class="ep-mui-datepicker l"
+                    placeholder="选择日期" data-options='{
+                      "type": "datetime",
+                      "beginDate":2015,
+                      "endDate": 2020,
+                      "format": "yyyy/MM/dd"
+                    }'>
+            </li>
+
+            <li class="editor-list-item icon-right">
+                <p class="l label">
+                    <span>时间范围选择</span>
+                </p>
+                <input type="text" id="daterangetime" bind="myinfomodifyaction.user.daterangetime"
+                    class="ep-mui-daterangepicker l" placeholder="时间范围选择" data-options='{
+                      "type": "datetime",
+                      "beginDate":"2015-01-03",
+                      "endDate": "2020-01-03",
+                      "format": "yyyy/MM/dd"
+                    }'>
+            </li>
+        </ul>
+    </div>
+    </li>
+    </ul>
+    </div>
+
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        Util.loadJs(initPage);
+
+        function initPage() {
+            epointm.initPage("data/myinfo.json", null, null, null, {
+                method: "GET"
+            });
+        }
+    </script>
+</body>
+
+</html>

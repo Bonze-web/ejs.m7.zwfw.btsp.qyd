@@ -1,0 +1,129 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/17
+	版本： [1.0, 2019/10/17]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-任务详情
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>任务详情</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_todo_register_moreinfo.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap wrap-done">
+			<!--案件基本信息-->
+			<div class="main-part">
+				<ul class="main-baseinfo-items" id="baseinfo">
+	
+				</ul>
+			</div>
+		</div>
+		<script type="text/x-mustache" id="baseinfo-template">
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					执法主题名称:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{activityname}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					任务名称:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{taskname}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					任务编号:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{taskcode}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					行政相对人:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{administrativecp}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					行政相对人性质:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{administrativecpna}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					行政相对人证件类型:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{administrativecpcetype}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					行政相对人证件编码:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{administrativecpuicode}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					执法人员:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{lepusernames}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name-detail">
+					计划启动时间:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{planstartdate}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item btm-none">
+				<div class="item-name-detail">
+					计划结束时间:
+				</div>
+				<div class="item-info item-info-detail">
+					<div class="done-item-info-text">{{planenddate}}</div>
+				</div>
+			</li>
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_detail.js'
+			]);
+		</script>
+	</body>
+
+</html>

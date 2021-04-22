@@ -1,0 +1,65 @@
+body,
+html {
+    background-color: #f5f5f5;
+}
+
+.mui-table-view-cell {
+    padding: 11px 37px 11px 15px;
+}
+
+.mui-navigate-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 17px;
+}
+
+.mui-input-group {
+    font-size: 16px;
+}
+
+.mui-input-group:after {
+    height: 0;
+}
+
+.mui-input-group input {
+    flex: 1;
+    font-size: 14px;
+}
+
+.feedbackyj {
+    padding: 10px 15px 0;
+}
+
+textarea {
+    font-size: 14px;
+}
+
+
+
+/* 底部按钮 */
+.base-btn {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.base-btn div {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: calc(50% - 5px);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.base-btn div:nth-child(1) {
+    margin-right: 10px;
+    background-color: #fff;
+    color: #3c80e6;
+}
+
+.base-btn div:nth-child(2) {
+    background-color: #3c80e6;
+    color: #fff;
+}

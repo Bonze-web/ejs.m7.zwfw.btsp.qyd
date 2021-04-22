@@ -1,0 +1,106 @@
+<!--
+        作者：郭天琦
+        创建时间: 2017/06/29
+        版本: [1.0, 2017/06/29 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：slider滚动
+-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title>文字滚动</title>
+		<script>
+			document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./slider.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">文字滚动</h1>
+		</header>
+
+		<div class="mui-content mb10 bg-white container" id="container">
+			<div class="move up-container" data-slider>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 1
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 2
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 3
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 1
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 2
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 3
+						</a>
+					</li>
+					
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 3
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="txt-container" id="txt-container">
+		    <div class="txt-move">
+		    		我是很长的一段文字我是很长的我是很长的一段文字我是很长的我是很长的一段文字我是很长的
+		    </div>
+		</div>
+
+		<script>
+			document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			"use strict";
+
+			Util.loadJs([
+				'js/widgets/slider/slider.js'
+			], initPage);
+
+			function initPage() {
+				new Slider({
+					container: '#txt-container',
+					direction: 'right'
+				});
+				
+				new Slider({
+					container: '#container',
+					direction: 'up'
+				});
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-07 16:42:26
+ * @修改时间: 2021-04-17 15:32:19
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>待办详情</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/wait_details.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="page_bg">
+
+    </div>
+
+    <script type="text/template" id="template1">
+        <div class="early_warning">
+            <div class="remind">
+                <!-- {{#warning_level}}
+                    黄灯预警提醒
+                {{/warning_level}}
+                {{^warning_level}}
+                    红灯预警提醒
+                {{/warning_level}} -->
+                    {{title}}
+            </div>
+            <div class="time">
+                {{warning_time}}
+            </div>
+        </div>
+        <div class="hint">
+            <!--
+                deal_link: "btsjjg/tyzfwarning/warningrecord/ejgtyzfwarningrecordpage?guid=846e7102-1406-411f-beb9-13be9f5b2fac&type=1"
+                is_deal: "0"
+                obj_guid: "29cc68fa-4e1b-4847-b83b-1f077cebd740"
+                rowguid: "846e7102-1406-411f-beb9-13be9f5b2fac"
+                rule_code: "HCARD20210325"
+                title: "【健康证预警】您的企业中有从业人员健康证即将过期！"
+                userguid: "192900ed-4544-460b-995c-9b1ca1159360"
+                warning_content: "您单位的从业人员的健康证即将在15日内到期，请尽快令对应员工体检并获取新的健康证，上传到系统中！"
+                warning_level: "1"
+                warning_obj_type: "3"
+                warning_time: 1618308000000
+             -->
+            {{warning_content}}
+        </div>
+        <div class="personal_information mui-hidden">
+            <div class="personal_msg_box">
+                <img src="./image/wait_personal_msg.png" alt="">
+                <div class="personal_title_box">
+                    {{title}}
+                </div>
+                <div class="personal_hint_box">
+
+                </div>
+            </div>
+            <div class="personal_msg_box">
+                <img src="./image/wait_personal_msg.png" alt="">
+            </div>
+        </div>
+        {{#deal_time}}
+            <div class="retroaction">
+                反馈
+            </div>
+            <div class="retroaction_content">
+                {{feedback}}
+                <div class="time">
+                    {{deal_time}}
+                </div>
+            </div>
+        {{/deal_time}}
+        <button class="em-save" id="em-save" deal_link="{{deal_link}}">反馈</button>
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/wait_details.js'
+        ]);
+    </script>
+</body>
+
+</html>

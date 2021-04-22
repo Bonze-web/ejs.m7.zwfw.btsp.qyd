@@ -1,0 +1,58 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-08 08:49:27
+ * @修改时间: 2021-04-08 13:52:55
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 14:17:51
+ * @修改时间: 2021-04-06 20:16:42
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+
+
+(function() {
+    "use strict";
+
+    Util.loadJs([
+        'pages/common/common.js'
+    ], function() {
+        customBiz.configReady();
+    });
+
+    var customBiz = {
+        configReady: function() {
+            var self = this;
+            var jsApiList = [{
+
+            }];
+            self.initListeners();
+            self.eventAdd();
+        },
+        initListeners: function() {
+            var self = this;
+            //  基本信息
+            var data1 = {
+                imgArr: [
+                    {srcUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=153960715,2502274764&fm=26&gp=0.jpg'},
+                    {srcUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=153960715,2502274764&fm=26&gp=0.jpg'},
+                    {srcUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=153960715,2502274764&fm=26&gp=0.jpg'},
+                    {srcUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=153960715,2502274764&fm=26&gp=0.jpg'},
+                ]
+            }
+            var temple1 = Zepto('#template1').html();
+            var output = Mustache.render(temple1, data1);
+            Zepto('#text_content').html(output);
+        },
+        eventAdd() {
+
+        }
+    }
+
+
+})(window)

@@ -1,0 +1,35 @@
+/**
+ * 作者：解宇
+ * 创建时间：2019-12-12
+ * 版本：[1.0, 2019-12-12]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：移交抄告-选择
+ **/
+
+html,
+body {
+	background: #f5f5f5;
+}
+
+.listdata {
+	background: #fff;
+	padding: 0 0 0 12px;
+}
+
+.listitem {
+	padding: 15px 12px 15px 12px;
+	border-top: 1px solid #e0e0e0;
+}
+
+.listitem:first-child {
+	border-top: 0;
+}
+
+.btn-send {
+	width: -webkit-fill-available;
+	background: #3c80e6;
+}
+
+.minirefresh-hardware-speedup {
+	background: #f5f5f5 !important;
+}

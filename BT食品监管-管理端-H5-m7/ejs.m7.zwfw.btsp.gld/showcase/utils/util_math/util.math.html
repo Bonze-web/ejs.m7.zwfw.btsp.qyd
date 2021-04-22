@@ -1,0 +1,110 @@
+<!--
+    作者：guotq
+    时间：2018年01月08日10:47:53
+    描述：解决浮点数加减乘除精度不准
+-->
+
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>浮点数加减乘除</title>
+
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+        <style>
+            .container {
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="input-block">
+                <label for="number1">number1：</label>
+                <input type="number" value="0.1" placeholder="输入第一个数" id="number1" />
+
+                <label for="operator">选择运算符：</label>
+                <input type="text" value="+" placeholder="选择运算符" readonly="readonly" id="operator" />
+
+                <label for="number2">number2：</label>
+                <input type="number" value="0.2" placeholder="输入第二个数" id="number2" />
+
+                <label for="result">结果：</label>
+                <input type="number" value="" placeholder="运算结果" id="result" />
+            </div>
+
+            <button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="submit">提交</button>
+        </div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+        <script>
+            (function(d) {
+                "use strict";
+
+                var numberOneEle = d.getElementById('number1'),
+                    numberTwoEle = d.getElementById('number2'),
+                    operatorEle = d.getElementById('operator'),
+                    submitEle = d.getElementById('submit'),
+                    resultEle = d.getElementById('result');
+
+                Util.loadJs(['js/utils/util.math.js'], function() {
+                    var mathTools = Util.math;
+
+                    ejs.config();
+
+                    ejs.ready(function() {
+                        operatorEle.addEventListener('tap', function() {
+                            ejs.ui.actionSheet({
+                                items: ['+', '-', '*', '/'],
+                                cancelable: 1,
+                                success: function(result) {
+                                    operatorEle.value = result.content;
+                                }
+                            });
+                        });
+
+                        submitEle.addEventListener('tap', function() {
+                            var number1 = numberOneEle.value,
+                                number2 = numberTwoEle.value,
+                                result = null;
+
+                            if(number1 && number2) {
+
+                                switch(operatorEle.value) {
+                                    case '+':
+                                        result = mathTools.add(number1, number2);
+                                        break;
+
+                                    case '-':
+                                        result = mathTools.subtract(number1, number2);
+                                        break;
+
+                                    case '*':
+                                        result = mathTools.multiply(number1, number2);
+                                        break;
+
+                                    case '/':
+                                        result = mathTools.divide(number1, number2);
+                                        break;
+                                }
+                                
+                                resultEle.value = result;
+                            }
+                        });
+                    });
+                });
+            }(document));
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,33 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 14:17:51
+ * @修改时间: 2021-04-01 16:09:32
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+.em-tab-top{
+    width: 100vw;
+    overflow-x: scroll;
+}
+.em-tabview-head {
+    width: auto;
+    padding: 13px 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+}
+.em-tabview-head .em-tabview-title {
+    float: left;
+    white-space: nowrap;
+    margin: 0 12px;
+}
+.em-tabview-body {
+    position: absolute;
+    top: 100px;
+    text-align: center;
+}
+.cur {
+    color: #3c80e6;
+}

@@ -1,0 +1,146 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常巡查详情
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>日常巡查详情</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/inspection_detail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <div class="em-tabview-body" id="detail">
+            <div class=" hidden" data-id="title1">
+                <ul class="detail-container">
+                    <li class="detail-line">
+                        <span>任务名称</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>任务编号</span>
+                        <span>111</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法主体</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象类型</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>统一社会信用代码</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法人员</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划开始时间</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划结束时间</span>
+                        <span>计划名称</span>
+                    </li>
+                </ul>
+
+                <div class="detail-file">
+                    <div class="file-title">附件</div>
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- 渲染 详情 -->
+<script type="text/template" id="detail-tpl">
+    <div class="em-tabview-content">
+        <ul class="detail-container">
+            <li class="detail-line">
+                <span>统一社会信用代码</span>
+                <span>{{pripid}}</span>
+            </li>
+            <li class="detail-line">
+                <span>检查对象</span>
+                <span>{{company}}</span>
+            </li>
+            <li class="detail-line">
+                <span>企业类型</span>
+                <span>{{companyType}}</span>
+            </li>
+            <li class="detail-line">
+                <span>风险等级</span>
+                <span>{{riskLevel}}</span>
+            </li>
+            <li class="detail-line">
+                <span>检查结果</span>
+                <span>{{checkResult}}</span>
+            </li>
+            <li class="detail-line">
+                <span>检查日期</span>
+                <span>{{checkDate}}</span>
+            </li>
+            <li class="detail-line">
+                <span>结果处理方式</span>
+                <span>{{dealWay}}</span>
+            </li>
+        </ul>
+    </div>
+</script>
+
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/inspection_detail.js'
+    ]);
+</script>
+
+</html>

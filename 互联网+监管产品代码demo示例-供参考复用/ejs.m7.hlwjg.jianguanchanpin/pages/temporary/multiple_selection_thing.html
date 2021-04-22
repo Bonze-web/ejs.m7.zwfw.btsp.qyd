@@ -1,0 +1,108 @@
+<!-- 
+        作者：彭屹尧
+        创建时间：2019-11-20 08:56:59
+        版本：[1.0, 2019-11-20]
+        版权：江苏国泰新点软件有限公司
+        描述：监察事项新增
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>监管事项添加</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            // './css/index.css'
+        ]);
+    </script>
+
+    <style>
+        .oulist {
+            background-color: #fff;
+            margin-bottom: 60px;
+        }
+
+        .oulist-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* 底部按钮 */
+        .outer {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .save-continue-btn {
+            width: 100%;
+            height: 40px;
+            background: #1975f5;
+            color: #fff;
+            border-radius: 2px;
+            font-size: 17px;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 列表 -->
+    <!-- <ul class="listdata" id="listdata"> </ul> -->
+
+    <div class="content">
+        <ul class="oulist" id="listdata">
+
+        </ul>
+
+    </div>
+    <!-- 模板：监管事项 -->
+
+    <!--列表项模板-->
+    <script type="text/x-templ-mustache" id="listdata-thing-tpl">
+        {{#item}}
+        <!-- <li class="listitem" data-value="{{rowguid}}">{{superviseitem}}</li> -->
+
+        <li class="oulist-item">
+            <div class="mui-input-row mui-checkbox">
+                <label>{{superviseitem}}</label>
+                <input name="checkbox1" value="Item 1" type="checkbox" data-value="{{superviseitem}}" data-guid="{{rowguid}}">
+            </div>
+        </li>
+        {{/item}}
+    </script>
+
+    <!-- 模板：人员 -->
+
+    <script type="text/template" id="listdata-person-tpl">
+        {{#item}}
+        <li class="listitem" data-value="{{rowguid}}">{{name}}</li>
+        
+        {{/item}}
+    </script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/multiple_selection_thing.js'
+        ]);
+    </script>
+</body>
+
+</html>

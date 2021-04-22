@@ -1,0 +1,52 @@
+/**
+ * 作者：范周静
+ * 创建时间：2019-05-13 08:56:59
+ * 版本：[1.0, 2019-05-13]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：列表
+ **/
+
+(function (d, $) {
+    'use strict';
+
+    var token = Config.token,
+        type = '0', // 待分配0 已分配1
+        minirefreshObj = null; // 下拉刷新实例
+
+    Util.loadJs(
+        // 下拉刷新
+        'js/widgets/tabview/tabview.js',
+        function () {
+            ejs.config({
+                jsApiList: []
+            });
+
+            ejs.ready(function () {
+                initPage()
+            });
+        }
+    );
+
+    // 初始化页面信息
+    function initPage() {
+        // 初始化事件监听
+        initListeners();
+
+        new TabView({
+            container: "#em-tabview-con",
+            activeCls: "cur",
+            isSwipe: false,
+            activeIndex: 0,
+            triggerEvent: 'tap',
+            itemClick: function (e) {}
+        });
+    }
+
+    /**
+     * 初始化事件监听
+     */
+    function initListeners() {
+
+    }
+
+})(document, Zepto);

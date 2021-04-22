@@ -1,0 +1,140 @@
+/**
+ * 作者：gujhao
+ * 创建时间：2019-12-15
+ * 版本：[1.0, 2019-12-15]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：异常名录-搜索
+ **/
+.minirefresh-wrap {
+    top: 94px !important;
+}
+
+.em-srhbar {
+    padding: 10px;
+    position: relative;
+    margin: 0 !important;
+    background-color: #fff;
+}
+
+.em-srhbar .em-srhbar-input {
+    padding-left: 40px;
+    background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+input[type='submit'],
+.mui-btn-primary,
+.mui-btn-blue {
+    background-color: #fff;
+    border-color: #fff;
+    color: #8c8c8c;
+}
+
+.searchicon {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+.unisialtit {
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* 搜索内容 */
+.search-cont {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    top: 54px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.history {
+    padding: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.history-tit {
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.history-tit .l {
+    font-size: 18px;
+}
+
+.history-tit .r {
+    color: #999999;
+}
+
+.history-tit>.mui-icon {
+    font-size: 20px;
+}
+
+/* 搜索记录 */
+.history-ul {}
+
+.history-ul>li {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: #333333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.history-ul>li:last-child {
+    border-bottom: 0;
+}
+
+.history-ul>li::after {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    width: 6px;
+    height: 6px;
+    content: '';
+    background-color: #3c80e6;
+    margin-top: -3px;
+    border-radius: 50%;
+}
+
+.choose {
+    padding: 10px;
+}
+
+.choosesearch-tit {
+    text-align: center;
+    line-height: 61px;
+    font-size: 14px;
+    color: #666;
+    height: 61px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.choose-item {
+    padding: 15px;
+    font-size: 16px;
+    color: #4c73ac;
+    text-align: center;
+}
+
+input::placeholder {
+    color: #c5c9d0 !important;
+}
+
+#all .mui-content {
+    position: relative !important;
+    top: -6px;
+}
+

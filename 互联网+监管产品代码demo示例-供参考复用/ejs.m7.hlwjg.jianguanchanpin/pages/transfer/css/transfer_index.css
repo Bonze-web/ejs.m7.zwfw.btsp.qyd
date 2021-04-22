@@ -1,0 +1,183 @@
+/**
+ * 作者：解宇
+ * 创建时间：2019-12-6
+ * 版本：[1.0, 2019-12-6]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：抄告移交-列表
+ **/
+
+html,
+body {
+	background: #f5f5f5;
+}
+
+button {
+	padding: 0;
+	border: 0;
+}
+
+.color-666 {
+	color: #666;
+}
+
+.color-333 {
+	color: #333;
+}
+
+.mui-badge {
+	padding: 2px 6px 1px 6px !important;
+	line-height: 1.2 !important;
+}
+
+
+/*是否显示*/
+
+.isshow0 {
+	display: none;
+}
+
+.isshow1 {
+	display: inline-block;
+}
+
+
+/* 头部切换 */
+
+.head {
+	display: flex;
+	width: 100%;
+	overflow-y: hidden;
+	overflow-x: auto;
+	height: 40px;
+	color: #333;
+	font-size: 16px;
+	background: #fff;
+	white-space: nowrap;
+}
+
+.head .headitem {
+	width: 50%;
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.head .head-item .head-item-title {
+	display: inline-block;
+	width: 70px;
+	line-height: 40px;
+}
+
+.head .headactive {
+	color: #406de9;
+	border-bottom: 2px solid #406de9;
+}
+
+
+/* 全部分类 */
+
+.typelist {
+	padding-left: 12px;
+	margin-top: 1px;
+	color: #fff;
+	font-size: 17px;
+	line-height: 43px;
+	background: #406de9;
+}
+
+.img-type {
+	position: relative;
+	top: -3px;
+	width: 9px;
+	height: 6.5px;
+	margin-left: 6px;
+}
+
+
+/* 列表 */
+
+.minirefresh-theme-default .minirefresh-upwrap {
+	background: #f5f5f5;
+}
+
+.listdata {
+	width: 100%;
+	font-size: 14px;
+	color: #333;
+	border-bottom: .5px solid #e0e0e0;
+	background: #fff;
+}
+
+.listitem {
+	position: relative;
+	padding: 10px 10px 10px 0;
+	border-top: .5px solid #e0e0e0;
+}
+
+.listitem:first-child {
+	border: none;
+}
+
+.listdata .title {
+	margin-bottom: 10px;
+	font-size: 17px;
+	padding: 2px 0;
+	color: #000;
+}
+
+.btn-status {
+	display: inline-block;
+	position: absolute;
+	bottom: 30px;
+	right: 15px;
+	padding: 0 13px;
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+	line-height: 26px;
+	border-radius: 4px;
+}
+
+.check-title {
+	font-size: 16px;
+	color: #000;
+	font-weight: bold;
+	margin-bottom: 5px !important;
+}
+
+.check-wrap {
+	padding-left: 10px;
+	border-left: 2px solid #cedbef;
+	margin-bottom: 5px;
+}
+
+
+/*按钮-接收*/
+
+.btn-recive,
+.btn-feedback {
+	width: calc(100% - 30px);
+	height: 35px;
+	line-height: 35px;
+	color: #4285f4;
+	background: #cedbef;
+	margin-left: 15px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+
+/*已办结-状态icon*/
+
+.check-status {
+	padding: 2px 5px;
+	background: #4db169;
+	color: #fff;
+	border: 0;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: normal;
+	margin-right: 5px;
+}

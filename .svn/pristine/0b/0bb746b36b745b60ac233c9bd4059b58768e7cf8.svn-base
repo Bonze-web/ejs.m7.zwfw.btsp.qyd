@@ -1,0 +1,82 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常巡查
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>日常巡查</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/inspection_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="se-box">
+        <div class="se-top">
+            <div class="se-div">
+                <input type="text" placeholder="请输入企业名称搜索" class="se-input" />
+            </div>
+        </div>
+    </div>
+    <div id="minirefresh" class="minirefresh-wrap">
+        <div class="minirefresh-scroll">
+            <ul class="listdata bg-white" id="listdata">
+            </ul>
+        </div>
+    </div>
+    <img class="addbtn" src="./css/images/img_addbtn.png" alt="">
+</body>
+
+<!-- 渲染 列表 -->
+<script type="text/template" id="item-template">
+    <li class="list-item" data-checkguid="{{checkguid}}">
+        <div class="title-row">
+            {{company}}
+        </div>
+        <div class="row">
+            企业类型：{{companytype}}
+        </div>
+        <div class="row">
+            <div class="flex-1">
+                风险等级：{{risklevel}}
+            </div>
+            <div class="flex-1 text-ellipsis">
+                检查时间：{{checkdate}}
+            </div>
+        </div>
+        <div class="row">
+            检查结果：<img src="./css/images/img_adopt.png" alt="">{{checkresult}}
+        </div>
+        <div class="row">
+            结果处理方式：<img src="./css/images/img_adopt.png" alt="">{{dealway}}
+        </div>
+    </li>
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/inspection_index.js'
+    ]);
+</script>
+
+</html>

@@ -1,0 +1,1 @@
+"use strict";var oldAjax=Util.ajax;Util.ajax=function(e){var a=e;return a.headers=a.headers||{},ejs.os.ejs?ejs.auth.getToken({success:function(e){var s=e.access_token;a.headers.Authorization="Bearer "+s}}):a.xhrFields={withCredentials:!0},oldAjax(a)};

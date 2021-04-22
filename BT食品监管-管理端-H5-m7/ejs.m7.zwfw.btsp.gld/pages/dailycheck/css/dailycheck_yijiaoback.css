@@ -1,0 +1,56 @@
+body,html {
+    background-color: #f5f5f5;
+}
+.mui-input-group {
+    font-size: 16px;
+}
+.mui-input-group input {
+    font-size: 14px;
+}
+.redicon {
+    color: red;
+}
+.mui-input-row {
+    position: relative;
+}
+.mui-input-row .mui-icon{
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    font-size: 16px;
+}
+.addchecknote {
+    padding-left: 14px;
+    height: 40px;
+    line-height: 40px;
+}
+textarea {
+    font-size: 14px;
+}
+
+.opt-btn {
+    display: flex;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+}
+.cancelbtn {
+    margin: 0 5%;
+    width: 40%;
+    height: 40px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #fff;
+    color: #3c80e6;
+    border: none;
+}
+.surebtn {
+    margin: 0 5%;
+    width: 40%;
+    height: 40px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #3c80e6;
+    color: #fff;
+    border: none;
+}

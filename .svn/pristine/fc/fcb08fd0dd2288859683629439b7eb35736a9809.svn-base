@@ -1,0 +1,71 @@
+<!-- 
+        作者：guotq
+        创建时间: 2017/06/05
+        版本: [1.0, 2017/06/05 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： 这里直接设置离线数据，并且固定轮播的高度
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no">
+        <title>轮播5</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+    </head>
+
+    <body>
+        <div id="gallery"></div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs([
+                'js/widgets/gallery/gallery.js',
+            ], function() {
+                initPage();
+            });
+
+            /**
+             * 页面初始化请走这个函数
+             */
+            function initPage() {
+                new Gallery({
+                    // 最大的高度，100%代表自适应，可以是绝对数字，例如100px
+                    maxImgHeight: '100px',
+                    // 同上，只不过为null代表不设置
+                    minImgHeight: null,
+                    container: '#gallery',
+                    data: [{
+                        guid: "testgallery1",
+                        title: "", //为空
+                        pic: "./images/testgallery4.jpg"
+                    }, {
+                        guid: "testgallery2",
+                        title: "", //为空
+                        pic: "./images/testgallery3.jpg"
+                    }, {
+                        guid: "testgallery3",
+                        title: "", //为空
+                        pic: "./images/testgallery2.jpg"
+                    }, {
+                        guid: "testgallery4",
+                        title: "", //为空
+                        pic: "./images/testgallery1.jpg"
+                    }],
+                    itemClick: function(e, id) {
+                        console.log("点击:" + id);
+                    }
+                });
+            }
+        </script>
+    </body>
+
+</html>

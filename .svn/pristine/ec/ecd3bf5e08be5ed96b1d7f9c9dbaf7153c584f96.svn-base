@@ -1,0 +1,123 @@
+<!--
+	作者 :张金锁
+	创建时间 :2021/04/09 13:41:36
+	版本 :[1.0]
+	版权：江苏国泰新点软件有限公司
+	描述：编辑留样
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+        <meta name="format-detection" content="telephone=no, email=no" />
+
+        <title></title>
+        <script>
+            document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + 'ipt>');
+        </script>
+        <script>
+            SrcBoot.output(['./css/samples_detail.css']);
+        </script>
+    </head>
+
+    <body>
+        <div class="em-detail">
+            <div class="em-title">
+                <span>留样时间</span>
+                <span class="em-must">*</span>
+            </div>
+            <div class="em-content em-choosetime">
+                <span class="em-time">请选择时间</span>
+                <img src="./image/icon_detail.png" />
+            </div>
+        </div>
+        <div class="em-detail em-line">
+            <div class="em-title">
+                <span>留样人</span>
+            </div>
+            <div class="em-content">
+                <input class="em-content-input em-handlername" placeholder="请输入留样人姓名" />
+            </div>
+        </div>
+        <span class="em-flava-title">留样菜品</span>
+        <div class="em-flava-main">
+            <button class="em-btn">+&nbsp;&nbsp;&nbsp;新增</button>
+            <ul class="em-list" id="em-list">
+                <li class="em-item">
+                    <div class="em-item-detial em-border-bottom">
+                        <div class="em-title">
+                            <span>菜名</span>
+                        </div>
+                        <div class="em-content">
+                            <input class="em-content-input foodname" placeholder="请输入菜名" />
+                        </div>
+                    </div>
+                    <div class="em-item-detial">
+                        <div class="em-title">
+                            <span>留样数量</span>
+                        </div>
+                        <div class="em-content">
+                            <input class="em-content-input amount" placeholder="请输入具体数字" />
+                            <span class="em-time-chosen">g</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="em-img-space">
+            <div class="em-img-title">留样图片</div>
+            <ul class="em-img-list" id="showspace">
+                <li class="em-img-item">
+                    <input class="em-photo" type="file" id="file1" />
+                    <img src="./image/add_img.png" class="em-add" />
+                </li>
+            </ul>
+        </div>
+        <button class="em-save">保存</button>
+
+        <script type="text/x-tpl" id="template">
+            <li class="em-item em-item{{index}}" rowguid="{{rowguid}}">
+                <img src="./image/img_delete.png" class="em-delete" />
+                <div class="em-item-detial em-border-bottom">
+                    <div class="em-title">
+                        <span>菜名</span>
+                    </div>
+                    <div class="em-content">
+                        <input class="em-content-input foodname" placeholder="请输入菜名" value="{{food}}" />
+                    </div>
+                </div>
+                <div class="em-item-detial">
+                    <div class="em-title">
+                        <span>留样数量</span>
+                    </div>
+                    <div class="em-content">
+                        <input class="em-content-input amount" placeholder="请输入具体数字" value="{{amount}}" />
+                        <span class="em-time-chosen">g</span>
+                    </div>
+                </div>
+            </li>
+        </script>
+
+        <!-- 附件上传 -->
+        <script type="text/x-tpl" id="template-attach">
+            <li class="em-img-item em-imgs-item" attachguid="{{attachguid}}">
+                <img src="./image/img_delete.png" class="em-attach-delete" />
+                <img src="{{b64}}" class="em-add-img" />
+            </li>
+        </script>
+
+        <script>
+            document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + 'ipt>');
+        </script>
+        <script>
+            SrcBoot.output(['./js/samples_detail.js']);
+        </script>
+    </body>
+</html>

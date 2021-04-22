@@ -1,0 +1,349 @@
+<!--
+        作者：戴荔春
+        创建时间: 2017/06/01
+        版本: [3.0, 2017/06/01 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：  util 模块的示例
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 移动端的响应式特性 -->
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>util模块</title>
+
+    <script>
+        document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './_common/common.css'
+        ]);
+    </script>
+
+</head>
+
+<body>
+    <div class="mui-content pt0" id="ejs-app">
+
+    </div>
+
+    <div class="qrcode">
+        <img src="" alt="" id="img-qrcode">
+    </div>
+
+    <script>
+        document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        "use strict";
+
+        var qrcodeEl = document.getElementById('img-qrcode');
+
+        Util.loadJs(
+            './_common/bizlogic_common_ready.js',
+            // '../../../js/libs/aes.js',
+            function () {
+                Util.bizlogic.ready(initPage);
+            });
+
+        function initPage() {
+            var litemplate = new Util.litemplate.listLitemplate({
+                isIndex: false,
+                title: 'util模块',
+                ejsApi: [{
+                    'id': 'scan',
+                    'text': 'scan(扫描二维码)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.scan({
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('二维码扫描失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'downloadFile',
+                    'text': 'downloadFile(下载文件)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.downloadFile({
+                            // 下载地址
+                            url: 'http://app.epoint.com.cn/staticResource/img_head.png',
+                            // 文件名。必须带后缀。如果为空，会根据url地址或者头文件中读取出文件名。
+                            fileName: 'img_head.png',
+                            // 下载分类。默认为(其他分类)。推荐传对应的模块名称。例如邮件(MAIL)。如果没有"附件管理"模块，可忽略该参数。
+                            type: '',
+                            // 默认为1，是否后台下载，为0时，会跳转到"附件管理模块"下载。如果没有附件管理模块，请设置为1
+                            isBackground: 1,
+                            //  如果本地已有该文件是否重新下载。默认为0(直接打开文件)，为1时重新下载文件并且重命名。
+                            reDownloaded: 0,
+                            openAfterComplete: 1,
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('下载文件失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'playVideo',
+                    'text': 'playVideo(播放视频)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.playVideo({
+                            // 地址
+                            videoUrl: 'http://app.epoint.com.cn/staticResource/video_demo.mp4',
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'selectImage',
+                    'text': 'selectImage(选择图片)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.selectImage({
+                            // 图片数量
+                            photoCount: 9,
+                            // 是否显示gif图片，1：显示；0：不显示
+                            showGif: 0,
+                            // 是否允许预览，1：允许，0：不允许
+                            previewEnabled: 1,
+                            // 已选图片，json数组格式，item为元素本地地址
+                            selectedPhotos: [],
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'cameraImage',
+                    'text': 'cameraImage(拍照)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.cameraImage({
+                            // 宽度
+                            width: 720,
+                            // 压缩质量
+                            quality: 70,
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'recordVideo',
+                    'text': 'recordVideo(录制视频)',
+                    'evn': 'ejs',
+                    'runCode': function() {
+                        ejs.util.recordVideo({
+                            maxDuration: 20,
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'selectFile',
+                    'text': 'selectFile(选择文件)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.selectFile({
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'prevImage',
+                    'text': 'prevImage(预览图片)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.prevImage({
+                            // 默认显示图片序号
+                            index: 0,
+                            // 是否显示删除按钮，1：显示，0：不显示，默认不显示。如果显示按钮则自动注册回调事件。
+                            showDeleteButton: 0,
+                            // 图片地址，json数组格式，item为元素本地地址， 支持本地图片(选择API选择的图片)和网络图片
+                            selectedPhotos: [
+                                'http://img4.duitang.com/uploads/item/201508/10/20150810161432_5ujhU.thumb.224_0.jpeg',
+                                './images/testgallery1.jpg'
+                            ],
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'openFile',
+                    'text': 'openFile(打开本地文件)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        var openFile = function () {
+                            ejs.ui.confirm({
+                                title: "打开文件",
+                                message: "是否打开这个文件:" + litemplate.filePath,
+                                buttonLabels: ['取消', '确定'],
+                                success: function (result) {
+                                    if (result.which == 1) {
+                                        ejs.util.openFile({
+                                            path: litemplate.filePath,
+                                            success: function (result) {
+                                                litemplate.showTips(
+                                                    JSON.stringify(
+                                                        result));
+                                            },
+                                            error: function (error) {
+                                                litemplate.showTips(
+                                                    '失败:' + JSON.stringify(
+                                                        error));
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        };
+
+                        if (!litemplate.filePath) {
+                            ejs.ui.confirm({
+                                title: "请选择文件",
+                                message: "还没有选择文件，是否现在选择？",
+                                buttonLabels: ['取消', '确定'],
+                                success: function (result) {
+                                    if (result.which == 1) {
+                                        ejs.util.selectFile({}, function (result) {
+                                            litemplate.filePath = result.resultData;
+                                            openFile();
+                                        }, function (error) {
+                                            litemplate.showTips('选择文件失败:' +
+                                                JSON.stringify(error));
+                                        });
+                                    }
+                                }
+                            });
+                            return;
+                        } else {
+                            openFile();
+                        }
+
+                    }
+                }, {
+                    'id': 'getPreviewUrl',
+                    'text': 'getPreviewUrl(获取预览地址)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.getPreviewUrl({
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'goSearch',
+                    'text': 'goSearch(进入通用搜索页面)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.goSearch({
+                            searchType: '',
+                            conditions: '',
+                            success: function (result) {
+                                litemplate.showTips(JSON.stringify(result));
+                            },
+                            error: function (error) {
+                                litemplate.showTips('失败:' + JSON.stringify(error));
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'createQRCode',
+                    'text': 'createQRCode(生成二维码)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.createQRCode({
+                            qrCodeStr: 'http://fe.epoint.com.cn:8080/ejsdoc/index/index.php#page=changelog',
+                            size: 200,
+                            success: function (result) {
+                                qrcodeEl.src = result.img;
+                            },
+                            error: function (error) {
+                                litemplate.showTips('生成二维码失败');
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'recognizeQRCode',
+                    'text': 'recognizeQRCode(识别图片二维码)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.util.selectImage({
+                            success: function (result) {
+                                ejs.util.recognizeQRCode({
+                                    imgPath: result.resultData[0],
+                                    success: function (result) {
+                                        litemplate.showTips(result.corePath);
+                                    },
+                                    error: function (error) {
+                                        litemplate.showTips(error.msg);
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                litemplate.showTips(error.msg);
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'encrypt',
+                    'text': 'encrypt(对字符串进行 AES 加密)',
+                    'evn': 'ejs_h5',
+                    'runCode': function () {
+                        ejs.util.encrypt({
+                            type: '1',
+                            keys: ['qnbpwgttcfv96fgwq8ya0hj5sm50e1f0', '5141928399038306'],
+                            text: 'epoint12345',
+                            success: function (result) {
+                                litemplate.showTips('epoint12345加密结果为：' + result.text);
+                            },
+                            error: function (error) {
+                                alert(JSON.stringify(error))
+                                litemplate.showTips(error.msg);
+                            }
+                        });
+                    }
+                }]
+            });
+        }
+    </script>
+
+</body>
+
+</html>

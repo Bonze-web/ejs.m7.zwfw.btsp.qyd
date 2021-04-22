@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>控件示例</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/common.new.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="page-loading"></div>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">上传控件</h1>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <div class="ep-mui-webuploader webuploader" id="cs" isMulti="true" action="getFileUploadModel(cs)">
+            <div class="webuploader-title">
+                <span>上传截图</span>
+            </div>
+            <div class="webuploader-content clearfix">
+                <div class="webuploader-content-items clearfix">
+                    <div class="uploader-add l">
+                        <img src="./images/upload-btn.jpg" class="icon-upload" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        Util.loadJs(initPage);
+
+        function initPage() {
+            epointm.initPage("data/myinfo.json", null, null, null, {
+                method: "GET"
+            });
+        }
+    </script>
+</body>
+
+</html>

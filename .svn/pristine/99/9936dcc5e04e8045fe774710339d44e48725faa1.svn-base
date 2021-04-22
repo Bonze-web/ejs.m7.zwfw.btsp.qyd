@@ -1,0 +1,264 @@
+/**
+    作者 :lujun
+    创建时间 :2021/03/31
+    版本 :[1.0, 2021/03/31]
+    版权：江苏国泰新点软件有限公司
+    描述：风险分级评定超期预警
+ **/
+
+(function (d, $) {
+    'use strict';
+
+    var token = Config.token,
+        type = '0', // 待分配0 已分配1
+        minirefreshObj = null; // 下拉刷新实例
+
+    var checkobj = {};//检查对象对象
+
+    Util.loadJs(
+        // 下拉刷新
+        'js/widgets/minirefresh/minirefresh.css',
+        'js/widgets/minirefresh/minirefresh.js',
+        'js/widgets/minirefresh/themes/native/minirefresh.theme.native.js',
+        'js/widgets/minirefresh/minirefresh.bizlogic.js',
+        'js/utils/util.date.js',
+        function () {
+            ejs.config({
+                jsApiList: []
+            });
+
+            ejs.ready(function () {
+                initPage()
+            });
+        }
+    );
+
+    // 初始化页面信息
+    function initPage() {
+        // 初始化事件监听
+        initListeners();
+        getCodeName('检查结果', 'checkResult');
+        getCodeName('结果处理方式', 'dealWay');
+
+        $('.date').text(Util.date.MyDate.parseDate().format('yyyy-MM-dd'));
+
+        // 下拉刷新
+        // pullToRefresh();
+    }
+
+    /**
+     * 初始化事件监听
+     */
+    function initListeners() {
+        $('body')
+            // 点击 active选择
+            .on('tap', '.check-result-choose div', function (e) {
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+            })
+            // 点击跳转
+            .on('tap', '.handlebtn', function (e) {
+                console.log(this.dataset.url)
+                var url = this.dataset.url;
+                if (url) {
+                    // ejs.page.open(url, {})
+                    ejs.page.open({
+                        pageUrl: url,
+                        pageStyle: 1,
+                        orientation: 1,
+                        data: {
+                            key1: 'value1'
+                        },
+                        success: function (result) {
+                            if (url.indexOf('inspection_search') != -1) {
+                                console.log(result)
+                                checkobj = result.resultData;
+                                checkobj.listname = decodeURI(checkobj.listname);
+                                checkobj.company = decodeURI(checkobj.company)
+                                $('#checkobj').removeClass('hidden');
+                                checkobj.pripidType = "统一社会信用代码";
+                                for (var i in checkobj) {
+                                    $('#checkobj').find(`#${i}`).text(checkobj[i]);
+                                }
+                            }
+                        },
+                        error: function (error) { }
+                    });
+                }
+            })
+            // 点击 时间
+            .on('tap', '#checkDate', function (e) {
+                var _this = $(this).find('.date');
+                ejs.ui.pickDate({
+                    title: '选择日期',
+                    datetime: '',
+                    h5UI: false, // 是否强制使用H5-UI效果，默认false
+                    success: function (result) {
+                        _this.text(result.date);
+                    },
+                    error: function (err) { }
+                });
+
+            })
+            // 点击确定
+            .on('tap', '#statusbtn', function (e) {
+                // for (var i = 0; i <= $('#form input,textarea').length; i++) {
+                //     var item = $('#form input,textarea')[i];
+                //     if (item.id && !$(item).val()) {
+                //         ejs.ui.toast(item.placeholder);
+                //         return;
+                //     }
+                // }
+                // if (!checkobj.length) {
+                //     ejs.ui.toast('请选择检查对象');
+                //     return;
+                // }
+                var params = {
+                    companyType: checkobj.companyType,
+                    pripid: checkobj.pripid,
+                    company: checkobj.company,
+                    riskLevel: checkobj.riskLevel,
+                    checkDate: $('#checkDate .date').text(),
+                    checkResult: $('#checkResult .active')[0].dataset.value,
+                    dealWay: $('#dealWay .active')[0].dataset.value,
+                    userguid: '',
+                }
+                console.log(params)
+
+                // addDtyCheck();
+            })
+    }
+    /**
+     * @description 获取代码项
+     */
+    function getCodeName(codename, id) {
+        Util.ajax({
+            url: Config.serverUrl + 'commonInter/getCodeInfoList',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    codename: codename
+                }
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            success: function (res) {
+                console.log(res);
+                var output = Mustache.render(document.getElementById('choose-tpl').innerHTML, {
+                    list: res.custom.codelist
+                });
+
+                $(`#${id}`).html(output).find('div').eq(0).addClass('active');
+                if (res.status.code != 1) {
+                    ejs.ui.toast('获取数据失败');
+                    return;
+                }
+
+
+
+            },
+            error: function (error) {
+                ejs.ui.toast(JSON.stringify(error));
+                console.log(error);
+                ejs.ui.closeWaiting({});
+            },
+            complete: function () {
+                ejs.ui.closeWaiting({});
+            }
+        });
+    }
+    /**
+ * @description 移交
+ */
+    function addDtyCheck() {
+        Util.ajax({
+            url: Config.serverUrl + 'task/addDtyCheck',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    companyType: checkobj.companyType,
+                    pripid: checkobj.pripid,
+                    company: checkobj.company,
+                    riskLevel: checkobj.riskLevel,
+                    checkDate: $('#checkDate .date').text(),
+                    checkResult: $('#checkResult .active')[0].dateset.value,
+                    dealWay: $('#dealWay .active')[0].dateset.value,
+                    userguid: '',
+                }
+            }),
+            contentType: 'application/json',
+            success: function (res) {
+                console.log(res)
+
+                // 处理数据
+                if (res.status.code != 1) {
+                    ejs.ui.toast(res.status.text);
+                    return false;
+                }
+
+
+            },
+            error: function (error) {
+                ejs.ui.toast(JSON.stringify(error));
+                console.log(error);
+                ejs.ui.closeWaiting({});
+            },
+            complete: function () {
+                ejs.ui.closeWaiting({});
+            }
+        });
+    }
+
+    /**
+     * 下拉刷新
+     * @param {String} url 接口地址
+     */
+    function pullToRefresh() {
+        minirefreshObj = new MiniRefreshBiz({
+            url: Config.healthAppUrl + 'scjgjtakan/getHandleTakanList',
+            template: function () {
+                var templateEle = '';
+
+                if (type === '0') {
+                    templateEle = d.getElementById('listdata-waittodo-tpl').innerHTML;
+                } else if (type === '1') {
+                    templateEle = d.getElementById('listdata-todo-tpl').innerHTML;
+                }
+
+                return templateEle;
+            },
+            initPageIndex: 1,
+            listContainer: '#listdata',
+            contentType: 'application/json;charset=UTF-8',
+            // contentType: 'application/x-www-form-urlencoded',
+            dataRequest: function (currPage) {
+                var requestData = JSON.stringify({
+                    params: {
+                        isdone: type,
+                        activityname: '局长审批',
+                        applyerdepart: '005',
+                        currentpage: currPage.toString(),
+                        pagesize: '10'
+                    }
+                });
+
+                // console.log(requestData);
+
+                return requestData;
+            },
+            dataChange: function (res) {
+                // console.log(JSON.stringify(res), res);
+
+                return res.custom.takanlist;
+            },
+            success: function (res) { },
+            itemClick: function (e) {
+
+            },
+            error: function (err) {
+                ejs.ui.toast(JSON.stringify(err));
+            }
+        });
+    }
+})(document, Zepto);

@@ -1,0 +1,160 @@
+/**
+ * 作者： 袁莉
+ * 创建时间： 2019/10/16
+ * 版本： [1.0, 2019/10/16]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：简易案件-待登记-添加相关材料
+ */
+
+html,
+body {
+	background: #fff;
+}
+
+
+/*材料说明*/
+
+.tip {
+	padding: 10px 11px;
+	font-size: 15px;
+	border-bottom: 1px solid #c8c7cc;
+}
+
+.tip-title {
+	/*display: inline-block;*/
+	/*width: 65px;*/
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+	font-size: 15px;
+}
+
+input[type='text'] {
+	width: calc(100% - 70px);
+	margin-bottom: 0;
+	color: #333;
+	border: none;
+	outline: none;
+}
+
+input[type='text']::-webkit-input-placeholder {
+	color: #666;
+	font-size: 15px;
+}
+
+.add-file {
+	position: relative;
+	z-index: 1;
+	width: calc(100% - 30px);
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	color: #4285f4;
+	background: #ecf4ff;
+	margin: 12px 0 5px 15px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.add-file>input {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+
+/*附件列表样式*/
+
+.file-ul-items {
+	padding: 10px 11px;
+	margin-bottom: 55px;
+}
+
+.file-li-item {
+	display: flex;
+	padding: 10px;
+	margin-bottom: 15px;
+	background: #fafafa;
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.file-img {
+	margin: auto 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.file-info {
+	margin: auto 0;
+	width: calc(100% - 70px);
+	word-break: break-all;
+}
+
+.file-name,
+.file-size {
+	display: inline-block;
+	padding: 0 10px;
+	width: 100%;
+	font-size: 14px;
+}
+
+.file-name {
+	color: #333;
+	font-size: 15px;
+}
+
+.file-size {
+	color: #666;
+	font-size: 14px;
+}
+
+.file-del {
+	margin: auto 0;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: relative;
+	background: #fff;
+	border: 1px solid #ececec;
+	border-radius: 3px;
+}
+
+.file-del>i {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	background-image: url(./img/img_icon_del.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+
+/*保存按钮*/
+
+.footer {
+	position: fixed;
+	height: 44px;
+	width: 100%;
+	z-index: 3;
+	bottom: 0;
+}
+
+.btn-save {
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-size: 16px;
+	background: #4285f4;
+	border: none;
+	border-radius: 0;
+}

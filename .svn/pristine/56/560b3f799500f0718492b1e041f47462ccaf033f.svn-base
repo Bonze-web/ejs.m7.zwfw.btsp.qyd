@@ -1,0 +1,32 @@
+.container {
+	height: 300px;
+	overflow: hidden;
+}
+
+.move {
+	background-color: #fff;
+}
+
+.area {
+	width: 100%;
+	background-color: #fff;
+	height: 44px;
+	line-height: 44px;
+	overflow: hidden;
+}
+
+.area-content {
+	white-space: nowrap;
+}
+
+.txt-container {
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	background-color: #fff;	
+	overflow: hidden;
+}
+
+.txt-move {
+	white-space: nowrap;
+}

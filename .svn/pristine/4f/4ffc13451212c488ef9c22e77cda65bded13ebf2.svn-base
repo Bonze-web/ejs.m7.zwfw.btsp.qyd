@@ -1,0 +1,26 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 14:17:51
+ * @修改时间: 2021-04-01 15:51:57
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+
+
+(function() {
+    // var swiper = new Swiper('.swiper-container', {
+    //     slidesPerView: 'auto',
+    //     // 这个地方如果不设置为自动,就会显示不全
+    //     spaceBetween: 30,
+    //     freeMode: true
+    // });
+    // new TabView({
+    //     container: "#em-tabview-con",
+    //     activeCls: "cur",
+    //     isSwipe: true,
+    //     activeIndex: 0,
+    //     triggerEvent: 'tap',
+    //     itemClick: function(e) {}
+    // });
+})(window)

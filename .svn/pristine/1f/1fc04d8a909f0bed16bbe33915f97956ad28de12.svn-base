@@ -1,0 +1,118 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-7 20:56:23
+        版本： [1.0, 201-09-07]
+        版权： 江苏国泰新点软件有限公司
+        描述： 签到历史
+-->
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>签到历史</title>
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/libs/swiper.min.css',
+				'./css/attendance_history.css',
+				'./libs/calendar_base.css',
+			]);
+		</script>
+	</head>
+
+	<body>
+
+		<div class="mui-content mui-hidden">
+			<div class="em-date flex">
+				<img class="em-arrowicon pre" src="img/img_leftarrow.png"/>
+				<span class="em-detecon"></span>
+				<img class="em-arrowicon next" src="img/img_rightarrow.png"/>
+			</div>
+			<!--我的日程列表-->
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--周历容器-->
+					<div class="em-calendar-wrapper-week mui-hidden">
+
+					</div>
+
+					<!--日历容器-->
+					<div id="calendar">
+						
+					</div>
+
+					<!--今天日程-->
+					<div class="em-sdule-wrapper flexs">
+						<div class="em-datecon">
+							<span class="em-time"></span>
+							<span class="em-weekcon"></span>
+						</div>
+						<i class="em-line"></i>
+						<ul class="mui-table-view em-table-view" id="listdata">
+							
+							
+						</ul>
+
+						<!-- 签到数据模板 -->
+						<script type="text/x-templ-mustache" id="template">
+							<li class="mui-table-view-cell">
+								<div class="mui-slider-handle">
+									<div class="em-sign">
+										<b class="em-circle"></b>
+										<i class="em-triangle"></i>
+										<span>{{signtime}}</span>
+										<p>{{signplace}}{{signplacedetail}}</p>
+									</div>
+								</div>
+							</li>
+
+						</script>
+						<!--日程列表无数据-->
+						<script type="text/x-templ-mustache" id="temp-nodata">
+							<li class="mui-table-view-cell">
+								<div class="mui-slider-handle">
+									<div class="em-sign">
+										<b class="em-circle"></b>
+										<i class="em-triangle"></i>
+										<p>当日没有考勤记录</p>
+									</div>
+								</div>
+							</li>
+						</script>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/libs/swiper.min.js',
+				'./libs/calendar_base.js',
+				'./libs/calendar_base_week.js',
+				'../common/libs/ripple.css',
+				'../common/libs/ripple.js',
+				'./js/attendance_history.js',
+			]);
+		</script>
+		<script type="text/javascript">
+			new Ripple({
+				opacity: 0.1, //水波纹透明度
+				speed: 1, //水波纹扩散速度
+				bgColor: "#3c80e6", //水波纹颜色
+				cursor: false //是否显示手型指针
+			});
+		</script>
+	</body>
+
+</html>

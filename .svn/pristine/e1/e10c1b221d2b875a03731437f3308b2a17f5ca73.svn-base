@@ -1,0 +1,14 @@
+{
+	"photourl": "rest/readpictureaction/getUserPicture?isCommondto=true&userGuid=45f0c5f9-cad2-49e6-887d-b38dfcbc23de&md5=ca27c1990e98ff895c2f15be68d697cf",
+	"validatetype": "string",
+	"userguid": "45f0c5f9-cad2-49e6-887d-b38dfcbc23de",
+	"loginid": "admin",
+	"previewurl": "http://218.4.136.114:8866/?furl=",
+	"ouguid": "9579bbf9-31d0-4548-b78f-ea4392bf68f9",
+	"oaversion": "",
+	"displayname": "系统管理员",
+	"usersignpicture": "http://218.4.136.114:8089/oarest9V7/rest/readpictureaction/getSignPicture?isCommondto=true&cliengGuid=45f0c5f9-cad2-49e6-887d-b38dfcbc23de",
+	"usertoken": "238C35461D6D77C50C71572AD7A3F365D85E73ADE45525F0D2E736708697FA4FAE3F1FC09F348D029CEB8185787A6E81C60599485C22844BC428F2A8E2CD7406",
+	"sequenceid": "",
+	"ouname": "系统管理部"
+}

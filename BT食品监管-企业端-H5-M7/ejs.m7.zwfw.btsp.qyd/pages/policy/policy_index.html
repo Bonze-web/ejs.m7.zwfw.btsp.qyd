@@ -1,0 +1,75 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-15 15:13:42
+ * @修改时间: 2021-04-21 10:47:39
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述: 政策法规
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>政策法规</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/common_nodata.css',
+            "../common/common.css",
+            './css/policy_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="page_bg">
+        <div class="em-tips em-tips1">
+            <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+            <p>暂无数据</p>
+        </div>
+        <div class="exceed_list_box" id="exceed_list_box">
+            <div id="minirefresh1" class="minirefresh-wrap">
+                <div class="minirefresh-scroll">
+                    <div class="mui-table-view em-table-view" id="listdata1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="ejs-f9-content">
+
+        </div> -->
+    </div>
+
+    <script type="text/template" id="template1">
+        <div class="exceed_list list-item" rowguid={{rowguid}} id="exceed_list">
+            <div class="clamp2 exceed_list_title">
+                <img src="./image/dots.png"  class="dots">
+                {{title}}
+            </div>
+            <div class="other_msg">
+                <span class="business_msg">{{operateusername}}</span>
+                <span class="business_time">{{pubdate}}</span>
+            </div>
+        </div>
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+                "./js/policy_index.js"
+        ]);
+    </script>
+</body>
+
+</html>

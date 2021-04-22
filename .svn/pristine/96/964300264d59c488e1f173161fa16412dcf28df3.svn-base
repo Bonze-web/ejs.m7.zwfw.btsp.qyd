@@ -1,0 +1,420 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查-待审核 已办结
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>日常检查详情</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/risk_overcheckdetail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="detail-status"></div>
+
+    <div id="em-tabview-con" class="em-tabview">
+        <div class="em-tabview-head" data-role="head">
+            <div class="em-tabview-title" data-target="title1">基本信息</div>
+            <div class="em-tabview-title" data-target="title2">检查结果</div>
+            <div class="em-tabview-title" data-target="title3">审核信息</div>
+        </div>
+
+        <div class="em-tabview-body" data-role="body" id="detail">
+            <div class="em-tabview-content hidden" data-id="title1">
+                <ul class="detail-container">
+                    <li class="detail-line">
+                        <span>任务名称</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>任务编号</span>
+                        <span>111</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法主体</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象类型</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>统一社会信用代码</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法人员</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划开始时间</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划结束时间</span>
+                        <span>计划名称</span>
+                    </li>
+                </ul>
+
+                <div class="detail-file">
+                    <div class="file-title">附件</div>
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                </div>
+
+                <div class="base-btn">
+                    <div>移交</div>
+                    <div>填写整改信息</div>
+                </div>
+            </div>
+            <div class="em-tabview-content hidden" data-id="title2">
+                <ul class="checkresult hidden">
+                    <li>
+                        <div class="checkresult-title">食品生产日常监督检查要素表</div>
+                        <div class="checkresult-content">
+                            <div>检查时间:<span>2021-01-10</span></div>
+                            <div>检查结果:<span>基本符合</span></div>
+                            <div>检查处理方式:<span class="coloro">书面限期整改</span> </div>
+                        </div>
+                        <span class="mui-icon mui-icon-arrowright"></span>
+                    </li>
+                    <li>
+                        <div class="checkresult-title">食品生产日常监督检查要素表</div>
+                        <div class="checkresult-content">
+                            <div>检查时间:<span>2021-01-10</span></div>
+                            <div>检查结果:<span class="pass">符合</span></div>
+                            <div>检查处理方式:<span class="pass">通过</span></div>
+                        </div>
+                        <span class="mui-icon mui-icon-arrowright"></span>
+                    </li>
+                    <li>
+                        <div class="checkresult-title">食品生产日常监督检查要素表</div>
+                        <span class="mui-icon mui-icon-arrowright"></span>
+                    </li>
+                </ul>
+                <ul class="table-view">
+                    <li class="mui-table-view-cell">
+                        <div class="mui-navigate-right">
+                            <div>食品生产日常监督检查</div>
+                            <div class="text-blue">
+                                13
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <div class="mui-navigate-right">
+                            <div>食品生产日常监督检查</div>
+                            <div class="text-blue">
+                                13
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="riskdj">
+                    <div class="mui-table-view-cell riskdj-title">
+                        <div class="mui-navigate-right">
+                            <div>食品生产日常监督检查</div>
+                            <div class="text-blue">
+                                13
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="riskdj-ul">
+                        <li>
+                            <div class="gray">0-30(含)分</div>
+                            <div class="flex-1"></div>
+                            <div class="riskgrade">
+                                <div class="grade">A</div>级风险
+                            </div>
+                        </li>
+                        <li>
+                            <div class="gray">0-30(含)分</div>
+                            <div class="flex-1"></div>
+                            <div class="riskgrade">
+                                <div class="grade">A</div>级风险
+                            </div>
+                        </li>
+                        <li>
+                            <div class="gray">0-30(含)分</div>
+                            <div class="flex-1"></div>
+                            <div class="riskgrade">
+                                <div class="grade">A</div>级风险
+                            </div>
+                        </li>
+                        <li>
+                            <div class="gray">0-30(含)分</div>
+                            <div class="flex-1"></div>
+                            <div class="riskgrade">
+                                <div class="grade">A</div>级风险
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="em-tabview-content hidden" data-id="title3">
+                <div class="verify-line">
+                    <span>评审结果</span>
+                    <span class="pass">通过</span>
+                </div>
+                <div class="verify-line">
+                    <span>特殊情况</span>
+                    <span class="pass">无</span>
+                </div>
+                <div class="verify-line">
+                    <span>风险分级调整</span>
+                    <span>1111</span>
+                </div>
+                <div class="verify-line">
+                    <span>评审人</span>
+                    <span>通过</span>
+                </div>
+                <div class="verify-line">
+                    <span>评审时间</span>
+                    <span>通过</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- 渲染 详情 -->
+<script type="text/template" id="detail-tpl">
+    <div class="em-tabview-content" data-id="title1">
+        <ul class="detail-container">
+            <li class="detail-line">
+                <span>任务名称</span>
+                <span>{{taskname}}</span>
+            </li>
+            <li class="detail-line">
+                <span>任务编号</span>
+                <span>{{taskcode}}</span>
+            </li>
+            <li class="detail-line">
+                <span>执法主题</span>
+                <span>{{activityname}}</span>
+            </li>
+            <li class="detail-line">
+                <span>检查对象</span>
+                <span>{{optname}}</span>
+            </li>
+            <li class="detail-line">
+                <span>检查对象类型</span>
+                <span>{{optnametext}}</span>
+            </li>
+            <li class="detail-line">
+                <span>统一社会信用代码</span>
+                <span>{{pripid}}</span>
+            </li>
+            <li class="detail-line">
+                <span>执法人员</span>
+                <span>{{lepusernames}}</span>
+            </li>
+            <li class="detail-line">
+                <span>计划开始时间</span>
+                <span>{{planstartdate}}</span>
+            </li>
+            <li class="detail-line">
+                <span>计划结束时间</span>
+                <span>{{planenddate}}</span>
+            </li>
+            <li class="detail-line">
+                <span>现风险等级</span>
+                <span>{{risklevel}}</span>
+            </li>
+            <li class="detail-line">
+                <span>上次风险登记评定时间</span>
+                <span>{{preevaltime}}</span>
+            </li>
+        </ul>
+
+        <div class="detail-file">
+            <div class="file-title">附件</div>
+            <div id="taskattach">
+                <div class="file-info">
+                    <div class="file-info-icon"></div>
+                    <div class="file-info-name">
+                        <div>附件名称.docx</div>
+                        <div>1.73M</div>
+                    </div>
+                    <div class="file-info-downloadicon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="em-tabview-content" data-id="title2" id="checkResult">
+        <ul class="checkresult hidden">
+            <li>
+                <div class="checkresult-title">食品生产日常监督检查要素表</div>
+                <div class="checkresult-content">
+                    <div>检查时间:<span>2021-01-10</span></div>
+                    <div>检查结果:<span>基本符合</span></div>
+                    <div>检查处理方式:<span class="coloro">书面限期整改</span> </div>
+                </div>
+                <span class="mui-icon mui-icon-arrowright"></span>
+            </li>
+            <li>
+                <div class="checkresult-title">食品生产日常监督检查要素表</div>
+                <div class="checkresult-content">
+                    <div>检查时间:<span>2021-01-10</span></div>
+                    <div>检查结果:<span class="pass">符合</span></div>
+                    <div>检查处理方式:<span class="pass">通过</span></div>
+                </div>
+                <span class="mui-icon mui-icon-arrowright"></span>
+            </li>
+            <li>
+                <div class="checkresult-title">食品生产日常监督检查要素表</div>
+                <span class="mui-icon mui-icon-arrowright"></span>
+            </li>
+        </ul>
+        <ul class="table-view" >
+            <li class="mui-table-view-cell nochoose">
+                <div class="mui-navigate-right ">
+                    <div>静态风险因素量化得分</div>
+                    <div class="text-blue" id="staticScore">
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell" id="handlelist" data-url="./risk_feedback.html">
+                <div class="mui-navigate-right">
+                    <div>动态风险因素量化得分</div>
+                    <div class="text-blue" id="dynamicScore">
+                        
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="riskdj">
+            <div class="mui-table-view-cell riskdj-title">
+                <div class="mui-navigate-right">
+                    <div>当前得分所属风险等级</div>
+                    <div class="text-blue" id="riskLevel">
+                        
+                    </div>
+                </div>
+            </div>
+            <ul class="riskdj-ul">
+                <li>
+                    <div class="gray">0-30(含)分</div>
+                    <div class="flex-1"></div>
+                    <div class="riskgrade">
+                        <div class="grade">A</div>级风险
+                    </div>
+                </li>
+                <li>
+                    <div class="gray">30-45(含)分</div>
+                    <div class="flex-1"></div>
+                    <div class="riskgrade">
+                        <div class="grade">B</div>级风险
+                    </div>
+                </li>
+                <li>
+                    <div class="gray">45-60(含)分</div>
+                    <div class="flex-1"></div>
+                    <div class="riskgrade">
+                        <div class="grade">C</div>级风险
+                    </div>
+                </li>
+                <li>
+                    <div class="gray">60分以上</div>
+                    <div class="flex-1"></div>
+                    <div class="riskgrade">
+                        <div class="grade">D</div>级风险
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <div class="em-tabview-content" data-id="title3" id="examineInfo">
+        <div class="verify-line">
+            <span>评审结果</span>
+            <span class="pass" id="status"></span>
+        </div>
+        <div class="verify-line completed">
+            <span>特殊情况</span>
+            <span class="pass" id="exception"></span>
+        </div>
+        <div class="verify-line completed">
+            <span>风险分级调整</span>
+            <span id="levelAdjust"></span>
+        </div>
+        <div class="verify-line">
+            <span>评审人</span>
+            <span id="operator"></span>
+        </div>
+        <div class="verify-line">
+            <span>评审时间</span>
+            <span id="evalTime"></span>
+        </div>
+    </div>
+</script>
+
+<!-- 任务附件 -->
+<script type="text/template" id="taskattach-tpl">
+    {{#attchList}}
+    <div class="file-info">
+        <div class="file-info-icon"></div>
+        <div class="file-info-name">
+            <div>{{attachName}}</div>
+            <!-- <div>1.73M</div> -->
+        </div>
+        <div class="file-info-downloadicon"  data-url="{{attachurl}}" data-name="{{attachname}}"></div>
+    </div>
+    {{/attchList}}
+    {{^attchList}}
+    <div class="noattach">
+        <div>暂无附件</div>
+    </div>
+    {{/attchList}}
+</script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/risk_overcheckdetail.js'
+    ]);
+</script>
+
+</html>

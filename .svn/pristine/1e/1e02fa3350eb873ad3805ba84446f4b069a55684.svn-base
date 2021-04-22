@@ -1,0 +1,99 @@
+<!-- 
+        作者：戴荔春
+        创建时间: 2017/07/28
+        版本: [3.0, 2017/07/28 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：  调用自定义API
+-->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- 移动端的响应式特性 -->
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>自定义API</title>
+
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            SrcBoot.output([
+                './_common/common.css'
+            ]);
+        </script>
+
+    </head>
+
+    <body>
+        <div class="mui-content pt0" id="ejs-app">
+
+        </div>
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs(
+                './_common/bizlogic_common_ready.js',
+                function() {
+                    Util.bizlogic.ready(initPage);
+                });
+
+            function initPage() {
+                var litemplate = new Util.litemplate.listLitemplate({
+                    isIndex: false,
+                    title: '自定义API调用',
+                    // 实际中请不要这样调用标准API，这里仅作为示例
+                    // 因为标准API除了调用外还有可能有其它的兼容处理，直接callApi无法达到那个目的
+                    ejsApi: [{
+                        'id': 'pickDate',
+                        'text': 'pickDate(调用短期回调API)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            
+                            ejs.callApi({
+                                name: "pickDate",
+                                mudule: 'ui',
+                                data: {
+                                    datetime: '2017-07-25'
+                                },
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'setRightBtn',
+                        'text': 'setRightBtn(调用长期回调API)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            
+                            ejs.callApi({
+                                name: "setRightBtn",
+                                mudule: 'navigator',
+                                isLongCb: 1,
+                                data: {
+                                    text: '按钮',
+                                    imageUrl: '',
+                                },
+                                success: function(result) {
+                                    litemplate.showTips('点击按钮');
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }]
+                });
+            }
+        </script>
+
+    </body>
+
+</html>

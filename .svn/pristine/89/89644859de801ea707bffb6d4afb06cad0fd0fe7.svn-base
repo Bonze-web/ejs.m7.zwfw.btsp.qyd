@@ -1,0 +1,96 @@
+/**
+ * 作者： 张金锁
+ * 创建时间： 2021/04/06 14:57:36
+ * 版本： [1.0]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：每日菜谱
+ */
+html,
+body {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.em-tabview {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 44px;
+    background-color: #fcfcfc;
+    box-shadow: 0px 1px 0px 0px #e5e5e5;
+}
+
+.em-tab-selector {
+    font-size: 16px;
+    color: #333;
+}
+
+.em-active {
+    position: relative;
+    z-index: 1;
+    height: 44px;
+    color: #3c80e6;
+    line-height: 44px;
+}
+
+.em-active::after {
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+    z-index: 1;
+    width: 40px;
+    height: 2px;
+    content: '';
+    background-color: #3c80e6;
+}
+
+.main-item {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: solid 1px #e6e6e6;
+}
+
+.em-title-space {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.em-title {
+    font-size: 16px;
+    color: #666;
+}
+
+.em-add-icon {
+    width: 21px;
+    height: 21px;
+}
+
+/* 列表 */
+.em-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+
+.em-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin: 5px;
+    font-size: 14px;
+    color: #3c80e6;
+    background-color: #ecf6ff;
+    border-radius: 2px;
+}
+
+.em-delete {
+    width: 9px;
+    height: 9px;
+    margin-left: 10px;
+}

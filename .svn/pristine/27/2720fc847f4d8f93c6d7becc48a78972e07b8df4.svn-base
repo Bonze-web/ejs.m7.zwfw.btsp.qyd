@@ -1,0 +1,75 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：选择检查项及内容
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>选择检查项及内容</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/dailycheck_taskfeedback.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="checktitle">
+        <span>检查项</span>
+        <span class="checktitle-right"></span>
+        <span>安全生产环境条件</span>
+    </div>
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">
+                1.生产环境条件
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">
+                1.生产环境条件
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">
+                1.生产环境条件
+            </a>
+        </li>
+    </ul>
+
+    <ul class="mui-table-view childlist">
+        <li class="mui-table-view-cell childlist-unchoose">
+            1.生产环境条件
+        </li>
+        <li class="mui-table-view-cell childlist-choose">
+            1.生产环境条件
+        </li>
+    </ul>
+
+    <button class="surebtn">确定</button>
+</body>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/dailycheck_taskfeedbackchoose.js'
+    ]);
+</script>
+
+</html>

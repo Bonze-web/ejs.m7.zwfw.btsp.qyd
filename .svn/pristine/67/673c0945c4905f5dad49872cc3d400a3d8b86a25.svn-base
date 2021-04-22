@@ -1,0 +1,79 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-07 14:51:32
+ * @修改时间: 2021-04-07 19:49:35
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>module2</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/wait_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <!-- <div class="ejs-f9-content">
+
+    </div> -->
+    <div class="page_bg">
+        <div class="exceed">
+            <div class="gonna">
+                <img src="./image/todo_icon_jjcq.png" alt="">
+                <span>即将超期</span>
+            </div>
+            <div class="already">
+                <img src="./image/todo_icon_ycq.png" alt="">
+                <span>已超期</span>
+            </div>
+        </div>
+        <div class="exceed_list_box" id="exceed_list_box">
+
+        </div>
+    </div>
+
+    <script type="text/template" id="template1">
+        {{#list}}
+        <div class="exceed_list">
+            <div class="clamp2 exceed_list_title">
+                {{#gou}}
+                    <img src="./image/todo_icon_ycq.png" alt="">
+                {{/gou}}
+                {{^gou}}
+                    <img src="./image/todo_icon_jjcq.png" alt="">
+                {{/gou}}
+                您单位的从业人员中有员工的健康证即将在15天内到期您单位的从业人员中有员工的健康证即将在15天内到期
+            </div>
+            <div class="other_msg">
+                <span class="business_msg">营业信息</span>
+                <span class="business_time">2021-03-27</span>
+            </div>
+        </div>
+        {{/list}}
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/wait_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

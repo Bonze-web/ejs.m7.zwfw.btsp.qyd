@@ -1,0 +1,184 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查-已办结
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>日常检查详情</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/dailycheck_overcheckdetail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="detail-status">已办结</div>
+
+    <div id="em-tabview-con" class="em-tabview">
+        <div class="em-tabview-head" data-role="head">
+            <div class="em-tabview-title" data-target="title1">基本信息</div>
+            <div class="em-tabview-title" data-target="title2">检查结果</div>
+            <div class="em-tabview-title" data-target="title3">审核信息</div>
+        </div>
+
+        <div class="em-tabview-body" data-role="body">
+            <div class="em-tabview-content" data-id="title1">
+                <ul class="detail-container" id="detail-con">
+                    <li class="detail-line">
+                        <span>任务名称</span>
+                        <span class="itemvalue" id="taskname"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>任务编号</span>
+                        <span class="itemvalue" id="taskcode"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法主题</span>
+                        <span class="itemvalue" id="activityname"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象</span>
+                        <span class="itemvalue" id="optname"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象类型</span>
+                        <span class="itemvalue" id="opttype"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>统一社会信用代码</span>
+                        <span class="itemvalue" id="pripid"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法人员</span>
+                        <span class="itemvalue" id="lepusernames"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划开始时间</span>
+                        <span class="itemvalue" id="planstartdate"></span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划结束时间</span>
+                        <span class="itemvalue" id="planenddate"></span>
+                    </li>
+                </ul>
+
+                <div class="detail-file">
+                    <div class="file-title">附件</div>
+                    <div id="taskattach">
+
+                    </div>
+                </div>
+            </div>
+            <div class="em-tabview-content" data-id="title2">
+                <ul class="checkresult" id="checkresult">
+                    
+                </ul>
+
+            </div>
+            <div class="em-tabview-content" data-id="title3">
+                <div class="checking mui-hidden" id="checking-nodata">
+                    <img src="./css/images/img-checking.png" alt="">
+                    <p>当前正在审核中</p>
+                </div>
+
+                <div class="deal-history mui-hidden" id="checkflow">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/template" id="item-template">
+    {{#list}}
+    <li data-guid="{{checkresultguid}}">
+        <div class="checkresult-title">{{checktabletext}}</div>
+        <div class="checkresult-content">
+            <div>检查时间:<span>{{checktime}}</span></div>
+            <div>检查结果:<span class="pass{{passresult}}">{{checkResulttext}}</span></div>
+            <div>检查处理方式:<span class="coloro pass{{passway}}">{{dealwaytext}}</span> </div>
+
+            <div class="operationbtn writeinfo showwrite{{write}}" data-guid="{{checkresultguid}}">填写整改信息</div>
+        </div>
+        <span class="mui-icon mui-icon-arrowright"></span>
+    </li>
+    {{/list}}
+</script>
+
+<script type="text/template" id="flow-litem">
+    {{#list}}
+                    <div class="deal-history-step">
+                        <div class="history-step-left">
+                            <i class="left-icon step-ok"></i>
+                        </div>
+                        <div class="history-step-right">
+                            <i class="leftline"></i>
+                            <div class="right-title clearfix">
+                                <label class="l">{{activityname}}</label>
+                                <span class="r">{{operationname}}</span>
+                            </div>
+                            <div class="right-item clearfix">
+                                <div class="right-item-list">
+                                    <label>处理人员:</label>
+                                    <span>{{username}}</span>
+                                </div>
+                                <div class="right-item-list">
+                                    <label>处理意见:</label>
+                                    <span>{{handleopinion}}</span>
+                                </div>
+                                <div class="right-item-list-time">
+                                    {{opdate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/list}}
+</script>
+
+
+<!-- 任务附件 -->
+<script type="text/template" id="taskattach-tpl">
+    {{#attchList}}
+    <div class="file-info">
+        <div class="file-info-icon"></div>
+        <div class="file-info-name">
+            <div>{{attachName}}</div>
+            <div>1.73M</div>
+        </div>
+        <div class="file-info-downloadicon" data-attachname="{{attachName}}" data-attachurl="{{attachUrl}}"></div>
+    </div>
+    {{/attchList}}
+    {{^attchList}}
+    <div class="noattach">
+        <div>暂无附件</div>
+    </div>
+    {{/attchList}}
+</script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/dailycheck_overcheckdetail.js'
+    ]);
+</script>
+
+</html>

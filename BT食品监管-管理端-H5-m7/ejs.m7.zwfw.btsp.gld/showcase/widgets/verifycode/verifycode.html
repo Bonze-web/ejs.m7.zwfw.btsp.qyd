@@ -1,0 +1,97 @@
+<!-- 
+        作者：guotq
+        创建时间: 2017/06/20
+        版本: [1.0, 2017/06/20 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： canvas 实现的验证码
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no">
+        <title>验证码</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+    </head>
+
+    <body>
+        <div class="mui-content">
+            <div>
+                <h1>验证码1</h1>
+                <input type="text" id="code1" />
+                <canvas id="vCode1" width="200px" height="60px" style="border: 1px solid #000;">您的设备不支持</canvas>
+                <button id="btn1">验证</button>
+            </div>
+            <div class="m50">
+                <h1>验证码2</h1>
+                <input type="text" id="code2" />
+                <canvas id="vCode2" width="200px" height="60px" style="border: 1px solid #000;">您的设备不支持</canvas>
+                <button id="btn2">验证</button>
+            </div>
+        </div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            (function($) {
+                "use strict";
+
+                Util.loadJs([
+                    'js/widgets/verifycode/verifycode.js',
+                ], function() {
+                    initPage();
+                });
+
+                function initPage() {
+                    initListeners();
+                    initVerifyCode();
+                }
+
+                function initListeners() {
+                    var content1 = document.getElementById("code1"),
+                        content2 = document.getElementById("code2");
+
+                    // 按钮1监听
+                    $('.mui-content').on('tap', '#btn1', function() {
+                        var result = window.code1.validate(content1.value);
+                        ejs.nativeUI.alert('' + result);
+                    });
+                    // 按钮2监听
+                    $('.mui-content').on('tap', '#btn2', function() {
+                        var result = window.code2.validate(content2.value);
+                        ejs.nativeUI.alert('' + result);
+                    });
+                }
+
+                function initVerifyCode() {
+                    window.code1 = new VerifyCode({
+                        container: '#vCode1',
+                        minfontsize: 40,
+                        // 最大的字体大小
+                        maxfontsize: 55,
+                    });
+
+                    window.code2 = new VerifyCode({
+                        container: '#vCode2',
+                        len: 4,
+                        bgColor: "#fafafa",
+                        colors: [
+                            "#DDDDDD",
+                            "#DDFF77",
+                            "#77DDFF",
+                            "#99BBFF",
+                            //"#7700BB",
+                            "#EEEE00"
+                        ]
+                    });
+                }
+            })(Zepto);
+        </script>
+    </body>
+
+</html>

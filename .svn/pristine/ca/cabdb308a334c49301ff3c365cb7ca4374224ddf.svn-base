@@ -1,0 +1,123 @@
+<!--
+ * @作者: 李波
+ * @创建时间: 2021-04-01 08:55:44
+ * @修改时间: 2021-04-18 18:54:34
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述: 营业日
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>营业日</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/record_workday.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content">
+        <div class="calendar-con">
+            <div id="calendar"></div>
+            <div class="calendar-tips">
+                <div class="calendar-tips-info">说明</div>
+                <div class="calendar-tips-black">黑色: 营业日</div>
+                <div class="calendar-tips-red">红色: 休息日</div>
+            </div>
+        </div>
+
+        <div class="record-item">
+
+            <div class="record-item-nodata mui-hidden">
+                <img src="./image/img-calrestbg.png" alt="">
+                <p>休息日,给你自己放个假吧~</p>
+            </div>
+            <ul class="record-item-list">
+                <li>
+                    <div class="record-item-list-doubleline">
+                        <img class="record-item-menu" src="./image/home_icon_menu.png" alt="">
+                        <div>
+                            <div>每日菜谱</div>
+                            <div class="subline">早餐0样;午餐0样;晚餐0样</div>
+                        </div>
+                    </div>
+                    <img class="record-item-add" src="./image/home_icon_add.png" class="home_icon_add" >
+                </li>
+                <li id="wash">
+                    <div class="record-item-list-doubleline">
+                        <img class="record-item-sterilize" src="./image/home_icon_sterilize.png" alt="">
+                        <div>
+                            <div>清洗消毒</div>
+                            <div class="subline">筷子300双;碗300个</div>
+                        </div>
+                    </div>
+                    <img class="record-item-add" src="./image/home_icon_add.png" class="home_icon_add">
+                </li>
+                <li id="provisions">
+                    <div class="record-item-list-doubleline">
+                        <img class="record-item-sterilize" src="./image/home_icon_foodsample.png" alt="">
+                        <div>
+                            <div>食品留样</div>
+                            <div class="subline">早餐3样;午餐3样;晚餐3样</div>
+                        </div>
+                    </div>
+                    <img class="record-item-add" src="./image/home_icon_add.png" class="home_icon_add">
+                </li>
+                <li id="dinnerwith">
+                    <div class="record-item-list-doubleline">
+                        <img class="record-item-menu" src="./image/home_icon_principal.png" alt="">
+                        <div>
+                            <div>校长陪餐</div>
+                            <div class="subline">早餐3样;午餐3样;晚餐3样</div>
+                        </div>
+                    </div>
+                    <img class="record-item-add" src="./image/home_icon_add.png" class="home_icon_add">
+                </li>
+                <li id="matinal">
+                    <div class="record-item-list-doubleline">
+                        <img class="record-item-menu" src="./image/home_icon_check.png" alt="">
+                        <div>
+                            <div>晨检</div>
+                            <div class="subline">检查时间:2021-03-13 12:00:00</div>
+                        </div>
+                    </div>
+                    <img class="record-item-add" src="./image/home_icon_add.png" class="home_icon_add">
+                </li>
+                <li id="garbage">
+                    <div class="record-item-list-doubleline">
+                        <img class="record-item-menu" src="./image/home_icon_garbage.png" alt="">
+                        <div>
+                            <div>餐厨垃圾</div>
+                            <div class="subline">30公斤</div>
+                        </div>
+                    </div>
+                    <img class="record-item-add" src="./image/home_icon_add.png" class="home_icon_add">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+
+<script>
+    SrcBoot.output([
+        './js/record_workday.js'
+    ]);
+</script>
+
+</html>

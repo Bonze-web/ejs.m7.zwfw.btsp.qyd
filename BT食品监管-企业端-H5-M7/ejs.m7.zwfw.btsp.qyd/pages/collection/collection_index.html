@@ -1,0 +1,193 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 11:35:51
+ * @修改时间: 2021-04-20 15:47:08
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述: 我的收藏
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>我的收藏</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?_t=" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/common_nodata.css',
+            '../../js/common/swiper.css',
+            './css/collection_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="mui-content">
+
+        <div class="em-tab-top">
+            <div class="em-tabview-head" data-role="head">
+                <div class="em-tabview-title cur" data-target="title1">通知公告</div>
+                <div class="em-tabview-title" data-target="title2">新闻资讯</div>
+                <div class="em-tabview-title" data-target="title3">政策法规</div>
+                <div class="em-tabview-title" data-target="title3">资料下载</div>
+            </div>
+        </div>
+        <!--通知公共-->
+        <div class="em-tips em-tips1">
+            <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+            <p>暂无数据</p>
+        </div>
+        <!-- 新闻资讯 -->
+        <!-- <div class="em-tips2 em-tips">
+            <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+            <p>暂无新闻资讯</p>
+        </div> -->
+        <!-- 政策法规 -->
+        <!-- <div class="em-tips em-tips3">
+            <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+            <p>暂无政策法规</p>
+        </div> -->
+        <!-- 资料下载 -->
+        <!-- <div class="em-tips em-tips4">
+            <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+            <p>暂无资料下载</p>
+        </div> -->
+        <div class="myswiper_box">
+            <div class="swiper-container" id="swiper-photo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+
+                        <div id="minirefresh1" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div class="mui-table-view em-table-view" id="listdata1">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+
+                        <div id="minirefresh2" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div class="mui-table-view em-table-view" id="listdata2">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+
+                        <div id="minirefresh3" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div class="mui-table-view em-table-view" id="listdata3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+
+                        <div id="minirefresh4" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div class="mui-table-view em-table-view" id="listdata4">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 通知公告 -->
+    <script type="text/template" id="template1">
+        <div class="list-item" clientidentifier="{{clientidentifier}}" collectionurl="{{collectionurl}}">
+            <div class="item-l">
+                <div class="title text-ellipsis">
+                    {{collectiontitle}}
+                </div>
+                <div class="row">
+                    <span>健康证到期预警</span>
+                    <span>{{inserttime}}</span>
+                </div>
+            </div>
+            <div class="collection" collectionguid="{{collectionguid}}" >
+                <img src="./image//icon_collect.png" alt="">
+                <div>取消收藏</div>
+            </div>
+        </div>
+    </script>
+    <!-- 新闻资讯 -->
+    <script type="text/template" id="template2">
+        <div class="list-item" clientidentifier="{{clientidentifier}}" collectionurl="{{collectionurl}}">
+            <div class="item-l">
+                <div class="title text-ellipsis">
+                    {{collectiontitle}}
+                </div>
+                <div class="row">
+                    <span>健康证到期预警</span>
+                    <span>{{inserttime}}</span>
+                </div>
+            </div>
+            <div class="collection" collectionguid="{{collectionguid}}" >
+                <img src="./image//icon_collect.png" alt="">
+                <div>取消收藏</div>
+            </div>
+        </div>
+    </script>
+    <!-- 政策法规 -->
+    <script type="text/template" id="template3">
+        <div class="list-item" clientidentifier="{{clientidentifier}}" collectionurl="{{collectionurl}}">
+            <div class="item-l">
+                <div class="title text-ellipsis">
+                    {{collectiontitle}}
+                </div>
+                <div class="row">
+                    <span>健康证到期预警</span>
+                    <span>{{inserttime}}</span>
+                </div>
+            </div>
+            <div class="collection" collectionguid="{{collectionguid}}" >
+                <img src="./image//icon_collect.png" alt="">
+                <div>取消收藏</div>
+            </div>
+        </div>
+    </script>
+    <!-- 资料下载 -->
+    <script type="text/template" id="template4">
+        <div class="list-item" clientidentifier="{{clientidentifier}}" collectionurl="{{collectionurl}}">
+            <div class="item-l">
+                <div class="title text-ellipsis">
+                    {{collectiontitle}}
+                </div>
+                <div class="row">
+                    <span>健康证到期预警</span>
+                    <span>{{inserttime}}</span>
+                </div>
+            </div>
+            <div class="collection" collectionguid="{{collectionguid}}" >
+                <img src="./image//icon_collect.png" alt="">
+                <div>取消收藏</div>
+            </div>
+        </div>
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?_t=" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../../js/common/swiper.js',
+            './js/collection_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

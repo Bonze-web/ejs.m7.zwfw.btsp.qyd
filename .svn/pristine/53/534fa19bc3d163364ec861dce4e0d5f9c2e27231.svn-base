@@ -1,0 +1,43 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-07 16:44:01
+ * @修改时间: 2021-04-07 16:47:48
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+
+
+(function(){
+
+    "use strict";
+
+    var calendar;
+
+    Util.loadJs(
+        'js/widgets/calendar/calendar.js',
+        'js/widgets/calendar/calendar.css',
+        function () {
+            initListeners();
+            initPage();
+        });
+
+    function initPage() {
+        // var data3 = {
+        //     list: [
+
+        //     ]
+        // }
+        // var temple1 = Zepto('#template1').html();
+        // var output = Mustache.render(temple1, data3);
+        // Zepto('#exceed_list_box').html(output);
+    }
+
+    /**
+     * @description 初始化监听
+     */
+    function initListeners() {
+
+    }
+
+})(window)

@@ -1,0 +1,70 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：填写整改信息
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>填写整改信息</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/dailycheck_writeinfo.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-input-group">
+        <div class="addchecknote">整改结果</div>
+        <textarea name="" id="rectifycontent" cols="30" rows="4" placeholder="请输入整改结果"></textarea>
+
+        <div class="mui-input-row">
+			<label>相关附件<span class="redicon">*</span></label>
+            <span class="fileicon" id="choosefile"></span>
+		</div>
+
+        <input id="fileBtn" type="file" class="mui-hidden">
+
+        <div class="filecontainer" id="filecontainer">
+            
+        </div>
+    </div>
+
+    <div class="opt-btn">
+        <button class="cancelbtn" id="cancel">取消</button>
+        <button class="surebtn" id="submit">提交审核</button>
+    </div>
+</body>
+
+<script type="text/template" id='file-litem'>
+    <div class="file-item">
+        <img src="{{img}}" alt="">
+        <span class="deletefile"></span>
+    </div>
+    
+</script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/dailycheck_writeinfo.js'
+    ]);
+</script>
+
+</html>

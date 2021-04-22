@@ -1,0 +1,124 @@
+<!-- 
+    作者：印沛锜
+    创建时间：2020-09-05 14:27
+    版本： [1.0, 2020-09-05]
+    版权： 江苏国泰新点软件有限公司
+    描述： 检查任务列表
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>检查任务</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/common_nodata.css',
+            '../common/todo_index.css',
+            './css/scan_index.css'
+        ]);
+    </script>
+    <style>
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .minirefresh-wrap {
+            top: 40px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+
+        <!-- 头部切换 -->
+        <ul class="clearfix head" id="head">
+            <li class="l headitem headactive" data-type="30">待接收<span id="reveive-count">(0)</span></li>
+            <li class="l headitem" data-type="40">待反馈<span id="conduct-count">(0)</span></li>
+            <li class="l headitem" data-type="50,60">已反馈<span id="finish-count">(0)</span></li>
+        </ul>
+
+        <!-- 列表 -->
+        <div class="mui-content">
+            <div id="minirefresh" class="minirefresh-wrap">
+                <div class="minirefresh-scroll">
+                    <ul class="listdata" id="listdata">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--列表项模板-->
+        <script type="text/x-templ-mustache" id="item-template">
+				<li class="mui-table-view-cell" data-status="{{status}}" data-rowguid="{{rowguid}}">
+					<p class="check-title"><span class="check-status status1 isshow{{itemstatus}}">{{statustext}}</span>{{taskname}}</p>
+					<div class="check-wrap">
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>任务编号：</span>
+								<span>{{taskcode}}</span>
+							</div>
+						</div>
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>行政相对人名称：</span> <span>{{administrativecp}}</span>
+                            </div>
+                            <!-- <div>
+                                <div>
+                                    <i class="mui-icon mui-icon-phone color-blue ml10 mr10 isshow{{iconstatu}}" id="dzxdr-tel" data-tel="{{xzxdr_tel}}"></i>
+                                    <i class="mui-icon mui-icon-navigate color-blue ml10 isshow{{iconstatu}}" id="nav" data-name="{{administrativecp}}" data-lat="{{lat}}" data-lng="{{lng}}"></i>
+                                </div>
+                            </div> -->
+						</div>
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>执法人员：</span>
+								<span>{{lepusernames}}</span>
+							</div>
+						</div>
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>计划日期：</span>
+								<span>{{planstartdate}}至{{planenddate}}</span>
+							</div>
+						</div>
+                    </div>
+                    <div class="flex-row">
+                        <button class="btn-tel isshow{{iconstatu}}" id="dzxdr-tel" data-tel="{{xzxdr_tel}}">联&nbsp;&nbsp;系</button>
+                        <button class="btn-nav isshow{{iconstatu}}" id="nav" data-name="{{administrativecp}}" data-lat="{{lat}}" data-lng="{{lng}}">导&nbsp;&nbsp;航</button>
+                        <button class="btn-recive isshow{{tabstatus}}" data-rowguid="{{rowguid}}">接&nbsp;&nbsp;收</button>
+					    <button class="btn-feedback isshow{{tabstatus2}}" data-statustext="{{statustext}}" data-rowguid="{{rowguid}}">反&nbsp;&nbsp;馈</button>
+                    </div>
+					
+				</li>
+			</script>
+
+    </div>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/scan_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

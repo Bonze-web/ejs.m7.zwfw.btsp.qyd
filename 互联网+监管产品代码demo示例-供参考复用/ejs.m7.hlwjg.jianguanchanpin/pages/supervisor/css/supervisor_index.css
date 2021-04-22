@@ -1,0 +1,84 @@
+/**
+ * 作者：丁力
+ * 创建时间：2019-9-7 20:58:354
+ * 版本：[1.0, 2019-9-7]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：监管对象
+ **/
+
+/*
+ * tab切换
+ */
+#em-addrselect {
+	display: block;
+	height: 100%;
+}
+
+.em-province-area {
+	overflow: scroll;
+	background-color: #F5F5F5 !important;
+}
+
+.em-list-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 60px !important;
+	line-height: normal !important;
+	font-size: 15px !important;
+	color: #444444 !important;
+	border-bottom: 0px !important;
+	border-right: 0px !important;
+}
+
+.em-active {
+	background: #FFFFFF;
+	color: #3C80E6 !important;
+	border-right: 0px !important;
+	border-left: 2px solid #3c80e6;
+}
+
+.em-city-area {
+	overflow: scroll !important;
+}
+
+.minirefresh-theme-default .minirefresh-upwrap {
+	background-color: #fff !important;
+}
+
+/*列表内容*/
+.mui-table-view:before,
+.mui-table-view:after {
+	height: 0;
+}
+
+#listdata {
+	padding: 5px 0;
+}
+
+#listdata li {
+	margin: 5px 15px;
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+}
+
+.em-title {
+	padding: 9px 12px;
+	font-size: 16px;
+	color: #FFFFFF;
+	background: url(../img/img_titlebg.png);
+	background-size: 100% 100%;
+}
+
+.em-con {
+	display: block;
+	font-size: 14px;
+	line-height: 35px;
+	color: #8c8c8c;
+}
+
+.em-blue {
+	display: block;
+	color: #3C80E6;
+	line-height: 18px;
+}

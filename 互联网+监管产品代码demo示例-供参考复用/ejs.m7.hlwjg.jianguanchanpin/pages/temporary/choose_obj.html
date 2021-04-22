@@ -1,0 +1,103 @@
+<!-- 
+        作者：彭屹尧
+        创建时间：2019-11-20 08:56:59
+        版本：[1.0, 2019-11-20]
+        版权：江苏国泰新点软件有限公司
+        描述：选择
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>选择对象</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/theme_blue.css'
+        ]);
+    </script>
+
+    <style>
+        body {
+            background: #fff;
+        }
+
+        .common-list {
+            padding: 5px 0px;
+            background: #fff;
+        }
+
+        .listitem {
+            padding: 10px;
+            /* line-height: 35px; */
+            border-bottom: 0.05px solid #ececec;
+        }
+
+        .line-flow {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 5px;
+        }
+
+
+
+        .common-list li {
+            padding-bottom: 5px;
+        }
+
+        /* 下拉刷新相关 */
+        .minirefresh-wrap {
+            top: 45px !important;
+        }
+
+        .minirefresh-theme-default .minirefresh-upwrap {
+            background-color: #fff !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="em-qzkq-content">
+        <form class="em-srhbar" action="javascript:return true">
+            <span class="btn-search mui-icon mui-icon-search em-srhbar-icon"></span>
+            <input type="search" class="em-srhbar-input" placeholder="请输入搜索关键字" />
+        </form>
+
+        <!-- minirefresh开头的class请勿修改 -->
+        <div id="minirefresh" class="minirefresh-wrap">
+            <div class="minirefresh-scroll">
+                <ul class="common-list" id="listdata">
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 事项列表模板 -->
+    <script type="text/x-mustache" id="item-template">
+        <li class="listitem"  data-itemname="{{titlename}}" data-itemguid="{{rowguid}}" >
+                <div class="line-flow">{{titlename}}</div>  
+        </li>
+    </script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/choose_obj.js'
+        ]);
+    </script>
+</body>
+
+</html>

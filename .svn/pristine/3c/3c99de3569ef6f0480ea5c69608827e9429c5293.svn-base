@@ -1,0 +1,60 @@
+/**
+    作者 :lujun
+    创建时间 :2021/03/31
+    版本 :[1.0, 2021/03/31]
+    版权：江苏国泰新点软件有限公司
+    描述：添加检查项
+ **/
+
+(function (d, $) {
+    'use strict';
+
+    var token = Config.token,
+        type = '0', // 待分配0 已分配1
+        minirefreshObj = null; // 下拉刷新实例
+
+    var status = Util.getExtraDataByKey('status') || '';
+    status = decodeURI(status);
+
+    Util.loadJs(
+        function () {
+            ejs.config({
+                jsApiList: []
+            });
+
+            ejs.ready(function () {
+                initPage()
+            });
+        }
+    );
+
+    // 初始化页面信息
+    function initPage() {
+
+        // 初始化事件监听
+        initListeners();
+    }
+
+    /**
+     * 初始化事件监听
+     */
+    function initListeners() {
+        $('body')
+            // 点击检查项跳转
+            .on('tap', '#checkitem', function (e) {
+                ejs.page.open({
+                    pageUrl: './risk_feedbackchoose.html',
+                    pageStyle: 1,
+                    orientation: 1,
+                    data: {
+                        status: ''
+                    },
+                    success: function (result) {
+
+                    },
+                    error: function (error) { }
+                });
+            })
+    }
+
+})(document, Zepto);

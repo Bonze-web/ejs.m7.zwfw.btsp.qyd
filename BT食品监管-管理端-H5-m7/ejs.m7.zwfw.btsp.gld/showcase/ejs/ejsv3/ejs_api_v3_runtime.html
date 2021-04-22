@@ -1,0 +1,255 @@
+<!-- 
+        作者：戴荔春
+        创建时间: 2017/06/01
+        版本: [3.0, 2017/06/01 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：  runtime 模块的示例
+-->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- 移动端的响应式特性 -->
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>runtime模块</title>
+
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            SrcBoot.output([
+                './_common/common.css'
+            ]);
+        </script>
+
+    </head>
+
+    <body>
+        <div class="mui-content pt0" id="ejs-app">
+
+        </div>
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs(
+                './_common/bizlogic_common_ready.js',
+                function() {
+                    Util.bizlogic.ready(initPage);
+                });
+
+            function initPage() {
+                var litemplate = new Util.litemplate.listLitemplate({
+                    isIndex: false,
+                    title: 'runtime模块',
+                    ejsApi: [{
+                        'id': 'launchApp',
+                        'text': 'launchApp(打开淘宝)',
+                        'evn': 'ejs_dd',
+                        'runCode': function() {
+                            ejs.runtime.launchApp({
+                                // android应用的包名
+                                packageName: '',
+                                // android应用页面类名
+                                className: '',
+                                // android应用页面配置的ActionName
+                                actionName: '',
+                                // 页面配置的Scheme名字，适用于Android与iOS
+                                scheme: 'taobao://',
+                                // 传递的参数。需要目标应用解析获取参数。字符串形式
+                                data: 'testdata',
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'getAppKey',
+                        'text': 'getAppKey(获取AppKey)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.getAppKey({
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'getAppVersion',
+                        'text': 'getAppVersion(获取App版本号)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.getAppVersion({
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'getEjsVersion',
+                        'text': 'getEjsVersion(获取EJS版本号)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.getEjsVersion({
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'checkUpdate',
+                        'text': 'checkUpdate(检查更新)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.checkUpdate({
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'clearCache',
+                        'text': 'clearCache(清除缓存)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.clearCache({
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'getGeolocation',
+                        'text': 'getGeolocation(获取地理位置)',
+                        'evn': 'ejs_dd',
+                        'runCode': function() {
+                            ejs.runtime.getGeolocation({
+                                isShowDetail: 1,
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'clipboard',
+                        'text': 'clipboard(复制到剪切板)',
+                        'evn': 'ejs_dd',
+                        'runCode': function() {
+                            ejs.runtime.clipboard({
+                                text: "测试信息",
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'openUrl',
+                        'text': 'openUrl(外部浏览器打开url)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.openUrl({
+                                url: "http://www.baidu.com/",
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'log',
+                        'text': 'log(记录测试信息)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            // 记录路径  sdk路径/epointapp7/log/ejs/对应的log
+                            ejs.runtime.log({
+                                text: "log信息" + (new Date()).toLocaleString(),
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'openSetting',
+                        'text': 'openSetting(打开系统设置)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.openSetting({
+                                success: function() {
+                                    console.log('openSetting success');
+                                },
+                                error: function() {
+                                    console.log('openSetting error');
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'getPlatformUrl',
+                        'text': 'getPlatformUrl(获取中间平台地址)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.getPlatformUrl({
+                                success: function(result) {
+                                    console.log(result.platformUrl);
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }, {
+                        'id': 'getPluginVersion',
+                        'text': 'getPluginVersion(获取组件版本号)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.runtime.getPluginVersion({
+                                pluginName: '',
+                                packageName: 'V7Framework',
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+                        }
+                    }]
+                });
+            }
+        </script>
+
+    </body>
+
+</html>

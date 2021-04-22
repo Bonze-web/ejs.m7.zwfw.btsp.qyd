@@ -1,0 +1,81 @@
+<!--
+ * @作者: 李波
+ * @创建时间: 2021-04-01 08:55:44
+ * @修改时间: 2021-04-01 10:45:44
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述: 营业日
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>2021年</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/record_calendarcheck.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content">
+
+        <div class="calendar-con" id="calendarcon">
+
+        </div>
+
+        <div class="calendar-choose">
+            <div class="calendar-choose-tips">
+                <span>已选:</span>
+                <span id="haschoose">0个</span>
+            </div>
+            <div>
+                <button class="calendar-choose-work" id="setwork">设为营业日</button>
+                <button class="calendar-choose-rest" id="setrest">设为休息日</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/template" id="calen-litem">
+    {{#datalist}}
+    <div class="calendar-month" data-month="{{month}}" data-click="0">
+        <div>
+            <input class="monthcheck" type="checkbox">
+            <span class="monthshow">{{month}}月</span>
+        </div>
+        <div class="showorhidden">显示</div>
+    </div>
+    <div class="calendar-day"></div>
+    {{/datalist}}
+</script>
+
+<script type="text/template" id="calenday-litem">
+    {{#daylist}}
+    <div class="isworkday{{isworkingday}}" data-iswork="{{isworkingday}}">
+        <input class="daycheck" data-date="{{wdate}}" data-iswork="{{isworkingday}}" type="checkbox">
+        <div>{{day}}</div>
+    </div>
+    {{/daylist}}
+</script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+
+<script>
+    SrcBoot.output([
+        './js/record_calendarcheck.js'
+    ]);
+</script>
+
+</html>

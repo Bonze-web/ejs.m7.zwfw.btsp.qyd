@@ -1,0 +1,100 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：市场主体库搜索结果
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>市场主体库搜索结果</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/inspection_searchresult.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="check-result">
+        <div class="check-result-name">
+            <div>已选条件:</div>
+            <div class="check-name">重选条件</div>
+        </div>
+        <div class="check-result-choose">
+            <div>
+                <div class="check-text">全部</div> <span class="icon-del"></span>
+            </div>
+            <div>
+                <div class="check-text">正常</div><span class="icon-del"></span>
+            </div>
+            <div>
+                <div class="check-text">停产停业</div><span class="icon-del"></span>
+            </div>
+            <div>
+                <div class="check-text">注销</div><span class="icon-del"></span>
+            </div>
+        </div>
+    </div>
+    <div id="minirefresh" class="minirefresh-wrap">
+        <div class="minirefresh-scroll">
+            <ul class="listdata bg-white" id="listdata">
+                <li class="list-item">
+                    <div class="title-row">
+                        是企业名称这里是企业名称这里是企业名称这里是企业名称这里是企业名称这里是企业名称
+                    </div>
+                    <div class="row">
+                        许可证编号：食品经营企业
+                    </div>
+                    <div class="row">
+                        社会同意信用代码：食品经营企业
+                    </div>
+                    <div class="row">
+                        主体业态：单位食堂
+                    </div>
+                    <div class="row">
+                        状态：正常
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="base-btn">
+        <div>取消</div>
+        <div id="statusbtn">确定</div>
+    </div>
+</body>
+
+<script type="text/x-tpl" id="item-template">
+        <li class="list-item" id="{{guid}}">
+            <h3 class="msg-title">
+                {{title}}
+            </h3>
+            <span class="msg-fs14 msg-date">
+                {{date}}
+            </span>
+        </li>
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/inspection_searchresult.js'
+    ]);
+</script>
+
+</html>

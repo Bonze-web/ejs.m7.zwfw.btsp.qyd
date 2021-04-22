@@ -1,0 +1,164 @@
+<!--
+    作者：彭屹尧
+    创建时间：2019-11-20
+    版本： [1.0, 2019-11-20]
+    版权： 江苏国泰新点软件有限公司
+    描述： 临时检查 监管事项新增
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加监管行为</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/temporary_details.css',
+            './css/temporary_supervision_add.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content">
+        <!--基本信息-->
+        <div class="content-contrainer" id="baselist">
+            <div class="baseinfo">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="color-red">*</span>监管对象类别</div>
+                        <div class="unit-item-right" id="">
+                            <input class="item-value arrow" id="em-jgdxlb" type="text" placeholder="请选择" readonly />
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="color-red">*</span>监管对象</div>
+                        <!-- <div class="unit-item-right" id="">
+                            <input class="item-value arrow txt-over" id="em-jgdx" type="text" placeholder="请选择" />
+                        </div> -->
+                        <div class="unit-item-right flex-row" id="">
+                            <textarea name="" class="" id="em-jgdx" placeholder="请选择" readonly unselectable="on"
+                                οnfοcus="this.blur()" -webkit-user-select:none></textarea>
+                            <img src="./img/img_arrow.png" alt="" class="img-row">
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left"><span class="color-red">*</span>检查时间</div>
+                        <div class="unit-item-right" id="">
+                            <input class="item-value arrow" id="em-jcsj" type="text" placeholder="请选择" readonly />
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">备注</div>
+                        <div class="unit-item-right" id="">
+                            <textarea name="" rows="" cols="" id="em-remark" placeholder="请输入"></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 监管行为信息 -->
+            <div class="baseinfo mb50">
+                <div class="baseinfo-title">监管事项信息</div>
+                <ul class="mui-table-view action" id="listData">
+
+                </ul>
+            </div>
+        </div>
+
+        <input type="file" class="fileChoose mui-hidden" id="showFileChoose_all" filetype="All" />
+
+        <!--操作按钮-->
+        <div class="operation">
+            <button class="l" id="btn-save">保&nbsp;&nbsp;存</button>
+        </div>
+    </div>
+
+    <!-- 监管事项信息信息模板 -->
+    <script type="text/x-tpl" id="template">
+			{{#supervisionInfo}}
+			<li class="mui-table-view-cell unit-item supervise-item mt5" data-attachtag="{{attachtag}}" data-rowguid="{{rowguid}}">
+				<div class="action-item">
+					<div class="action-item-title">
+						<span class="bold font16 width100 mr10">事项名称：{{superviseitem}}</span>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">实施清单编号：</div>
+						<div class="unit-item-right txt-over">{{superviseitemcode}}</div>
+                    </div>
+                    
+                    <div class="mui-table-view-cell action-item-ischeck flex-row1">
+						<div class="unit-item-left">是否检查：</div>
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label>是</label>
+                            <input name="radio{{rowguid}}" type="radio" value="检查" checked id="ischeck">
+                        </div>
+                        <div class="mui-input-row mui-radio mui-left">
+                            <label>否</label>
+                            <input name="radio{{rowguid}}" type="radio" value="不检查" id="nocheck">
+                        </div>
+					</div>
+
+					<div class="mui-table-view-cell action-item-res">
+						<div class="unit-item-left">检查结果</div>
+						<!-- <div class="unit-item-right" id="">
+							<input class="item-value action-item-result arrow txt-over" id="" type="text" placeholder="请选择" readonly />
+                        </div> -->
+                        
+                        <div class="unit-item-right flex-row" id="">
+                            <textarea name="" class="action-item-result" placeholder="请选择" readonly
+                                unselectable="on" οnfοcus="this.blur()" -webkit-user-select:none></textarea>
+                            <img src="./img/img_arrow.png" alt="" class="img-row">
+                        </div>
+					</div>
+					<div class="mui-table-view-cell flex add-attach" data-idx="{{idx}}" data-attachtag="{{attachtag}}" onclick="showFileChoose_all.click()">
+						<div class="unit-item-left">相关附件</div>
+						<div class="em-form-content">
+							<span class="em-attach-tips">共&nbsp;<span class="em-attach-count{{idx}}">0</span>&nbsp;个附件</span>
+						</div>
+						<i class="icon-attach"></i>
+					</div>
+					<div class="mui-table-view-cell em-attach-wrapper em-attach-wrap{{idx}} em-transition-vertical">
+						<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							<div class="mui-scroll">
+								<ul class="mui-table-view em-attach-view attach-view{{idx}}">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+            </li>
+            
+			{{/supervisionInfo}}
+		</script>
+
+    <!--选择附件模板-->
+    <script type="text/x-tpl" id="em-attach-view">
+			<li class="mui-table-view-cell attach-items" data-idx="{{idx}}" attachindex="{{attachguid}}">
+				<img id="test" src="{{attachicon}}" />
+				<p class="em-attach-name mui-ellipsis">{{name}}</p>
+				<p class="em-attach-size">{{attachsize}}</p>
+			</li>
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/temporary_supervision_add.js',
+        ]);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Microsoft YaHei', arial;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    zoom: 1;
+    visibility: hidden;
+}
+
+.text-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.w-4 {
+    width: 40%;
+}
+
+.w-6 {
+    width: 60%;
+}
+
+canvas {
+    outline: none;
+}
+
+.sample {
+    height: 100%;
+}
+
+.icon-btn {
+    margin: 0 5px;
+}
+
+.content {
+    position: absolute;
+    top: 16px;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.myDiagramDiv {
+    /*background-image: url('bg.svg');*/
+    background-color: #f5f5f5;
+    height: 100%;
+    width: 100%;
+}
+
+.cover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+/*弹出层*/
+
+.fl-layer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 13;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 90%;
+    /* height: inherit; */
+    max-height: 80vh;
+    border-radius: 8px;
+    overflow: scroll;
+}
+
+.fl-contain {
+    /* border-radius: 8px; */
+    /* box-sizing: border-box; */
+    width: 100%;
+    padding: 0px 10px 20px;
+    margin-top: 46px;
+    /* max-height: 500px; */
+    /* max-height: 100%; */
+    /* padding-top: 46px; */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: auto;
+    background-color: #fff;
+    overflow: scroll;
+    max-height: 338px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.fl-contain::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.fl-close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 3;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+    background-image: url(./images/icon_close.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50% auto;
+}
+
+.fl-title {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 46px;
+    text-align: center;
+    background-color: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    /* border-radius: 8px; */
+    margin-top: 0px;
+}
+
+.fl-process {
+    font-size: 12px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.fl-head {
+    padding: 10px;
+    background-color: #008000;
+    color: #fff;
+}
+
+.fl-process-contain {
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+}
+
+.rule {
+    padding-left: 10px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.fl-head.complete,
+.color-complete {
+    background-color: #3c80e6;
+}
+
+.fl-head.uncomplete,
+.color-uncomplete {
+    background-color: #fff;
+}
+
+.fl-head.timeout,
+.color-timeout {
+    background-color: #ff7800;
+}
+
+.fl-head.ongoing,
+.color-ongoing {
+    background-color: #17b6b0;
+}
+
+.color-block {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+}
+
+.color-text {
+    color: #666;
+    font-size: 12px;
+}
+
+.fl-head-text {
+    line-height: 20px;
+    font-size: 13px;
+    /*display: inline-block;*/
+}
+
+.fl-transacto,
+.fl-options {
+    color: #333;
+}
+
+.fl-transactor {
+    padding: 15px 20px;
+    position: relative;
+    height: 20px;
+}
+
+.fl-time {
+    margin: 0 75px;
+    text-align: center;
+    color: #bfc0ca;
+    font-size: 13px;
+    position: relative;
+    margin-top: -6px;
+    min-height: 15px;
+}
+
+.fl-time:after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    bottom: -7px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #9497a7;
+}
+
+.fl-time:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background-color: #9497a7;
+}
+
+.fl-submit,
+.fl-handle {
+    font-size: 16px;
+    font-color: #333333;
+}
+
+.fl-submit {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+}
+
+.fl-handle {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+.fl-options {
+    padding: 10px 10px 15px 10px;
+    color: #666666;
+    font-size: 15px;
+}
+
+.fl-options-content {
+    line-height: 20px;
+    margin-top: 20px;
+}
+
+.fl-options-img {}
+
+.fl-nomessage {
+    text-align: center;
+    color: #a9abb8;
+    font-size: 13px;
+    margin-top: 14px;
+}
+
+.pic-box {
+    padding: 0 10px 10px 10px;
+    box-sizing: border-box;
+    width: 105%;
+    margin-top: -10px;
+}
+
+.pic-item {
+    width: 20%;
+    margin-right: 5%;
+    margin-top: 10px;
+}
+
+.pic-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.audio-box {
+    padding: 10px;
+    margin-top: -10px;
+}
+
+.audio-item {
+    margin-bottom: 5px;
+    height: 40px;
+    padding-left: 75px;
+    background-color: #fafafa;
+    background-image: url('./images/icon_audio.png');
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 21px 16px;
+}
+
+.audio-title {
+    font-size: 15px;
+    line-height: 40px;
+    color: #666666;
+}
+
+.audio-time {
+    font-size: 13px;
+    line-height: 40px;
+    float: right;
+    margin-right: 20px;
+    color: #999;
+}
+
+.audios {
+    display: block;
+    width: 100%;
+}
+
+.em-nop {
+    width: 62%;
+    text-align: center;
+}
+
+.text-nop {
+    width: 37%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+}
+.audio-item.em-stop {
+    background-image: url(./images/icon_stop.png);
+    background-size: 16px 16px;
+}

@@ -1,0 +1,21 @@
+{
+    "controls": [{
+        "data": "{\"lockdttm\":\"\",\"pviguid\":\"871507f9-cd2e-452a-bbaa-ee75cfb7efdd\",\"acthtml\":\"\u4F1A\u7B7E\",\"isshowlockbut\":false,\"btn\":[{\"isrequireopinion\":true,\"isshowoperationpage\":true,\"operationguid\":\"364c415e-94ea-427e-9e94-d044790dc25b\",\"defaultopinion\":\"\",\"text\":\"\u9001\u4E0B\u4E00\u6B65\",\"operationtype\":\"Pass\",\"btnid\":\"btn_364c415e-94ea-427e-9e94-d044790dc25b\",\"click\":\"AjaxOperation('364c415e-94ea-427e-9e94-d044790dc25b','','Pass','','');return false;\"}],\"info\":\"\",\"lockTimeControl\":\"\"}",
+        "id": "handlecontrols",
+        "value": ""
+    }, {
+        "id": "_common_hidden_viewdata",
+        "value": "{\"epoint_user_loginid\":\"8A422EFF1B9F068C92F0CCFFCC1B3B8F\",\"tableGuid\":\"1ddd0deb-da48-46ba-a819-614da29f3f78\",\"WorkItemGuid\":\"643f36de-7c3c-4f36-862a-796dd955c3cf\",\"tableId\":\"0\",\"pageUrl\":\"597EE5C45FC0A37DA5EC116E9E9051633AC683137FB7A9528AC09D684EA6500E3BB2F01751A3B25E86C7E1674EA2500A38D6C20F7EB4AD42B29EEE7A7CC42B1A3BB3F40F7EEAB57F8AF5EE6B4DA250160AD68F19799EBD5D899FF25948A2050809D5DD50508DAE5F9E9FFD2460A2270814ECEF17539DAE5189FE957875982F0B15D6EC0F53A3AD428AC0ED2276A2330803C2E03B7FEAB15A83F5F67D4EA00D5238D6EB5A53B3AA528AC7E92376B23C1717B3F71944A0CB188AC7E92360A10E5114ECFF1753A3901A8AEAF52462A13F0914B3F40E57B2CA44B39EEA7976C73F293DC6EC174FEAAD588AE9942062C7305300EBD15750B0CB1B9FE9E16B60A1385700FBD11744B3B21C9EFE942275C7270817D6FC0E44A3AA509DEAF52C2CF56963\",\"ProcessVersionInstanceGuid\":\"871507f9-cd2e-452a-bbaa-ee75cfb7efdd\",\"versionGuid\":\"6dce97d9-e131-4b60-823d-8e0ad63954aa\",\"rowguid\":\"871507f9-cd2e-452a-bbaa-ee75cfb7efdd\"}"
+    }],
+    "custom": {
+        "accessRight": "{}",
+        "tableId": "0",
+        "rowGuid": "871507f9-cd2e-452a-bbaa-ee75cfb7efdd"
+    },
+    "status": {
+        "code": "1",
+        "text": "",
+        "url": "",
+        "state": "error"
+    }
+}

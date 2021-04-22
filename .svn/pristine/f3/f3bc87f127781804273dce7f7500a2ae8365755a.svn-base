@@ -1,0 +1,103 @@
+<!-- 
+        作者：guotq
+        创建时间: 2017/06/05
+        版本: [1.0, 2017/06/05 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： 这里直接设置离线数据，并且采用了一页多张图片的轮播方式
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no">
+        <title>轮播6</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <style>
+            .mui-slider-indicator {
+                bottom: -2px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="gallery"></div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs([
+                'js/widgets/gallery/gallery.js',
+            ], function() {
+                initPage();
+            });
+
+            /**
+             * 页面初始化请走这个函数
+             */
+            function initPage() {
+                new Gallery({
+                    // 默认为每一行显示2个item,只有每一个item多张图时有效,也就是每一个item为数组时有效
+                    perLineItem: 2,
+                    container: '#gallery',
+                    data: [
+                        [{
+                            guid: "testgallery1",
+                            title: "", //为空
+                            pic: "./images/testgallery1.jpg"
+                        }, {
+                            guid: "testgallery12",
+                            title: "", //为空
+                            pic: "./images/testgallery2.jpg"
+                        }, {
+                            guid: "testgallery13",
+                            title: "", //为空
+                            pic: "./images/testgallery3.jpg"
+                        }, {
+                            guid: "testgallery14",
+                            title: "", //为空
+                            pic: "./images/testgallery4.jpg"
+                        }],
+                        [{
+                            guid: "testgallery2",
+                            title: "", //为空
+                            pic: "./images/testgallery2.jpg"
+                        }, {
+                            guid: "testgallery21",
+                            title: "", //为空
+                            pic: "./images/testgallery1.jpg"
+                        }, {
+                            guid: "testgallery23",
+                            title: "", //为空
+                            pic: "./images/testgallery3.jpg"
+                        }],
+                        [{
+                            guid: "testgallery3",
+                            title: "", //为空
+                            pic: "./images/testgallery3.jpg"
+                        }, {
+                            guid: "testgallery31",
+                            title: "", //为空
+                            pic: "./images/testgallery1.jpg"
+                        }],
+                        [{
+                            guid: "testgallery4",
+                            title: "", //为空
+                            pic: "./images/testgallery4.jpg"
+                        }]
+                    ],
+                    itemClick: function(e, id) {
+                        console.log("点击:" + id);
+                    }
+                });
+            }
+        </script>
+    </body>
+
+</html>

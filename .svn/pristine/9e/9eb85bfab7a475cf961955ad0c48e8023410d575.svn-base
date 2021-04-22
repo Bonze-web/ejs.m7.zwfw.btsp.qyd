@@ -1,0 +1,166 @@
+<!--
+作者：解宇
+创建时间：2019-9-5
+版本：[1.0, 2019-9-5]
+版权：江苏国泰新点软件有限公司
+描述：任务详情
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务详情</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/inspection_detail.css',
+            './css/uploadfile.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content">
+        <!--基本信息-->
+        <div class="content-contrainer" id="baselist">
+            <div class="baseinfo">
+                <div class="baseinfo-title">任务基本信息</div>
+                <ul class="mui-table-view" id="baseList">
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">执法主题名称:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">任务名称:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">任务编号:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人性质:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人证件类型:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人证件编码:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">执法人员:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">计划开始时间:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">计划结束时间:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <!--<li class="mui-table-view-cell unit-item">
+							<div class="unit-item-left">是否处罚</div>
+							<div class="unit-item-right" id="em-jcfs">
+								<div class="mui-input-row mui-radio mui-left">
+									<label>否</label>
+									<input name="checkbox1" value="1" type="radio" checked disabled="disabled">
+								</div>
+								<div class="mui-input-row mui-radio mui-left">
+									<label>简易案件</label>
+									<input name="checkbox1" value="2" type="radio" disabled="disabled">
+								</div>
+								<div class="mui-input-row mui-radio mui-left">
+									<label>一般案件</label>
+									<input name="checkbox1" value="3" type="radio" disabled="disabled">
+								</div>
+							</div>
+						</li>-->
+                </ul>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- 基本信息模板 -->
+    <script type="text/x-tpl" id="base-template">
+			{{#baseInfo}}
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法主题名称:</div>
+				<div class="unit-item-right" id="">{{activityname}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">任务名称:</div>
+				<div class="unit-item-right" id="">{{taskname}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">任务编号:</div>
+				<div class="unit-item-right" id="">{{taskcode}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人:</div>
+                <div class="unit-item-right flex-row" id="">
+                    <span class="w-100">{{administrativecp}}</span>
+					<i class="mui-icon mui-icon-phone color-blue ml10 mr10" id="dzxdr-tel" data-tel="{{xzxdr_tel}}"></i>
+					<i class="mui-icon mui-icon-navigate color-blue ml10" id="nav" data-name="{{administrativecp}}" data-lat="{{lat}}" data-lng="{{lng}}"></i>
+				</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人性质:</div>
+				<div class="unit-item-right" id="">{{administrativecpna}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人证件类型:</div>
+				<div class="unit-item-right" id="">{{administrativecpcetype}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人证件编码:</div>
+				<div class="unit-item-right" id="">{{administrativecpuicode}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法人员:</div>
+				<div class="unit-item-right" id="">{{lepusernames}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">计划开始时间:</div>
+				<div class="unit-item-right" id="">{{planstartdate}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">计划结束时间:</div>
+				<div class="unit-item-right" id="">{{planenddate}}</div>
+			</li>
+			{{/baseInfo}}
+		</script>
+
+
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/inspection_detail_waitfeed.js',
+        ]);
+    </script>
+
+</body>
+
+</html>

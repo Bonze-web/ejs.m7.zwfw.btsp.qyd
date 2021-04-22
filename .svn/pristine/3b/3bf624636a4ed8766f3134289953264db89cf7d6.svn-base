@@ -1,0 +1,143 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-06 11:15:46
+ * @修改时间: 2021-04-15 13:46:34
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>风险等级</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/danger_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="risk_grade">
+        <div class="grade_show" id="grade_show">
+            <img src="./image/riskgrade_bg_ris.png" class="riskgrade_bg_ris">
+            <div class="estate">
+                <img src="./image/riskgrade_icon_a.png" id="riskgrade_icon" >
+                <span>风险等级</span>
+            </div>
+            <div class="explain" id="explain">
+                风险等级说明 >
+            </div>
+            <div class="renovate">
+                <div class="circle">
+                    <img src="./image/riskgrade_icon_upwhite.png" alt="">
+                    <span>5</span>
+                </div>
+                <div class="updata_time">
+                    <img src="./image/riskgrade_icon_update.png" alt="">
+                    <span>更新于2021-03-19</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 风险等级列表 -->
+        <div class="risk_grade_list">
+            <div id="grade_list_box">
+
+            </div>
+            <!-- 时间轴的线 -->
+            <div class="time_axis">
+                <div class="axis_box">
+                    <img src="./image/riskgrade_icon_now.png" class="riskgrade_icon_now">
+                </div>
+                <div class="axis_box">
+                    <img src="./image/riskgrade_icon_past.png" class="riskgrade_icon_now">
+                </div>
+                <div class="axis_box">
+                    <img src="./image/riskgrade_icon_past.png" class="riskgrade_icon_now">
+                </div>
+                <div class="axis_box">
+                    <img src="./image/riskgrade_icon_past.png" class="riskgrade_icon_now">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹窗 -->
+    <div class="illustrate mui-hidden" id="illustrate">
+        <div class="instruction">
+            <div class="instruction_title">
+                风险等级说明
+            </div>
+            <div class="instruction_content">
+                <div class="instruction_content_list">
+                    <span>0-30(含)分</span>
+                    <span>··········</span>
+                    <span>级风险</span>
+                    <span class="rank">A</span>
+                </div>
+                <div class="instruction_content_list">
+                    <span>30-45(含)分</span>
+                    <span>········</span>
+                    <span>级风险</span>
+                    <span class="rank_b">B</span>
+                </div>
+                <div class="instruction_content_list">
+                    <span>45-60(含)分</span>
+                    <span>········</span>
+                    <span>级风险</span>
+                    <span class="rank_c">C</span>
+                </div>
+                <div class="instruction_content_list">
+                    <span>60分以上</span>
+                    <span>···········</span>
+                    <span>级风险</span>
+                    <span class="rank_d">D</span>
+                </div>
+            </div>
+            <div class="delete_box" id="delete_box">
+                <img src="./image/delete.png" class="delete">
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="template1">
+        {{#list}}
+        <div class="grade_list_box">
+            <div class="list_box_one">
+                <div class="year">{{year}}</div>
+                <div class="month">{{month}}</div>
+            </div>
+            <div class="level_risk" >
+                风险等级：<span status="{{myRiskLevel}}">{{myRiskLevel}}</span>
+            </div>
+            <div class="adjustment">
+                <img src="./image/riskgrade_icon_upgrey.png" class="riskgrade_icon_upgrey" status="{{myScoreAdjust}}">
+                <img src="./image/riskgrade_icon_downgrey.png" class="riskgrade_icon_downgrey" status="{{myScoreAdjust}}">
+
+                {{scoreAdjust}}
+            </div>
+        </div>
+        {{/list}}
+    </script>
+
+    <script type="text/template" id="template2">
+
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+     <script>
+        SrcBoot.output([
+            './js/danger_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

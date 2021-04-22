@@ -1,0 +1,119 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常巡查登记
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>日常巡查登记</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/inspection_add.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="checkadd">
+        <div class="checkadd-name">检查对象</div>
+        <button>+ 添加检查对象</button>
+
+        <ul class="checkadd-list d-flex">
+            <li>
+                <div class="checkadd-list-content">检查对象</div>
+                <div class="checkadd-list-name">小时光食品</div>
+            </li>
+            <li>
+                <div class="checkadd-list-content">企业类型</div>
+                <div class="checkadd-list-name">小时光食品</div>
+            </li>
+            <li>
+                <div class="checkadd-list-content">证件类型</div>
+                <div class="checkadd-list-name">小时光食品</div>
+            </li>
+            <li>
+                <div class="checkadd-list-content">证件号码</div>
+                <div class="checkadd-list-name">小时光食品</div>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <div class="checkadd">
+        <div class="checkadd-name">检查项</div>
+        <button>+ 添加检查项</button>
+
+        <ul class="checkadd-list">
+            <li>
+                <div class="checkadd-list-name">检查项名称检查项名称检查项名称</div>
+                <div class="checkadd-list-content">检查内容检查内容检查内容检查内容</div>
+            </li>
+            <li>
+                <div class="checkadd-list-name">检查项名称检查项名称检查项名称</div>
+                <div class="checkadd-list-content">检查内容检查内容检查内容检查内容</div>
+            </li>
+            <li>
+                <div class="checkadd-list-name">检查项名称检查项名称检查项名称</div>
+                <div class="checkadd-list-content">检查内容检查内容检查内容检查内容</div>
+            </li>
+        </ul>
+    </div>
+    <div class="checkadd">
+        <div class="checkadd-name">检查对象</div>
+
+        <div class="checkitem">
+            <div class="checkitem-time">
+                <span class="check-name">检查时间</span>
+                <span class="check-flex1">2021-01-01</span>
+                <span class="mui-icon mui-icon-arrowright"></span>
+            </div>
+            <div class="check-result">
+                <div class="check-result-name check-name">检查结果</div>
+                <div class="check-result-choose">
+                    <div class="active">符合</div>
+                    <div>基本符合</div>
+                    <div>不符合</div>
+                </div>
+            </div>
+            <div class="check-result">
+                <div class="check-result-name check-name">检查处理方式</div>
+                <div class="check-result-choose">
+                    <div class="active">通过</div>
+                    <div>书面限期整改</div>
+                    <div>转交其他部门</div>
+                    <div>立即停止视频生产经营活动</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="base-btn">
+        <div>取消</div>
+        <div id="statusbtn">保存</div>
+    </div>
+</body>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/inspection_add.js'
+    ]);
+</script>
+
+</html>

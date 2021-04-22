@@ -1,0 +1,79 @@
+{
+    "controls": [{
+        "data": [{
+            "fullPath": "",
+            "itemId": 1025,
+            "img": "",
+            "expanded": false,
+            "isParent": "true",
+            "checked": false,
+            "pid": "-1",
+            "id": "01",
+            "text": "\u6C5F\u82CF",
+            "ckr": true,
+            "iconCls": "",
+            "isLeaf": false
+        }, {
+            "fullPath": "",
+            "itemId": 1024,
+            "img": "",
+            "expanded": false,
+            "isParent": "true",
+            "checked": false,
+            "pid": "-1",
+            "id": "02",
+            "text": "\u6D59\u6C5F",
+            "ckr": true,
+            "iconCls": "",
+            "isLeaf": false
+        }],
+        "id": "treeselect-1",
+        "text": "",
+        "value": ""
+    }, {
+        "data": [{
+            "fullPath": "",
+            "itemId": 1039,
+            "img": "",
+            "expanded": false,
+            "isParent": "true",
+            "checked": false,
+            "pid": "-1",
+            "id": "05",
+            "text": "\u7518\u8083",
+            "ckr": true,
+            "iconCls": "",
+            "isLeaf": false
+        }, {
+            "fullPath": "",
+            "itemId": 1038,
+            "img": "",
+            "expanded": false,
+            "isParent": "true",
+            "checked": false,
+            "pid": "-1",
+            "id": "06",
+            "text": "\u8FBD\u5B81",
+            "ckr": true,
+            "iconCls": "",
+            "isLeaf": false
+        }],
+        "id": "treeselect-2",
+        "text": "",
+        "value": ""
+    }],
+    "custom": {
+        "map": {
+            "reMap": [{
+                "id": "testenddate",
+                "value": "\u7CFB\u7EDF\u7BA1\u7406\u90E8"
+            }]
+        }
+    },
+    "status": {
+        "code": "1",
+        "text": "",
+        "url": "",
+        "state": "error"
+    }
+}

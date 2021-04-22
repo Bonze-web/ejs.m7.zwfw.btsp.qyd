@@ -1,0 +1,162 @@
+<!-- 
+        作者：解宇
+        创建时间：2019-12-5
+        版本： [1.0, 2019-12-5]
+        版权： 江苏国泰新点软件有限公司
+        描述： 异常名录-列表
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>异常名录</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/unusual_detail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="baseinfo" id="baseinfo">
+        </div>
+    </div>
+
+    <div class="wrap m10">
+        <div class="baseinfo">
+            <div class="baseinfo-title">
+                附件
+            </div>
+            <div id="attach"></div>
+
+        </div>
+    </div>
+    <script type="text/x-templ-mustache" id="attach-temp">
+
+			{{#items}}
+			<div class="attach-cont">
+				<div class="attach-item" id="{{downloadurl}}" data-name="{{attachname}}">
+					<div class="attach-icon">
+						<img src="../common/img/icon_file/img_{{png}}.png" alt="">
+					</div>
+					<div class="attach-name">{{attachname}}</div>
+				</div>
+			</div>
+			{{/items}}
+
+		</script>
+    <script type="text/x-templ-mustache" id="baseinfo-temp">
+			{{#items}}
+			<div class="baseinfo-title">
+				基本信息
+			</div>
+			<div class="baseinfo-list">
+				<label>案号</label>
+				<span>{{anhao}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>黑名单类型</label>
+				<span>{{blacktype}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>发布时间</label>
+				<span>{{fabudate}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>法律生效文书确定的义务</label>  
+				<span>{{falvwenshu}}</span>
+			</div>
+			<div class="baseinfo-list isshow{{typeval}}">
+				<label>身份证</label>
+				<span>{{idnumber}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>列入日期</label>
+				<span>{{inblackdate}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>失信被执行人具体情况</label>
+				<span>{{jutiqingxing}}</span>
+            </div>
+            
+            <div class="baseinfo-list qiye">
+				<label>企业法人姓名</label>
+				<span>{{faren}}</span>
+            </div> 
+
+            <div class="baseinfo-list qiye">
+				<label>企业统一社会信用代码</label>
+				<span>{{socialcode}}</span>
+            </div>
+
+            <div class="baseinfo-list qiye">
+				<label>登记人</label>
+				<span>{{djr}}</span>
+			</div>
+
+			<div class="baseinfo-list">
+				<label>立案时间</label>
+				<span>{{liandate}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>被执行人的履行情况</label>
+				<span>{{lxqingkuang}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>备注</label>
+				<span>{{remarks}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>认定部门</label>
+				<span>{{rendingdepart}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>失信被执行人名称</label>
+				<span>{{shixinname}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>失信联合惩戒标准类型</label>
+				<span>{{type}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>未履行部分</label>
+				<span>{{weilvxing}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>作出执行依据单位</label>
+				<span>{{yijudanwei}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>执行依据文号</label>
+				<span>{{yijuwenhao}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>已履行部分</label>
+				<span>{{yilvxing}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>市场主体类别</label>
+				<span>{{zhutitype}}</span>
+			</div>
+			{{/items}}
+		</script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/unusual_detail.js'
+        ]);
+    </script>
+</body>
+
+</html>

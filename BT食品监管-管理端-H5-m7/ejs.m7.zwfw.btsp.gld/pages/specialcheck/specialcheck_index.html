@@ -1,0 +1,103 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查
+-->
+
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>专项检查</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/dailycheck_index.css',
+                './css/common_nodata.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="daily-tab" id="dailytab">
+            <div class="active" data-status="1">待接收</div>
+            <div data-status="7">移交待接收</div>
+            <div data-status="2">待反馈</div>
+            <div data-status="3">待复查</div>
+            <div data-status="4">待审核</div>
+            <div data-status="5">已办结</div>
+            <!-- <div data-status="6">已反馈</div> -->
+        </div>
+
+        <div id="minirefresh" class="minirefresh-wrap">
+            <div class="minirefresh-scroll">
+                <ul class="checklist" id="listdata">
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="em-tips">
+			<img src="./css/images/img_data_empty_bg.png" class="nodata" />
+			<p>暂无数据！</p>
+		</div>
+
+	</body>
+
+    <script type="text/x-tpl" id="item-template">
+        <li class="checklist-item checklist-{{timestatus}}" data-rowguid="{{rowguid}}" data-lng="{{lng}}" data-islock="{{islock}}">
+            <div class="checklist-title">{{taskname}}</div>
+            <div class="checklist-content">
+                <div>任务编号:{{taskcode}}</div>
+                <div>执法人员:{{lepusernames}}</div>
+                <div>计划日期:{{planstartdate}}至{{planenddate}} <span class="datetips">{{timestatustext}}</span> </div>
+            </div>
+            <div class="checklist-opbtn">
+                <div class="operationbtn">{{btn1}}</div>
+                <div class="operationbtn">{{btn2}}</div>
+            </div>
+        </li>
+    </script>
+
+    <script type="text/x-tpl" id="item-templatelock">
+        <li class="checklist-item checklist-{{timestatus}}" data-rowguid="{{rowguid}}" data-islock="{{islock}}">
+            <div class="checklist-title">{{taskname}}</div>
+            <div class="checklist-content">
+                <div>任务编号:{{taskcode}}</div>
+                <div>执法人员:{{lepusernames}}</div>
+                <div>计划日期:{{planstartdate}}至{{planenddate}} <span class="datetips">{{timestatustext}}</span> </div>
+            </div>
+            <div class="checklist-oponebtn">任务正在移交中</div>
+        </li>
+    </script>
+
+	<script type="text/x-tpl" id="item-template1">
+        <li class="checklist-item" data-rowguid="{{rowguid}}">
+            <div class="checklist-title">{{taskname}}</div>
+            <div class="checklist-content">
+                <div>任务编号:{{taskcode}}</div>
+                <div>执法人员:{{lepusernames}}</div>
+                <div>计划日期:{{planstartdate}}至{{planenddate}}</div>
+            </div>
+        </li>
+    </script>
+
+	<script>
+		document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+	</script>
+	<script>
+		SrcBoot.output([
+			'./js/dailycheck_index.js'
+		]);
+	</script>
+
+</html>

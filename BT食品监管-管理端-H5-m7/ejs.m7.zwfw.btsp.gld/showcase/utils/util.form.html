@@ -1,0 +1,120 @@
+<!-- 
+        作者：郭天琦
+        创建时间: 2017/07/14
+        版本: [1.0, 2017/07/14 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：表单验证器
+-->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <title>表单验证</title>
+        <script>
+            document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+    </head>
+
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">表单验证</h1>
+        </header>
+
+        <div class="mui-content">
+            <form class="mui-input-group" id="form">
+                <div class="mui-input-row" data-role>
+                    <label>姓名</label>
+                    <input type="text" id="name" name="name" required="required" vtype="regtype:username" class="mui-input-clear" placeholder="请输入姓名">
+                </div>
+
+                <div class="mui-input-row" data-role>
+                    <label>昵称</label>
+                    <input type="text" id="nickname" name="name" vtype="regtype:username;" class="mui-input-clear" placeholder="请输入姓名">
+                </div>
+
+                <div class="mui-input-row" data-role>
+                    <label>密码</label>
+                    <input type="text" id="password" name="password" class="mui-input-clear" placeholder="请输入密码">
+                </div>
+
+                <div class="mui-input-row" data-role>
+                    <label>确认密码</label>
+                    <input type="text" vtype="equal:password" class="mui-input-clear" placeholder="请确认密码">
+                </div>
+
+                <div class="mui-input-row" data-role>
+                    <label>身份证</label>
+                    <input type="text" class="mui-input-clear" placeholder="请输入身份证">
+                </div>
+
+                <div class="mui-input-row" data-role>
+                    <label>电话</label>
+                    <input type="text" name="phone" vtype="regtype:test" class="mui-input-clear" placeholder="请输入手机号码">
+                </div>
+
+                <div class="mui-input-row" data-role>
+                    <label>手机</label>
+                    <input type="text" name="phone" vtype="regtype:test2" class="mui-input-clear" placeholder="请输入手机号码">
+                </div>
+
+                <div class="mui-input-row" data-role>
+                    <label>邮箱</label>
+                    <input type="text" class="mui-input-clear" placeholder="请输入正确的邮箱">
+                </div>
+            </form>
+        </div>
+
+        <button type="button" class="mui-btn mui-btn-blue center-block mt10" id="submit1-btn">提交</button>
+
+        <script>
+            document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+        <script>
+            "use strict";
+
+            Util.loadJs('js/utils/util.string.js', 'js/utils/util.form.js', initPage);
+
+            function initPage() {
+                var submitEle = document.getElementById('submit1-btn');
+                
+                Util.form.registerVtype('username', {
+                    callback: function(data) {
+                        var max = data.max,
+                            min = data.min;
+                            
+                        var len = this.value.length;
+                        
+                        if(min < len && len < max) {
+                            return true;
+                        }
+                        
+                        return false;
+                    },
+                    errMsg: '用户名最小不超过3个字符，最大不超过5个字符',
+                    max: 5,
+                    min: 2,
+                    errCls: 'cur'
+                });
+
+                Util.form.setDefaultErrMsg({
+                    phone: function() {
+                        return '电话验证错误';
+                    }
+                });
+
+                var form = Util.form.getInstance('#form', {
+                    errCls: 'cur'
+                });
+
+                submitEle.addEventListener('tap', function() {
+                    console.log("validate: " + form.validate());
+                });
+            }
+        </script>
+    </body>
+
+</html>

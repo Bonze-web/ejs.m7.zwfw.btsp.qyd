@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>控件示例</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/common.new.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="page-loading"></div>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">文本框控件</h1>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <ul class="editor-list">
+            <li class="editor-list-item">
+                <p class="l label">
+                    <span class="must">用户登录名</span>
+                </p>
+                <input type="text" id="loginId" bind="myinfomodifyaction.user.loginId" class="ep-mui-textbox l"
+                    placeholder="请输入用户登录名" required>
+            </li>
+
+            <li class="editor-list-item">
+                <p class="l label">
+                    <span>用户姓名</span>
+                </p>
+                <input type="text" id="displayName" bind="myinfomodifyaction.user.displayName" class="ep-mui-textbox l"
+                    placeholder="请输入用户姓名">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        Util.loadJs(initPage);
+
+        function initPage() {
+            epointm.initPage("data/myinfo.json", null, null, null, {
+                method: "GET"
+            });
+        }
+    </script>
+</body>
+
+</html>

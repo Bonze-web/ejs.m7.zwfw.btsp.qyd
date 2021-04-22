@@ -1,0 +1,160 @@
+/*
+ * 作者 :黄赟博
+ * 创建时间 :2017/06/14 10:11:36
+ * 版本 :[1.0, 2017/5/24]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：新闻详情
+*/
+
+body,
+html {
+	background-color: #fff;
+}
+
+.mui-content {
+	background-color: #fff;
+	word-break: break-all;
+	overflow-x: hidden;
+}
+
+
+/*头*/
+
+.detail-template {
+	margin-top: 15px;
+}
+
+.detail-hd {
+	margin: 0 15px;
+	overflow: hidden;
+}
+
+.detail-hd h4 {
+	font-size: 20px;
+	line-height: 25px;
+	margin: 0;
+	font-weight: 800;
+}
+
+
+/*目前标题使用的是h3字体，并且距顶部15个像素*/
+
+.detail-hd h3 {
+	margin-top: 15px;
+}
+
+.detail-hd p {
+	font-size: 14px;
+	float: left;
+	margin-top: 6px;
+	margin-right: 10px;
+}
+
+
+/*内容*/
+
+.detail-content {
+	margin: 0 15px;
+	padding: 10px 0;
+	border-top: 1px dashed #c2c2c2;
+	font-size: 16px;
+}
+
+.detail-content img {
+	width: 100%!important;
+	height:auto!important;
+}
+
+.detail-content table {
+	width: 100%!important;
+}
+
+
+/*附件*/
+
+.attach_listtitle img {
+	width: 40px;
+	height: 40px;
+	margin-right: 5px;
+	flex-shrink: 0;
+}
+
+.attach_listtitle {
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+
+.content {
+	/* padding: 10px; */
+}
+.head_msg {
+	padding: 10px;
+}
+.infocontent {
+	padding: 10px;
+}
+
+.info-title {
+	font-size: 18px;
+	line-height: 25px;
+	margin: 0;
+	font-weight: 800;
+}
+.info-author {
+	padding-top: 3px;
+	font-size: 15px;
+}
+.info-author span,
+.info-date span {
+	color: #666;
+}
+.info-date {
+	padding-top: 3px;
+	font-size: 15px;
+}
+
+.mui-table-view-cell:after {
+	left: 0;
+}
+
+.infocontent {
+	padding: 10px 0;
+}
+.papers {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding-bottom: 10px;
+	/* margin: 0 10px; */
+	border-bottom: 1px #ccc solid;
+}
+.papers .papers_img {
+	margin-left: 10px;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	background-color: #ccc;
+	font-size: 12px;
+}
+.papers_box {
+	padding-left: 5px;
+	font-size: 12px;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+	flex: 1;
+}
+.download_box {
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+}
+.download_box  img {
+	width: 100%;
+	height: 100%;
+}

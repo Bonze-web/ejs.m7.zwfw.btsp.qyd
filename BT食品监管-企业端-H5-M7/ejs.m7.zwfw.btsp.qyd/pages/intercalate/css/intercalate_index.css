@@ -1,0 +1,92 @@
+/* <!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-19 16:50:28
+ * @修改时间: 2021-04-19 17:27:23
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+--> */
+
+.bg {
+    background-color: #fff;
+}
+.self_inspection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid #dde0e4;
+}
+.inspection_title {
+    /* border: #dde0e4 1px solid; */
+    color: #666;
+    font-size: 16px;
+}
+.my_line {
+    height: 50px;
+}
+.subtract_blue {
+    width: 12px;
+}
+.add_blue {
+    width: 12px;
+}
+.compute {
+    /* width: 200px; */
+
+    border: 1px #dde0e4 solid;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+.compute input {
+    margin: 0;
+    width: 40px;
+    height: 32px;
+    /* border: 0; */
+    padding: 0;
+    border-right: 1px solid #dde0e4;
+    border-left: 1px solid #dde0e4;
+    text-align: center;
+}
+.subtract_left {
+    padding-left: 10px;
+    padding-right: 7.5px;
+    border-right: 1px solid #dde0e4;
+}
+.add_right {
+    padding-left: 7.5px;
+    padding-right: 10px;
+
+}
+/* .subtract_left:active,
+.add_right:active {
+    background-color: rgb(22, 92, 68);
+} */
+
+.time {
+    display: flex;
+}
+.time>div>input {
+    margin-right: 5px;
+}
+.time>div {
+    margin-right: 20px;
+}
+
+/* 保存 */
+.conserve {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 16px;
+    background-color: #fff;
+    color: #5892ea;
+    text-align: center;
+    padding: 14px 0;
+}
+.conserve:active {
+    background-color: #5892ea;
+    color: #fff;
+}

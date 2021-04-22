@@ -1,0 +1,370 @@
+/**
+ * 作者： 孙尊路
+ * 创建时间：2017/08/28 10:22
+ * 版本： [1.0, 2017/08/28]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述： 待办事宜
+**/
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#minirefresh::-webkit-scrollbar {
+    display: none;
+}
+
+/* .mui-content>.em-todo-table-view.mui-table-view:first-child {
+    margin-top: 0;
+} */
+.em-editor {
+    position: absolute;
+    right: 18px;
+    bottom: 35px;
+    width: 55px;
+    height: 55px;
+    background-color: #3c80e6;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px #c5d7f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+
+.em-editor img {
+    width: 27px;
+    height: 27px;
+}
+
+.list-item {
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.list-item-title {
+    padding: 13px 10px;
+    color: #3c80e6;
+    font-size: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.list-item-content {
+    font-size: 16px;
+    padding: 12px 12px 10px 10px;
+}
+
+.list-sub-title {
+    color: #999;
+}
+
+.mui-scroll-wrapper {
+    top: 44px;
+}
+/*列表*/
+
+.em-todo-table-view .mui-table-view-cell {
+    padding: 10px 10px;
+}
+
+.em-todo-table-view .mui-table-view-cell.mui-active {
+    /*background-color: #fff;*/
+}
+
+.em-todo-table-view .mui-table-view-cell:after {
+    left: 10px;
+}
+
+.em-todo-table-view .mui-table-view-cell div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.em-todo-top-title {
+    margin-bottom: 5px;
+}
+
+.em-todo-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 75%;
+    font-size: 16px;
+    color: #333333;
+}
+
+.em-todo-title-only {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+}
+
+.em-todo-procedure {
+    font-size: 14px;
+    color: #ff0000;
+}
+
+.em-todo-reason {
+    font-size: 14px;
+    color: #666666;
+}
+
+.em-todo-reason-detail {
+    color: #333333;
+}
+
+.em-todo-proposer,
+.em-todo-next {
+    font-size: 14px;
+    color: #3c80e6;
+    color: #333;
+    margin-left: 2px;
+    font-weight: 400;
+}
+
+.em-todo-time {
+    font-size: 12px;
+    color: #999999;
+    float:right;
+}
+
+/*遮罩*/
+
+.em-mask {
+    display: none;
+    z-index: 20;
+    margin-top: 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.3;
+}
+
+/*自定义纵向顶部菜单并设置动画*/
+
+.em-transition-vertical {
+    overflow: hidden;
+    height: 0px;
+    /*background: #3c80e6;*/
+    transition: height 100ms linear;
+    -webkit-transition-duration: height 100ms linear;
+    -moz-transition: height 100ms linear;
+    -o-transition-property: height 100ms linear;
+}
+
+/*筛选*/
+
+.em-todo-matter-wrapper {
+    position: fixed;
+    top: 0px;
+    padding: 0px 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.em-todo-matter-wrapper-item {
+    margin: 10px 0;
+    /* height: 198px; */
+}
+
+.em-todo-matter-wrapper p {
+    margin: 10px 0 10px 10px;
+    font-size: 15px;
+    color: #666666;
+}
+
+.em-todo-row {
+    padding: 0 10px;
+}
+
+.em-todo-col-4 {
+    position: relative;
+    margin-right: 5%;
+    margin: 0 5% 15px 0;
+    border-radius: 4px;
+    width: 30%;
+    height: 34px;
+    line-height: 34px;
+    font-size: 15px;
+    color: #333333;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.em-todo-col-4:nth-child(3n+0) {
+    margin-right: 0;
+}
+
+.em-todo-active {
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    color: #ff0000;
+    background-color: #FFFFFF;
+}
+
+.em-todo-active:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid #ff0000;
+    border-color: transparent #ff0000 #ff0000 transparent;
+    content: '';
+}
+
+.em-todo-active:before {
+    position: absolute;
+    right: -6px;
+    bottom: -10px;
+    font-size: 24px;
+    color: #fff;
+    z-index: 10;
+}
+
+/*按钮组*/
+
+.em-button-wrapper {
+    display: flex;
+    align-items: center;
+    /*margin-top: 20px;*/
+    height: 44px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.em-button-wrapper button {
+    width: 50%;
+    height: 44px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 0px;
+}
+
+.em-button-left input[type='button'],
+.em-button-left.mui-btn {
+    border: 1px solid #fff;
+    border-top: 1px solid #e1e1e1;
+    background-color: #fff;
+    color: #333333;
+}
+
+.em-button-left input[type='button'],
+.em-button-left.mui-btn:enabled:active {
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    color: #333333;
+}
+
+.em-button-right input[type='button'],
+.em-button-right.mui-btn {
+    border: 1px solid #3c80e6;
+    background-color: #3c80e6;
+    color: #ffffff;
+}
+
+.em-button-right input[type='button'],
+.em-button-right.mui-btn:enabled:active {
+    background-color: #3752e6;
+    border: 1px solid #3752e6;
+}
+
+.search .mui-scroll-wrapper {
+    overflow: scroll;
+}
+
+/* 列表后面能否在移动端处理标识 */
+.em-list-canhandle {
+    width: 30px;
+    height: 21px;
+
+}
+
+/* 能在移动端处理 */
+[canhandle='1'] .em-list-canhandle {
+    background: url(../img/img-canhander.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+/* 不能在移动端处理 */
+[canhandle='0'] .em-list-canhandle {
+    background: url(../img/img-canthander.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+[canhandle='-1'] .em-list-canhandle {
+    background: url(../img/img_ck_btn.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+/* 骨架屏开始 */
+.em-skeleton {
+    height: 82px;
+background-color: #fff;
+padding: 10px 0
+}
+.em-skeleton div {
+
+}
+.em-skeleton .em-sk-left {
+width: 60%;
+display: inline-block;
+margin-left: 5%;
+}
+.em-left-p {
+        height: 12px;
+        background-color: #f2f3f5;
+        margin: 0px 0 12px 0;
+}
+.em-left-span {
+    height: 12px;
+    background-color: #f2f3f5;
+    width: 80%
+}
+.em-skeleton .em-sk-right {
+    width: 20%;
+    float: right;
+height: 100%;
+    background-color: #f2f3f5;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+/* 骨架屏结束 */
+
+/* body {
+    background-color: #fff
+}
+#minirefresh,
+body .minirefresh-upwrap {
+    background-color: #fff
+
+}
+.minirefresh-theme-default .minirefresh-upwrap {
+    background-color: #fff
+
+} */

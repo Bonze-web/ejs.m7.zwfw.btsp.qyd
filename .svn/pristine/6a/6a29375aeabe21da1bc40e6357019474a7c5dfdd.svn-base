@@ -1,0 +1,79 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-07 15:02:39
+ * @修改时间: 2021-04-07 16:30:57
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+
+
+
+(function(){
+
+    "use strict";
+
+    var calendar;
+
+    Util.loadJs(
+        'js/widgets/calendar/calendar.js',
+        'js/widgets/calendar/calendar.css',
+        function () {
+            initListeners();
+            initPage();
+        });
+
+    function initPage() {
+        var data3 = {
+            list: [
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+                {gou: ""},
+            ]
+        }
+        var temple1 = Zepto('#template1').html();
+        var output = Mustache.render(temple1, data3);
+        Zepto('#exceed_list_box').html(output);
+    }
+
+    /**
+     * @description 初始化监听
+     */
+    function initListeners() {
+        ejs.navigator.setMultiTitle({
+            titles: ['待办', '已办'],
+            success: function(result) {
+                /**
+                 * 每一次点击tab都会触发
+                 * {
+                        which: 0
+                   }
+                 */
+            },
+            error: function(error) {}
+        });
+
+        ejs.navigator.setRightBtn({
+            isShow: 1,
+            // 设置图片的优先级会较高
+            imageUrl: './image/wait.png',
+            which: 0, // 每一个按钮的回调是独立返回
+            success: function(result) {
+                /**
+                 * 按钮点击后回调，result回调不需要判断result.which返回值
+                 */
+            },
+            error: function(error) {}
+        });
+    }
+
+})(window)

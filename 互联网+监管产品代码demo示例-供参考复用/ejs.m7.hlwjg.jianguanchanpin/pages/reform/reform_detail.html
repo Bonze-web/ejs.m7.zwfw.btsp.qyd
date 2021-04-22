@@ -1,0 +1,193 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-7 20:56:23
+        版本： [1.0, 201-09-07]
+        版权： 江苏国泰新点软件有限公司
+        描述： 基本信息
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>基本信息</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/common_nodata.css',
+            './css/reform_detail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="em-content mui-hidden">
+        <div class="mui-content"></div>
+
+        <div class="em-reformlist">
+            <!--暂无数据-->
+            <div class="em-tips">
+                <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+                <p>暂无数据</p>
+            </div>
+            <!-- 列表 -->
+            <div id="minirefresh" class="minirefresh-wrap">
+                <div class="minirefresh-scroll">
+                    <ul class="mui-table-view" id="listdata">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="mui-btn mui-btn-blue em-submit hidden">确认整改</button>
+    </div>
+
+    <!-- 详情模板 -->
+    <script type="text/template" id="template">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">执法主题名称:</span>
+						<span class="em-con">{{activityname}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">任务名称:</span>
+						<span class="em-con">{{taskname}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">任务编号:</span>
+						<span class="em-con">{{taskcode}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">行政相对人:</span>
+						<span class="em-con">{{administrativecp}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">行政相对人类型:</span>
+						<span class="em-con">{{administrativecpna}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">行政相对人证件类型:</span>
+						<span class="em-con">{{administrativecpcetype}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">行政相对人编码:</span>
+						<span class="em-con">{{administrativecpuicode}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell em-call">
+					<div class="flex">
+						<span class="em-lable">执法人员:</span>
+						<span class="em-con em-blue">{{lepusernames}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">计划开始时间:</span>
+						<span class="em-con">{{planstartdate}}</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="flex">
+						<span class="em-lable">计划结束时间:</span>
+						<span class="em-con">{{planenddate}}</span>
+					</div>
+				</li>
+			</ul>
+		</script>
+
+    <!--未整改列表模板-->
+    <script type="text/template" id="template2">
+			{{#behaviorlist}}
+			<li class="mui-table-view-cell remove-mui-active" data-isneed="{{isneedrectify}}" data-iszg="{{iszg}}" data-isjyaj="{{isjyaj}}">
+				<p class="flex">
+					<span class="em-title">
+	            		{{itemname}}
+	            	</span>
+				</p>
+				<div class="em-conbox">
+					<p class="em-con">
+						检查结果状态: <span class="em-red">{{checkresultstatus}}</span>
+					</p>
+					<p class="em-con">
+						添加人: {{checklepname}}
+					</p>
+					<p class="em-con">
+						添加时间: {{checkdate}}
+					</p>
+					<p class="em-con">
+						是否需要整改: {{isneedrectify}}
+					</p>
+					<p class="em-con flex em-history hidden" data-isver="{{version}}" data-isneed="{{isneedrectify}}">
+						<span>历史整改信息:</span>
+						<img class="img_check" itemguid="{{itemguid}}" behaviorobjguid="{{behaviorobjguid}}" src="img/img_check.png" />
+					</p>
+				</div>
+				<div class="em-add" rowguid="{{rowguid}}" add="{{iszg}}" behaviorguid="{{behaviorguid}}" behaviorobjguid="{{behaviorobjguid}}">
+					<img class="em-addicon" src="img/img_add.png" />
+					<span class="em-added" data-add="{{iszg}}">添加整改信息</span>
+				</div>
+			</li>
+			{{/behaviorlist}}
+		</script>
+
+    <!--已整改列表模板-->
+    <script type="text/template" id="template3">
+			{{#behaviorlist}}
+			<li class="mui-table-view-cell remove-mui-active">
+				<p class="flex">
+					<span class="em-title">
+	            		{{itemname}}
+	            	</span>
+				</p>
+				<div class="em-conbox">
+					<p class="em-con">
+						检查结果状态: <span class="em-red">{{checkresultstatus}}</span>
+					</p>
+					<p class="em-con">
+						添加人: {{checklepname}}
+					</p>
+					<p class="em-con">
+						添加时间: {{checkdate}}
+					</p>
+					<p class="em-con">
+						是否需要整改: {{isneedrectify}}
+					</p>
+					<p class="em-con flex">
+						<span>历史整改信息:</span>
+						<img class="img_check" itemguid="{{itemguid}}" behaviorobjguid="{{behaviorobjguid}}" src="img/img_check.png" />
+					</p>
+				</div>
+			</li>
+			{{/behaviorlist}}
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/reform_detail.js'
+        ]);
+    </script>
+</body>
+
+</html>

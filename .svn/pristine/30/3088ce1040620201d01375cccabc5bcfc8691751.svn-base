@@ -1,0 +1,51 @@
+<!-- 
+    作者：印沛锜
+    创建时间：2020-09-05 14:27
+    版本： [1.0, 2020-09-05]
+    版权： 江苏国泰新点软件有限公司
+    描述： 扫一扫跳转
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/common_nodata.css',
+				'./css/scan_jump.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+        <!--暂无数据-->
+        <div class="em-tips">
+            <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+            <p>暂无数据</p>
+        </div>
+		<div class="mui-content">
+			<!-- 页面跳转中。。。 -->
+		</div>
+		<script type="text/template" id="template">
+		</script>
+		
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./js/scan_jump.js'
+			]);
+		</script>
+	</body>
+
+</html>

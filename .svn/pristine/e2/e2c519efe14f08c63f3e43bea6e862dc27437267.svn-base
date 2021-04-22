@@ -1,0 +1,74 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>任务反馈</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/dailycheck_taskfeedback.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    
+    <ul class="mui-table-view" id="itemlist">
+    </ul>
+
+    <div class="base-btn">
+        <div>保存</div>
+        <div id="submit">提交审核</div>
+    </div>
+</body>
+
+<script type="text/template" id="item-template">
+    {{#list}}
+    <li class="mui-table-view-cell" data-value="{{itemvalue}}" data-name="{{itemtext}}">
+        <a class="mui-navigate-right">
+            <div class="choosetitle">{{itemtext}}</div>
+            <div class="chooseInfo mui-hidden">
+                <div class="chooseInfo-line">
+                    <span>检查时间:</span>
+                    <span class="checktime"></span>
+                </div>
+                <div class="chooseInfo-line">
+                    <span>检查结果:</span>
+                    <span class="checkresult"></span>
+                </div>
+                <div class="chooseInfo-line">
+                    <span>检查处理方式:</span>
+                    <span class="checkway"></span>
+                </div>
+            </div>
+        </a>
+    </li>
+    {{/list}}
+</script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/dailycheck_taskfeedback.js'
+    ]);
+</script>
+
+</html>

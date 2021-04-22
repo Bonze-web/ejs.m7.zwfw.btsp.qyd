@@ -1,0 +1,87 @@
+body,
+html,
+.minirefresh-upwrap {
+    background-color: #f5f5f5;
+}
+
+/* 搜索部分统一样式 */
+.se-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: #fff;
+}
+
+.se-top {
+    width: 100%;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.se-div {
+    width: 90%;
+    height: 36px;
+    margin: 9px auto;
+    background: rgba(235, 237, 240, 1);
+    border-radius: 2px;
+}
+
+.se-div .se-input {
+    padding: 0 10px 0 34px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    border: none;
+    height: 100%;
+    border-radius: 18px;
+    background: #EBEBEB url(./images/icon_search.png) no-repeat 10px center;
+    background-size: 13px;
+}
+
+::-webkit-input-placeholder {
+    color: #959AA0;
+}
+
+/* 列表 */
+.list-item {
+    padding: 0 15px 10px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 17px;
+    color: #000000;
+    word-break: break-all;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #666666;
+    word-break: break-all;
+}
+
+.row .flex-1 {
+    flex: 1;
+}
+
+.row img {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+.addbtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    z-index: 999;
+}

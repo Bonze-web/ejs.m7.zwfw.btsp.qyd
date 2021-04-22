@@ -1,0 +1,98 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：风险分级评定
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>风险分级评定</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/risk_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="daily-tab">
+        <div class="active" data-type="1">待接收</div>
+        <div data-type="7">移交待接收</div>
+        <div data-type="2">待反馈</div>
+        <div data-type="4">待审核</div>
+        <div data-type="5">已办结</div>
+    </div>
+
+    <div id="minirefresh" class="minirefresh-wrap">
+        <div class="minirefresh-scroll">
+            <ul class="checklist" id="listdata">
+                <!-- <li class="checklist-item checklist-overtime">
+                    <div class="checklist-title">对测试企业有限公司的检查</div>
+                    <div class="checklist-content">
+                        <div>任务编号:RC283823929</div>
+                        <div>检查对象类型:视频生产企业</div>
+                        <div>执法人员:李子梅</div>
+                        <div>计划日期:2020-01-01至2020-12-31 <span class="datetips">(已超期5月12日)</span> </div>
+                    </div>
+                    <div class="checklist-opbtn">
+                        <div>移交</div>
+                        <div id="statusbtn">接收</div>
+                    </div>
+                </li> -->
+                <!-- <li class="checklist-item checklist-resttime">
+                    <div class="checklist-title">对测试企业有限公司的检查</div>
+                    <div class="checklist-content">
+                        <div>任务编号:RC283823929</div>
+                        <div>检查对象类型:视频生产企业</div>
+                        <div>执法人员:李子梅</div>
+                        <div>计划日期:2020-01-01至2020-12-31 <span class="datetips">(剩余5月12日)</span> </div>
+                    </div>
+                    <div class="checklist-oponebtn">任务正在移交中</div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+<!-- 渲染 列表 -->
+<script type="text/template" id="item-template">
+    <li class="checklist-item checklist-{{timestyle}}" data-dutyguid="{{rowguid}}" data-opttype="{{opttype}}" data-optguid="{{optguid}}" data-islock="{{islock}}">
+        <div class="checklist-title">{{taskname}}</div>
+        <div class="checklist-content">
+            <div>任务编号:{{taskcode}}</div>
+            <div>检查对象类型:{{opttype}}</div>
+            <div>执法人员:{{lepusernames}}</div>
+            <div>计划日期:{{planstartdate}}至{{planenddate}} <span class="datetips">({{warningtext}}&nbsp;剩余{{warningdate}}小时)</span> </div>
+        </div>
+        <div class="checklist-opbtn {{statusbtnStyle}}">
+            <div id="transferbtn">{{transferbtn}}</div>
+            <div id="statusbtn">{{statusbtn}}</div>
+        </div>
+        <div class="checklist-oponebtn {{islockstyle}}">任务正在移交中</div>
+    </li>
+</script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/risk_index.js'
+    ]);
+</script>
+
+</html>

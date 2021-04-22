@@ -1,0 +1,310 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 11:35:51
+ * @修改时间: 2021-04-20 19:59:31
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述: 营业信息
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>营业信息</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        SrcBoot.output([
+            '../../js/common/swiper.css',
+            './css/business_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="mui-content">
+        <div class="em-tab-top">
+            <div class="em-tabview-head" data-role="head">
+                <div class="em-tabview-title cur" data-target="title1">基本信息</div>
+                <div class="em-tabview-title" data-target="title2">从业人员信息</div>
+                <div class="em-tabview-title" data-target="title3">食品安全管理人员</div>
+                <div class="em-tabview-title" data-target="title4">自查记录</div>
+            </div>
+        </div>
+        <div class="myswiper_box">
+            <div class="swiper-container" id="swiper-photo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <!-- 门头照片 -->
+                        <div class="head_photo">
+                            <div class="head_photo_title">
+                                门头照片
+                            </div>
+                            <div class="photo_change_box" >
+                                <!-- 用来装照片 -->
+                                <div class="swiper-container swiper3 swiper-file" id="swiper3">
+                                    <div class="swiper-wrapper" id="photo_box">
+
+                                    </div>
+                                </div>
+                                <!-- <div class="photo_box" id="photo_box">
+
+                                </div> -->
+                                <!-- 用来新增照片 -->
+                                <div class="add_image" id="add_image">
+                                    <img src="./image/business_add.png" alt="">
+                                </div>
+                                <input id="fileBtn" type="file" class="mui-hidden">
+                            </div>
+                        </div>
+                        <!-- 管理制度 -->
+                        <div class="institution">
+                            <div class="head_photo_title head_alone_title">
+                                管理制度&nbsp;&nbsp;&nbsp;共 <span id="annexes"></span> 个附件
+                                <input id="filebtn_annexes" type="file" class="mui-hidden">
+                                <div class="appendix" id="appendix">
+                                    <img src="./image/business_copy.png" alt="">
+                                </div>
+                            </div>
+                            <div class="appendix_img_box">
+                                <div class="file_box">
+                                    <div class="swiper-container swiper-file" id="swiper-file">
+                                        <div class="swiper-wrapper" id="wrapper_institution">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 保存按钮 -->
+                        <!-- <div class="conserve" id="photo_save">
+                            保存
+                        </div> -->
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="boxes_things" id="boxes_things">
+                            <div class="empty_data" id="empty_boxes_things">
+                                <img src="./image/business_none_bg.png" >
+                                <div class="empty">暂无人员</div>
+                                <div class="empty_person">点击"新增"创建数据</div>
+                                <div class="add_person staff_add" >
+                                    <img src="./image/business_person_add.png" class="business_person_add">新增
+                                </div>
+                            </div>
+                            <div id="minirefresh2" class="mui-scroll-wrapper">
+                                <div class="mui-scroll">
+                                    <div class="mui-table-view em-table-view" >
+                                        <div class="list-item">
+                                            <div class="add_person alone_add_person staff_add" >
+                                                <img src="./image/business_person_add.png" class="business_person_add">新增
+                                            </div>
+                                            <div class="list_msg_box" id="listdata2">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 保存按钮 -->
+                        <!-- <div class="conserve">
+                            保存
+                        </div> -->
+                    </div>
+                    <div class="swiper-slide">
+                        <!-- 食品安全 -->
+                        <div class="boxes_things" id="food_security">
+                            <div class="empty_data" id="empty_food_security">
+                                <img src="./image/business_none_bg.png" >
+                                <div class="empty">暂无人员</div>
+                                <div class="empty_person">点击"新增"创建数据</div>
+                                <div class="add_person staff_add" >
+                                    <img src="./image/business_person_add.png" class="business_person_add">新增
+                                </div>
+                            </div>
+                            <div id="minirefresh3" class="mui-scroll-wrapper">
+                                <div class="mui-scroll">
+                                    <div class="mui-table-view em-table-view" >
+                                        <div class="list-item">
+                                            <div class="add_person alone_add_person viands_add">
+                                                <img src="./image/business_person_add.png" class="business_person_add">新增
+                                            </div>
+                                            <div class="list_msg_box" id="listdata3">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 保存按钮 -->
+                        <!-- <div class="conserve">
+                            保存
+                        </div> -->
+                    </div>
+                    <div class="swiper-slide">
+                        <!-- 自查记录 -->
+                        <div class="set_up" id="set_up">
+                            <div class="skip_inspection" id="skip_inspection" >
+                                <span class="self_inspection">自查设置：</span><span id="check_frequency"></span>次/<span id="frequency_unit"></span><img src="./image/business_left.png" class="business_left">
+                            </div>
+                        </div>
+                        <div class="empty_data empty_inspection"  id="empty_inspection">
+                            <img src="./image/business_none_bg.png" >
+                            <div class="empty">暂无人员</div>
+                            <div class="empty_person " >点击"新增"创建数据</div>
+                            <div class="add_person self_inspection_add">
+                                <img src="./image/business_person_add.png" class="business_person_add">新增
+                            </div>
+                        </div>
+                        <!-- 设置自查频率 -->
+                        <div class="empty_data" id="add_frequency">
+                            <img src="./image/business_none_bg.png" >
+                            <div class="empty">设置自查频率</div>
+                            <div class="empty_person">请先对自查记录进行设置，设置完成后，才可记录数据。</div>
+                            <div class="add_person" id="self_check_setup">
+                                自查设置
+                            </div>
+                        </div>
+                        <div id="minirefresh4" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div class="mui-table-view em-table-view">
+                                    <div class="boxes_things" >
+                                        <div class="information_list">
+                                            <div class="add_person alone_add_person self_inspection_add">
+                                                <img src="./image/business_person_add.png" class="business_person_add">新增
+                                            </div>
+                                            <div class="list_msg_box" id="inspection">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 保存按钮 -->
+                        <!-- <div class="conserve">
+                            保存
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- 基本信息 -->
+      <script type="text/template" id="template_img">
+        {{#imgArr}}
+            <div class="swiper-slide news_slide">
+                <div class="img_door">
+                    <span class="delete_img" id="delete_img" attachguid="{{attachguid}}"></span>
+                    <div class="fail_img mui-hidden"><span>上传失败<br>点击重新上传</span></div>
+                    <img src="{{attachUrl}}" alt="">
+                </div>
+            </div>
+        {{/imgArr}}
+    </script>
+    <!-- 基本信息的管理制度 -->
+    <script type="text/template" id="template_institution">
+        {{#opearteRules}}
+            <div class="swiper-slide">
+                <div class="file_img_box">
+                    <img src="{{attachUrl}}" alt="">
+                    <span class="file_name_box text-ellipsis">{{attachName}}</span>
+                    <!-- <span class="file_size_box">115.5k</span> -->
+                    <div class="delete_img" id="delete_img_box" attachguid="{{attachguid}}"></div>
+                </div>
+            </div>
+        {{/opearteRules}}
+    </script>
+    <!-- 从业人员信息 -->
+    <script type="text/template" id="template_add1">
+        <div class="list_msg" >
+            <div class="list_btn_delete staff_delete"  rowguid="{{rowguid}}">
+                <img src="./image/business_btn_delete.png" class="btn_delete_img">
+            </div>
+            <div class="resume staff_resume" rowguid="{{rowguid}}" >
+                <div class="resume_name">
+                    {{employee_name}}
+                </div>
+                <div class="resume_license">
+                    {{iccard}}
+                </div>
+                <div class="certInfo">
+                    {{certInfo}}
+                </div>
+            </div>
+            <div class="business_btn_edit staff_edit" rowguid="{{rowguid}}" >
+                <img src="./image/business_btn_edit.png" alt="">
+            </div>
+        </div>
+    </script>
+    <!-- 营业信息 -->
+    <script type="text/template" id="intercalate">
+        <div class="empty_data">
+            <img src="./image/business_data_wrong_bg.png" class="business_data_wrong_bg" >
+            <div class="empty_person">请先对自查记录进行设置,<br>设置完成后,才可记录数据</div>
+            <div class="add_person">
+                <img src="./image/business_person_add.png" class="business_person_add">自查设置
+            </div>
+        </div>
+    </script>
+    <!-- 自查记录 -->
+    <script type="text/template" id="information">
+        <div class="list_msg">
+            <div class="list_btn_delete" id="list_btn_delete" rowguid="{{rowguid}}">
+                <img src="./image/business_btn_delete.png" class="btn_delete_img">
+            </div>
+            <div class="resume">
+                <div class="resume_name">
+                    {{check_content}}
+                </div>
+                <div class="resume_license">
+                    {{check_date}}
+                </div>
+            </div>
+            <div class="business_btn_edit" id="btn_edit_info" rowguid="{{rowguid}}">
+                <img src="./image/business_btn_edit.png" alt="">
+            </div>
+        </div>
+    </script>
+    <!-- 食品安全 -->
+    <script type="text/template" id="foodstuff">
+        <div class="list_msg">
+            <div class="list_btn_delete viands_delete" rowguid="{{rowguid}}">
+                <img src="./image/business_btn_delete.png" class="btn_delete_img">
+            </div>
+            <div class="resume viands_resume" rowguid="{{rowguid}}">
+                <div class="resume_name">
+                    {{administrator}}
+                </div>
+                <div class="resume_license">
+                    <span class="license_sex">{{sex}}</span>{{cert_num}}
+                </div>
+            </div>
+            <div class="business_btn_edit viands_edit" rowguid="{{rowguid}}">
+                <img src="./image/business_btn_edit.png" alt="">
+            </div>
+        </div>
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../../js/common/swiper.js',
+            './js/business_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

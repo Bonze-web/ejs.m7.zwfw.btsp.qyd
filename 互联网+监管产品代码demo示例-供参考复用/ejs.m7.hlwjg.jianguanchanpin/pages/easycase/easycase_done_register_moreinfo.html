@@ -1,0 +1,259 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/16
+	版本： [1.0, 2019/10/16]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-已登记-案件详情
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>案件详情</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_todo_register_moreinfo.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap wrap-done">
+			<!--关联监管行为-->
+			<div class="main-part">
+				<div class="part-title">
+					关联监管行为
+				</div>
+				<ul class="main-ul-items" id="regulatory-listdata">
+
+				</ul>
+			</div>
+			<!--案件基本信息-->
+			<div class="main-part">
+				<div class="part-title">
+					案件基本信息
+				</div>
+				<ul class="main-baseinfo-items" id="baseinfo">
+
+				</ul>
+			</div>
+			<!--处罚事项信息-->
+			<div class="main-part">
+				<div class="part-title">
+					处罚事项信息
+				</div>
+				<ul class="main-ul-items" id="publish-listdata">
+
+				</ul>
+			</div>
+			<!--案件相关材料-->
+			<div class="main-part">
+				<div class="part-title">
+					案件相关材料
+				</div>
+				<ul class="file-ul-items" id="files-listdata">
+
+				</ul>
+			</div>
+			<!--案件承办人信息-->
+			<div class="main-part">
+				<div class="part-title">
+					案件承办人信息
+				</div>
+
+				<!--主办人-->
+				<div class="part-operation">
+					<div class="add-supervision">主办人</div>
+				</div>
+				<ul class="host-ul-items" id="host-listdata">
+
+				</ul>
+
+				<!--协办人-->
+				<div class="part-operation">
+					<div class="add-supervision">协办人</div>
+				</div>
+				<ul class="host-ul-items" id="help-listdata">
+
+				</ul>
+			</div>
+		</div>
+
+		<!--监管行为-->
+		<script type="text/x-mustache" id="regulatory-template">
+			{{#behaviorlist}}
+			<li class="main-li-item">
+				<div class="main-right-title clearfix">
+					<div class="l">{{checklepname}}</div>
+					<div class="r">{{checkdate}}</div>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">监管对象类别</label>
+					<span class="r">{{objtype}}</span>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">监管对象名称</label>
+					<span class="r">{{objname}}</span>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">监察事项</label>
+					<span class="r">{{itemname}}</span>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">监察结果</label>
+					<span class="r">{{checkresultstatus}}</span>
+				</div>
+			</li>
+			{{/behaviorlist}}
+		</script>
+		<!--基本信息-->
+		<script type="text/x-mustache" id="baseinfo-template">
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					所属区域
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{xzqh}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					案件来源
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{source}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					受理单位
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{registerou}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					登记人员
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{registeruser}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					受案日期
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{registerdate}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					案发时间
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{occurdate}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					案发地点
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{occuraddress}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					案件分类
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{category}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					案情摘要
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{summary}}</div>
+				</div>
+			</li>
+			<li class="main-baseinfo-item">
+				<div class="item-name">
+					危害损失情况
+				</div>
+				<div class="item-info">
+					<div class="done-item-info-text">{{losssitiation}}</div>
+				</div>
+			</li>
+		</script>
+		<!--处罚事项-->
+		<script type="text/x-mustache" id="publish-template">
+			{{#categorylist}}
+			<li class="main-li-item">
+				<div class="li-title">
+					<div class="li-title-name clearfix li-title-name-done">
+						<label class="l">事项编号:</label>
+						<span class="r">{{itemcode}}</span>
+					</div>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">处罚对象:</label>
+					<span class="r">{{targetname}}</span>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">事项名称:</label>
+					<span class="r">{{itemname}}</span>
+				</div>
+			</li>
+			{{/categorylist}}
+		</script>
+		<!--相关材料-->
+		<script type="text/x-mustache" id="files-template">
+			{{#clauselist}}
+			<li class="file-li-item" data-src = "{{attachpath}}" data-filename = "{{filename}}">
+				<img class="file-img" src="{{fileicon}}" />
+				<div class="file-info file-info-done">
+					<span class="file-name">{{filename}}</span>
+					<span class="file-size">{{clientinfo}}</span>
+				</div>
+			</li>
+			{{/clauselist}}
+		</script>
+		<!--主办人-->
+		<script type="text/x-mustache" id="host-template">
+			{{#hostlist}}
+			<li class="host-li-item">
+				<div class="host-info done-width-whole">{{username}}</div>
+			</li>
+			{{/hostlist}}
+		</script>
+		<!--协办人-->
+		<script type="text/x-mustache" id="help-template">
+			{{#helplist}}
+			<li class="host-li-item">
+				<div class="host-info done-width-whole">{{username}}</div>
+			</li>
+			{{/helplist}}
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_done_register_moreinfo.js'
+			]);
+		</script>
+	</body>
+
+</html>

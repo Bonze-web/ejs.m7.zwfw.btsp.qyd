@@ -1,0 +1,131 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常巡查登记
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>日常巡查登记</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/inspection_add.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="checkadd">
+        <div class="checkadd-name">检查对象</div>
+        <div class="bg-white">
+            <div class="check-p10">
+                <button class="handlebtn" data-url='./inspection_search.html'>+ 添加检查对象</button>
+            </div>
+
+            <ul class="checkadd-list d-flex hidden" id="checkobj">
+                <li>
+                    <div class="checkadd-list-content">检查对象</div>
+                    <div class="checkadd-list-name" id="company"></div>
+                </li>
+                <li>
+                    <div class="checkadd-list-content">企业类型</div>
+                    <div class="checkadd-list-name" id="listname"></div>
+                </li>
+                <li>
+                    <div class="checkadd-list-content">证件类型</div>
+                    <div class="checkadd-list-name" id="pripidType"></div>
+                </li>
+                <li>
+                    <div class="checkadd-list-content">证件号码</div>
+                    <div class="checkadd-list-name" id="pripid"></div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="checkadd">
+        <div class="checkadd-name">检查项</div>
+        <div class="bg-white">
+            <div class="check-p10">
+                <button class="handlebtn" data-url='../risk_assessment/risk_feedbackaddcheck.html'>+ 添加检查项</button>
+            </div>
+            <ul class="checklist hidden" id="checkitemlist">
+                <li class="checktitle">
+                    <div class="flex-1">序号</div>
+                    <div class="flex-2 text-ellipsis">检查项</div>
+                    <div class="flex-2 text-ellipsis">检查内容</div>
+                    <!-- <div class="flex-1 text-blue">分值</div> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="checkadd">
+        <div class="checkadd-name">检查结果</div>
+
+        <div class="checkitem">
+            <div class="checkitem-time" id="checkDate">
+                <span class="check-name">检查时间</span>
+                <span class="check-flex1 date"></span>
+                <span class="mui-icon mui-icon-arrowright"></span>
+            </div>
+            <div class="check-result">
+                <div class="check-result-name check-name">检查结果</div>
+                <div class="check-result-choose" id="checkResult">
+                </div>
+            </div>
+            <div class="check-result">
+                <div class="check-result-name check-name">检查处理方式</div>
+                <div class="check-result-choose" id="dealWay">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="base-btn">
+        <div>取消</div>
+        <div id="statusbtn">保存</div>
+    </div>
+</body>
+
+<!-- 渲染 选择 -->
+<script type="text/template" id="choose-tpl">
+    {{#list}}
+    <div data-value="{{itemvalue}}">{{itemtext}}</div>
+    {{/list}}
+    </script>
+<!-- 渲染 检查项 -->
+<script type="text/template" id="checkitem-tpl">
+    {{#checkitemlist}}
+    <li class="checkitem">
+        <div class="flex-1">{{index}}</div>
+        <div class="flex-2 text-ellipsis">{{checkitem}}</div>
+        <div class="flex-2 text-ellipsis">{{checkcontent}}</div>
+        <!-- <div class="flex-1 text-blue">{{grade}}</div> -->
+    </li>
+    {{/checkitemlist}}
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/inspection_add.js'
+    ]);
+</script>
+
+</html>

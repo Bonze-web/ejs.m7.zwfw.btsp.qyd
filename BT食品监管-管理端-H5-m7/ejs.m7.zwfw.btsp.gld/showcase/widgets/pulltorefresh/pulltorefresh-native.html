@@ -1,0 +1,118 @@
+<!-- 
+        作者：guotq
+        创建时间: 2017/06/05
+        版本: [1.0, 2017/06/05 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： 稍微复杂点的下拉刷新的使用
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no">
+        <title>列表-原生下拉</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <style>
+            body,
+            .mui-content {
+                background-color: #F5F5F5;
+            }
+            
+            .msg-title {
+                font-size: 15px;
+            }
+            
+            .msg-fs14 {
+                font-size: 14px;
+                color: #999;
+            }
+            
+            .msg-date {
+                float: right;
+            }
+            
+            .mui-table-view-cell:after {
+                left: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view" id="listdata">
+
+                </ul>
+            </div>
+        </div>
+
+        <script type="text/x-tpl" id="item-template">
+            <li class="mui-table-view-cell" id="{{guid}}">
+                <h3 class="msg-title">
+                    {{title}}
+                </h3>
+                <span class="msg-fs14 msg-date">
+                    {{date}}
+                </span>
+            </li>
+        </script>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs(
+                // 下拉刷新
+                'js/widgets/pulltorefresh/pulltorefresh.skin.css',
+                'js/widgets/pulltorefresh/pulltorefresh.skin.default.js',
+                'js/widgets/pulltorefresh/pulltorefresh.skin.native.js',
+                'js/widgets/pulltorefresh/pulltorefresh.bizlogic.impl.js',
+                function() {
+                    initPage();
+                });
+
+            /**
+             * 页面初始化请走这个函数
+             */
+            function initPage() {
+                window.pulltorefresh = new PullToRefreshTools.bizlogic({
+                    skin: Util.os.ejs ? PullToRefreshTools.skin.natives : PullToRefreshTools.skin.defaults,
+                    url: 'https://www.easy-mock.com/mock/5cb6ca44f6c8be4af31ae04d/mock/getlist',
+                    template: '#item-template',
+                    dataRequest: function(currPage) {
+                        // 如果遇到token需要动态获取的常见，arguments[1]就是callback
+                        // 可以通过callback把数据异步回调回去                       
+                        return JSON.stringify({
+                            token: 'RXBvaW50X1dlYlNlcml2Y2VfKiojIzA2MDE=',
+                            params: {
+                                pageindex: currPage,
+                                pagesize: 10,
+                                keyword: 'type1'
+                            }
+                        });
+                    },
+                    dataChange: function(response) {
+                        console.log(response);
+                        var outData = null;
+                        // 采用统一的方式处理
+                        outData = Util.dataProcess(response, {
+                            dataPath: 'custom.infolist'
+                        }).data;
+
+                        return outData;
+                    },
+                    itemClick: function(e) {
+                        console.log("点击item");
+                    }
+                });
+            }
+        </script>
+    </body>
+
+</html>

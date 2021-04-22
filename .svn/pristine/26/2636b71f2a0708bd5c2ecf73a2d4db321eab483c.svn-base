@@ -1,0 +1,280 @@
+/**
+ * 作者：丁力
+ * 创建时间：2019-9-7 20:58:354
+ * 版本：[1.0, 2019-9-7]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：基本信息
+ **/
+
+.mui-content > .mui-table-view:first-child {
+  margin-top: 0;
+}
+
+.mui-table-view-cell.mui-active {
+  background: #ffffff;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+/*列表内容*/
+
+.red {
+  color: #ff0000;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flexb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.em-lable {
+  width: 100px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.em-con {
+  width: calc(100% - 110px);
+  font-size: 14px;
+  color: #333;
+}
+
+.em-red {
+  color: #ff0000;
+}
+
+/*页面主体：附件*/
+
+.attachbox {
+  margin: 8px 0;
+  padding: 5px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.em-todo-attach-info {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 50px);
+}
+
+.em-todo-attach-info > img {
+  margin: -4px 10px 0 0;
+  min-width: 36px;
+  height: 36px;
+}
+
+.em-todo-attach-info p {
+  font-size: 12px;
+}
+
+.em-todo-attach-info .em-todo-attach-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 15px;
+  color: #333333;
+}
+
+.em-todo-attach-time {
+  position: relative;
+  margin-right: 10px;
+}
+
+.em-todo-attach-time:after {
+  position: absolute;
+  top: 2px;
+  right: -5px;
+  width: 1px;
+  height: 10px;
+  background-color: #e1e1e1;
+  content: '';
+}
+
+.em-todo-attach-pic {
+  position: relative;
+  display: flex;
+}
+
+.em-todo-attach-pic img {
+  width: 46px;
+  height: 46px;
+  padding: 13px;
+}
+
+.em-line {
+  width: 4px;
+  height: 14px;
+  background: #3c80e6;
+  margin-right: 9px;
+}
+
+.em-bar {
+  font-size: 15px;
+  color: #333;
+}
+
+.em-reformbox {
+  margin-bottom: 10px;
+  padding: 8px 15px;
+  border: 1px solid #e5e5e5;
+  font-size: 15px;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.em-title {
+  margin-bottom: 10px !important;
+  font-size: 17px;
+  color: #333;
+}
+
+.em-bgrade {
+  color: #d52323;
+}
+
+.em-bgradeicon {
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.em-bluecon {
+  margin-right: 10px;
+}
+
+.em-blue {
+  position: relative;
+  color: #3c80e6;
+}
+
+.mui-navigate-right:after,
+.mui-push-right:after {
+  color: #3c80e6;
+  right: -8px;
+}
+
+/*下拉列表内容*/
+
+.em-reformlist {
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.em-tips {
+  top: 50px;
+  background: none;
+}
+
+#listdata {
+  margin: 10px;
+  background: #efeff4;
+}
+
+.em-reformlist #listdata li {
+  padding: 20px 15px 12px 15px;
+  margin: 10px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.em-reformlist .em-title {
+  font-size: 17px;
+  color: #000000;
+}
+
+.em-reformlist .mui-table-view:before,
+.em-reformlist .mui-table-view:after {
+  height: 0px;
+}
+
+.em-reformlist .mui-navigate-right:after,
+.em-reformlist .mui-push-right:after {
+  font-size: 18px;
+}
+
+.em-reformlist .em-conbox {
+  position: relative;
+  margin: 15px 0;
+  border-left: 2px solid #cedbef;
+}
+
+.em-reformlist .em-con {
+  width: 100%;
+  margin-left: 10px;
+  font-size: 14px;
+  line-height: 26px;
+  color: #8c8c8c;
+}
+
+.em-reformlist .em-bgrade {
+  color: #d52323;
+}
+
+.em-reformlist .em-bgradeicon {
+  width: 15px;
+  height: 15px;
+}
+
+.em-reformlist .em-add {
+  padding: 10px 0;
+  margin-bottom: 10px;
+  background: #ecf4ff;
+  color: #3c80e6;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.em-reformlist .em-add:active {
+  background: #eeeeff;
+}
+
+.em-reformlist .em-addicon {
+  width: 12px;
+  height: 12px;
+}
+
+.em-reformlist .em-reforminfo {
+  margin: 5px 0;
+  padding: 15px;
+  border: 1px solid #efc0c0;
+  border-radius: 4px;
+  background: #fff8f7;
+}
+
+.img_check {
+  margin-left: 20px;
+  width: 25px;
+  height: 25px;
+}
+
+.em-submit {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  /* margin-left: 10%; */
+  height: 40px;
+  /* border-radius: 8px; */
+  z-index: 20;
+}
+
+.minirefresh-totop {
+  bottom: 70px !important;
+}
+
+.em-tips {
+  z-index: 10 !important;
+}

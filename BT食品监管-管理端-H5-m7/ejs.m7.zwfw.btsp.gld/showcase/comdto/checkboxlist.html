@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>控件示例</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/common.new.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="page-loading"></div>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">多选框列表控件</h1>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <h5 class="multi-line-title">多项选择</h5>
+        <div class="mui-card">
+            <div class="mui-input-group ep-mui-checkboxlist" id="movement" bind="myinfomodifyaction.user.movement"
+                data="[{value:'唱歌',text:'唱歌'},{value:'跳舞',text:'跳舞'},{value:'rap',text:'rap'},{value:'篮球',text:'篮球'}]">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        Util.loadJs(initPage);
+
+        function initPage() {
+            epointm.initPage("data/myinfo.json", null, null, null, {
+                method: "GET"
+            });
+        }
+    </script>
+</body>
+
+</html>

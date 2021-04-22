@@ -1,0 +1,332 @@
+/**
+ * 作者： 袁莉
+ * 创建时间： 2019/10/15
+ * 版本： [1.0, 2019/10/15]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：简易案件-待登记-案件登记
+ */
+
+.wrap {
+	padding-bottom: 50px;
+}
+
+.wrap-done {
+	padding-bottom: 0;
+}
+
+.baseinfo {
+	min-height: 128px;
+	padding: 10px 15px;
+	background: #fff;
+}
+
+.baseinfo-title {
+	font-size: 16px;
+	color: #000;
+	margin-bottom: 5px !important;
+}
+
+.baseinfo-list {
+	display: flex;
+	color: #666;
+	font-size: 14px;
+}
+
+.baseinfo-list>label {
+	margin: auto 0;
+	display: inline-block;
+	width: 72px;
+}
+
+.baseinfo-list>span {
+	margin: auto 0;
+	display: inline-block;
+	width: calc(100% - 75px);
+}
+
+.baseinfo-list-name {
+	width: 115px!important;
+}
+
+.baseinfo-list-info {
+	width: calc(100% - 120px)!important;
+}
+
+
+/*查看任务基本详情*/
+
+.check-casedetil {
+	margin-bottom: 10px;
+	border-top: 1px solid #f1f1f1;
+	background: #fff;
+}
+
+.mui-table-view-cell:after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 15px;
+	height: 0;
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	background-color: #c8c7cc;
+}
+
+
+/*登记案件列表*/
+
+.main-part {
+	background: #fff;
+}
+
+.part-title {
+	position: relative;
+	height: 44px;
+	line-height: 30px;
+	padding: 7px 10px 7px 12px;
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #c8c7cc;
+	text-indent: 10px;
+}
+
+.part-title::before {
+	position: absolute;
+	top: 14px;
+	bottom: 14px;
+	left: 11px;
+	width: 4px;
+	content: '';
+	background-color: #3c80e6;
+}
+
+.operation-tip {
+	padding: 10px 0 0 0;
+	color: #666;
+	font-size: 15px;
+	text-align: center;
+}
+
+.add-supervision {
+	width: calc(100% - 30px);
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	color: #4285f4;
+	background: #ecf4ff;
+	margin: 12px 15px 5px 15px;
+	padding: 0;
+	border-radius: 3px;
+	text-align: center;
+	border: none;
+}
+
+.num-content {
+	font-style: normal;
+}
+
+
+/*案件列表*/
+
+.main-ul-items {
+	padding-bottom: 1px;
+	margin-bottom: 10px;
+}
+
+.main-li-item {
+	padding-bottom: 10px;
+	margin: 10px;
+	font-size: 15px;
+	overflow: hidden;
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.li-title {
+	display: flex;
+	color: #333;
+	font-size: 16px;
+	padding: 10px 15px;
+	margin-bottom: 5px;
+	background: #fafafa;
+}
+
+.li-title-name {
+	display: inline-block;
+	width: calc(100% - 91px);
+	padding-top: 5px;
+}
+
+.li-title-name-done {
+	width: 100%;
+}
+
+.li-title-name>label {
+	display: inline-block;
+	width: 73px;
+}
+
+.li-title-name>span {
+	display: inline-block;
+	width: calc(100% - 79px);
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+}
+
+.li-title-action {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	width: 90px;
+	min-height: 30px;
+}
+
+.edit-action,
+.del-action {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: absolute;
+	background: #fff;
+	border: 1px solid #ececec;
+	border-radius: 3px;
+}
+
+.edit-action {
+	right: 55px;
+}
+
+.del-action {
+	right: 0;
+}
+
+.edit-action i {
+	background-image: url(./img/img_icon_edit.png);
+}
+
+.del-action i {
+	background-image: url(./img/img_icon_del.png);
+}
+
+.edit-action i,
+.del-action i {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+.li-list {
+	padding: 5px 15px 0 15px;
+	color: #666;
+}
+
+.li-list>label {
+	display: inline-block;
+	width: 70px;
+}
+
+.li-list>span {
+	display: inline-block;
+	width: calc(100% - 70px);
+}
+
+.li-tips {
+	margin-top: 10px;
+	padding: 10px 15px;
+	color: #333;
+	font-size: 16px;
+	border-top: 1px solid #f1f1f1;
+}
+
+
+/*送下一步按钮*/
+
+.btn-content {
+	position: fixed;
+	width: 100%;
+	height: 44px;
+	bottom: 0;
+	z-index: 100;
+}
+
+.btn-next {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	color: #fff;
+	font-size: 17px;
+	font-weight: bold;
+	border-radius: 0;
+	background: #3c80e6;
+}
+
+
+/*已登记*/
+
+
+/*.main-right {
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 10px;
+	margin: auto 0;
+	border-radius: 4px;
+	border: 1px solid #e5e5e5;
+	overflow: hidden;
+}*/
+
+.main-right-title {
+	/*display: flex;*/
+	color: #333;
+	font-size: 16px;
+	padding: 10px 15px;
+	margin-bottom: 5px;
+	background: #fafafa;
+}
+
+.main-right-title>label {
+	display: inline-block;
+	width: 75px;
+}
+
+.main-right-title>span {
+	display: inline-block;
+	width: calc(100% - 75px);
+}
+
+.main-right-list {
+	padding: 5px 15px 0 15px;
+	color: #666;
+	font-size: 15px;
+}
+
+.main-right-list>label {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	width: 90px;
+	text-justify: distribute-all-lines;
+	text-align-last: justify;
+}
+
+.main-right-list>label:after {
+	position: absolute;
+	z-index: 1;
+	content: ':';
+	font-size: 16px;
+	color: #666;
+	top: -2px;
+}
+
+.main-right-list>span {
+	display: inline-block;
+	width: calc(100% - 96px);
+	color: #333;
+}

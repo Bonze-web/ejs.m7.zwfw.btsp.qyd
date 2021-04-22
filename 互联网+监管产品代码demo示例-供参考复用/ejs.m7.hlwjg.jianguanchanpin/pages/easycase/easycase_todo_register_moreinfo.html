@@ -1,0 +1,250 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/16
+	版本： [1.0, 2019/10/16]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-待登记-简易案件登记
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>简易案件登记</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_todo_register_moreinfo.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--案件基本信息-->
+			<div class="main-part">
+				<div class="part-title">
+					案件基本信息
+				</div>
+				<ul class="main-baseinfo-items">
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							所属区域<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" placeholder="请选择" id="xzqh" readonly="readonly" />
+							<a class="mui-navigate-right"></a>
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							案件来源<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" placeholder="请选择" id="source" readonly="readonly" />
+							<a class="mui-navigate-right"></a>
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							受理单位
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" id="registrantouname" readonly="readonly" />
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							登记人员
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" id="registrantusername" readonly="readonly" />
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							受案日期<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" id="registerdate" readonly="readonly" />
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							案发时间<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" placeholder="请选择" id="occurdate" readonly="readonly" />
+							<a class="mui-navigate-right"></a>
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							案发地点<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" type="text" placeholder="请输入" id="occuraddress" />
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							案件分类<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" placeholder="请选择" id="category" readonly="readonly" />
+							<a class="mui-navigate-right"></a>
+						</div>
+					</li>
+					<li class="main-baseinfo-item">
+						<div class="item-name">
+							案情摘要<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" type="text" placeholder="请输入" id="summary" />
+						</div>
+					</li>
+					<li class="main-baseinfo-item btm-none">
+						<div class="item-name">
+							危害损失情况<i class="icon-important"></i>
+						</div>
+						<div class="item-info">
+							<input class="item-info-text" type="text" placeholder="请输入" id="losssitiation" />
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--处罚事项信息-->
+			<div class="main-part">
+				<div class="part-title">
+					处罚事项信息
+					<span class="red">*</span>
+				</div>
+				<div class="part-operation">
+					<button class="add-supervision" id="btn-addpublish">+&nbsp;&nbsp;添加处罚事项</button>
+				</div>
+				<ul class="main-ul-items" id="publish-listdata">
+
+				</ul>
+			</div>
+			<!--案件相关材料-->
+			<div class="main-part">
+				<div class="part-title">
+					案件相关材料
+				</div>
+				<div class="part-operation">
+					<button class="add-supervision" id="btn-addfile">+&nbsp;&nbsp;添加相关材料</button>
+				</div>
+				<ul class="file-ul-items" id="files-listdata">
+
+				</ul>
+			</div>
+			<!--案件承办人信息-->
+			<div class="main-part">
+				<div class="part-title">
+					案件承办人信息
+					<span class="red">*</span>
+				</div>
+
+				<!--主办人-->
+				<div class="part-operation">
+					<button class="add-supervision" id="btn-addhost">+&nbsp;&nbsp;添加主办人</button>
+				</div>
+				<ul class="host-ul-items" id="host-listdata">
+
+				</ul>
+
+				<!--协办人-->
+				<div class="part-operation">
+					<button class="add-supervision" id="btn-addhelp">+&nbsp;&nbsp;添加协办人</button>
+				</div>
+				<ul class="host-ul-items" id="help-listdata">
+
+				</ul>
+			</div>
+			<div class="footer">
+				<button class="btn-save" id="btn-save">保存</button>
+			</div>
+		</div>
+
+		<!--处罚事项信息模板-->
+		<script type="text/x-mustache" id="publish-template">
+			{{#categorylist}}
+			<li class="main-li-item" data-rowguid="{{rowguid}}" data-basicguid="{{basicguid}}" data-clauseguid="{{clauseguid}}">
+				<div class="li-title">
+					<div class="li-title-name clearfix">
+						<label class="l">事项编号:</label>
+						<span class="r">{{itemcode}}</span>
+					</div>
+					<div class="li-title-action">
+						<span class="edit-action" data-rowguid="{{rowguid}}" data-basicguid="{{basicguid}}" data-clauseguid="{{clauseguid}}"><i></i></span>
+						<span class="del-action" data-rowguid="{{rowguid}}" data-basicguid="{{basicguid}}" data-clauseguid="{{clauseguid}}"><i></i></span>
+					</div>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">处罚对象:</label>
+					<span class="r">{{targetname}}</span>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">事项名称:</label>
+					<span class="r">{{itemname}}</span>
+				</div>
+			</li>
+			{{/categorylist}}
+		</script>
+
+		<!--附件模板-->
+		<script type="text/x-mustache" id="file-template">
+			{{#clauselist}}
+			<li class="file-li-item" data-rowguid="{{rowguid}}">
+				<img class="file-img" src="{{fileicon}}" />
+				<div class="file-info">
+					<span class="file-name">{{filename}}</span>
+					<span class="file-size">{{clientinfo}}</span>
+				</div>
+				<span class="file-del" data-rowguid="{{rowguid}}"><i></i></span>
+			</li>
+			{{/clauselist}}
+		</script>
+
+		<!--主办人模板-->
+		<script type="text/x-mustache" id="host-template">
+			{{#hostlist}}
+			<li class="host-li-item">
+				<div class="host-info">{{username}}</div>
+				<span class="file-del" data-rowguid="{{rowguid}}"><i></i></span>
+			</li>
+			{{/hostlist}}
+		</script>
+		<!--主办人模板-->
+		<script type="text/x-mustache" id="host-template-add">
+			<li class="host-li-item">
+				<div class="host-info">{{username}}</div>
+				<span class="file-del" data-rowguid="{{rowguid}}"><i></i></span>
+			</li>
+		</script>
+
+		<!--协办人模板-->
+		<script type="text/x-mustache" id="help-template">
+			{{#helplist}}
+			<li class="host-li-item">
+				<div class="host-info">{{username}}</div>
+				<span class="file-del" data-rowguid="{{rowguid}}"><i></i></span>
+			</li>
+			{{/helplist}}
+		</script>
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_todo_register_moreinfo.js'
+			]);
+		</script>
+	</body>
+
+</html>

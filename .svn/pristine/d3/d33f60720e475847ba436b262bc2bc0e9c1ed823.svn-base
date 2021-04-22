@@ -1,0 +1,91 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 11:35:51
+ * @修改时间: 2021-04-09 11:22:01
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>我的收藏</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../../js/common/swiper.css',
+            './css/collection_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="mui-content">
+        <div class="em-tab-top">
+            <div class="em-tabview-head" data-role="head">
+                <div class="em-tabview-title cur" data-target="title1">通知公告</div>
+                <div class="em-tabview-title" data-target="title2">应用名称1</div>
+                <div class="em-tabview-title" data-target="title3">应用名称2</div>
+            </div>
+        </div>
+        <div class="myswiper_box">
+            <div class="swiper-container" id="swiper-photo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div id="minirefresh1" class="minirefresh-wrap">
+                            <div class="minirefresh-scroll">
+                                <ul class="mui-table-view" id="listdata1">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        应用名称1
+                    </div>
+                    <div class="swiper-slide">
+                        应用名称2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/template" id="template1">
+        <li class="list-item">
+            <div class="item-l">
+                <div class="title text-ellipsis">
+                    主标题信息主标题信息主标题信息主标题信息主标题信息
+                </div>
+                <div class="row">
+                    <span>健康证到期预警</span>
+                    <span>2021-03-26</span>
+                </div>
+            </div>
+            <div class="collection">
+                <img src="./image//icon_collect.png" alt="">
+                <div>取消收藏</div>
+            </div>
+        </li>
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../../js/common/swiper.js',
+            './js/collection_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

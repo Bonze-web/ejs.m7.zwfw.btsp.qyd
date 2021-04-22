@@ -1,0 +1,44 @@
+{
+	"controls": [{
+			"data": "{\"total\":1,\"data\":[{\"pviguid\":\"ff80901c-d206-4d21-9f6e-deba34451a6f\",\"materialname\":\"\u5176\u4ED6\u9644\u4EF6\",\"mustsubmit\":\"\u5426\",\"submitstatus\":\"<font color='gray'>[\u672A\u63D0\u4EA4]</font>\",\"workitemguid\":\"6e591ba5-f95c-4c95-8420-bf34c50a3bfc\",\"materialguid\":\"28cbebd4-7822-41b7-8401-c526128aed2c\"}]}",
+			"id": "workflowattach",
+			"value": ""
+		},
+		{
+			"data": "{\"total\":2,\"data\":[{\"pviguid\":\"ff80901c-d206-4d21-9f6e-deba34451a6f\",\"opiniondate\":\"2019-06-10 15:15:22\",\"opiniontext\":\"111\",\"activityguid\":\"b4ee7def-24d5-4702-ab0d-c46d7ac1adac\",\"canedit\":\"true\",\"activityinstanceguid\":\"8eb42774-87ef-46a6-b6b3-c9e8a442bb5f\",\"workitemguid\":\"3c942bda-a000-4436-aea4-c05632b113e1\",\"activityname\":\"1\",\"addusername\":\"\u7CFB\u7EDF\u7BA1\u7406\u5458\",\"adduserguid\":\"45f0c5f9-cad2-49e6-887d-b38dfcbc23de\",\"adddate\":1560150922000,\"opinionguid\":\"150d4dad-e32c-4189-9148-a6adf782b8c6\"},{\"pviguid\":\"ff80901c-d206-4d21-9f6e-deba34451a6f\",\"opiniondate\":\"2019-06-20 18:33:06\",\"opiniontext\":\"111\",\"activityguid\":\"0e7a7022-1515-4945-9e0a-34f623addea7\",\"canedit\":\"true\",\"activityinstanceguid\":\"f7bf01d7-ae8a-489f-be7a-3ae4b85739f0\",\"workitemguid\":\"b5907b68-b135-4d9c-b788-c72119e0d90f\",\"activityname\":\"2\",\"addusername\":\"\u7CFB\u7EDF\u7BA1\u7406\u5458\",\"adduserguid\":\"45f0c5f9-cad2-49e6-887d-b38dfcbc23de\",\"adddate\":1561026786000,\"opinionguid\":\"92d753ab-c829-4b88-9a15-34e7aeea0699\"}],\"useropinionlist\":{\"total\":0,\"data\":[]}}",
+			"id": "workflowhistory",
+			"value": ""
+		},
+		{
+			"data": "{\"lockdttm\":\"\",\"pviguid\":\"16ad8161-e138-4c0a-af76-4a5b49af6b80\",\"acthtml\":\"\u63D0\u4EA4\",\"isshowlockbut\":false,\"btn\":[{\"isrequireopinion\":true,\"isshowoperationpage\":true,\"operationguid\":\"d9b132de-fd73-4b1c-a31c-ce92fb8b8229\",\"transitionguid\":\"\",\"beforeact\":\"\",\"defaultopinion\":\"\",\"text\":\"\u81EA\u5B9A\u4E49\u6309\u94AE\",\"operationtype\":\"Custom\",\"btnid\":\"btn_d9b132de-fd73-4b1c-a31c-ce92fb8b8229\",\"click\":\"\"},{\"isrequireopinion\":true,\"isshowoperationpage\":true,\"operationguid\":\"4c2d1af3-29e6-4635-a8f0-9fd96d5fb100\",\"transitionguid\":\"\",\"beforeact\":\"\",\"defaultopinion\":\"\",\"text\":\"\u63D0\u4EA4\u5BA1\u6838\",\"operationtype\":\"Pass\",\"btnid\":\"btn_4c2d1af3-29e6-4635-a8f0-9fd96d5fb100\",\"click\":\"AjaxOperation('4c2d1af3-29e6-4635-a8f0-9fd96d5fb100','','Pass','','');return false;\"}],\"info\":\"\",\"lockTimeControl\":\"\"}",
+			"id": "handlecontrols",
+			"value": ""
+		},
+		{
+			"id": "loginId",
+			"value": "admin"
+		},
+		{
+			"id": "displayName",
+			"value": "\u7CFB\u7EDF\u7BA1\u7406\u5458"
+		},
+		{
+			"id": "title",
+			"value": "\u6D4B\u8BD5\u5DE5\u7A0B\u5E08"
+		},
+		{
+			"id": "telephoneOffice",
+			"value": "18662636226"
+		},
+		{
+			"id": "telephoneHome",
+			"value": "186626362262"
+		}
+	],
+	"custom": {},
+	"status": {
+		"code": "1",
+		"text": "",
+		"url": ""
+	}
+}

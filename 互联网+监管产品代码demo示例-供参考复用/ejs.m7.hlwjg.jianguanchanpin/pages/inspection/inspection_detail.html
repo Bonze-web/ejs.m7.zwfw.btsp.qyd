@@ -1,0 +1,273 @@
+<!--
+作者：解宇
+创建时间：2019-9-5
+版本：[1.0, 2019-9-5]
+版权：江苏国泰新点软件有限公司
+描述：任务详情
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务详情</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/inspection_detail.css',
+            './css/uploadfile.css'
+        ]);
+    </script>
+    <style>
+        .return {
+            position: fixed;
+            right: 2%;
+            bottom: 7%;
+            width: 48px;
+            height: 48px;
+            background: url(./img/img_icon_uptotop.png);
+            background-size: 100% 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <!--基本信息-->
+        <div class="content-contrainer" id="baselist">
+            <div class="baseinfo">
+                <div class="baseinfo-title">任务基本信息</div>
+                <ul class="mui-table-view" id="baseList">
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">执法主题名称:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">任务名称:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">任务编号:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人性质:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人证件类型:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">行政相对人证件编码:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">执法人员:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">计划开始时间:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <li class="mui-table-view-cell unit-item">
+                        <div class="unit-item-left">计划结束时间:</div>
+                        <div class="unit-item-right" id=""></div>
+                    </li>
+                    <!--<li class="mui-table-view-cell unit-item">
+							<div class="unit-item-left">是否处罚</div>
+							<div class="unit-item-right" id="em-jcfs">
+								<div class="mui-input-row mui-radio mui-left">
+									<label>否</label>
+									<input name="checkbox1" value="1" type="radio" checked disabled="disabled">
+								</div>
+								<div class="mui-input-row mui-radio mui-left">
+									<label>简易案件</label>
+									<input name="checkbox1" value="2" type="radio" disabled="disabled">
+								</div>
+								<div class="mui-input-row mui-radio mui-left">
+									<label>一般案件</label>
+									<input name="checkbox1" value="3" type="radio" disabled="disabled">
+								</div>
+							</div>
+						</li>-->
+                </ul>
+            </div>
+            <!-- 监管行为信息 -->
+            <div class="baseinfo">
+                <div class="baseinfo-title">监管行为信息<span class="color-red">*</span></div>
+                <div class="btn-addaction" id="btn-addaction">+&nbsp;&nbsp;添加监管行为</div>
+                <ul class="mui-table-view action" id="supervisionList">
+
+                </ul>
+            </div>
+
+            <!-- 执法人员签名 -->
+            <div class="baseinfo mb50">
+                <div class="baseinfo-title">执法人员签名</div>
+                <div class="check-content" id="signList">
+
+                </div>
+            </div>
+        </div>
+
+        <!--操作按钮-->
+        <div class="operation">
+            <button class="l" id="btn-save">保&nbsp;&nbsp;存</button>
+            <button class="l" id="btn-handle">反&nbsp;&nbsp;馈</button>
+        </div>
+    </div>
+
+    <div class="return top_btn ng-scope" style="display: block;"></div>
+
+    <!-- 基本信息模板 -->
+    <script type="text/x-tpl" id="base-template">
+			{{#baseInfo}}
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法主题名称:</div>
+				<div class="unit-item-right" id="">{{activityname}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">任务名称:</div>
+				<div class="unit-item-right" id="">{{taskname}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">任务编号:</div>
+				<div class="unit-item-right" id="">{{taskcode}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人:</div>
+				<div class="unit-item-right flex-row" id="">
+					<span class="w-100">{{administrativecp}}</span>
+					<i class="mui-icon mui-icon-phone color-blue ml10 mr10" id="dzxdr-tel" data-tel="{{xzxdr_tel}}"></i>
+					<i class="mui-icon mui-icon-navigate color-blue ml10" id="nav" data-name="{{administrativecp}}" data-lat="{{lat}}" data-lng="{{lng}}"></i>
+				</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人性质:</div>
+				<div class="unit-item-right" id="">{{administrativecpna}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人证件类型:</div>
+				<div class="unit-item-right" id="">{{administrativecpcetype}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人证件编码:</div>
+				<div class="unit-item-right" id="">{{administrativecpuicode}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法人员:</div>
+				<div class="unit-item-right" id="">{{lepusernames}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">计划开始时间:</div>
+				<div class="unit-item-right" id="">{{planstartdate}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">计划结束时间:</div>
+				<div class="unit-item-right" id="">{{planenddate}}</div>
+			</li>
+			{{/baseInfo}}
+		</script>
+
+    <!-- 监管行为信息模板 -->
+    <script type="text/x-tpl" id="supervision-template">
+			{{#supervisionfo}}
+            <li class="mui-table-view-cell unit-item pb12 supervision-item"
+           
+            data-checkresultstatusvalue="{{checkresultvalue}}">
+				<div class="action-item">
+					<div class="action-item-title">
+						<i></i>
+						<span class="bold font16 mr10">{{createuser}}</span>
+						<span class="color-gray">{{createdate}}</span>
+                        <span class="edit-action"
+                        data-objguid="{{objguid}}" data-objname="{{objname}}" data-objtype="{{objtype}}" data-objtypevalue="{{objtypevalue}}"  data-behaviorobjguid="{{behaviorobjguid}}"><i></i></span>
+						<span class="del-action" data-rowguid="{{behaviorobjguid}}"><i></i></span>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">检查对象类别：</div>
+						<div class="unit-item-right">{{objtype}}</div>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">检查对象：</div>
+						<div class="unit-item-right">{{objname}}</div>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">检查结果状态：</div>
+						<div class="unit-item-right"><i class="ispass checkstatus{{checkstatus}}"></i>{{checkresult}}</div>
+					</div>
+				</div>
+			</li>
+			{{/supervisionfo}}
+		</script>
+
+    <!-- 执法人员签名模板 -->
+    <script type="text/x-tpl" id="sign-template">
+			{{#signionfo}}
+			<!--<div class="check-sub" data-personguid="{{lepguid}}" data-attachguid="{{attachguid}}">
+				<div class="check-sub-item">
+					<div class="check-sub-item-title persona">
+						执法人员
+						<div class="check-person">{{lepname}}</div>
+					</div>
+				</div>
+				<div class="showimg" id="showimgper">
+					<img src="{{attachpath}}" alt="" id="personsignimg" data-id="{{attachguid}}" />
+				</div>
+				<div class="check-sub-item check-sub-item-sign issign{{isshow}}" id="personsign">
+					请点击进行签字
+				</div>
+			</div>-->
+			<div class="check-sub isshow{{isshowsub}}" data-personguid="{{lepguid}}" data-attachguid="{{attachguid}}">
+				<div class="check-sub-item">
+					<div class="check-sub-item-title persona">
+						执法人员
+						<div class="check-person">{{lepname}}</div>
+					</div>
+				</div>
+				<div class="showimg" id="showimgper">
+					<img src="{{attachpath}}" alt="" id="personsignimg" data-id="{{attachguid}}" />
+				</div>
+				<div class="check-sub-item check-sub-item-sign issign{{isshow}}" id="personsign">
+					请点击进行签字
+				</div>
+
+				<div class="check-sub-item tip-camera">
+					<div class="check-sub-item-title camera">
+						执法人员照片
+						<div class="check-camera"><i class="mui-icon mui-icon-camera color-blue"></i></div>
+					</div>
+				</div>
+
+				<div class="showimg-camera" id="showimgper-camera">
+					<img src="{{picturepath}}" alt="" id="camerasignimg" data-id="{{pictureguid}}">
+				</div>
+			</div>
+			{{/signionfo}}
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/inspection_detail.js',
+        ]);
+    </script>
+
+</body>
+
+</html>

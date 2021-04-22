@@ -1,0 +1,87 @@
+body,html {
+    background-color: #f5f5f5;
+}
+
+.checktitle {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.checktitle .checktitle-right {
+    margin: 0 2px;
+    display: inline-block;
+    background: url('./images/img-righticon.png');
+    background-size: 100% 100%;
+    width: 13px;
+    height: 11px;
+}
+.childlist-unchoose {
+    position: relative;
+}
+.childlist-unchoose:before {
+    position: absolute;
+    content: '';
+    top: calc(50% - 9px);
+    right: 10px;
+    background: url('./images/img-unchoose.png');
+    background-size: 100% 100%;
+    width: 18px;
+    height: 18px;
+}
+.childlist-choose {
+    position: relative;
+}
+.mui-table-view-cell:last-child:before {
+    height: 18px;
+}
+.childlist-choose:before {
+    position: absolute;
+    content: '';
+    top: calc(50% - 9px);
+    right: 10px;
+    background: url('./images/img-choose.png');
+    background-size: 100% 100%;
+    width: 18px;
+    height: 18px;
+}
+.mui-table-view-cell {
+    font-size: 14px;
+}
+
+.base-btn {
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+}
+.base-btn div {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: calc(50% - 5px);
+    border-radius: 4px;
+    font-size: 14px;
+}
+.base-btn div:nth-child(1) {
+    margin-right: 10px;
+    background-color: #fff;
+    color: #3c80e6;
+}
+.base-btn div:nth-child(2) {
+    background-color: #3c80e6;
+    color: #fff;
+}
+
+.surebtn {
+    margin: 20px 5%;
+    width: 90%;
+    height: 40px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #3c80e6;
+    color: #fff;
+    border: none;
+}

@@ -1,0 +1,83 @@
+<!--
+        作者：戴荔春
+        创建时间: 2017/06/01
+        版本: [3.0, 2017/06/01 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：  auth 模块的示例
+-->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- 移动端的响应式特性 -->
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>auth模块</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            SrcBoot.output([
+                './_common/common.css'
+            ]);
+        </script>
+
+    </head>
+
+    <body>
+        <div class="mui-content pt0" id="ejs-app">
+
+        </div>
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs(
+                './_common/bizlogic_common_ready.js',
+                function() {
+                    Util.bizlogic.ready(initPage);
+                });
+
+            function initPage() {
+                var litemplate = new Util.litemplate.listLitemplate({
+                    isIndex: false,
+                    title: 'auth模块',
+                    ejsApi: [{
+                        'id': 'getToken',
+                        'text': 'getToken(获取token)',
+                        'evn': 'ejs',
+                        'runCode': function() {
+                            ejs.auth.getToken({
+                                success: function(result) {
+                                    litemplate.showTips(JSON.stringify(result));
+                                },
+                                error: function(error) {
+                                    litemplate.showTips('失败:' + JSON.stringify(error));
+                                }
+                            });
+
+                        }
+                    }, {
+                            'id': 'getUserInfo',
+                            'text': 'getUserInfo(获取当前登陆用户信息)',
+                            'evn': 'ejs',
+                            'runCode': function () {
+                                ejs.auth.getUserInfo({
+                                    success: function (result) {
+                                        ejs.ui.toast(result.userInfo)
+                                    },
+                                    error: function (error) {
+                                    }
+                                });
+
+                            }
+                        }]
+                });
+            }
+        </script>
+
+    </body>
+
+</html>

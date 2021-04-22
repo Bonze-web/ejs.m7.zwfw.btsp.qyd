@@ -1,0 +1,98 @@
+body,html {
+    background-color: #f5f5f5;
+}
+.mui-content {
+    background-color: #f5f5f5;
+}
+.calendar-con {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.calendar-tips {
+    position: relative;
+    padding-left: 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    background-color: #fff;
+}
+.calendar-tips::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 1px;
+    background-color: #e6e6e6;
+}
+.calendar-tips-info {
+    background-color: #f2f2f2;
+    width: 40px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 2px;
+}
+.calendar-tips-black {
+    margin: 0 6px;
+    color: #000;
+}
+.calendar-tips-red {
+    color: #e60012;
+}
+
+.record-item {
+    background-color: #fff;
+}
+.record-item-nodata {
+    padding: 10px;
+    text-align: center;
+}
+.record-item-nodata p {
+    color: #97b3de;
+}
+.record-item-nodata img{
+    margin-top: 10px;
+    width: 190px;
+    height: 100px;
+}
+.record-item-list {
+    padding: 20px;
+}
+.record-item-list li{
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+.record-item-menu {
+    margin-right: 6px;
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+}
+.record-item-sterilize {
+    margin-right: 6px;
+    position: relative;
+    top: 6px;
+    width: 21px;
+    height: 21px;
+}
+.record-item-add {
+    width: 21px;
+    height: 21px;
+}
+.record-item-list-doubleline {
+    display: flex;
+}
+.subline {
+    color: #999999;
+    font-size: 13px;
+}

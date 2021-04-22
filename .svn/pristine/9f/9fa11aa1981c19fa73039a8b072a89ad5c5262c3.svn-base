@@ -1,0 +1,255 @@
+.risk_grade {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    padding: 10px 10px 0;
+}
+.risk_grade .grade_show {
+    position: relative;
+}
+.risk_grade .grade_show .riskgrade_bg_ris {
+    width: 100%;
+}
+
+.risk_grade .grade_show .explain {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    color: #fff;
+    font-size: 12px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 16px;
+}
+
+.risk_grade .grade_show .estate {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    width: 126px;
+    height: 117px;
+    text-align: center;
+}
+.risk_grade .estate span {
+    position: absolute;
+    /* width: 100%; */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    color: #fff;
+    font-size: 11px;
+}
+.renovate {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 14px;
+    display: flex;
+    font-size: 11px;
+    color: #fff;
+}
+.renovate .circle {
+    background-color: rgba(61, 122, 219,0.8);
+    padding: 0 5px;
+    margin-right: 10px;
+}
+
+/* 等级列表 */
+.risk_grade_list {
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.grade_list_box {
+    height: 84px;
+    display: flex;
+}
+.grade_list_box .list_box_one {
+    padding: 27px 22px 15px 22px;
+}
+.grade_list_box .list_box_one .year {
+    font-size: 14px;
+    font: bold;
+    color: #434343;
+}
+.grade_list_box .list_box_one .month {
+    font-size: 11px;
+    color: #a1a1a1;
+}
+.grade_list_box .level_risk {
+    font-size: 14px;
+    font: bold;
+    color: #434343;
+    display: flex;
+    align-items: center;
+    margin-left: 32px;
+    flex: 1;
+}
+.grade_list_box .level_risk span {
+    display: inline-block;
+    background-color: #31cfd9;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+.grade_list_box .level_risk span[status="A"] {
+    background-color: #31cfd9;
+}
+.grade_list_box .level_risk span[status="B"] {
+    background-color: #ff6c00;
+}
+.grade_list_box .level_risk span[status="C"] {
+    background-color: #65c400;
+}
+.grade_list_box .level_risk span[status="D"] {
+    background-color: #e81e1e;
+}
+.grade_list_box .adjustment {
+    display: flex;
+    align-items: center;
+    color: #999999;
+    font-size: 14px;
+    padding: 0 12px;
+}
+.grade_list_box .adjustment .riskgrade_icon_upgrey,
+.grade_list_box .adjustment .riskgrade_icon_downgrey {
+    margin-right: 3px;
+    display: none;
+}
+
+.grade_list_box .adjustment .riskgrade_icon_upgrey[status="2"] {
+    display: block;
+}
+.grade_list_box .adjustment .riskgrade_icon_downgrey[status="3"] {
+    display: block;
+}
+/* .grade_list_box:nth-of-type(2)  .level_risk span {
+    background-color: #ff6c00;
+}
+.grade_list_box:nth-of-type(3)  .level_risk span {
+    background-color: #65c400;
+}
+.grade_list_box:nth-of-type(4)  .level_risk span {
+    background-color: #e81e1e;
+} */
+
+.time_axis {
+    position: absolute;
+    left: 77px;
+    /* top: 34px; */
+    top: 0;
+    width: 18px;
+    text-align: center;
+}
+.time_axis .axis_box:first-of-type {
+    margin-top: 33.5px;
+}
+.time_axis .axis_box:nth-of-type(2) {
+    margin-top: 54px;
+}
+.axis_box {
+    position: relative;
+    margin-top: 64px;
+}
+.axis_box::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 16px;
+    height: 84px;
+    width: 1px;
+    background-color: #f3f3f3;
+}
+.axis_box_one::before {
+    height: 74px;
+    top: 18px;
+}
+.axis_box:last-of-type:before {
+    display: none;
+}
+
+/* 风险等级说明 */
+
+.illustrate {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.instruction {
+    position: absolute;
+    top: 154px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 285px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.instruction_title {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+}
+.instruction_content {
+    margin-top: 36px;
+}
+.instruction_content_list {
+    margin-top: 15px;
+    padding-left: 47px;
+    padding-right: 32px;
+    font-size: 15px;
+}
+.instruction_content_list span:first-of-type {
+    color: #6c6c6c;
+}
+.instruction_content_list span:nth-of-type(2) {
+    color: #6c6c6c;
+}
+.instruction_content_list span:nth-of-type(4) {
+    float: right;
+    width: 26px;
+    height: 22px;
+    background-color: #31cfd9;
+    color: #fff;
+    padding: 2px 6px;
+    margin-right: 6px;
+}
+.instruction_content_list span:nth-of-type(3) {
+    float: right;
+
+    color: #353535;
+    font-weight: 600;
+}
+
+.instruction .instruction_content_list .rank_b {
+    background-color: #65c400;
+}
+.instruction .instruction_content_list .rank_c {
+    background-color: #ff6c00;
+}
+.instruction .instruction_content_list .rank_d {
+    background-color: #e81e1e;
+}
+
+.delete_box {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete_box .delete {
+    width: 10px;
+    height: 10px;
+}

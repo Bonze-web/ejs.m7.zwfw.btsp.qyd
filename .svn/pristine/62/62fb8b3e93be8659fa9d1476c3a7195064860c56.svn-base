@@ -1,0 +1,101 @@
+.baseinfo {
+	background: #fff;
+}
+
+.baseinfo-title {
+	font-size: 14px;
+	color: #000;
+	position: relative;
+	line-height: 20px;
+	padding: 10px;
+	padding-left: 22px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.baseinfo-title::after {
+	position: absolute;
+	left: 10px;
+	width: 4px;
+	height: 14px;
+	top: 13px;
+	content: '';
+	background-color: #1b82d6;
+}
+
+.baseinfo-list {
+	display: flex;
+	font-size: 14px;
+	line-height: 20px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.baseinfo-list>label {
+	margin: auto 0;
+	display: inline-block;
+	width: 100px;
+	padding: 10px;
+	color: #666;
+}
+
+.baseinfo-list>span {
+	margin: auto 0;
+	display: inline-block;
+	width: calc(100% - 100px);
+	padding: 10px;
+	color: #333;
+}
+
+.baseinfo-list-name {
+	width: 115px !important;
+}
+
+.baseinfo-list-info {
+	width: calc(100% - 120px) !important;
+}
+
+
+/* 附件 */
+
+.attach-icon {
+	width: 36px;
+	height: 36px;
+}
+
+.attach-icon>img {
+	width: 36px;
+}
+
+.attach-cont {
+	overflow: hidden;
+	padding: 10px;
+}
+
+.attach-item {
+	background-color: rgb(245, 245, 245);
+	padding: 10px;
+	overflow: hidden;
+}
+
+.attach-item {
+	align-items: center;
+	display: flex;
+}
+
+.attach-name {
+	padding-left: 10px;
+	word-break: break-all;
+}
+
+
+/*显示*/
+
+.isshow01 {
+	display: flex;
+}
+
+
+/*隐藏*/
+
+.isshow02 {
+	display: none;
+}

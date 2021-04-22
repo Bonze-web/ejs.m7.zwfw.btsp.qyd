@@ -1,0 +1,99 @@
+/**
+ * 作者：范周静
+ * 创建时间：2019-05-13 08:56:59
+ * 版本：[1.0, 2019-05-13]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：列表
+ **/
+
+ (function (d, $) {
+    'use strict';
+
+    var token = Config.token,
+        type = '0', // 待分配0 已分配1
+        minirefreshObj = null; // 下拉刷新实例
+
+    Util.loadJs(
+        // 下拉刷新
+        'js/widgets/minirefresh/minirefresh.css',
+        'js/widgets/minirefresh/minirefresh.js',
+        'js/widgets/minirefresh/themes/native/minirefresh.theme.native.js',
+        'js/widgets/minirefresh/minirefresh.bizlogic.js',
+        function () {
+            ejs.config({
+                jsApiList: []
+            });
+
+            ejs.ready(function () {
+                initPage()
+            });
+        }
+    );
+
+    // 初始化页面信息
+    function initPage() {
+        // 初始化事件监听
+        initListeners();
+        // 下拉刷新
+        pullToRefresh();
+    }
+
+    /**
+     * 初始化事件监听
+     */
+    function initListeners() {
+       
+    }
+
+    /**
+     * 下拉刷新
+     * @param {String} url 接口地址
+     */
+    function pullToRefresh() {
+        minirefreshObj = new MiniRefreshBiz({
+            url: Config.healthAppUrl + 'scjgjtakan/getHandleTakanList',
+            template: function () {
+                var templateEle = '';
+
+                if (type === '0') {
+                    templateEle = d.getElementById('listdata-waittodo-tpl').innerHTML;
+                } else if (type === '1') {
+                    templateEle = d.getElementById('listdata-todo-tpl').innerHTML;
+                }
+
+                return templateEle;
+            },
+            initPageIndex: 1,
+            listContainer: '#listdata',
+            contentType: 'application/json;charset=UTF-8',
+            // contentType: 'application/x-www-form-urlencoded',
+            dataRequest: function (currPage) {
+                var requestData = JSON.stringify({
+                    params: {
+                        isdone: type,
+                        activityname: '局长审批',
+                        applyerdepart: '005',
+                        currentpage: currPage.toString(),
+                        pagesize: '10'
+                    }
+                });
+
+                // console.log(requestData);
+
+                return requestData;
+            },
+            dataChange: function (res) {
+                // console.log(JSON.stringify(res), res);
+
+                return res.custom.takanlist;
+            },
+            success: function (res) {},
+            itemClick: function (e) {
+                
+            },
+            error: function (err) {
+                ejs.ui.toast(JSON.stringify(err));
+            }
+        });
+    }
+})(document, Zepto);

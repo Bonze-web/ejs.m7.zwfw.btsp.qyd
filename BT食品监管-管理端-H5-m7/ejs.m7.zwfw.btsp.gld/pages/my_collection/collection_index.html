@@ -1,0 +1,90 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：我的收藏
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>我的收藏</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/collection_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="daily-tab">
+        <div class="active" data-type="01">通知公告</div>
+        <div data-type="02">新闻资讯</div>
+        <div data-type="03">政策法规</div>
+        <div data-type="04">资料下载</div>
+    </div>
+
+    <div id="minirefresh" class="minirefresh-wrap">
+        <div class="minirefresh-scroll">
+            <ul class="listdata bg-white" id="listdata">
+                <li class="list-item hidden">
+                    <div class="item-l">
+                        <div class="title text-ellipsis">
+                            主标题信息主标题信息主标题信息主标题信息主标题信息
+                        </div>
+                        <div class="row">
+                            <span>健康证到期预警</span>
+                            <span>2021-03-26</span>
+                        </div>
+                    </div>
+                    <div class="collection">
+                        <img src="./css/images/icon_collect.png" alt="">
+                        <div>取消收藏</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+<!-- 下拉刷新列表 -->
+<script type="text/template" id="item-template">
+    <li class="list-item" data-url="{{collectionurl}}" data-guid="{{collectionguid}}">
+        <div class="item-l">
+            <div class="title text-ellipsis">
+                {{collectiontitle}}
+            </div>
+            <div class="row">
+                <span>健康证到期预警</span>
+                <span>{{inserttime}}</span>
+            </div>
+        </div>
+        <div class="collection esccollection" data-guid="{{collectionguid}}">
+            <img class="esccollection" src="./css/images/icon_collect.png" alt="">
+            <div class="esccollection">取消收藏</div>
+        </div>
+    </li>
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/collection_index.js'
+    ]);
+</script>
+
+</html>

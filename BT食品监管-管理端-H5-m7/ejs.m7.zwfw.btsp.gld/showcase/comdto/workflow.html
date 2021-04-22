@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事项处理</title>
+
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        SrcBoot.output([
+            './css/workflow.css'
+        ]);
+    </script>
+</head>
+
+<body class="ejs-f9-content">
+    <div class="mui-content">
+        <!-- 分支管理 -->
+        <ul class="mui-table-view">
+            <li class="mui-input-row">
+                <label>当前步骤</label>
+                <input type="text" readonly id="cur-step" />
+            </li>
+            <li class="mui-input-row">
+                <label>当前操作</label>
+                <input type="text" readonly id="cur-op" />
+            </li>
+            <li class="mui-table-view-cell hidden" id="select-branch">
+                <a class="mui-navigate-right">
+                    <span>当前分支</span>
+                    <span class="active-name" id="cur-activity"></span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- 处理人员 -->
+        <div class="actper-container mt15 hidden" id="actper"></div>
+
+        <!-- 意见区域 -->
+        <div class="op-container">
+            <h3>签署意见</h3>
+            <span class="em-watch-flow">查看流程图</span>
+            <div class="op-content">
+                <textarea class="ep-mui-textarea" id="opinioncontent" placeholder="请**审核"></textarea>
+                <div class="op-btn" id="operation">
+                    <button type="button"
+                        class="mui-btn mui-btn-primary mui-btn-outlined common-operation">公共模板</button>
+                    <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined user-operation">个人模板</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 短信提醒 -->
+        <div class="mui-table-view mt15 hidden" id="sms-container">
+            <div class="mui-table-view-cell">
+                短信提醒
+                <div class="mui-switch mui-switch-mini" id="sms" data-switch="3">
+                    <div class="mui-switch-handle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择分支 -->
+    <div class="popwindow-branch hidden" id="popwindow-branch">
+        <div class="branch-title">选择分支</div>
+        <div class="branch-content">
+            <!-- 单选区域 -->
+            <div class="mui-input-group" id="branch-group">
+            </div>
+        </div>
+        <div class="branch-btn">
+            <div class="mui-btn" id="branch-cancel">
+                取消
+            </div>
+            <div class="mui-btn mui-btn-primary" id="branch-confirm">
+                确认
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择处理人模板 -->
+    <script type="text/template" id="tpl-actper">
+        <div class="actper-con mb10" id="{{stepguid}}">
+            <div class="actper-title clearfix" >
+                <span>送 {{stepname}} 处理人</span>
+                {{#addhandler}}
+                <img class="actper-add r" src="./images/img_addperson.png" alt="" />
+                {{/addhandler}}
+                <em class="actper-count r">{{count}}</em>
+            </div>
+
+            <div class="actper-items clearfix">
+                {{#handlerlist}}
+                <div class="actper-item" data-handlerguid="{{handlerguid}}" data-handlername="{{handlername}}" data-ouguid="{{ouguid}}">{{handlername}}</div>
+                {{/handlerlist}}
+            </div>
+        </div>
+    </script>
+
+    <!-- 单选模板 -->
+    <script type="text/template" id="tpl-singlebranch">
+        <div class="mui-input-row mui-radio" data-stepguid="{{stepguid}}" data-ischeckuser="{{ischeckuser}}">
+            <label>{{stepname}}</label>
+            <input name="radio" type="radio" {{#checked}}checked{{/checked}}>
+        </div>
+    </script>
+
+    <!-- 多选模板 -->
+    <script type="text/template" id="tpl-multibranch">
+        <div class="mui-input-row mui-checkbox" data-stepguid="{{stepguid}}" data-ischeckuser="{{ischeckuser}}">
+            <label>{{stepname}}</label>
+            <input name="checkbox" type="checkbox" {{#checked}}checked{{/checked}}>
+        </div>
+    </script>
+
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        if (!window.handleactionname) // 可个性化actionname
+            window.handleactionname = "commonoperationhandleaction";
+
+        if (typeof window.isexecutebtnsubmit != "boolean") // 点击确认按钮是否执行后台btnsubmit方法，框架默认执行
+            window.isexecutebtnsubmit = true;
+
+        // 接口地址
+        window.handlePassServerUrl = Config.comdto.isMock ? {
+            opinionCtrlForOperationPageUrl: 'data/opinionCtrlForOperationPage.json',
+            handleactionInitPageUrl: 'data/commonoperationhandleaction.json',
+            getStepInfoPageUrl: 'data/getStepInfo.json'
+        } : {
+            opinionCtrlForOperationPageUrl: 'workflowopinionaction.opinionCtrlForOperationPage',
+            handleactionInitPageUrl: window.handleactionname + '.initPage',
+            getStepInfoPageUrl: window.handleactionname + '.getStepInfo'
+        };
+    </script>
+
+    <script>
+        SrcBoot.output([
+            './js/workflow.js'
+        ]);
+    </script>
+</body>
+
+</html>

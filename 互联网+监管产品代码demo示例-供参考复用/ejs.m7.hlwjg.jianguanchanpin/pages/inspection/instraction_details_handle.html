@@ -1,0 +1,169 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/07/05
+	版本： [1.0, 2019/07/05]
+	版权： 江苏国泰新点软件有限公司
+	描述： 领导批示-批示详情
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>批示详情</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/instraction_details_handle.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header" id="listdata">
+
+        </div>
+
+        <!--反馈列表-->
+        <ul class="main-ul-items" id="fklist">
+
+        </ul>
+        <!--底部-->
+        <ul class="btn-main-items" id="footer">
+            <li class="btn-main-item fk" id="footer-fk">
+                <img src="./css/images/icon_fankui.png" />
+                <span>反馈</span>
+            </li>
+            <li class="btn-main-item fk" id="footer-bj">
+                <img src="./css/images/icon_banjie.png" />
+                <span>办结</span>
+            </li>
+            <li class="btn-main-item" id="footer-zj">
+                <img src="./css/images/icon_zhuanjiao.png" />
+                <span>转交</span>
+            </li>
+        </ul>
+    </div>
+    <div class="mask mui-hidden" id="mask">
+        <!--处理人列表-->
+        <div class="mask-people mui-hidden" id="mask-people">
+
+        </div>
+
+        <!--反馈-->
+        <div class="mask-feedback mui-hidden" id="mask-feedback">
+            <div class="mask-feedback-title clearfix">
+                <span class="mask-feedback-cancel l" id="btn-feedback-cancel">取消</span>
+                <span class="mask-feedback-submit r" id="btn-feedback-submit">反馈</span>
+                <input class="mui-hidden" type="file" id="attach" />
+                <span class="mask-feedback-submit m" id="btn-feedback-file">上传附件</span>
+            </div>
+            <div class="filelist mui-hidden">
+
+            </div>
+            <textarea id="feedback-text" rows="8" cols="" placeholder="请输入反馈内容..."></textarea>
+        </div>
+    </div>
+    <script type="text/x-mustache" id="info-template">
+            <div class="header-text">
+                {{content}}
+            </div>
+            <div class="yyps">
+                {{#uploadattachList}}
+                <li class="list-item "
+            data-path="{{attachurl}}"
+            data-duration="{{duration}}" data-name="{{attachFileName}}">
+            <div class="msg-title">{{attachFileName}}</div>
+            </li>
+        {{/uploadattachList}}
+            </div>
+            <ul class="header-info-items">
+                <li class="header-info-item">
+                    <label class="header-infoname">批示时间</label>:
+                    <span class="header-infotext">{{InstructionsTime}}</span>
+                </li>
+                <li class="header-info-item">
+                    <label class="header-infoname">批示人</label>:
+                    <span class="header-infotext">{{username}}</span>
+                </li>
+                <li class="header-info-item">
+                    <label class="header-infoname">分送人</label>:
+                    <span class="header-infotext">{{fensong}}</span>
+                </li>
+                <li class="header-info-item header-people-item">
+                    <label class="header-infoname">处理人</label>:
+                    <span class="header-infotext deal-people"></span>
+                    <span class="deal-people-btn" id="btn-deal-people">详情</span>
+                </li>
+            </ul>
+        </script>
+    <script type="text/x-mustache" id="fk-template">
+            <li class="main-li-item-title">
+                反馈
+            </li>
+            {{#feedback}}
+            <li class="main-li-item clearfix">
+                <div class="photo main-li-left l ">                   
+                    {{photo}}
+                </div>
+                <div class="main-li-rights r">
+                    <span class="li-right-name">{{username}}</span>
+                    <span class="li-right-info">{{content}}</span>
+                    <ul>
+                    {{#uploadattachList}}
+                    <li class="listfile-fk clearfix" data-url="{{attachurl}}" data-name="{{attachFileName}}">
+                    <img class="fileicon" src="{{icon}}" />
+                    <!-- <span class="li-right-file">{{attachFileName}}</span> -->
+                    <div class="mui-ellipsis file-name   listfile-name">{{attachFileName}}</div>
+                    <img class="download" src="./css/images/img_attach_icon.png" />
+                    </li>
+                    {{/uploadattachList}}
+                </ul>
+                    <span class="li-right-time">{{feedbacktime}}</span>
+                </div>
+            </li>
+            {{/feedback}}
+        </script>
+    <script type="text/x-mustache" id="mask-template">
+            <div class="mask-people-title">
+                
+            </div>
+            <ul class="mask-people-items">
+                {{#person}}
+                <li class="mask-people-item">
+                    <div class="img">                   
+                            {{photo}}
+                        </div>
+                    <span class="mask-people-name">{{username}}</span>
+                    <span class="mask-people-status {{color}}">{{status}}</span>
+                </li>
+                {{/person}}
+            </ul>
+        </script>
+    <script type="text/x-tpl" id="attachtemplate">
+			{{#attachlist}}
+			<div class="attach-item clearfix" data-guid="{{attachGuid}}" data-path="{{path}}" data-filename="{{filename}}" data-isupload="{{isupload}}">
+				<img class="fileicon" src="{{fileurl}}" />
+                <div class="mui-ellipsis file-name">{{filename}}</div>
+                <span class="mui-icon mui-icon-trash  delete"></span>
+			</div>
+			{{/attachlist}}
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        SrcBoot.output([
+            './js/instraction_details_handle.js'
+        ]);
+    </script>
+</body>
+
+</html>

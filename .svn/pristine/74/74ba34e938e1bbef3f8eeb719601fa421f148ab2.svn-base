@@ -1,0 +1,90 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/15
+	版本： [1.0, 2019/10/15]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-首页
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>简易案件登记</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/common_nodata.css',
+				'../common/todo_index.css',
+				'./css/easycase_index.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<!-- 头部切换 -->
+			<ul class="clearfix head" id="head">
+				<li class="l headitem headactive" data-type="todo">待登记<span id="todo-count">(0)</span></li>
+				<li class="l headitem" data-type="done">已登记<span id="done-count">(0)</span></li>
+			</ul>
+
+			<!-- 列表 -->
+			<div class="mui-content">
+				<div id="minirefresh" class="minirefresh-wrap">
+					<div class="minirefresh-scroll">
+						<ul class="listdata" id="listdata">
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/x-mustache" id="item-template">
+			<li class="mui-table-view-cell li-list" data-rowguid="{{rowguid}}" data-taskcode="{{taskcode}}" data-pviguid="{{pviguid}}">
+				<p class="check-title">{{taskname}}</p>
+				<div class="check-wrap">
+					<div class="check-cell">
+						<div class="check-cell-item">
+							<span>任务编号：</span>
+							<span>{{taskcode}}</span>
+						</div>
+					</div>
+					<div class="check-cell">
+						<div class="check-cell-item">
+							<span>行政相对人名称：</span>
+							<span>{{administrativecp}}</span>
+						</div>
+					</div>
+					<div class="check-cell">
+						<div class="check-cell-item">
+							<span>执法人员：</span>
+							<span>{{lepusernames}}</span>
+						</div>
+					</div>
+					<div class="check-cell">
+						<div class="check-cell-item">
+							<span>计划日期：</span>
+							<span>{{planstartdate}}至{{planenddate}}</span>
+						</div>
+					</div>
+				</div>
+			</li>
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_index.js'
+			]);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 10:51:41
+ * @修改时间: 2021-04-14 18:11:12
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>待办</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/backlog_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <!-- 待办 -->
+    <div class="backlog">
+        <!-- 查看所有 -->
+        <div class="backlog_head" id="backlog_head">
+            <div class="back_quantum">
+                待办 · <span id="back_quantum_num">34</span>
+            </div>
+            <img src="./image/home_btn_more.png" class="home_btn_more">
+        </div>
+        <!-- 查看列表 -->
+        <div class="backlog_list" id="backlog_list">
+            {{#list}}
+                <div class="backlog_list_item">
+                    <div class="item_title_box">
+                        <div class="item_title">{{title}}</div>
+                        <!-- <div class="reexamine">[整改复查]</div> -->
+                    </div>
+                    <div class="item_content">
+                        <div>{{rule_tag}}</div>
+                        <div>{{warning_time}}</div>
+                    </div>
+                </div>
+            {{/list}}
+        </div>
+    </div>
+
+    <script type="text/template" id="template1">
+        {{#list}}
+            <div class="backlog_list_item">
+                <div class="item_title_box">
+                    <div class="item_title">{{title}}</div>
+                    <!-- <div class="reexamine">[整改复查]</div> -->
+                </div>
+                <div class="item_content">
+                    <div>{{rule_tag}}</div>
+                    <div>{{warning_time}}</div>
+                </div>
+            </div>
+        {{/list}}
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/backlog_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

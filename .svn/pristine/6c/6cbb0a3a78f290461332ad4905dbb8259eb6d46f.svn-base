@@ -1,0 +1,83 @@
+<!-- 
+        作者： 孙尊路
+        创建时间：2017-06-16 13:26:47
+        版本： [1.0, 2017/6/8]
+        版权： 江苏国泰新点软件有限公司
+        描述：  索引列表series one（OA通讯录、选择城市、地区）
+        场景：社区选择、通讯、选择城市、地区等
+        效果：打开手机OA-扩展功能-二维码扫描（ejs应用测试）可看到效果
+-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, address=no, email=no">
+		<title>索引列表1</title>
+		<script>
+			document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+	</head>
+
+	<body>
+		<div id="indexlist"></div>
+
+		<script>
+			document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			"use strict";
+
+			Util.loadJs([
+				'js/widgets/indexedlist/indexedlist.css',
+				'js/widgets/indexedlist/indexedlist.js'
+			], function() {
+				initPage();
+			});
+
+			/**
+			 * 页面初始化请走这个函数
+			 */
+			function initPage() {
+				// 演示
+				new IndexedList({
+					container: "#indexlist", //默认索引组件容器
+					url: "./indexedlist.json",
+					type: 'GET',
+					// 测试隔一段时间再请求真实数据
+					delay: 100,
+					dataRequest: JSON.stringify({
+						token: '实际场景动态获取容器 token',
+						params: {}
+					}),
+					dataChange: function(response) {
+						return Util.dataProcess(response, {
+							dataPath: 'custom.infolist'
+						}).data;
+					},
+					data: [{
+						"firstletter": "b",
+						"category": [{
+							"value": "510001010001",
+							"text": "杨舍镇社区"
+						}]
+					}, {
+						"firstletter": "c",
+						"category": [{
+							"value": "510001010002",
+							"text": "白家场社区"
+						}]
+					}],
+					itemClick: function(e) {
+						console.log("选择Text:" + e.text);
+						console.log("选择Value:" + e.value);
+						Util.ejs.ui.toast("选择Text:" + e.text);
+					}
+				});
+			};
+		</script>
+	</body>
+
+</html>

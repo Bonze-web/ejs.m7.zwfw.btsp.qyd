@@ -1,0 +1,26 @@
+/*
+ * 作者：guotq
+ * 时间：2017-06-13 10:32:49
+ * 描述：搜索框皮肤2
+ */
+
+.em-srhbar {
+	position: relative;
+	height: 50px;
+	padding: 7px 8px;
+}
+
+.em-srhbar .em-srhbar-input {
+	width: 100%;
+	height: 38px;
+	margin-bottom: 0;
+	padding: 0 0 0 36px;
+	font-size: .90rem;
+	border-radius: 2px;
+}
+
+.em-srhbar .em-srhbar-icon {
+	position: absolute;
+	top: 13px;
+	left: 18px;
+}

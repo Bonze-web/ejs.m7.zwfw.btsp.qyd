@@ -1,0 +1,159 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 14:17:51
+ * @修改时间: 2021-04-09 10:59:01
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+
+
+(function() {
+    "use strict";
+
+    Util.loadJs([
+        // 下拉刷新
+		'js/widgets/minirefresh/minirefresh.css',
+		'js/widgets/minirefresh/minirefresh.js',
+    ],
+    'js/widgets/minirefresh/minirefresh.bizlogic.js',
+    function() {
+        customBiz.configReady();
+    });
+
+    var customBiz = {
+        configReady: function() {
+            var self = this;
+            var jsApiList = [{
+
+            }];
+            self.initListeners();
+            self.eventAdd();
+            self.initPullRefreshList();
+        },
+        initListeners: function() {
+            // var self = this;
+            // //  基本信息
+            // var data1 = {
+            //     imgArr: [
+            //         {srcUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=153960715,2502274764&fm=26&gp=0.jpg'}
+            //     ]
+            // }
+            // var temple1 = Zepto('#template_img').html();
+            // var output = Mustache.render(temple1, data1);
+            // Zepto('.photo_box').html(output);
+        },
+        eventAdd() {
+            var swiper1 = new Swiper('#swiper-photo', {
+                slidesPerView: 'auto',
+                // 这个地方如果不设置为自动,就会显示不全
+                spaceBetween: 30,
+                // freeMode: true,
+                on:{
+                    slideChange: function(){
+                        Zepto(".em-tabview-head .em-tabview-title").eq(this.activeIndex).addClass("cur").siblings().removeClass("cur");
+                    //   alert('改变了，activeIndex为'+this.activeIndex);
+                    },
+                },
+            });
+            mui(".em-tabview-head").on("tap",".em-tabview-title",function(){
+                swiper1.slideTo(Zepto(this).index());
+                Zepto(this).addClass("cur").siblings().removeClass("cur");
+            })
+        },
+        /**
+         * 下拉刷新
+         */
+        initPullRefreshList() {
+            var urlFunc = function() {
+                var url = Config.serverUrl + 'btjgxx/getCollectionList';
+                return url;
+            };
+
+            // 请求参数
+            var dataRequestFunc = function(currPage) {
+                // 其他
+                var data = {
+                    'token': 'Epoint_WebSerivce_**##0601',
+                    'params': {
+                        currentpage: currPage,
+                        pagesize: 10,
+                        pripid: '111111111111111111'
+                    }
+
+                };
+                return data;
+            };
+            // 改变数据
+            var dataChangeFunc = function(response) {
+                var outData = null;
+
+                if(response.code == '000001') {
+
+                }
+
+                return outData;
+            };
+
+            // 模板
+            var templateFunc = function(value) {
+                var template = null;
+
+                if (type === '1') {
+                    template = document.getElementById("tmp02").innerHTML;
+                } else {
+                    template = document.getElementById("tmp01").innerHTML;
+                }
+
+                return template;
+            };
+
+            // 点击
+            var itemClickFunc = function(e) {};
+
+            var _PullToRefreshToolObj = new MiniRefreshBiz({
+                // 可以主动传入theme，而不是使用默认的 MiniRefresh
+                // h5下使用默认主题，native下使用native主题
+                // theme: ejs.os.ejs ? MiniRefreshTools.theme.natives : MiniRefreshTools.theme.defaults,
+                theme: MiniRefreshTools.theme.defaults,
+                isDebug: false,
+                container: '#minirefresh1',
+                // 默认的列表数据容器选择器
+                listContainer: '#listdata1',
+                // 默认的请求页面,根据不同项目服务器配置而不同,正常来说应该是0
+                initPageIndex: 0,
+                // 得到模板 要求是一个函数(返回字符串) 或者字符串
+                template: templateFunc,
+                // 得到url 要求是一个函数(返回字符串) 或者字符串
+                url: urlFunc,
+                dataRequest: dataRequestFunc,
+                dataChange: dataChangeFunc,
+                itemClick: itemClickFunc,
+                setting: {
+                    up: {
+                        // 滚动时会提供回调，默认为null不会执行
+                        toTop: {
+                            isEnable: false
+                        }
+                    }
+                },
+                success: function() {
+                    console.log("请求成功");
+                    // 数据为空时！
+                    // var dataLength = document.getElementById('listdata').querySelectorAll('li').length;
+
+                    // if(parseInt(dataLength) > 0) {
+                    //     document.querySelector('.upwrap-tips').style.display = 'block';
+                    //     document.querySelector('.em-tips').style.display = 'none';
+                    // } else {
+                    //     // 显示空盒子
+                    //     document.querySelector('.upwrap-tips').style.display = 'none';
+                    //     document.querySelector('.em-tips').style.display = 'block';
+                    // }
+                }
+            });
+        }
+    }
+
+
+})(window)

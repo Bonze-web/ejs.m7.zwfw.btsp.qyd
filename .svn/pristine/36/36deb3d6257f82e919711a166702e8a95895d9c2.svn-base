@@ -1,0 +1,74 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-18 16:34:06
+        版本： [1.0, 201-09-18]
+        版权： 江苏国泰新点软件有限公司
+        描述： 通知公告
+-->
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<!-- 禁止浏览器从本地机的缓存中调阅页面内容。 -->
+		<meta http-equiv="Pragma" content="no-cache" />
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/common_nodata.css',
+				'./css/notice_list.css'
+			]);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<div class="em-header-scroll" id="scroll-tab">
+					<a class="em-header-scroll-item em-active" infotype="2">通知公告</a>
+					<a class="em-header-scroll-item" infotype="7">监管动态</a>
+					<!--<a class="em-header-scroll-item" infotype="11">图片新闻</a>-->
+				</div>
+			</header>
+
+			<!--暂无数据-->
+			<div class="em-tips">
+				<img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+				<p>暂无通知公告</p>
+			</div>
+
+			<!-- 列表 -->
+			<div id="minirefresh" class="minirefresh-wrap">
+				<div class="minirefresh-scroll">
+					<ul class="mui-table-view" id="listdata">
+
+					</ul>
+				</div>
+			</div>
+			<script id="template" type="text/template">
+				<li class="mui-table-view-cell" infoid="{{infoid}}">
+					<p class="em-title mui-ellipsis">{{title}}</p>
+					<span class="em-date">{{infodate}}</span>
+				</li>
+			</script>
+			<script>
+				document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+			</script>
+			<script>
+				SrcBoot.output([
+					'./js/notice_list.js',
+				]);
+			</script>
+
+	</body>
+
+</html>

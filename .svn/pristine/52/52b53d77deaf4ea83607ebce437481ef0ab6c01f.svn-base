@@ -1,0 +1,28 @@
+/**
+ * 作者： 张金锁
+ * 创建时间： 2021/04/06 14:57:36
+ * 版本： [1.0]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：每日菜谱
+ */
+(function (doc, Util) {
+    'use strict';
+
+    Util.loadJs([], function () {
+        initPage();
+        initListeners();
+    });
+
+    function initPage() {}
+
+    /*
+     * @description 点击事件
+     */
+    function initListeners() {
+        $('body')
+            //选择早餐、午餐还是晚餐
+            .on('tap', '.em-tab-selector', function () {
+                $(this).addClass('em-active').siblings().removeClass('em-active');
+            });
+    }
+})(document, window.Util);

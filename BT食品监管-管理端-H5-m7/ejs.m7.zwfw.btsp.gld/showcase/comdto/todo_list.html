@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>控件示例</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random()
+            + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        SrcBoot.output(['./css/common.css', './css/todo_list.css']);
+    </script>
+
+    <style>
+        /* .mui-scroll-wrapper {
+            top: 90px;
+        } */
+    </style>
+</head>
+
+<body class="ejs-f9-content">
+    <div class="page-loading"></div>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <!-- 搜索框控件 -->
+        <div class="em-srhbar">
+            <span class="btn-search mui-icon mui-icon-search em-srhbar-icon"></span>
+            <input id="search" type="text" class="em-srhbar-input ep-mui-searchbar" onSearch="onSearchCallback"
+                placeholder="请输入搜索关键字">
+        </div>
+        <!--数据列表-->
+        <div class="mui-scroll-wrapper em-handle-div">
+            <ul id="datagrid" class="ep-mui-list mui-table-view " tplId="tpl-pullrefresh" idField="messageitemguid"
+                extraId="search" url="data/todo_list.json" pageSize="15" defaultPage="1"
+                fields="topic,beiZhu,targetdispname,fromDispName,generateDate,messageitemguid,pageUrl" requestType="GET"
+                onitemclick="listItemClick">
+            </ul>
+        </div>
+        <!--数据列表-->
+        <div class="mui-scroll-wrapper em-handled-div mui-hidden">
+            <ul id="datagrid_handled" class="ep-mui-list mui-table-view " tplId="tpl-pullrefresh"
+                idField="messageitemguid" extraId="search" url="data/todo_list_handled.json" pageSize="15"
+                defaultPage="1"
+                fields="topic,beiZhu,targetdispname,fromDispName,generateDate,messageitemguid,pageUrl,doneDate,handelName"
+                requestType="GET" onitemclick="listItemClick">
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/template" id="tpl-pullrefresh">
+     <li class="mui-table-view-cell" pageUrl="{{pageUrl}}"  canhandle="{{canhandle}}">
+                <div class="em-todo-top-title">
+                    <span class="em-todo-title em-todo-title-only">{{topic}}</span>
+                </div>
+                <div>
+                    <span class="em-todo-proposer">上一步：{{fromDispName}}</span>
+                    <span class="em-todo-time">{{generateDate}}</span>
+                </div>
+            </li>
+  </script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random()
+            + "'></scr" + "ipt>");
+    </script>
+    <script>
+        Util.loadJs(initPage);
+
+        function initPage() {
+            epointm.initPage('data/todo_list.json', null, null, null, {
+                method: 'GET'
+            });
+        }
+        ejs.navigator.setMultiTitle({
+            titles: ['待办', '已办'],
+            success: function (result) {
+                switch (result.which) {
+                    case 0:
+                        document.querySelector('.em-handled-div').classList
+                            .add('mui-hidden')
+                        document.querySelector('.em-handle-div').classList
+                            .remove('mui-hidden')
+                        break;
+                    case 1:
+                        document.querySelector('.em-handle-div').classList
+                            .add('mui-hidden')
+                        document.querySelector('.em-handled-div').classList
+                            .remove('mui-hidden')
+                        break;
+
+                    default:
+                        break;
+                }
+            },
+            error: function (error) {
+            }
+        });
+
+        window.listItemClick = function (e, id, extras) {
+            // var pageUrl = Util.getRightUrl(this.getAttribute('pageUrl'));
+            var pageUrl = Util.getProjectBasePath() + this.getAttribute('pageUrl');
+            // var pageUrl = this.getAttribute('pageUrl');
+
+            // ejs.page.open(pageUrl);
+            console.log(pageUrl);
+
+            ejs.page.open({
+                pageUrl: pageUrl,
+                pageStyle: 1,
+                orientation: 1,
+                data: extras,
+                success: function (result) {
+                    epm.get('datagrid').refresh();
+                    epm.get('datagrid_handled').refresh();
+                    /**
+                     * 目标页面关闭后会触发这个回调，参数是页面通过close传递过来的参数
+                     * {
+                            resultData: '可能是json，也可能是普通字符串，要看怎么传参的'
+                       }
+                     */
+
+                },
+                error: function (error) { }
+            });
+        };
+
+        // 搜索回调函数
+        window.onSearchCallback = function (e) {
+            // console.log(e);
+
+            // 触发下拉刷新
+            epm.get('datagrid').refresh();
+            epm.get('datagrid_handled').refresh();
+        };
+
+        /**
+         * 跳转页面
+         * @param {String} url 跳转地址
+         * @param {Object} extras url 拼接的参数
+         */
+        window.openPage = function (url, extras) {
+
+            if (extras && typeof extras === 'string') {
+                extras = epm.parseJSON(extras);
+            }
+
+            ejs.page.open(url, extras);
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-7 20:56:23
+        版本： [1.0, 201-09-07]
+        版权： 江苏国泰新点软件有限公司
+        描述： 检查签到
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>检查签到</title>
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <script>
+            document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + 'ipt>');
+        </script>
+        <script>
+            SrcBoot.output(['../common/libs/ripple.css', './css/attendance_location.css']);
+        </script>
+        <script
+            type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=SZ5kbVw3i0GUWg2zYMqGNwcy1V5PcNPc"
+        ></script>
+    </head>
+
+    <body>
+        <div class="mui-content mui-hidden">
+            <div class="fixed">
+                <div class="em-sign flex"></div>
+
+                <div class="title mb15 mui-clearfix">
+                    已选地点
+                    <div class="haschoose mui-ellipsis"></div>
+                </div>
+
+                <div class="title">地点信息</div>
+                <div class="em-addressinfo">
+                    <img class="em-refreshicon" src="img/img_refresh.png" />
+                    <ul class="mui-table-view em-addressul"></ul>
+                </div>
+                <div class="em-assignment">
+                    <span class="em-title">已选任务</span>
+                    <span class="em-choose notchoose"></span>
+                </div>
+            </div>
+
+            <!--地图-->
+            <div class="em-map" id="baidumap"></div>
+
+            <!--签到-->
+            <div class="em-button">
+                <div data-ripple="ripple">
+                    <img src="img/img_qiandao_03.png" />
+                    <p>签到</p>
+                </div>
+            </div>
+
+            <!--顶部信息-->
+            <script type="text/template" id="templatetop">
+                <span class="em-time">
+                	<span class="em-date">{{date}}</span>
+                <span class="em-week">{{week}}</span>
+                </span>
+                <span class="em-circle"></span>
+                <span class="em-signaddress mui-ellipsis-2">{{address}}</span>
+            </script>
+
+            <!--地点信息-->
+            <script type="text/x-templ-mustache" id="template">
+                <li class="mui-table-view-cell flexs em-siteinfodetail">
+                	<img class="em-addressicon" src="img/img_address.png" />
+                	<div class="em-siteinfo">
+                		<span class="em-site">{{title}}</span>
+                		<span class="em-sitedetail mui-ellipsis">{{address}}</span>
+                	</div>
+                </li>
+            </script>
+
+            <!--展开-->
+            <script type="text/template" id="detemplate">
+                <li class="mui-table-view-cell flexc em-downarrow">
+                	<img class="em-downarrowicon" src="img/img_downarrow.png" />
+                </li>
+            </script>
+
+            <!--无信号-->
+            <div class="em-wifi">
+                <img src="img/img_wifi.png" class="em-nowifi" />
+            </div>
+        </div>
+
+        <script>
+            document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + 'ipt>');
+        </script>
+        <script>
+            SrcBoot.output(['../common/libs/ripple.css', '../common/libs/ripple.js', './js/attendance_location.js']);
+        </script>
+        <script type="text/javascript">
+            new Ripple({
+                opacity: 0.1, //水波纹透明度
+                speed: 1, //水波纹扩散速度
+                bgColor: '#3c80e6', //水波纹颜色
+                cursor: false //是否显示手型指针
+            });
+        </script>
+    </body>
+</html>

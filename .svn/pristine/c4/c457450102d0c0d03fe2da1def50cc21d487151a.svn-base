@@ -1,0 +1,163 @@
+/**
+    作者 :lujun
+    创建时间 :2021/03/31
+    版本 :[1.0, 2021/03/31]
+    版权：江苏国泰新点软件有限公司
+    描述：添加检查项
+ **/
+
+(function (d, $) {
+    'use strict';
+
+    var dutyguid = Util.getExtraDataByKey('dutyguid') || '',
+        optguid = Util.getExtraDataByKey('optguid') || '',
+        optname = decodeURI(Util.getExtraDataByKey('opttype')) || '',
+        standardguidlist = [],
+        codelist = [];
+
+    Util.loadJs(
+        function () {
+            ejs.config({
+                jsApiList: []
+            });
+
+            ejs.ready(function () {
+                initPage()
+            });
+        }
+    );
+
+    // 初始化页面信息
+    function initPage() {
+
+        // 初始化事件监听
+        initListeners();
+        getCodeName('是否');
+    }
+
+    /**
+     * 初始化事件监听
+     */
+    function initListeners() {
+        $('body')
+            // 点击检查项跳转
+            .on('tap', '#checkitem', function (e) {
+                ejs.page.open({
+                    pageUrl: './risk_feedbackchoose.html',
+                    pageStyle: 1,
+                    orientation: 1,
+                    data: {
+                    },
+                    success: function (result) {
+                        console.log(result)
+                    },
+                    error: function (error) { }
+                });
+            })
+            // 点击 评价
+            .on('tap', '#isevaluate', function (e) {
+                var _this = $(this);
+                ejs.ui.popPicker({
+                    layer: 1,
+                    data: codelist,
+                    success: function (result) {
+                        _this.find('input').val(result.items[0].text);
+                        _this[0].dataset.isevaluate = result.items[0].value;
+                    },
+                    error: function (err) { }
+                });
+            })
+            // 点击 确定
+            .on('tap', '.surebtn', function (e) {
+                console.log($('.mui-input-group input,textarea#content'))
+                for (var i = 0; i <= $('.mui-input-group input,textarea#content').length; i++) {
+                    var item = $('.mui-input-group input,textarea#content')[i];
+                    if (!$(item).val()) {
+                        ejs.ui.toast(item.placeholder);
+                        return;
+                    }
+                }
+                saveCheckResult();
+
+            })
+    }
+    /**
+    * @description 获取代码项
+    */
+    function getCodeName(codename) {
+        Util.ajax({
+            url: Config.serverUrl + 'commonInter/getCodeInfoList',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    codename: codename
+                }
+            }),
+            headers: { 'Content-Type': 'application/json' },
+            success: function (res) {
+                console.log(res);
+                if (res.status.code != 1) {
+                    ejs.ui.toast('获取数据失败');
+                    return;
+                }
+                res.custom.codelist.map((ele, i) => {
+                    codelist.push({
+                        text: ele.itemtext,
+                        value: ele.itemvalue
+                    })
+                })
+            },
+            error: function (error) {
+                ejs.ui.toast(JSON.stringify(error));
+                console.log(error);
+                ejs.ui.closeWaiting({});
+            },
+            complete: function () {
+                ejs.ui.closeWaiting({});
+            }
+        });
+    }
+
+    /**
+     * @description 保存检查结果
+     */
+    function saveCheckResult() {
+        Util.ajax({
+            url: Config.serverUrl + 'risktask/saveCheckResult',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    dutyguid: dutyguid,
+                    optguid: optguid,
+                    optname: optname,
+                    standardguidlist: standardguidlist,
+                    isevaluate: $('#isevaluate').dataset.isevaluate,
+                    Bz: $('#content').val()
+                }
+            }),
+            contentType: 'application/json',
+            success: function (res) {
+                console.log(res)
+
+                // 处理数据
+                if (res.status.code != 1) {
+                    ejs.ui.toast(res.status.text);
+                    return false;
+                }
+
+                ejs.page.close();
+
+            },
+            error: function (error) {
+                ejs.ui.toast(JSON.stringify(error));
+                console.log(error);
+                ejs.ui.closeWaiting({});
+            },
+            complete: function () {
+                ejs.ui.closeWaiting({});
+            }
+        });
+    }
+
+
+})(document, Zepto);

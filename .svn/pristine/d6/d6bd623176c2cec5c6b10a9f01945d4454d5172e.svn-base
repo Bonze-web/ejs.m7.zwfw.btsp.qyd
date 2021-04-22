@@ -1,0 +1,97 @@
+/**
+ * 作者： 黄赟博
+ * 创建时间：2017/08/28 10:22
+ * 版本： [1.0, 2018/05/22]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：  新闻详情
+ **/
+"use strict";
+
+Util.loadJs([
+
+], function() {
+	customBiz.configReady();
+});
+
+/**
+ * @description 所有业务处理
+ */
+var customBiz = {
+	// 初始化校验，必须调用
+	// 注，如果没有组件API需要注册，可以传空，注册组件时，必须容器支持对应组件才能注册成功
+	configReady: function() {
+		var self = this;
+
+		self.initListeners();
+
+	},
+	initListeners: function() {
+		var self = this;
+		Zepto('#attachlist').on('tap', 'li', function() {
+			var attachurl = Zepto(this).attr('url');
+			var attachname = Zepto(this).find('.mui-ellipsis').text();
+			ejs.io.downloadFile({
+				url: attachurl,
+				fileName: attachname,
+				reDownloaded: 0,
+				openAfterComplete: 1,
+				success: function(result) {},
+				error: function(error) {}
+			});
+		});
+	},
+	/**
+	 * @description 获取关注数据
+	 */
+	getDetail: function(guid) {
+		var moban = Zepto('#tmp01').html();
+		Zepto('#attachlist').html('');
+		Zepto('#attachlist').append(moban);
+		return
+		var self = this;
+		var url = Config.wzdsUrl + 'webBuilderWebServiceForMicroPortalImpl/getInfoDetail';
+		common.ajaxWZDS(url, {
+			"infoID": self.infoGuid,
+			"siteguid": guid
+		}, function(response) {
+			//console.error(JSON.error(response));
+			if(response && response.custom) {
+				var tmpInfo = response.custom;
+				tmpInfo.infoDate = tmpInfo.infoDate.substr('0', '19');
+				tmpInfo.title = tmpInfo.title.replace(/<[^>]+>/g, "");
+				//tmpInfo.title=removeHtmlTag(tmpInfo.title);
+				var litempate = '<div class="detail-template"><div class="detail-hd"><h4>{{{title}}}</h4><p>{{infoDate}}</p></div><div class="detail-content"></div></div>';
+				var output = Mustache.render(litempate, tmpInfo);
+				Zepto('#content').html('');
+				Zepto('#content').append(output);
+				Zepto('.detail-content').append(tmpInfo.infoContent || '暂无内容');
+				// 处理图片
+				Zepto('img').each(function() {
+					var _this = Zepto(this);
+					_this.parent('p').css('text-indent', '0');
+					if(_this.attr('src').indexOf('sysimage') != '-1') {
+						_this.css('width', 'auto!important');
+					}
+
+				});
+				if(response.custom.attachFiles) {
+					// 处理附件
+					var attachFile = response.custom.attachFiles;
+					if(attachFile && attachFile.length > 0) {
+						var html = '';
+						var moban = Zepto('#tmp01').html();
+						mui.each(attachFile, function(key, value) {
+							value.attachIcon = FormatFile.getFileIcon(value.attFileName);
+							html += Mustache.render(moban, value);
+						});
+						Zepto('#attachlist').html('');
+						Zepto('#attachlist').append(html);
+						Zepto('.mui-table-view').removeClass('mui-hidden');
+
+					}
+				}
+			}
+		});
+
+	}
+};

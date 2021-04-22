@@ -1,0 +1,1 @@
+"use strict";require("../css/module_page2.css"),function(){Util.loadJs(function(){document.body.innerHTML+="<span>js for module_page2</span>"})}();

@@ -1,0 +1,93 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-7 20:56:23
+        版本： [1.0, 201-09-07]
+        版权： 江苏国泰新点软件有限公司
+        描述： 监管事项
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title>监管事项</title>
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/common_nodata.css',
+				'./css/regulatory_index.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+
+			<!-- 头部切换 -->
+			<ul class="em-tab-list">
+				
+			</ul>
+			<!--暂无数据-->
+	        <div class="em-tips">
+	            <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+	            <p>暂无数据</p>
+	        </div>
+			<!-- 列表 -->
+			<div id="minirefresh" class="minirefresh-wrap">
+				<div class="minirefresh-scroll">
+					<ul class="mui-table-view" id="listdata">
+				        
+				    </ul>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/template" id="tabtemplate">
+			<li type="{{itemvalue}}">
+				{{itemtext}}
+			</li>
+		</script>
+		
+		
+		<script type="text/template" id="template">
+			<li class="mui-table-view-cell" catalogid="{{catalogid}}" rowguid="{{rowguid}}" superviseitemcode="{{superviseitemcode}}">
+	            <div class="flex">
+	            	<span class="em-status">
+	            		{{itemstate}}
+	            	</span>
+	            	<span class="em-title mui-ellipsis-2">
+	            		{{superviseitem}}
+	            	</span>
+	            </div>
+	            <span class="em-con flex">
+	            	<span class="em-conl">
+	            		目录清单编码:
+	            	</span>
+	            	<span class="em-conr">
+	            		{{superviseitemcode}}
+	            	</span>
+	            </span>
+	            <div class="em-botbox flexb mui-hidden">
+	            	<span class="em-botcon">版本: {{itemversion}}</span>
+	            	<span class="em-botcon">版本时间: {{versiondate}}</span>
+	            </div>
+	        </li>
+		</script>
+		
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./js/regulatory_index.js'
+			]);
+		</script>
+	</body>
+
+</html>

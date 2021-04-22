@@ -1,0 +1,97 @@
+/*
+作者：libo
+创建时间: 2021-04-14
+版本: [1.0, 2021-04-14]
+版权: 江苏国泰新点软件有限公司
+描述: 日历维护
+*/
+
+(function (doc) {
+
+    "use strict";
+
+    var month = '',
+        year = '';
+
+    var chooseDate = [];
+
+    Util.loadJs(
+        'js/widgets/calendar/calendar.js',
+        'js/widgets/calendar/calendar.css',
+        function () {
+
+            initListeners();
+            initPage();
+
+        });
+
+    function initPage() {
+        
+    }
+
+    /**
+     * @description 初始化监听
+     */
+    function initListeners() {
+        Zepto('body').on('change','.monthcheck',function(e){
+            var checkType = e.currentTarget.checked,
+                _this = Zepto(this);
+
+            if(checkType){
+                // 选中目前月份所有日期
+
+                _this.parent().next().find('.daycheck').each((key,value) => {
+                    Zepto(value).prop("checked",true);
+                })
+            }else{
+                _this.parent().next().find('.daycheck').each((key,value) => {
+                    Zepto(value).prop("checked",false);
+                })
+            }
+        })
+
+        Zepto('body').on('change','.daycheck',function(e){
+            var checkType = e.currentTarget.checked,
+                choosed = Zepto(this).data('date');
+
+            if(checkType){
+                chooseDate.push(choosed)
+            }else{
+                //删除数组中的这一项
+                chooseDate.forEach((item,index) => {
+                    if(item == choosed){
+                        chooseDate.splice(index,1);
+                    }
+                })
+            }
+
+            console.log(chooseDate)
+        })
+
+        Zepto('body').on('tap','#setwork',function(){
+
+        }).on('tap','#setrest',function(){
+            
+        })
+    }
+
+    function getBaseInfo(){
+        Util.ajax({
+            url: Config.serverUrl + 'btjgxx/getWorkdayByMonth',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    pripid: '11111',
+                    month: month,
+                    year: year
+                }
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function(result) {
+                console.log(result)
+            }
+        });
+    }
+
+
+}(document));

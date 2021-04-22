@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>控件示例</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+</head>
+
+<body>
+    <div class="page-loading"></div>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">控件示例</h1>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <ul class="mui-table-view" id="list">
+            <li class="mui-table-view-cell" onclick="openPage('./new_workflow_editor.html')">
+                <a class="mui-navigate-right">
+                    综合示例
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./textbox.html')">
+                <a class="mui-navigate-right">
+                    文本框控件
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./radiolist.html')">
+                <a class="mui-navigate-right">
+                    单选框组控件
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./checkboxlist.html')">
+                <a class="mui-navigate-right">
+                    多选框列表控件
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./combobox.html')">
+                <a class="mui-navigate-right">
+                    下拉选择控件
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./date.html')">
+                <a class="mui-navigate-right">
+                    日期选择
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./date.html')">
+                <a class="mui-navigate-right">
+                    日期范围选择
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./selectcontact.html')">
+                <a class="mui-navigate-right">
+                    人员部门选择
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./tree.html')">
+                <a class="mui-navigate-right">
+                    选择树
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./webuploader.html')">
+                <a class="mui-navigate-right">
+                    上传控件
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./pullrefresh.html')">
+                <a class="mui-navigate-right">
+                    下拉刷新控件
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./searchbar.html')">
+                <a class="mui-navigate-right">
+                    搜索框控件
+                </a>
+            </li>
+            <li class="mui-table-view-cell" onclick="openPage('./multilinetext.html')">
+                <a class="mui-navigate-right">
+                    多行文本框控件
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        Util.loadJs(function () {
+            window.openPage = function (url, extras) {
+                if (url && typeof url === 'string') {
+                    if (extras && typeof extras === 'object') {
+                        ejs.page.open(url, {
+                            extras: JSON.stringify(extras)
+                        });
+                    } else {
+                        ejs.page.open(url);
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>

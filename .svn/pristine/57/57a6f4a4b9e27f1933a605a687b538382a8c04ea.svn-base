@@ -1,0 +1,167 @@
+<!--
+作者：解宇
+创建时间：2019-9-5
+版本：[1.0, 2019-9-5]
+版权：江苏国泰新点软件有限公司
+描述：事项检查
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>事项检查</title>
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/inspection_detail.css',
+				'./css/inspection_matter_add.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<!--基本信息-->
+			<div class="content-contrainer" id="baselist">
+				<div class="baseinfo">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell unit-item">
+							<div class="unit-item-left"><span class="color-red">*</span>检查结果状态</div>
+							<div class="unit-item-right" id="">
+								<input class="item-value arrow txt-over" id="em-jcjgzt" type="text" placeholder="请选择" readonly />
+							</div>
+						</li>
+						<li class="mui-table-view-cell unit-item">
+							<div class="unit-item-left"><span class="color-red">*</span>检查结果</div>
+							<div class="unit-item-right" id="">
+								<textarea name="" rows="" cols="" id="em-jcjg" placeholder="请输入"></textarea>
+							</div>
+						</li>
+						<li class="mui-table-view-cell unit-item wrap-zgqx mui-hidden">
+							<div class="unit-item-left"><span class="color-red">*</span>整改期限</div>
+							<div class="unit-item-right" id="">
+								<input class="item-value arrow" id="em-zgqx" type="text" placeholder="请选择" readonly />
+							</div>
+						</li>
+						<li class="mui-table-view-cell flex" onclick="showFileChoose_all.click()">
+							<div class="unit-item-left">结果相关附件</div>
+							<div class="em-form-content">
+								<span class="em-attach-tips">共&nbsp;<span class="em-attach-count">0</span>&nbsp;个附件</span>
+							</div>
+							<i class="icon-attach"></i>
+						</li>
+						<li class="mui-table-view-cell em-attach-wrapper em-transition-vertical">
+							<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+								<div class="mui-scroll">
+									<ul class="mui-table-view em-attach-view">
+
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<input type="file" class="fileChoose mui-hidden" id="showFileChoose_all" filetype="All" />
+
+				<!-- 监管行为信息 -->
+				<div class="baseinfo mb50">
+					<div class="baseinfo-title">检查内容</div>
+					<ul class="mui-table-view action" id="actionList">
+
+					</ul>
+				</div>
+
+				<div id="check-info" class="mui-popover mui-popover-action">
+					<div class="person-info-title">检查项目详细信息<i class="close-wrap"></i></div>
+					<div class="mui-table-view" id="popoverDetail">
+						<div class="unit-item borderbt">
+							<div class="check-info-title">检查项目</div>
+							<div class="check-info-cont"></div>
+						</div>
+						<div class="unit-item borderbt">
+							<div class="check-info-title">检查内容</div>
+							<div class="check-info-cont"></div>
+						</div>
+						<div class="unit-item borderbt">
+							<div class="check-info-title">操作内容与要领</div>
+							<div class="check-info-cont"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--操作按钮-->
+			<div class="operation">
+				<button class="l" id="btn-save">保&nbsp;&nbsp;存</button>
+			</div>
+		</div>
+
+		<!-- 基本信息模板 -->
+		<script type="text/x-tpl" id="template">
+			{{#supervisionInfo}}
+			<li class="mui-table-view-cell unit-item" data-rowguid="{{rowguid}}">
+				<div class="action-item">
+					<div class="action-item-title">
+						<div class="bold font16 txt-over line-height50 mr10">{{checkcontent}}</div>
+						<a href="#check-info" data-rowguid="{{rowguid}}">
+							<div class="look-checkcont">查看检查内容&nbsp;></div>
+						</a>
+					</div>
+					<div class="mui-table-view-cell action-item-res">
+						<div class="unit-item-left"><span class="color-red">*</span>检查结果</div>
+						<div class="unit-item-right" id="">
+							<input class="item-value action-item-result arrow txt-over" id="" type="text" placeholder="请选择" readonly />
+						</div>
+					</div>
+				</div>
+			</li>
+			{{/supervisionInfo}}
+		</script>
+
+		<!-- 基本信息模板 -->
+		<script type="text/x-tpl" id="popover-template">
+			{{#popoverInfo}}
+			<div class="unit-item borderbt">
+				<div class="check-info-title">检查项目</div>
+				<div class="check-info-cont">{{checktype}}</div>
+			</div>
+			<div class="unit-item borderbt">
+				<div class="check-info-title">检查内容</div>
+				<div class="check-info-cont">{{checkcontent}}</div>
+			</div>
+			<div class="unit-item borderbt">
+				<div class="check-info-title">操作内容与要领</div>
+				<div class="check-info-cont">{{checkoperate}}</div>
+			</div>
+			{{/popoverInfo}}
+		</script>
+
+		<!--选择附件模板-->
+		<script type="text/x-tpl" id="em-attach-view">
+			<li class="mui-table-view-cell" attachindex="{{attachindex}}">
+				<img id="test" src="{{attachicon}}" />
+				<p class="em-attach-name mui-ellipsis">{{attachname}}</p>
+				<p class="em-attach-size">{{attachsize}}</p>
+			</li>
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./js/inspection_matter_add.js',
+			]);
+		</script>
+
+	</body>
+
+</html>

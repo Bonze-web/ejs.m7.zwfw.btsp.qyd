@@ -1,0 +1,158 @@
+<!--
+        作者：郭天琦
+        创建时间: 2018/05/04
+        版本: [3.0, 2018/05/04 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：  卡片页面
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 移动端的响应式特性 -->
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>卡片页面 api</title>
+
+    <script>
+        document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './_common/common.css'
+        ]);
+    </script>
+
+</head>
+
+<body>
+    <div class="mui-content pt0" id="ejs-app">
+
+    </div>
+    <script>
+        document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        "use strict";
+
+        Util.loadJs(
+            './_common/bizlogic_common_ready.js',
+            function () {
+                Util.bizlogic.ready(initPage);
+            });
+
+        function initPage() {
+            var litemplate = new Util.litemplate.listLitemplate({
+                isIndex: false,
+                title: 'ejs.card',
+                // 实际中请不要这样调用标准API，这里仅作为示例
+                // 因为标准API除了调用外还有可能有其它的兼容处理，直接callApi无法达到那个目的
+                ejsApi: [{
+                    'id': 'setTitle',
+                    'text': 'setTitle(设置卡片标题)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.setTitle('Saber');
+                    }
+                }, {
+                    'id': 'hide',
+                    'text': 'hide(隐藏卡片)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.hide({
+                            success: function () {
+                                console.log('success');
+                            },
+                            error: function () {}
+                        });
+                    }
+                }, {
+                    'id': 'hideTitleBar',
+                    'text': 'hideTitleBar(隐藏卡片标题栏)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.hideTitleBar({
+                            success: function () {},
+                            error: function () {}
+                        });
+                    }
+                }, {
+                    'id': 'addActionBtns',
+                    'text': 'addActionBtns(添加操作按钮)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.addActionBtns({
+                            // 添加操作按钮，最多添加3个
+                            buttonTexts: ['菜单1', '菜单2', '菜单3'],
+                            success: function (result) {
+                                ejs.ui.toast('当前点击按钮：' + result.which);
+                            }
+                        });
+                    }
+                }, {
+                    'id': 'hideActionBar',
+                    'text': 'hideActionBar(隐藏操作栏)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.hideActionBar({
+                            success: function () {},
+                            error: function () {}
+                        });
+                    }
+                }, {
+                    'id': 'showTip',
+                    'text': 'showTip(显示标题栏角标)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        // 兼容快速调用
+                        ejs.card.showTip('Tip');
+                    }
+                }, {
+                    'id': 'hideTip',
+                    'text': 'hideTip(隐藏标题栏角标)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.hideTip({
+                            success: function () {},
+                            error: function () {}
+                        });
+                    }
+                }, {
+                    'id': 'setTitleBtn',
+                    'text': 'setTitleBtn(设置标题栏按钮)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.setTitleBtn({
+                            text: '按钮',
+                            success: function () {
+                                /**
+                                 * 每次点击触发
+                                 */
+                                ejs.ui.toast('点击了：TitleBtn');
+                            },
+                            error: function () {}
+                        });
+                    }
+                }, {
+                    'id': 'setContentHeight',
+                    'text': 'setContentHeight(设置卡片高度)',
+                    'evn': 'ejs',
+                    'runCode': function () {
+                        ejs.card.setContentHeight({
+                            unit: '200',
+                            success: function() {
+                                console.log('设置成功');
+                            },
+                            error: function () {
+                                console.log('设置失败');
+                            }
+                        });
+                    }
+                }]
+            });
+        }
+    </script>
+
+</body>
+
+</html>

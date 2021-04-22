@@ -1,0 +1,418 @@
+/**
+ * 作者： 袁莉
+ * 创建时间： 2019/07/05
+ * 版本： [1.0, 2019/07/05]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：领导批示-详情页
+ */
+
+body,
+html {
+	background: #f5f5f5;
+}
+
+
+/*顶部信息样式*/
+
+.header {
+    padding: 10px 10px 5px 10px;
+    height: auto;
+ 
+	margin-bottom: 10px;
+    background: #fff;
+}
+
+.header-text {
+	padding-bottom: 12px;
+	color: #333;
+	font-size: 16px;
+	border-bottom: 1px dashed #e0e0e0;
+}
+
+.header-info-items {
+	padding: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+
+.header-info-item {
+	display: flex;
+	padding: 5px 0 0 0;
+}
+
+.header-infoname {
+	display: inline-block;
+	width: 63px;
+	text-align: justify;
+	text-align-last: justify;
+}
+
+.header-infotext {
+	display: inline-block;
+	width: calc(100% - 70px);
+	margin-left: 5px;
+}
+
+.header-people-item {
+	position: relative;
+	z-index: 1;
+}
+
+.deal-people {
+	width: calc(100% - 122px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.deal-people-btn {
+	position: relative;
+	top: -1px;
+	z-index: 1;
+	display: inline-block;
+	width: 45px;
+	padding: 0;
+	color: #3c80e6;
+	font-size: 13px;
+	text-align: center;
+	border-radius: 16px;
+	background: #e6f5ff;
+	border: 1px solid #fff;
+}
+
+.deal-people-btn:active {
+	background: #c9e6fa;
+}
+
+
+/*反馈列表部分样式*/
+
+.main-ul-items {
+	padding-left: 10px;
+	background: #fff;
+    margin-bottom: 55px;
+
+    overflow-y: auto;
+}
+
+.main-li-item {
+	padding: 10px 0;
+	border-bottom: 1px dashed #e0e0e0;
+}
+
+.main-li-item:last-child {
+	border-bottom: none;
+}
+
+.main-li-item-title {
+	padding: 13px 0 13px 29px;
+	color: #3c80e6;
+	font-size: 16px;
+	font-weight: 600;
+	background: url(./images/icon_feedback.png) no-repeat;
+	background-size: 18px 19px;
+	background-position: 0 center;
+	border-bottom: 1px dashed #e0e0e0;
+}
+
+
+/*反馈列表头像*/
+
+.main-li-left {
+	width: 35px;
+}
+
+/* .main-li-left>img {
+	width: 100%;
+	height: 35px;
+	border-radius: 50%;
+} */
+.photo{
+    width: 35px;
+    height: 35px;
+    margin: 0px auto;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    color: #fff;
+    background: #87CEFA;
+}
+
+/*反馈列表右侧信息样式*/
+
+.main-li-rights {
+	width: calc(100% - 35px);
+	padding: 5px 8px 0 9px;
+}
+
+.li-right-name {
+	display: block;
+	color: #333;
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.li-right-info {
+	display: block;
+	padding: 5px 0;
+	color: #333;
+	font-size: 15px;
+}
+
+.li-right-time {
+	display: block;
+	color: #999;
+	font-size: 15px;
+}
+
+
+/*底部样式*/
+
+.btn-main-items {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 44px;
+	z-index: 2;
+	display: flex;
+	color: #fff;
+	font-size: 17px;
+	background: #3c80e6;
+}
+
+.btn-main-item {
+	position: relative;
+	z-index: 2;
+	flex: 1;
+	height: 100%;
+	text-align: center;
+	line-height: 42px;
+}
+
+.btn-main-item>img {
+	position: relative;
+	top: 3px;
+	z-index: 2;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px;
+}
+
+.fk::after {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	z-index: 2;
+	content: '';
+	width: 1px;
+	height: 24px;
+	border-left: 1px dashed #9ec0f3;
+}
+
+.btn-main-item:active {
+	background: #9ec0f3;
+}
+
+
+/*蒙版部分样式*/
+
+.mask {
+	position: fixed;
+	top: 0;
+	z-index: 3;
+	width: 100%;
+	height: 100vh;
+	background: rgb(0, 0, 0, .2);
+}
+
+
+/*================人员详情=================*/
+
+.mask-people {
+	position: relative;
+	top: 35%;
+	z-index: 3;
+	height: 65%;
+	background: #fff;
+	overflow-y: scroll;
+}
+
+.mask-people-title {
+	padding: 12px;
+	color: #3C80E6;
+	font-size: 17px;
+	text-align: center;
+	background: #f1f9ff;
+}
+
+.mask-people-items {
+    padding-left: 10px;
+    height: 388px;
+    overflow-y: auto;
+}
+
+.mask-people-item {
+	display: flex;
+	flex-wrap: nowrap;
+	position: relative;
+	z-index: 3;
+	padding: 10px;
+	border-bottom: .5px solid #e0e0e0;
+}
+
+.mask-people-item:last-child {
+	border-bottom: none;
+}
+
+.mask-people-item>.img {
+	width: 35px;
+	height: 35px;
+	margin-right: 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    color: #fff;
+    background: #87CEFA;
+}
+
+.mask-people-name {
+	position: relative;
+	top: 10px;
+	z-index: 3;
+	color: #333;
+	font-size: 17px;
+	font-weight: 600;
+}
+
+
+/*已办结*/
+
+.ybj {
+	background: url(./images/icon_yibanjie.png) no-repeat;
+}
+
+.wbj {
+	background: url(./images/icon_weibanjie.png) no-repeat;
+}
+
+
+/*未办结*/
+
+.mask-people-status {
+	position: absolute;
+	top: 16px;
+	right: 10px;
+	z-index: 3;
+	padding: 1px 10px;
+	color: #fff;
+	font-size: 13px;
+	background-size: 100% 100%;
+}
+
+
+/*==============反馈==================*/
+
+.mask-feedback {
+	position: relative;
+	top: 35%;
+	z-index: 3;
+	height: 65%;
+	background: #fff;
+	overflow-y: scroll;
+}
+
+.mask-feedback-title {
+	padding: 12px;
+	color: #3C80E6;
+	font-size: 17px;
+	background: #f1f9ff;
+}
+
+.mask-feedback-cancel {
+	color: #333;
+}
+
+.mask-feedback-cancel:active {
+	color: #878484;
+}
+
+.mask-feedback-submit {
+	color: #3c80e6;
+}
+
+.mask-feedback-submit:active {
+	color: #6da5f9;
+}
+
+textarea {
+	padding: 10px;
+	margin-bottom: 0;
+	color: #333;
+	font-size: 17px;
+	border: none;
+}
+
+textarea::-webkit-input-placeholder {
+	color: #999;
+}
+
+.m{
+    float: right;
+    margin-right: 20px;
+}
+.filelist{
+    border-bottom: 1px solid #666666;
+}
+.delete{
+    float: left;
+}
+.fileicon{
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+.file-name{
+    float: left;
+    line-height: 30px;
+    width: 80%;
+}
+.attach-item{
+    
+    margin: 5px 10px;
+}
+.listfile-fk{
+    width: 100%;
+}
+.listfile-name{
+
+    width: 80%;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+.download{
+    float: left;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.msg-title {
+    position: relative;
+    font-size: 17px;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    border-bottom: 0.5px solid #878484;
+}
+.msg-title::after{
+    position: absolute;
+    top:calc(50% - 15px);
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    content: "";
+    background: url(./images/img_startplay.png) 100%  100%  no-repeat;
+    background-size: 100%;
+}

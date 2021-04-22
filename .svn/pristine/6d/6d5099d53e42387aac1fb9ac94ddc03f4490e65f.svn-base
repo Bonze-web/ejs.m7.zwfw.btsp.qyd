@@ -1,0 +1,89 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>任务反馈</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/dailycheck_taskfeedbackitem.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="checkitem">
+        <div class="checkitem-time">
+            <span class="check-name">检查时间</span>
+            <span id="checktime"></span>
+            <span class="mui-icon mui-icon-arrowright"></span>
+        </div>
+        <div class="check-result">
+            <div class="check-result-name check-name">检查结果</div>
+            <div class="check-result-choose" id="checkresult">
+            </div>
+        </div>
+        <div class="check-result">
+            <div class="check-result-name check-name">检查处理方式</div>
+            <div class="check-result-choose" id="checkWay">
+            </div>
+        </div>
+    </div>
+
+    <div class="checkadd">
+        <div class="checkadd-name">检查项</div>
+        <!-- <button>+ 添加检查项</button> -->
+
+        <div id="minirefresh" class="minirefresh-wrap">
+            <div class="minirefresh-scroll">
+                <ul class="checkadd-list" id="listdata">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="savebtn" id="savebtn">保存</div>
+</body>
+
+<script type="text/x-tpl" id="item-template">
+    <li data-checkitem="{{checkitem}}" data-checkcontent="{{checkcontent}}" data-checkitemguid="{{checkitemguid}}" data-checkcontentguid="{{checkcontentguid}}">
+        <div class="checkadd-list-name">{{checkitem}}</div>
+        <div class="checkadd-list-content">{{checkcontent}}</div>
+        <div class="checkadd-list-change">修改</div>
+    </li>
+</script>
+
+<script type="text/x-tpl" id="item-template1">
+    {{#list}}
+    <div data-value="{{itemvalue}}">{{itemtext}}</div>
+    {{/list}}
+</script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/dailycheck_taskfeedbackitem.js'
+    ]);
+</script>
+
+</html>

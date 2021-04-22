@@ -1,0 +1,58 @@
+<!-- 
+        作者：解宇
+        创建时间：2019-12-12
+        版本：[1.0, 2019-12-12]
+        版权：江苏国泰新点软件有限公司
+        描述：选择部门
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>选择部门</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/transfer_choose.css'
+        ]);
+    </script>
+    <style>
+        .minirefresh-wrap {
+            top: 0px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 列表 -->
+    <div class="mui-content">
+        <div id="minirefresh" class="minirefresh-wrap">
+            <div class="minirefresh-scroll">
+                <ul class="listdata" id="listdata"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模板：代码项 -->
+    <script type="text/template" id="item-template">
+			<li class="listitem" data-text="{{ouname}}" data-value="{{ouguid}}">{{ouname}}</li>
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/transfer_chooseou.js'
+        ]);
+    </script>
+</body>
+
+</html>

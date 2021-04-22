@@ -1,0 +1,298 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-7 20:56:23
+        版本： [1.0, 201-09-07]
+        版权： 江苏国泰新点软件有限公司
+        描述： 监管事项详细信息
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title>详细信息</title>
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/common_nodata.css',
+				'./css/regulatory_detail.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content mui-hidden">
+			<!--暂无数据-->
+			<div class="em-tips">
+			    <img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+			    <p>暂无数据</p>
+			</div>
+			<!-- 头部切换 -->
+			<ul class="em-tab-list">
+				<li class="em-active" type="0">
+					目录信息
+				</li>
+				<li type="1">
+					清单信息
+				</li>
+			</ul>
+
+			<!-- 详情 -->
+			<ul class="mui-table-view" id="listdata">
+		        
+		    </ul>
+		    <img  class="em-totop" src="../../js/widgets/minirefresh/images/minirefresh-totop.png"/>
+			<!--目录-->
+		    <script type="text/template" id="template">
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管部门:</span>
+		            	<span class="em-con">{{supervisedept}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管事项:</span>
+		            	<span class="em-con">{{superviseitem}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管事项目录编码:</span>
+		            	<span class="em-con">{{superviseitemcode}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">对应许可事项:</span>
+		            	<span class="em-con">{{permititem}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">对应许可事项类别:</span>
+		            	<span class="em-con">{{permititemtype}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管事项子项:</span>
+		            	<span class="em-con">{{supervisesubitem}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管对象:</span>
+		            	<span class="em-con">{{superviseobject}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管形式:</span>
+		            	<span class="em-con">{{superviseformtext}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管方式:</span>
+		            	<span class="em-con">{{supervisemode}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">设定依据:</span>
+		            	<span class="em-con">{{settingaccord}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管流程:</span>
+		            	<span class="em-con">{{superviseprocedure}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管结果:</span>
+		            	<span class="em-con">{{superviseresult}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管层级:</span>
+		            	<span class="em-con">{{superviseclass}}</span>
+		            </div>
+		        </li>
+		    </script>
+		    
+			<!--清单-->
+			<script type="text/template" id="template2">
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">行使层级:</span>
+		            	<span class="em-con">{{performclass}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">检查实施清单的编码:</span>
+		            	<span class="em-con">{{superviseitemimplementcode}}</span>
+		            </div>
+		       </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">实施主体:</span>
+		            	<span class="em-con">{{implementingsubject}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">实施主体编码:</span>
+		            	<span class="em-con">{{implementingsubjectcode}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">实施主体性质:</span>
+		            	<span class="em-con">{{implementingsubjecttype}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">受委托部门:</span>
+		            	<span class="em-con">{{entrustdept}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">受委托部门编码:</span>
+		            	<span class="em-con">{{entrustdeptcode}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管对象主项:</span>
+		            	<span class="em-con">{{superviseobject}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">监管对象子项:</span>
+		            	<span class="em-con">{{supervisesubobject}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">检查类别:</span>
+		            	<span class="em-con">{{checktype}}</span>
+		            </div>
+		        </li>
+		        <li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">检查方式:</span>
+		            	<span class="em-con">{{checkmode}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell mui-hidden">
+		            <div class="flex">
+		            	<span class="em-lable">检查模式:</span>
+		            	<span class="em-con">{{checkmode}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">是否纳入双随机计划:</span>
+		            	<span class="em-con">{{ifdoublystochastic}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell show{{ifdoublystochastic}}">
+		            <div class="flex">
+		            	<span class="em-lable">检查比例:</span>
+		            	<span class="em-con">{{checkproportion}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell show{{ifdoublystochastic}}">
+		            <div class="flex">
+		            	<span class="em-lable">检查频次:</span>
+		            	<span class="em-con">{{checkfrequency}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">检查内容(日常):</span>
+		            	<span class="em-con">
+		            		{{#checkcontentdaily}}
+		            		<div class="">
+		            			{{index}}、{{checkitem}}；{{checkcontent}}；{{checkoperate}}
+		            		</div>
+		            		{{/checkcontentdaily}}
+		            	</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">检查内容专项:</span>
+		            	<span class="em-con">
+		            		{{#checkcontentspecial}}
+		            		<div class="">
+		            			{{index}}、{{checkitem}}；{{checkcontent}}；{{checkoperate}}
+		            		</div>
+		            		{{/checkcontentspecial}}
+		            	</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">是否抽检:</span>
+		            	<span class="em-con">{{ifcasualinspection}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell show{{ifcasualinspection}}">
+		            <div class="flex">
+		            	<span class="em-lable">监督抽检内容:</span>
+		            	<span class="em-con">{{supervisecasualinspection}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">是否协同:</span>
+		            	<span class="em-con">{{ifsynergism}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell show{{ifsynergism}}">
+		            <div class="flex">
+		            	<span class="em-lable">协同相关机构:</span>
+		            	<span class="em-con">{{synergisminstitution}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">检查实施清单状态:</span>
+		            	<span class="em-con">{{checkitemstate}}</span>
+		            </div>
+		        </li>
+		    	<li class="mui-table-view-cell">
+		            <div class="flex">
+		            	<span class="em-lable">检查实施清单版本:</span>
+		            	<span class="em-con">{{checkitemversion}}</span>
+		            </div>
+		        </li>
+		    </script>
+
+		</div>
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./js/regulatory_detail.js'
+			]);
+		</script>
+	</body>
+
+</html>

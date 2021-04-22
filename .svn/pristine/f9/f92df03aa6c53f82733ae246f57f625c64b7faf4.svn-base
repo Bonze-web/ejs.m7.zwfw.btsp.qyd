@@ -1,0 +1,162 @@
+/** 
+ * 作者： 孙尊路
+ * 创建时间：2017/06/16 14:47:28
+ * 版本： [1.0, 2017/6/16]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：  日历组件样式2
+**/
+
+
+/*日历容器样式*/
+
+.em-calendar {
+	overflow: hidden;
+	background: #ffffff;
+}
+
+
+/*标注红色*/
+
+.em-red {
+	color: #E60012;
+}
+
+
+/*最上面一行周历显示*/
+
+.em-week {
+	display: flex;
+	justify-content: space-around;
+	padding-top: 18px;
+	padding-bottom: 15px;
+	color: #999999;
+	font-size: 13px;
+}
+
+.em-calendar-content .em-calendar-item {
+	float: left;
+	width: 14.285%;
+	height: 52px;
+	text-align: center;
+	/*border:1px solid #000;*/
+	border-radius: 50%;
+	margin-bottom: 5px;
+}
+.em-calendar-content .isforbid1.em-calendar-item{
+}
+
+.em-calendar-content .isforbid0.em-calendar-item{
+	
+}
+
+
+.em-calendar-content .isforbid0.em-calendar-item .day{
+	display: block;
+	padding-top: 7px;
+	font-size: 17px;
+	color: #D8D8D8;
+}
+.em-calendar-content .isforbid0.em-calendar-item .lunar{
+	font-size: 10px;
+	color: #D8D8D8;
+	margin-top: -3px;
+}
+
+
+
+.em-calendar-content .em-calendar-item .day {
+	display: block;
+	padding-top: 7px;
+	font-size: 17px;
+	color: #333333;
+}
+
+.em-calendar-content .em-calendar-item .lunar {
+	font-size: 10px;
+	color: #666666;
+	margin-top: -3px;
+}
+
+
+/*通用点皮肤*/
+
+.em-calendar-content .em-calendar-item .dot {
+	display: inline-flex;
+	width: 10px;
+	height: 10px;
+	margin-top: -14px;
+	position: absolute;
+	margin-left: -6px;
+}
+
+
+/*皮肤1*/
+
+.em-calendar-content .em-calendar-item .dot-type1 {
+	background-image: url(../img/img_sdule_point.png);
+	background-size: 100% 100%;
+}
+
+
+/*皮肤2*/
+
+.em-calendar-content .em-calendar-item .dot-type2 {
+	background-image: url(../../../showcase/uieffect/searchbar/css/images/list-icon2.png);
+	background-size: 100% 100%;
+}
+
+.em-calendar-content .em-calendar-item img {
+	width: 10px;
+	height: 10px;
+	margin-top: -12px;
+	position: absolute;
+	margin-left: -3px;
+}
+
+
+/**
+ * 日历表中的颜色
+ * 日历拓展；四种样式
+ **/
+
+
+/*迟到*/
+
+.em-calendar-late {
+	border: 2px solid #F5B6B6;
+}
+
+
+/*早退*/
+
+.em-calendar-early {
+	border: 2px solid #F5CAB6;
+}
+
+
+/*调休*/
+
+.em-calendar-rest {
+	border: 2px solid #D5E6D4;
+}
+
+
+/*请假*/
+
+.em-calendar-leave {
+	border: 2px solid #AFDDD9;
+}
+
+
+/*点击效果*/
+
+.em-calendar-active {
+	background-color: #3C80E6;
+	width: 14.285%;
+	height: 54px;
+}
+
+.em-calendar-content .em-calendar-active .day,
+.em-calendar-content .em-calendar-active .lunar {
+	color: #FFFFFF;
+}

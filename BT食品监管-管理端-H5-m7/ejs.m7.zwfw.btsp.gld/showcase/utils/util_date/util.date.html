@@ -1,0 +1,149 @@
+<!-- 
+        作者：guotq
+        创建时间:  2018/01/04
+        版本: [1.0, 2018/01/04 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：定义一个日期工具类，这里在继承Date的基础上进行拓展，防止污染原生对象
+-->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <title>日期操作</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+    </head>
+
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">日期操作</h1>
+        </header>
+
+        <div class="mui-content">
+            <div id="Content">
+                <h5>目标时间</h5>
+                <input type="text" id="testdate" value="2018-01-01 01:02:03:000" />
+                <h5>匹配字符串(用来按照格式输出)</h5>
+                <input type="text" id="testPattern" value="YYYY年MM月DD日 HH小时mm分钟ss秒iii毫秒 星期w" />
+                <h5>比较专用：匹配符(YMDhmsi)</h5>
+                <input type="text" id="comparePattern" value="YY" />
+                <h5>往后时间专用：即n的值</h5>
+                <input type="text" id="testn" value="5" />
+            </div>
+            <button class="mui-btn mui-btn-block " id="btn-print">按格式输出目标时间</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-curr">按格式输出当前时间</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-timestamp">输出时间戳</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-compare">当前时间和目标时间比较</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-nextsecond">输出目标时间往后n秒的时间</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-nextminute">输出目标时间往后n分钟的时间</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-nexthour">输出目标时间往后n小时的时间</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-nextday">输出目标时间往后n天的时间</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-nextmonth">输出目标时间往后n月的时间</button>
+            <button class="mui-btn mui-btn-block " id="btn-print-nextyear">输出目标时间往后n年的时间</button>
+            <div id="tips">
+            	   
+            </div>
+        </div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+        <script>
+            "use strict";
+
+            Util.loadJs('js/utils/util.date.js', initPage);
+
+            function initPage() {
+                var MyDate = Util.date.MyDate;
+                var dateDom = document.getElementById('testdate');
+                var patternDom = document.getElementById('testPattern');
+                var comparePatternDom = document.getElementById('comparePattern');
+                var testNDom = document.getElementById('testn');
+                
+                
+                Zepto('#btn-print').on('tap', function() {
+                    var date = MyDate.parseDate(dateDom.value);
+                    
+                    showTips('输出结果：' + date.format(patternDom.value));
+                });
+                
+                Zepto('#btn-print-curr').on('tap', function() {
+                    var date = MyDate.parseDate();
+                    
+                    showTips('输出结果：' + date.format(patternDom.value));
+                });
+                
+                Zepto('#btn-print-timestamp').on('tap', function() {
+                    var date = MyDate.parseDate();
+                    
+                    showTips('时间戳：' + date.toTimeStap(true));
+                });
+                
+                Zepto('#btn-print-compare').on('tap', function() {
+                    var date1 = MyDate.parseDate();
+                    var date2 = MyDate.parseDate(dateDom.value);
+                    
+                    showTips('比较结果：' + date1.compare(date2, comparePatternDom.value));
+                });
+                
+                Zepto('#btn-print-nextsecond').on('tap', function() {
+                    var date = MyDate.parseDate(dateDom.value);
+                    var n = testNDom.value;
+                    
+                    showTips('输出结果：' + date.nextSeconds(n).format(patternDom.value));
+                });
+                
+                Zepto('#btn-print-nextminute').on('tap', function() {
+                    var date = MyDate.parseDate(dateDom.value);
+                    var n = testNDom.value;
+                    
+                    showTips('输出结果：' + date.nextMinutes(n).format(patternDom.value));
+                });
+                
+                Zepto('#btn-print-nexthour').on('tap', function() {
+                    var date = MyDate.parseDate(dateDom.value);
+                    var n = testNDom.value;
+                    
+                    showTips('输出结果：' + date.nextHours(n).format(patternDom.value));
+                });
+                
+                Zepto('#btn-print-nextday').on('tap', function() {
+                    var date = MyDate.parseDate(dateDom.value);
+                    var n = testNDom.value;
+                    
+                    showTips('输出结果：' + date.nextDays(n).format(patternDom.value));
+                });
+                
+                Zepto('#btn-print-nextmonth').on('tap', function() {
+                    var date = MyDate.parseDate(dateDom.value);
+                    var n = testNDom.value;
+                    
+                    showTips('输出结果：' + date.nextMonths(n).format(patternDom.value));
+                });
+                
+                Zepto('#btn-print-nextyear').on('tap', function() {
+                    var date = MyDate.parseDate(dateDom.value);
+                    var n = testNDom.value;
+                    
+                    showTips('输出结果：' + date.nextYears(n).format(patternDom.value));
+                });
+            }
+            
+            var tipsDom = document.getElementById('tips');
+            
+            function showTips(tips, isClear) {
+                if (isClear) {
+                    tipsDom.innerHTML = tips;
+                } else {
+                    tipsDom.innerHTML += tips + '<br/>';
+                }
+            }
+        </script>
+    </body>
+
+</html>

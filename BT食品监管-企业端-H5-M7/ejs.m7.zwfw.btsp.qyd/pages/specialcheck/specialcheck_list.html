@@ -1,0 +1,84 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查
+-->
+
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>专项检查</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/specialcheck_list.css',
+				'./css/common_nodata.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="daily-tab" id="dailytab">
+            <div class="active" data-status="95">待整改复查<span id="waittotal">()</span></div>
+            <div data-status="50">待审核<span id="waitchecktotal">()</span></div>
+            <div data-status="100">已办结<span id="overtotal">()</span></div>
+        </div>
+
+        <div id="minirefresh" class="minirefresh-wrap">
+            <div class="minirefresh-scroll">
+                <ul class="checklist" id="listdata">
+                    
+                </ul>
+            </div>
+        </div>
+
+		<div class="em-tips">
+			<img src="./css/image/img_data_empty_bg.png" class="nodata" />
+			<p>暂无数据！</p>
+		</div>
+
+	</body>
+
+    <script type="text/x-tpl" id="item-template">
+        <li class="checklist-item checklist-{{timestatus}}" data-rowguid="{{rowguid}}">
+            <div class="checklist-title">{{checkactionname}}</div>
+            <div class="checklist-content">
+                <div>任务编号:{{checkactioncode}}</div>
+                <div>执法人员:{{lepname}}</div>
+                <div>计划日期:{{checkbegintime}}至{{checkendtime}} <span class="datetips">{{timestatustext}}</span> </div>
+            </div>
+            <div class="checklist-oponebtn">填写整改信息</div>
+        </li>
+    </script>
+
+    <script type="text/x-tpl" id="item-template2">
+        <li class="checklist-item">
+            <div class="checklist-title">{{checkactionname}}</div>
+            <div class="checklist-content">
+                <div>任务编号:RC283823929</div>
+                <div>执法人员:李子梅</div>
+                <div>计划日期:2020-01-01至2020-12-31</div>
+            </div>
+        </li>
+    </script>
+
+	<script>
+		document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+	</script>
+	<script>
+		SrcBoot.output([
+			'./js/specialcheck_list.js'
+		]);
+	</script>
+
+</html>

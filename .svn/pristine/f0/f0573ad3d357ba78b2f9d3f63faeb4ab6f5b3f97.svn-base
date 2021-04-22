@@ -1,0 +1,124 @@
+﻿/**
+ * 作者：丁力
+ * 创建时间：2019-9-7 20:58:354
+ * 版本：[1.0, 2019-9-7]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：双随机计划
+ **/
+
+html,
+body,
+.mui-content {
+	background: #FFFFFF;
+}
+
+/*
+ * tab切换
+ */
+.head {
+	display: flex;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	overflow-y: hidden;
+	overflow-x: auto;
+	height: 45px;
+	color: #333;
+	font-size: 14px;
+	background: #fff;
+	border-bottom: 1px solid rgba(229, 229, 229, 1);
+	white-space: nowrap;
+	z-index: 10;
+}
+
+.head .headitem {
+	width: 33.333%;
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	line-height: 45px;
+	text-align: center;
+}
+
+.head .head-item .head-item-title {
+	display: inline-block;
+	width: 70px;
+	line-height: 40px;
+}
+
+.head .headactive {
+	color: #406de9;
+	border-bottom: 2px solid #406de9;
+}
+
+
+/*二级tab*/
+
+.second {
+	position: fixed;
+	top: 34px;
+	width: calc(100% - 30px);
+	height: 36px;
+	padding: 4px;
+	margin: 10px 0 10px 15px;
+	border-bottom: 1px solid #efeff4;
+	border-radius: 4px;
+	font-size: 16px;
+	background: rgba(245, 245, 245, 1);
+	text-align: center;
+	z-index: 10;
+}
+
+.second .seconditem {
+	width: 50%;
+	height: 28px;
+	line-height: 28px;
+}
+
+.second .secondactive {
+	background: #fff;
+	color: #406de9;
+	border-radius: 4px;
+}
+
+#minirefresh {
+	/*40*/
+	margin-top: 77px;
+}
+.mt45{
+	margin-top: 45px;
+}
+/*列表内容*/
+#listdata li {
+	padding: 20px 15px 12px 15px;
+}
+.em-title {
+	font-size: 17px;
+	color: #000000;	
+}
+
+.em-conbox {
+	position: relative;
+	margin: 15px 0;
+	border-left: 2px solid #cedbef;
+}
+
+.em-con {
+	display: block;
+	margin-left: 10px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #8c8c8c;
+}
+
+.em-tag {
+	display: inline-block;
+	margin-right: 8px;
+	margin-bottom: 5px;
+	padding: 3px 16px;
+	font-size: 13px;
+	color: #3c80e6;
+	border: 1px solid #a2c2f3;
+	border-radius: 4px;
+	background: #f4f8ff;
+}

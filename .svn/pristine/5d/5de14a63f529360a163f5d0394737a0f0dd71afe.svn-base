@@ -1,0 +1,207 @@
+html,
+body {
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.mui-content {
+    background: url("../image/home_bg_nav.png") no-repeat;
+    background-size: 100% 184px;
+    /* width: 100%;
+    height: 100%; */
+}
+.header_box {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.search_box {
+    position: relative;
+    display: flex;
+    background-color: #fff;
+    /* width: 267px; */
+    flex: 1;
+    height: 32px;
+    border-radius: 16px;
+    padding-left: 38px;
+    overflow: hidden;
+}
+.home_icon_search {
+    position: absolute;
+    left: 0px;
+    top: 8px;
+    width: 16px;
+    height: 17px;
+    margin: 0 12px;
+}
+.search_box input {
+    border: 0;
+    padding: 0;
+    height: 32px;
+    font-size: 12px;
+    margin: 0;
+    color: #666;
+}
+input::-webkit-input-placeholder {
+    color: #d5dae3;
+}
+/* 扫一扫 */
+.scan_box {
+    width: 21px;
+    height: 21px;
+    margin-left: 16px;
+}
+.scan_box img {
+    width: 100%;
+    height: 100%;
+}
+/* 消息盒子 */
+.message_box {
+    width: 21px;
+    height: 21px;
+    margin-left: 16px;
+}
+.message_box img {
+    width: 100%;
+    height: 100%;
+}
+/* 头部信息 */
+.headline_box {
+    margin-top: 16px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headline_box .headline {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+}
+.headline_box .headline img {
+    margin-right: 6px;
+    width: 24px;
+    height: 24px;
+}
+.home_btn_more {
+    width: 20px;
+    height: 20px;
+}
+
+.credited {
+    margin-top: 14px;
+    padding: 0 15px;
+    font-size: 13px;
+    color: #fff;
+}
+/* 通知公告 */
+.circular {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+    margin-top: 20px;
+    height: 60px;
+    background: #FFFFFF;
+    box-shadow: 1px 12px 21px 0px rgba(156, 180, 218, 0.2);
+    border-radius: 10px;
+}
+.home_icon_notice {
+    width: 35px;
+    height: 39px;
+    /* margin: 12px 0; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.caption {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.circular .home_btn_more {
+    margin-right: 5px;
+}
+
+/* 待办 */
+.backlog {
+    margin-top: 8px;
+    background-color: #fff;
+}
+.backlog .backlog_head {
+    padding: 18px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.back_quantum {
+    color: #1a1a1b;
+    font-size: 18px;
+    font-weight: bold;
+}
+.back_quantum span {
+    /* font-size: 14px; */
+    color: #ff974b;
+    font-weight: 400;
+}
+.backlog_list {
+    /* padding-bottom: 14px; */
+}
+.backlog_list_item {
+    position: relative;
+    padding: 15px 15px;
+}
+.backlog_list_item::before {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    content: "";
+    width: 90%;
+    height: 1px;
+    background-color: #f3f3f3;
+    /* padding: ; */
+}
+.backlog_list_item .item_title_box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #333333;
+    /* padding: 0 18px; */
+}
+.backlog_list_item .item_content {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #999999;
+    margin-top: 8px;
+}
+.backlog_list_item .item_title_box .reexamine {
+    color: #3c80e6;
+}
+/* 今日已记 */
+.present {
+    margin-top: 8px;
+    background-color: #fff;
+    padding-top: 27px;
+}
+.present_title_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.present_msg_box .present_title{
+    color: #333333;
+    font-size: 18px;
+}
+.present_msg_box .present_content {
+    color: #9d9d9d;
+    font-size: 12px;
+}

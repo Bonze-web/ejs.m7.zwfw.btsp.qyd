@@ -1,0 +1,20 @@
+{
+  "controls": [{
+    "data": {
+      "attachGuid": "f3d7fa90-84fa-482b-a8bc-aa50a01ef538",
+      "downloadUrl": "rest\/frame\/base\/attach\/attachAction\/getContent?isCommondto=true&attachGuid=f3d7fa90-84fa-482b-a8bc-aa50a01ef538",
+      "attachFileName": "\u53CC\u4EE3\u53F7\u7F51\u7EDC\u56FE-\u7F29\u5C0F\u56FE.png",
+      "preparams": "tp=b3ef3f08e1b8db1392743424c18637094f4c7ae3a9743323780abfa96358119d22e908a5d68d3d02594a6b122acb40634d38d9efd6e2b91084ca8d25f10aa1c7&furl=21432986396a2ea72c2c3f74dd8dd75318664c1f8bb276592909d6d55fc8a711e96fcb9f9fb6112f2ddb71cd2b66b95b4cb896c14061b7f965e86f35b50215ce6fd8f460097e829f4e72db7ca54761723816c33b101fbc306b5442779eb3a5849207ca37da2c831931423eb65cce07313869c3ba09901b9e783a34d1d1f4f3c0e226907004a0187935451a6dc9fda10451bc7deffeae569234ef4daeb8c5295ec4dbce903cedf0cf13a180ce7ac08db5ebc4e3c00138f2a239773e756ae6d78b0283a6a780b22b55bb7351eae50d2b00798a36451ece8ab8df062af3eb4859f50694e4ab0cc1bafdb69e2997136fda95578523956a928ae63d8ad04927bb200680bfcf22286cb02cef1f51a803629a800f1681a205ed13b170131541eb6b759dc476393a288a329cd54107975f07f6cac2fcec84451a1a35"
+    },
+    "id": "upload-inner"
+  }, {
+    "id": "_common_hidden_viewdata",
+    "value": "{\"epoint_user_loginid\":\"980257FE8FB15CF0ADFDCD01B00318F6\",\"tableGuid\":\"c795b202-4553-4ebc-b2d3-088e48ec77a9\",\"tableId\":\"40028\",\"pageUrl\":\"DB54030BBEDCAC7348A4E21EA71B13783AC683137FB7A9528AC09D684EA6500E3BB2F01751A3B65E86C7E12160C72F0803C0875E1DD9FB28\",\"versionGuid\":\"1c988094-f9e3-4624-bfe0-ad244842be58\",\"rowguid\":\"7ec3714e-38f8-406d-89b3-6295c0bc5304\"}"
+  }],
+  "status": {
+    "code": "1",
+    "text": "",
+    "url": "",
+    "state": "error"
+  }
+}

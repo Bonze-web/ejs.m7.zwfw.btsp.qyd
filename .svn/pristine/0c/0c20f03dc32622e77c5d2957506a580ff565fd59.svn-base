@@ -1,0 +1,144 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/16
+	版本： [1.0, 2019/10/16]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-已登记-简易案件信息
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>简易案件信息</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_todo_register.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap wrap-done">
+			<div class="baseinfo" id="baseinfo">
+
+			</div>
+			<div class="check-casedetil mui-table-view-cell" id="check-casedetail">
+				<a class="mui-navigate-right">查看任务基本详情</a>
+			</div>
+			<div class="main-part">
+				<div class="part-title">
+					登记案件列表
+				</div>
+				<ul class="main-ul-items" id="register-caselists">
+
+				</ul>
+			</div>
+			<div class="main-part">
+				<div class="part-title">
+					监管行为
+				</div>
+
+				<ul class="main-ul-items" id="noregister-caselists">
+					
+				</ul>
+			</div>
+
+		</div>
+
+		<!--案件基本详情模板-->
+		<script type="text/x-mustache" id="baseinfo-template">
+			<div class="baseinfo-title">
+				{{taskname}}
+			</div>
+			<div class="baseinfo-list">
+				<label>任务编号：</label>
+				<span>{{taskcode}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label class="baseinfo-list-name">行政相对人名称：</label>
+				<span class="baseinfo-list-info">{{administrativecp}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>执法人员：</label>
+				<span>{{lepusernames}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>计划日期：</label>
+				<span>{{planstartdate}}至{{planenddate}}</span>
+			</div>
+		</script>
+
+		<!--登记案件列表模板-->
+		<script type="text/x-mustache" id="case-template">
+			{{#caseinfolist}}
+			<li class="main-li-item" data-caseguid="{{caseguid}}">
+				<div class="li-title">
+					<div class="li-title-name clearfix li-title-name-done">
+						<label class="l">案件编号:</label>
+						<span class="r">{{flowcode}}</span>
+					</div>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">案件来源:</label>
+					<span class="r">{{source}}</span>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">案发时间:</label>
+					<span class="r">{{occurdate}}</span>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">案情摘要:</label>
+					<span class="r">{{summary}}</span>
+				</div>
+				<div class="li-tips">
+					关联<i class="num-content">{{linkbscnum}}</i>个监管行为
+				</div>
+			</li>
+			{{/caseinfolist}}
+		</script>
+
+		<!--监管行为列表模板-->
+		<script type="text/x-mustache" id="item-template">
+			{{#behaviorlist}}
+			<li class="main-li-item">
+				<div class="main-right-title clearfix">
+					<div class="l">{{checklepname}}</div>
+					<div class="r">{{checkdate}}</div>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">监管对象类别</label>
+					<span class="r">{{objtype}}</span>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">监管对象名称</label>
+					<span class="r">{{objname}}</span>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">检查事项</label>
+					<span class="r">{{itemname}}</span>
+				</div>
+				<div class="main-right-list clearfix">
+					<label class="l">检查结果</label>
+					<span class="r">{{checkresultstatus}}</span>
+				</div>
+			</li>
+			{{/behaviorlist}}
+		</script>
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_done_register.js'
+			]);
+		</script>
+	</body>
+
+</html>

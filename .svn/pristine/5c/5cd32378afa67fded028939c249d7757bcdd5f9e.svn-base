@@ -1,0 +1,101 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 14:17:51
+ * @修改时间: 2021-04-06 10:49:34
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+
+
+(function() {
+    "use strict";
+
+    Util.loadJs([
+        'pages/common/common.js'
+    ], function() {
+        customBiz.configReady();
+    });
+
+    var customBiz = {
+        configReady: function() {
+            var self = this;
+            var jsApiList = [{
+
+            }];
+            self.initListeners();
+            self.eventAdd();
+        },
+        initListeners: function() {
+            var self = this;
+            //  基本信息
+            var data1 = {
+                imgArr: [
+                    {srcUrl: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=153960715,2502274764&fm=26&gp=0.jpg'}
+                ]
+            }
+            var temple1 = Zepto('#template_img').html();
+            var output = Mustache.render(temple1, data1);
+            Zepto('.photo_box').html(output);
+
+            // 从业人员
+            var data2 = {
+                list: []
+            }
+            var temple1 = Zepto('#template_add').html();
+            var output = Mustache.render(temple1, data2);
+            Zepto('#boxes_things').html(output);
+
+            // 食品安全
+            var data3 = {
+
+            }
+            var temple1 = Zepto('#foodstuff').html();
+            var output = Mustache.render(temple1, data3);
+            Zepto('#food_security').html(output);
+
+            // 自查记录
+            var data = {
+                information_list: [
+                    {gou: 1}
+                ]
+            }
+            var temple1 = Zepto('#information').html();
+            var output = Mustache.render(temple1, data);
+            Zepto('#inspection').html(output);
+            // 自查设置
+            // var data = {
+
+            // }
+            // var temple1 = Zepto('#intercalate').html();
+            // var output = Mustache.render(temple1, data);
+            // Zepto('#inspection').html(output);
+        },
+        eventAdd() {
+            var swiper1 = new Swiper('#swiper-photo', {
+                slidesPerView: 'auto',
+                // 这个地方如果不设置为自动,就会显示不全
+                spaceBetween: 30,
+                initialSlide: 3,
+                // freeMode: true,
+                on:{
+                    slideChange: function(){
+                        Zepto(".em-tabview-head .em-tabview-title").eq(this.activeIndex).addClass("cur").siblings().removeClass("cur");
+                    //   alert('改变了，activeIndex为'+this.activeIndex);
+                    },
+                },
+            });
+            var swiper2 = new Swiper('#swiper-file', {
+                slidesPerView: 'auto',
+                spaceBetween: 10,
+                freeMode: true,
+            });
+            mui(".em-tabview-head").on("tap",".em-tabview-title",function(){
+                swiper1.slideTo(Zepto(this).index());
+                Zepto(this).addClass("cur").siblings().removeClass("cur");
+            })
+        }
+    }
+
+
+})(window)

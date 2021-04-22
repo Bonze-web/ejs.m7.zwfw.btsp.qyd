@@ -1,0 +1,378 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 14:17:51
+ * @修改时间: 2021-04-14 08:23:53
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+
+
+(function() {
+    "use strict";
+
+    Util.loadJs([
+        'pages/common/common.js',
+        'js/widgets/fileinput/fileinput.js',
+    ], function() {
+        customBiz.configReady();
+    });
+
+    var customBiz = {
+        configReady: function() {
+            var self = this;
+            var jsApiList = [{
+
+            }];
+            self.uuid = Util.uuid();
+            self.initListeners();
+            self.eventAdd();
+        },
+        initListeners: function() {
+            var self = this;
+            var data = {
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    pripid: "111111111111111111",
+                }
+            };
+            //  基本信息
+            Util.ajax({
+                url: Config.serverUrl + 'foodopt/getfoodoptbasicinfo',
+                data: JSON.stringify(data),
+                contentType: 'application/json;charset=UTF-8',
+                success: function(result) {
+                //    console.log(result.custom.foodoptbasicinfo.opearte_imgs.attachUrl);
+                if(result.custom.foodoptbasicinfo){
+                    var data1 = {
+                        imgArr: result.custom.foodoptbasicinfo.opearte_imgs
+                    }
+                    var temple1 = Zepto('#template_img').html();
+                    var output = Mustache.render(temple1, data1);
+                    Zepto('.photo_box').html(output);
+                }
+                },
+                error: function(error) {
+                    ejs.ui.toast(error);
+                }
+            });
+
+
+            // 从业人员
+            // var data2 = {
+            //     list: []
+            // }
+            // var temple1 = Zepto('#template_add').html();
+            // var output = Mustache.render(temple1, data2);
+            // Zepto('#boxes_things').html(output);
+
+
+
+            // 自查记录
+            var data = {
+                information_list: [
+                    {gou: 1}
+                ]
+            }
+            var temple1 = Zepto('#information').html();
+            var output = Mustache.render(temple1, data);
+            Zepto('#inspection').html(output);
+            // 自查设置
+            // var data = {
+
+            // }
+            // var temple1 = Zepto('#intercalate').html();
+            // var output = Mustache.render(temple1, data);
+            // Zepto('#inspection').html(output);
+        },
+        eventAdd() {
+            var self = this;
+            var swiper1 = new Swiper('#swiper-photo', {
+                slidesPerView: 'auto',
+                // 这个地方如果不设置为自动,就会显示不全
+                spaceBetween: 30,
+                initialSlide: 0,
+                // freeMode: true,
+                on:{
+                    slideChange: function(){
+                        Zepto(".em-tabview-head .em-tabview-title").eq(this.activeIndex).addClass("cur").siblings().removeClass("cur");
+                        //   alert('改变了，activeIndex为'+this.activeIndex);
+                        if(this.activeIndex === 1) {
+                            self.occupation();
+                        } else if(this.activeIndex === 2) {
+                            self.foodSafety();
+                        }
+                    },
+                },
+            });
+            var swiper2 = new Swiper('#swiper-file', {
+                slidesPerView: 'auto',
+                spaceBetween: 10,
+                freeMode: true,
+            });
+            mui(".em-tabview-head").on("tap",".em-tabview-title",function(){
+                swiper1.slideTo(Zepto(this).index());
+                Zepto(this).addClass("cur").siblings().removeClass("cur");
+            });
+
+
+            // 上传附件
+            mui('.mui-content').on('tap', '#add_image', function(){
+                Zepto('#fileBtn').click();
+            });
+            // 选择文件的事件
+            new FileInput({
+                container: '#fileBtn',
+                isMulti: false,
+                type: 'Image_Camera',
+                success: function(b64, file, detail) {
+                    ejs.ui.showWaiting('上传中');
+                    self.b64 = b64;
+                    self.uploadAttarch(file);
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+
+            // 新增从业人员
+            mui('.mui-content').on('tap', ".staff_add", function(){
+                ejs.page.open(Config.serverUrl.replace(/rest\//,'/') + 'frame/fmui/pages/employee/addemployee?pripid=' + Config.pripid,{});
+            })
+            // 编辑从业人员
+            mui('.mui-content').on('tap', ".staff_edit", function(){
+                ejs.page.open(Config.serverUrl.replace(/rest\//,'/') + 'frame/fmui/pages/employee/editemployee?guid=' + Zepto(this).attr("rowguid"),{});
+            })
+            // 从业人员详情
+            mui('.mui-content').on('tap', ".staff_resume", function(){
+                ejs.page.open(Config.serverUrl.replace(/rest\//,'/') + 'frame/fmui/pages/employee/employeedetail?guid=' + Zepto(this).attr("rowguid"),{});
+            })
+            // 删除从业人员接口
+            mui('.mui-content').on('tap', ".staff_delete", function(){
+                var data = {
+                    token: 'Epoint_WebSerivce_**##0601',
+                    params: {
+                        pripid: Zepto(this).attr("rowguid")
+                    }
+                };
+                Util.ajax({
+                    url: Config.serverUrl + 'foodopt/getfoodoptemployeedetele',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function(result) {
+                       console.log(result);
+                       self.occupation();
+                    },
+                    error: function(error) {
+                        ejs.ui.toast(error);
+                    }
+                });
+            })
+            // 新增食品
+            mui('.mui-content').on('tap', ".viands_add", function(){
+                ejs.page.open(Config.serverUrl.replace(/rest\//,'/') + 'frame/fmui/pages/aqgly/addaqgly?pripid=' + Config.pripid,{});
+            })
+            // 编辑食品
+            mui('.mui-content').on('tap', ".viands_edit", function(){
+                ejs.page.open(Config.serverUrl.replace(/rest\//,'/') + 'frame/fmui/pages/aqgly/editaqgly?guid=' + Zepto(this).attr("rowguid"),{});
+            })
+            // 食品详情
+            mui('.mui-content').on('tap', ".viands_resume", function(){
+                ejs.page.open(Config.serverUrl.replace(/rest\//,'/') + 'frame/fmui/pages/aqgly/aqglydetail?guid=' + Zepto(this).attr("rowguid"),{});
+            })
+            // 删除食品
+            mui('.mui-content').on('tap', ".viands_delete", function(){
+                var data = {
+                    token: 'Epoint_WebSerivce_**##0601',
+                    params: {
+                        rowguid: Zepto(this).attr("rowguid")
+                    }
+                };
+                Util.ajax({
+                    url: Config.serverUrl + 'foodopt/getfoodoptaqglydelete',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function(result) {
+                       self.foodSafety();
+                    },
+                    error: function(error) {
+                        ejs.ui.toast(error);
+                    }
+                });
+            })
+        },
+         // 上传请求
+        uploadAttarch: function(file) {
+            var self = this;
+            var data = {
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    clientguid: self.uuid,
+                    attachname: file.name
+                }
+            }
+            // var fd = new FormData();
+            // fd.append("token","Epoint_WebSerivce_**##0601");
+            // fd.append("params",{
+            //     clientguid: self.uuid,
+            //     attachname: file.name
+            // });
+
+            // data = fd.stringify(data)
+            Util.upload({
+                url: Config.serverUrl + "commonInter/attachUpload",   // 请求的地址
+                // contentType: 'application/json',
+                data: data,
+                files: [{
+                    name: file.name,
+                    file: file
+                }],
+                beforeSend: function() {
+
+                },
+                success: function(response, status, xhr) {
+
+                        ejs.ui.closeWaiting();
+                        // if (self.flag === 1) {
+                        //     ejs.ui.toast('上传成功！');
+                        //     self.temporaryArr.push({pdf: self.b64, attachguid: response.custom.attachguid});
+                        //     var frontage_box = Zepto("#frontage_box").html();
+                        //     var output = Mustache.render(frontage_box, {certList: self.temporaryArr});
+                        //     Zepto('#show_img').html(output);
+                        // } else if(self.flag === 0) {
+                        //     var attachguid = self.resubmit.parents(".frontage").attr("attachguid");
+                        //     Util.ajax({
+                        //         url: Config.serverUrlNewDate + 'qrcattach/delete',
+                        //         data: {
+                        //             attachguid: attachguid
+                        //         },
+                        //         headers: {"Content-Type":"application/json"},
+                        //         success: function(res) {
+                        //             self.pictureFront.attr('src',self.b64);
+                        //             Zepto('#fileBtn').val('');
+                        //         },
+                        //         error: function(error) {
+                        //             ejs.ui.toast(error);
+                        //         }
+                        //     });
+
+                        // }
+                },
+                error: function(xhr, status, statusText) {
+                    ejs.ui.closeWaiting('上传失败！');
+                },
+                uploading: function(percent, speed, status) {
+                    console.log("上传中:" + percent + ',speed:' + speed + ',msg:' + status);
+                    console.log(parseInt(percent));
+                }
+            });
+        },
+
+        // 刷新从业人员列表
+        occupation() {
+            var data = {
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    currentpage: 0,
+                    pagesize: 999,
+                    pripid: Config.pripid
+                }
+            };
+            Util.ajax({
+                url: Config.serverUrl + 'foodopt/getfoodoptemployeeinfo',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function(result) {
+                   console.log(result);
+                    // 从业人员
+                    var data2 = {
+                        list: result.custom.employeeList
+                        // list: [
+                        //     {fandou: {}}
+                        // ]
+                    }
+                    var temple1 = Zepto('#template_add').html();
+                    var output = Mustache.render(temple1, data2);
+                    Zepto('#boxes_things').html(output);
+                },
+                error: function(error) {
+                    ejs.ui.toast(error);
+                }
+            });
+        },
+        // 刷新食品安全接口
+        foodSafety() {
+            var data = {
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    currentpage: 0,
+                    pagesize: 999,
+                    pripid: Config.pripid
+                }
+            };
+            Util.ajax({
+                url: Config.serverUrl + 'foodopt/getfoodoptaqglyinfo',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function(result) {
+                   console.log(result);
+                    // 食品安全
+                    var data3 = {
+                        list: result.custom.aqglyList
+                        // list: [
+                        //     {
+                        //         sex: "女",
+                        //         cert_num: "419249174172",
+                        //         administrator: "杨"
+                        //     }
+                        // ]
+                    }
+                    var temple1 = Zepto('#foodstuff').html();
+                    var output = Mustache.render(temple1, data3);
+                    Zepto('#food_security').html(output);
+                },
+                error: function(error) {
+                        ejs.ui.toast(error);
+                }
+            });
+        },
+        // 刷新自查
+        inspection(){
+            var data = {
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    currentpage: 0,
+                    pagesize: 999,
+                    pripid: Config.pripid
+                }
+            };
+            Util.ajax({
+                url: Config.serverUrl + 'foodopt/getfoodoptcheckinfo',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function(result) {
+                   console.log(result);
+                    // 食品安全
+                    var data3 = {
+                        list: result.custom.aqglyList
+                        // list: [
+                        //     {
+                        //         sex: "女",
+                        //         cert_num: "419249174172",
+                        //         administrator: "杨"
+                        //     }
+                        // ]
+                    }
+                    var temple1 = Zepto('#foodstuff').html();
+                    var output = Mustache.render(temple1, data3);
+                    Zepto('#food_security').html(output);
+                },
+                error: function(error) {
+                        ejs.ui.toast(error);
+                }
+            });
+        }
+    }
+
+
+})(window)

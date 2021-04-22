@@ -1,0 +1,62 @@
+<!-- 
+        作者：郭天琦
+        创建时间: 2017/06/06
+        版本: [1.0, 2017/06/06 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：  九宫格使用demo
+-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title></title>
+		<script>
+			document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">九宫格解锁</h1>
+		</header>
+		<div class="mui-content">
+			<canvas id="my-canvas"></canvas>
+
+			<div class="result"></div>
+		</div>
+
+		<script>
+			document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			"use strict";
+
+			Util.loadJs([
+				'js/widgets/gridunlock/gridunlock.js'
+			], initPage);
+
+			function initPage() {
+				// 使用代码
+				new GridUnlock({
+					container: '#my-canvas',
+					r: 26,
+					ch: 330,
+					outRoundBorderColor: '#f00',
+					lineWidth: 3,
+					lineColor: '#E8D098',
+					itemClick: function(result) {
+						var elResult = document.querySelector('.result');
+						
+						elResult.innerHTML = '结果：' + result.join('-');
+						elResult.style.cssText = 'text-align: center; color: #666;';
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

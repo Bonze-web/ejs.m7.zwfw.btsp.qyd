@@ -1,0 +1,201 @@
+/**
+ * 作者：丁力
+ * 创建时间：2019-9-7 20:58:354
+ * 版本：[1.0, 2019-9-7]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：添加整改复查
+ **/
+.mui-content > .mui-table-view:first-child {
+  margin-top: 0;
+}
+
+.mui-table-view-cell.remove-mui-active.mui-active {
+  background: #ffffff;
+}
+
+/*申请模板*/
+.red {
+  color: #ff0000;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flexa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input[type='text'],
+textarea,
+.em-con {
+  height: auto;
+  width: calc(100% - 115px);
+  margin-bottom: 0;
+  padding: 0;
+  border: 0;
+  color: #333333;
+  font-size: 14px;
+}
+
+.em-lable {
+  width: 105px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #666666;
+}
+
+.em-choice {
+  width: 100%;
+}
+
+.choice-input {
+  width: calc(100% - 135px) !important;
+}
+.txt-over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*附件列表*/
+
+.em-transition-vertical {
+  overflow: hidden;
+  height: 0px;
+  transition: height 150ms linear;
+  -webkit-transition-duration: height 150ms linear;
+  -moz-transition: height 150ms linear;
+  -o-transition-property: height 150ms linear;
+}
+
+.em-attach-wrapper.mui-table-view-cell {
+  position: relative;
+  overflow: hidden;
+  padding: 0px 0px;
+  -webkit-touch-callout: none;
+  display: flex;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.em-attach-view.mui-table-view:before,
+.em-attach-view.mui-table-view:after,
+.em-attach-view .mui-table-view-cell:before,
+.em-attach-view .mui-table-view-cell:after {
+  height: 0px;
+}
+
+.em-attach-wrapper .mui-slider-indicator.mui-segmented-control {
+  position: relative;
+  bottom: auto;
+  height: 105px;
+}
+
+.em-attach-view .mui-table-view-cell {
+  float: left;
+  display: block;
+  text-align: center;
+}
+
+.em-attach-view .mui-table-view-cell img {
+  width: 30px;
+  height: 30;
+  vertical-align: middle;
+}
+
+.em-attach-view .mui-table-view-cell .em-attach-name {
+  display: block;
+  font-size: 13px;
+  color: #666666;
+  width: 120px;
+  margin-top: 10px;
+}
+
+.em-attach-view .mui-table-view-cell .em-attach-size {
+  display: block;
+  font-size: 12px;
+  color: #999999;
+}
+
+.em-form-content {
+  width: calc(100vw - 145px);
+  margin-left: 15px;
+}
+
+.em-attach-tips {
+  font-size: 14px;
+  color: #666666;
+}
+
+.em-attach-count {
+  color: #3c80e6;
+}
+
+.em-form-icon {
+  float: right;
+  width: 25px;
+  text-align: right;
+  color: #3c80e6;
+}
+
+.mui-icon.mui-icon-paperclip {
+  transform-style: preserve-3d;
+  transform: rotateZ(225deg) rotateX(180deg);
+  -webkit-transform: rotateZ(225deg) rotateX(180deg);
+  color: #3c80e6;
+}
+
+/*附件上传进度条加载*/
+
+body > .mui-progressbar {
+  position: absolute;
+  z-index: 10000;
+  top: 0px;
+  left: 0;
+  border-radius: 0;
+  background: #f5f5f5;
+}
+
+.mui-progressbar span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 150ms;
+  transition: 150ms;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  background: #3c80e6;
+}
+
+.em-btnbox {
+  margin-top: 10px;
+}
+
+.em-btn {
+  margin-right: 8px;
+  padding: 6px 40px;
+  font-size: 13px;
+  color: #3c80e6;
+  border: 1px solid #a2c2f3;
+  border-radius: 16px;
+  background: #f4f8ff;
+}
+
+.em-btn.em-active {
+  color: #ffffff;
+  background: #3c80e6;
+}
+
+.em-save {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 0;
+}

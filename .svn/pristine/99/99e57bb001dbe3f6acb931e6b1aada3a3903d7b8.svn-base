@@ -1,0 +1,48 @@
+/* 列表模版 */
+.em-editor {
+  position: absolute;
+  right: 18px;
+  bottom: 35px;
+  width: 55px;
+  height: 55px;
+  background-color: #3c80e6;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px #c5d7f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.mui-table-view {
+  background-color: transparent;
+}
+
+.em-editor img {
+  width: 27px;
+  height: 27px;
+}
+
+.list-item {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.list-item-title {
+  padding: 13px 10px;
+  color: #3c80e6;
+  font-size: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.list-item-content {
+  font-size: 16px;
+  padding: 12px 12px 10px 10px;
+}
+
+.list-sub-title {
+  color: #999;
+}

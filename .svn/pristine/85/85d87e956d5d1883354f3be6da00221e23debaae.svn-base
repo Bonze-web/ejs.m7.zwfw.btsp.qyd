@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title></title>
+
+    <script>
+        document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        SrcBoot.output([
+            './easycalendar.css'
+        ]);
+    </script>
+
+    <style>
+        html,
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ui-datapicker-wrapper" id="container"></div>
+
+    <p id="result" class="mt10">选择结果：</p>
+
+    <script>
+        document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        Util.loadJs('../../../js/widgets/easycalendar/easycalendar.js', function () {
+            var resultEl = document.getElementById('result');
+            
+            var instacne = new EasyCalendar({
+                el: '#container',
+                cls: 'cur',
+                itemClick: function(result) {
+                    resultEl.innerHTML = '选择结果：' + JSON.stringify(result);
+                }
+            });
+
+            // 创建日历组件
+            instacne.createCalendar();
+            instacne.showCalendar();
+            
+            // 这里也可以获取选择日期的结果
+            var result = instacne.getCalendarData();
+        });
+    </script>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>

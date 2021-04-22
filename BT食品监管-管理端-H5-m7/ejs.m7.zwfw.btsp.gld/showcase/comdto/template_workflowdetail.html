@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>工作流模板页</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        document.write(
+            "<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/common.css'
+        ]);
+    </script>
+
+    <style>
+        .mui-input-row label {
+            margin-top: 3px;
+        }
+    </style>
+
+<body class="ejs-f9-content">
+    <div class="page-loading"></div>
+    <!-- 内容区域 -->
+
+    <div class="mui-content">
+        <div id="slider" class="mui-slider">
+            <div id="sliderSegmentedControl"
+                class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <a class="mui-control-item mui-active" href="#item1mobile">
+                    表单
+                </a>
+                <a class="mui-control-item" href="#item2mobile">
+                    步骤
+                </a>
+                <a class="mui-control-item" href="#item3mobile">
+                    附件
+                </a>
+            </div>
+            <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+            <div class="mui-slider-group">
+                <div id="item1mobile" class="mui-slider-item mui-control-content mui-active hidden">
+                    <div id="scroll1" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view">
+                                <li class="mui-input-row">
+                                    <label>用户登录名：</label>
+                                    <div id="loginId" class="ep-mui-outputtext" bind="myinfomodifyaction.user.loginId">
+                                    </div>
+                                </li>
+                                <li class="mui-input-row">
+                                    <label>用户姓名：</label>
+                                    <div id="displayName" type="text" class="ep-mui-outputtext"
+                                        bind="myinfomodifyaction.user.displayName"></div>
+                                </li>
+                                <li class="mui-input-row">
+                                    <label>职务：</label>
+                                    <div id="title" type="text" class="ep-mui-outputtext"
+                                        bind="myinfomodifyaction.user.title"></div>
+                                </li>
+                                <li class="mui-input-row">
+                                    <label>办公电话：</label>
+                                    <div id="telephoneOffice" type="text" class="ep-mui-outputtext"
+                                        bind="myinfomodifyaction.user.telephoneOffice">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="item2mobile" class="mui-slider-item mui-control-content hidden">
+                    <div id="scroll2" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <div id="workflowhistory" class="ep-mui-workflowhistory">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="item3mobile" class="mui-slider-item mui-control-content hidden">
+                    <div id="scroll3" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <div class="mui-scroll">
+                                <div id="workflowattach" class="ep-mui-workflowattach" onitemclick="itemClick"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="item4mobile" class="mui-slider-item mui-control-content hidden">
+                    <div id="scroll4" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <div class="mui-scroll">
+                                <div id="workflowattach" class="ep-mui-workflowattach" onitemclick="itemClick"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HandleControls -->
+        <div class="ep-mui-handlecontrols" id="handlecontrols" submitbefore="submitbefore"
+            workflowPageUrl="./workflow.html">
+        </div>
+    </div>
+
+    <script>
+        document.write(
+            "<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>"
+        );
+    </script>
+
+    <script>
+        // 获取权限接口地址
+        window.handledetail_base_v7 = 'http://work.epoint.com.cn:8089/oarest94/rest/oa9/handledetail_base_v7';
+    </script>
+
+    <script>
+        Util.loadJs(initPage);
+
+        function initPage() {
+            ejs.navigator.setTitle(document.title);
+
+            epointm.initPage("data/testmyinfo.json", null, null, null, {
+                method: "GET"
+            });
+
+            mui('.mui-scroll-wrapper').scroll({
+                indicators: true, //是否显示滚动条
+                scrollY: true
+            });
+
+            $.each(mui('.mui-control-content'), function (i, e) {
+                e.style.height = window.screen.height - 84 + 'px';
+                e.classList.remove('hidden');
+            });
+        }
+
+        /**
+         * 没有图片的话设置默认图片
+         */
+        window.setDefaultImg = function () {
+            this.src = './images/toux.PNG';
+        }
+
+        /**
+         * 点击右上角之前
+         */
+        // window.submitbefore = function (cb) {
+        //   epointm.execute('', '', function (data) {
+        //     if (data) {
+        //       cb();
+        //     }
+        //   });
+        // }
+
+        /**
+         * 点击下载按钮
+         */
+        window.itemClick = function (e, materialguid, materialname) {
+            // TODO: 附件下载地址应该是固定的，但是现在不知道固定地址是多少。。
+            var downloadUrl = epm.getRootPath() + materialguid;
+
+            ejs.io.downloadFile({
+                url: downloadUrl,
+                fileName: materialname,
+                success: function (result) { },
+                error: function (error) { }
+            });
+        };
+    </script>
+</body>
+
+</html>

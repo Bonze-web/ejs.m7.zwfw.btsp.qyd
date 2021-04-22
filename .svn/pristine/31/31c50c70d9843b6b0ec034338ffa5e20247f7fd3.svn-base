@@ -1,0 +1,99 @@
+<!-- 
+        作者：解宇
+        创建时间：2019-12-6
+        版本： [1.0, 2019-12-6]
+        版权： 江苏国泰新点软件有限公司
+        描述： 抄告移交
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>抄告移交</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/common_nodata.css',
+            '../common/todo_index.css',
+            './css/transfer_index.css'
+        ]);
+    </script>
+    <style>
+        .minirefresh-wrap {
+            top: 40px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+
+        <!-- 头部切换 -->
+        <ul class="clearfix head" id="head">
+            <li class="l headitem headactive" data-type="1">待处置</li>
+            <li class="l headitem" data-type="2">已处置</li>
+        </ul>
+
+        <!-- 列表 -->
+        <div class="mui-content">
+            <div id="minirefresh" class="minirefresh-wrap">
+                <div class="minirefresh-scroll">
+                    <ul class="listdata" id="listdata">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--列表项模板-->
+        <script type="text/x-templ-mustache" id="item-template">
+				<li class="mui-table-view-cell" data-status="{{status}}" data-rowguid="{{rowguid}}">
+					<p class="check-title">{{taskname}}</p>
+					<div class="check-wrap">
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>任务编号：</span>
+								<span>{{taskcode}}</span>
+							</div>
+						</div>
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>行政相对人名称：</span>
+								<span>{{administrativecp}}</span>
+							</div>
+						</div>
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>执法人员：</span>
+								<span>{{lepname}}</span>
+							</div>
+						</div>
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>计划日期：</span>
+								<span>{{planstratdate}}至{{planenddate}}</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</script>
+
+    </div>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/transfer_index.js'
+        ]);
+    </script>
+</body>
+
+</html>

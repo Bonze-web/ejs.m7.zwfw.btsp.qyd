@@ -1,0 +1,136 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-7 20:56:23
+        版本： [1.0, 201-09-07]
+        版权： 江苏国泰新点软件有限公司
+        描述： 整改复查
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title>整改复查</title>
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'../common/common_nodata.css',
+				'./css/reform_index.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+
+			<!-- 头部切换 -->
+			<ul class="em-tab-list" id="em-tab-list"></ul>
+
+			<!--暂无数据-->
+			<div class="em-tips">
+				<img src="../common/img/default/img_data_empty_bg.png" class="nodata" />
+				<p>暂无数据</p>
+			</div>
+			<!-- 列表 -->
+			<div id="minirefresh" class="minirefresh-wrap">
+				<div class="minirefresh-scroll">
+					<ul class="mui-table-view" id="listdata">
+
+					</ul>
+				</div>
+			</div>
+
+			<!--待复查-->
+			<script type="text/template" id="template">
+				<li class="mui-table-view-cell remove-mui-active">
+					<p class="flex">
+						<span class="em-title">
+		            		{{taskname}}
+		            	</span>
+					</p>
+					<div class="em-conbox em-todo" rowguid="{{rowguid}}">
+						<div class="em-con">
+							<span>任务编号:</span>
+							<div>{{taskcode}}</div>
+						</div>
+						<div class="em-con">
+							<span>行政相对人:</span>
+							<div class="em-con-hide">{{administrativecp}} </div>
+							<i class=" mui-icon mui-icon-phone color-blue ml10 mr10" id="dzxdr-tel" data-tel="{{xzxdr_tel}}"></i>
+							<i class="mui-icon mui-icon-navigate color-blue ml10" id="nav" data-name="{{administrativecp}}" data-lat="{{lat}}" data-lng="{{lng}}"></i>
+						</div>
+						<div class="em-con">
+							<span>计划启动日期:</span>
+							<div>{{planstartdate}}</div>
+						</div>
+						<div class="em-con">
+							<span>计划结束日期:</span>
+							<div>{{planenddate}}</div>
+						</div>
+					</div>
+					<div class="em-add" rowguid="{{rowguid}}">
+						<img class="em-addicon" src="img/img_add.png" /> 添加整改信息
+					</div>
+				</li>
+			</script>
+
+			<!--复核通过-->
+			<script type="text/template" id="template2">
+				<li class="mui-table-view-cell remove-mui-active">
+					<p class="flex">
+						<span class="em-title">
+		            		{{taskname}}
+		            	</span>
+					</p>
+					<div class="em-conbox em-done" rowguid="{{rowguid}}">
+						<div class="em-con">
+							<span>任务编号:</span>
+							<div>{{taskcode}}</div>
+						</div>
+						<div class="em-con">
+							<span>行政相对人:</span>
+							<div class="em-con-hide">{{administrativecp}} </div>
+							<i class=" mui-icon mui-icon-phone color-blue ml10 mr10" id="dzxdr-tel" data-tel="{{xzxdr_tel}}"></i>
+							<i class="mui-icon mui-icon-navigate color-blue ml10" id="nav" data-name="{{administrativecp}}" data-lat="{{lat}}" data-lng="{{lng}}"></i>
+						</div>
+						<div class="em-con">
+							<span>计划启动日期:</span>
+							<div>{{planstartdate}}</div>
+						</div>
+						<div class="em-con">
+							<span>计划结束日期:</span>
+							<div>{{planenddate}}</div>
+						</div>
+					</div>
+					<div class="em-add" rowguid="{{rowguid}}">
+						查看
+					</div>
+				</li>
+			</script>
+		</div>
+
+		<script type="text/template" id="tabtemplate">
+			{{#statuslist}}
+			<li id="{{status}}">
+				{{name}}<span class="em-num ">({{count}})</span>
+			</li>
+			{{/statuslist}}
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./js/reform_index.js'
+			]);
+		</script>
+	</body>
+
+</html>

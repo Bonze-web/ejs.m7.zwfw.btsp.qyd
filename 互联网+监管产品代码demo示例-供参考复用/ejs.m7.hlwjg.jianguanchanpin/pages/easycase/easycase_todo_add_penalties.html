@@ -1,0 +1,128 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/16
+	版本： [1.0, 2019/10/16]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-待登记-添加处罚事项
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加处罚事项</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/easycase_todo_add_penalties.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="main-ul-items">
+            <li class="main-li-item">
+                <div class="item-name">
+                    处罚对象<i class="icon-important"></i>
+                </div>
+                <div class="item-info">
+                    <input class="item-info-text" id="name" readonly="readonly" />
+                    <!--<a class="mui-navigate-right"></a>-->
+                </div>
+            </li>
+            <li class="main-li-item">
+                <div class="item-name">
+                    处罚事项<i class="icon-important"></i>
+                </div>
+                <!-- <div class="item-info">
+                    <input class="item-info-text" placeholder="请选择" id="itemguid" readonly="readonly" />
+                    <a class="mui-navigate-right"></a>
+                </div> -->
+                <div class="item-info flex-row fs-15">
+                    <textarea class="my-textarea" name="" id="itemguid" placeholder="请选择" readonly></textarea>
+                    <a class="mui-navigate-right2"></a>
+                </div>
+            </li>
+            <li class="main-li-item">
+                <div class="item-name">
+                    管理依据<i class="icon-important"></i>
+                </div>
+                <!-- <div class="item-info">
+                    <input class="item-info-text" placeholder="请选择" id="basicguid" readonly="readonly" />
+                    <a class="mui-navigate-right"></a>
+                </div> -->
+                <div class="item-info flex-row fs-15">
+                    <textarea class="my-textarea" name="" id="basicguid" placeholder="请选择" readonly></textarea>
+                    <a class="mui-navigate-right2"></a>
+                </div>
+            </li>
+            <li class="main-li-item">
+                <div class="item-name">
+                    处罚依据<i class="icon-important"></i>
+                </div>
+                <!-- <div class="item-info">
+                    <input class="item-info-text" id="punishment" readonly="readonly" />
+                </div> -->
+                <div class="item-info flex-row fs-15">
+                    <textarea class="my-textarea" name="" id="punishment" placeholder="请选择" readonly></textarea>
+                </div>
+            </li>
+            <li class="main-li-item">
+                <div class="item-name">
+                    违法情节<i class="icon-important"></i>
+                </div>
+                <div class="item-info">
+                    <input class="item-info-text" placeholder="请选择" id="clauseguid" readonly="readonly" />
+                    <a class="mui-navigate-right"></a>
+                </div>
+            </li>
+            <li class="main-li-item">
+                <div class="item-name">
+                    处罚下限<i class="icon-important"></i>
+                </div>
+                <div class="item-info">
+                    <input class="item-info-text input-money" id="lowerlimit" readonly="readonly" />(元)
+                </div>
+            </li>
+            <li class="main-li-item">
+                <div class="item-name">
+                    处罚上限<i class="icon-important"></i>
+                </div>
+                <div class="item-info">
+                    <input class="item-info-text input-money" id="upperlimit" readonly="readonly" />(元)
+                </div>
+            </li>
+            <li class="main-li-item li-item-choose">
+                <div class="item-name">
+                    处罚建议<i class="icon-important"></i>
+                </div>
+            </li>
+            <li class="main-li-item li-item-choose btm-none">
+                <textarea rows="" cols="" placeholder="请输入" id="opinion"></textarea>
+            </li>
+        </ul>
+        <div class="footer">
+            <button class="btn-save" id="btn-save">保存</button>
+        </div>
+    </div>
+    <script type="text/x-mustache" id="info-template">
+
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        SrcBoot.output([
+            './js/easycase_todo_add_penalties.js'
+        ]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!-- 
+        作者：guotq
+        创建时间: 2017/07/13
+        版本: [1.0, 2017/07/13 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： mui图片预览
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no">
+        <title>mui图片预览</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+    </head>
+
+    <body>
+        <div class="mui-content">
+            <img src="images/testgallery1.jpg" data-preview-src="" data-preview-group = "1" alt = ""/>
+            <img src="images/testgallery2.jpg" data-preview-src="" data-preview-group = "1" alt = ""/>
+            
+            <img src="images/testgallery3.jpg" data-preview-src="" data-preview-group = "2" alt = ""/>
+            <img src="images/testgallery4.jpg" data-preview-src="" data-preview-group = "2" alt = ""/>
+        </div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs([
+                'js/widgets/mui.previewimage/mui.previewimage.css',
+                'js/widgets/mui.previewimage/mui.zoom.js',
+                'js/widgets/mui.previewimage/mui.previewimage.js',
+            ], function() {
+                initPage();
+            });
+
+            /**
+             * 页面初始化请走这个函数
+             */
+            function initPage() {
+                // 初始化图片预览
+                mui.previewImage();
+            }
+        </script>
+    </body>
+
+</html>

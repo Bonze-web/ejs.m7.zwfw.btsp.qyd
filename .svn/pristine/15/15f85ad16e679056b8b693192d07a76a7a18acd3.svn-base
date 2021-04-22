@@ -1,0 +1,28 @@
+/**
+ * 作者： 张金锁
+ * 创建时间： 2021/04/06 18:10:36
+ * 版本： [1.0]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：清洗消毒
+ */
+(function (doc, Util) {
+    'use strict';
+
+    Util.loadJs([], function () {
+        initPage();
+        initListeners();
+    });
+
+    function initPage() {}
+
+    /*
+     * @description 点击事件
+     */
+    function initListeners() {
+        $('body')
+            //新增
+            .on('tap', '.em-btn', function () {})
+            //重命名
+            .on('tap', '.em-rename', function () {});
+    }
+})(document, window.Util);

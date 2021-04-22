@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>module1</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+</head>
+
+<body>
+    <h1>module_page1.html</h1>
+    <div>
+         <div id="displayName" class="ep-mui-dominnerhtml" bind="gghh">
+
+         </div>
+    </div>
+    <ul class="editor-list">
+        <li class="editor-list-item">
+            <p class="l label">
+                <span class="must">用户登录名</span>
+            </p>
+            <input type="text" id="loginId" bind="myinfomodifyaction.user.loginId" class="ep-mui-textbox l"
+                placeholder="请输入用户登录名" required>
+        </li>
+    </ul>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        var DomInnerHtml = function (dom) {
+            DomInnerHtml.super.constructor.call(this, dom);
+        };
+
+        MControl.extend(DomInnerHtml, MControl.control, {
+            type: "dominnerhtml",
+            _init: function () {
+                // 初始化控件
+                this.bind = this.getAttribute("bind");
+                this.action = this.getAttribute("action");
+            },
+            setValue: function (data) {
+                console.log("🚀 ~ file: module_page1.html ~ line 57 ~ data", data)
+                this.data = data;
+                this.el.innerHTML = this.data;
+
+            },
+            getModule: function () {
+                return {
+                    id: this.id,
+                    type: this.type,
+                    action: this.action,
+                    bind: this.bind,
+                };
+            },
+        });
+
+        MControl.register(DomInnerHtml, "ep-mui-dominnerhtml");
+        MControl.init();
+
+        Util.loadJs(initPage);
+
+        function initPage() {
+            epointm.initPage("data/myinfo.json", null, null, null, {
+                method: "GET",
+            });
+        }
+    </script>
+</body>
+
+</html>

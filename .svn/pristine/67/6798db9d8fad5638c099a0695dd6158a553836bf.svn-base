@@ -1,0 +1,90 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查
+-->
+
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>日常检查</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/dailycheck_index.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="daily-tab">
+            <div class="active">待接收</div>
+            <div>待反馈</div>
+            <div>待复查</div>
+            <div>待审核</div>
+            <div>已办结</div>
+        </div>
+
+        <div id="minirefresh" class="minirefresh-wrap">
+            <div class="minirefresh-scroll">
+                <ul class="checklist" id="listdata">
+                    <li class="checklist-item checklist-overtime">
+                        <div class="checklist-title">对测试企业有限公司的检查</div>
+                        <div class="checklist-content">
+                            <div>任务编号:RC283823929</div>
+                            <div>检查对象类型:视频生产企业</div>
+                            <div>执法人员:李子梅</div>
+                            <div>计划日期:2020-01-01至2020-12-31 <span class="datetips">(已超期5月12日)</span> </div>
+                        </div>
+                        <div class="checklist-opbtn">
+                            <div>移交</div>
+                            <div>接受</div>
+                        </div>
+                    </li>
+                    <li class="checklist-item checklist-resttime">
+                        <div class="checklist-title">对测试企业有限公司的检查</div>
+                        <div class="checklist-content">
+                            <div>任务编号:RC283823929</div>
+                            <div>检查对象类型:视频生产企业</div>
+                            <div>执法人员:李子梅</div>
+                            <div>计划日期:2020-01-01至2020-12-31 <span class="datetips">(剩余5月12日)</span> </div>
+                        </div>
+                        <div class="checklist-oponebtn">任务正在移交中</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+	</body>
+
+    <script type="text/x-tpl" id="item-template">
+        <li class="list-item" id="{{guid}}">
+            <h3 class="msg-title">
+                {{title}}
+            </h3>
+            <span class="msg-fs14 msg-date">
+                {{date}}
+            </span>
+        </li>
+    </script>
+
+	<script>
+		document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+	</script>
+	<script>
+		SrcBoot.output([
+			'./js/dailycheck_index.js'
+		]);
+	</script>
+
+</html>

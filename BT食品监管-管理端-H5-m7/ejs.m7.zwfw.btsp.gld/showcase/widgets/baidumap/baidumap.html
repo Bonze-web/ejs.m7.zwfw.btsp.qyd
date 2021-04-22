@@ -1,0 +1,168 @@
+<!-- 
+        作者：guotq
+        创建时间: 2017/07/10
+        版本: [1.0, 2017/07/10 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： 百度地图 h5版的使用
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no">
+        <title>百度地图</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=vx3Y4cGKU6YVYvADYyPDiPNou1EXgXzF"></script>
+        <style>
+            
+            #container {
+                position: fixed!important;
+                top: 0px;
+                height: 200px;
+                width: 100%;
+                z-index: 99!important;
+            }
+            
+            .bottombtn {
+                width: 100%;
+                height: 45px;
+                position: fixed;
+                bottom: 0px;
+                text-align: center;
+                overflow: hidden;
+                font-size: 16px;
+            }
+            
+            .leftbtn {
+                width: 50%;
+                height: 45px;
+                line-height: 45px;
+                float: left;
+                color: #ffffff;
+                background: #F0AD4E;
+            }
+            
+            .rightbtn {
+                width: 50%;
+                height: 45px;
+                line-height: 45px;
+                float: left;
+                color: #ffffff;
+                background: #187BC2;
+            }           
+            
+            .poilist {
+                width: 100%;
+                margin-top: 200px;
+                background: #ffffff;
+                overflow: hidden;
+            }
+            
+            .poilist ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            .poilist ul li {}
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="mui-content">
+            <div id="container"></div>
+            <!--<div class="bottombtn">
+                <div class="leftbtn">
+                    定位
+                </div>
+                <div class="rightbtn">
+                    签到
+                </div>
+            </div>-->
+            <div class="poilist">
+                <ul id="listdata">
+
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            (function($) {
+                "use strict";
+                Util.loadJs([
+                    'js/widgets/baidumap/baidumap.js',
+                ], function() {
+                    if (Config.ejsVer === 3) {
+                        ejs.error(function(error) {
+                           ejs.ui.alert('ejs错误:' + JSON.stringify(error));
+                        });
+                        ejs.config();
+                        ejs.ready(initPage);
+                    } else {
+                        initPage();
+                    } 
+                });
+
+                function initPage() {
+                    initListeners();
+                    initBaduMap();
+                }
+
+                function initListeners() {
+                    $('#listdata').on('tap', '.mui-table-view-cell', function() {
+                        var content = this.querySelector('.locationName').innerText;
+                        Util.ejs.ui.confirm({
+                            'message': '在' + content + '签到？',
+                            'title': '确认',
+                            'buttonLabels': ['取消', '签到'],
+                            'success': function(result) {
+                                if (result.which == 1) {
+                                    Util.ejs.ui.toast('签到成功:' + content);
+                                }
+                            }
+                        });
+                    });
+                }
+
+                function initBaduMap() {
+                    Util.ejs.ui.showWaiting('加载中...');
+                    // 设置百度地图，强制使用钉钉的定位，因为普通百度定位不准
+                    var bMap = new BaiduMap({
+                        container: '#container',
+                        isForceDD: false,
+                        isForceEJS: false,
+                        success: function(point) {
+                            Util.ejs.ui.closeWaiting();
+                            // 搜索热点
+                            bMap.searchHotPoint({
+                                // 半径为1000米内的POI,默认100米
+                                poiRadius: 500,
+                                // 列举出50个POI,默认10个
+                                numPois: 12,
+                                success: function(allPois) {
+                                    Util.ejs.ui.closeWaiting();
+                                    var template = '{{#allPois}}<li class="mui-table-view-cell"><div class="locationName">{{title}}</div><div class="locationAddress">{{address}}</div></li>{{/allPois}}';
+                                    var html = Mustache.render(template, {allPois:allPois});
+                                    document.getElementById('listdata').innerHTML = html;
+                                }
+                            });
+                        },
+                        error: function(msg) {
+                            Util.ejs.ui.closeWaiting();
+                            Util.ejs.ui.alert(msg, '错误', '我知道了');
+                        }
+                    });
+                }
+            })(Zepto);
+        </script>
+    </body>
+
+</html>

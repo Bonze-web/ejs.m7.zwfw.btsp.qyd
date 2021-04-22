@@ -1,0 +1,91 @@
+<!-- 
+        作者：郭天琦
+        创建时间: 2017/07/14
+        版本: [1.0, 2017/07/14 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：生成解析二维码
+-->
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>生成解析二维码</title>
+
+    <script>
+        document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+    <style>
+        .container {
+                padding: 10px;
+            }
+
+            .container div {
+                min-height: 100px;
+            }
+        </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="uri" value="https://www.baidu.com/">
+        <button id="markcode">生成二维码</button>
+
+        <hr />
+        <h4>生成二维码结果:</h4>
+        <div id="markcoderesult"></div>
+        <hr />
+        上传二维码解析
+        <br />
+        <input type="file" id="choiceimg">
+        <img src="" alt="" id="preview">
+        <hr />
+        <h4>解析二维码结果:</h4>
+        <div id="decoderesult"></div>
+    </div>
+
+    <script>
+        document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        'use strict';
+
+        var uriEl = document.getElementById('uri'),
+            makeCodeEl = document.getElementById('markcode'),
+            markcoderesultEl = document.getElementById('markcoderesult'),
+            decoderesultEl = document.getElementById('decoderesult'),
+            previewEl = document.getElementById('preview');
+
+        var qrcode = null;
+
+        Util.loadJs('js/utils/util.base64.js', 'js/utils/util.qrcode.js', function () {
+            qrcode = Util.qrcode('#markcoderesult', {
+                width: 150,
+                height: 150
+            });
+
+            // 生成二维码
+            makeCodeEl.addEventListener('tap', function () {
+                qrcode.makeCode(uriEl.value);
+            });
+
+            document.getElementById('choiceimg').addEventListener('change', function () {
+                var file = this.files[0];
+
+                Util.base64.blobToBase64(file, function(base64) {
+                    qrcode.deCode(base64, function(result) {
+                        decoderesultEl.textContent = result.retText;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

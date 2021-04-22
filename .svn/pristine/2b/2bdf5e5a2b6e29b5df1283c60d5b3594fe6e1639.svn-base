@@ -1,0 +1,72 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 10:51:41
+ * @修改时间: 2021-04-01 10:59:09
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+*/
+
+/* 待办 */
+.backlog {
+    /* margin-top: 8px; */
+    background-color: #fff;
+}
+.backlog .backlog_head {
+    padding: 18px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.back_quantum {
+    color: #1a1a1b;
+    font-size: 18px;
+    font-weight: bold;
+}
+.back_quantum span {
+    /* font-size: 14px; */
+    color: #ff974b;
+    font-weight: 400;
+}
+.backlog_list {
+    /* padding-bottom: 14px; */
+}
+.backlog_list_item {
+    position: relative;
+    padding: 15px 15px;
+}
+.backlog_list_item::before {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    content: "";
+    width: 90%;
+    height: 1px;
+    background-color: #f3f3f3;
+    /* padding: ; */
+}
+.backlog_list_item .item_title_box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #333333;
+    /* padding: 0 18px; */
+}
+.backlog_list_item .item_content {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #999999;
+    margin-top: 8px;
+}
+.backlog_list_item .item_title_box .reexamine {
+    color: #3c80e6;
+}
+.home_btn_more {
+    width: 21px;
+    height: 21px;
+}

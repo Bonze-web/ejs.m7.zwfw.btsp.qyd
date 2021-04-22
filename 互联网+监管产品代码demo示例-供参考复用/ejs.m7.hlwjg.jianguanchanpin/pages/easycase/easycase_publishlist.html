@@ -1,0 +1,49 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/18
+	版本： [1.0, 2019/10/18]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-处罚事项列表
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>事项列表</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_publishlist.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<ul class="main-ul-items" id="listdata">
+
+			</ul>
+		</div>
+		<script type="text/x-mustache" id="item-template">
+			{{#articlelist}}
+			<li class="main-li-item" data-rowguid="{{rowguid}}" data-itemcode="{{itemcode}}" data-upperlimit="{{upperlimit}}" data-lowerlimit="{{lowerlimit}}">{{itemname}}</li>
+			{{/articlelist}}
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_publishlist.js'
+			]);
+		</script>
+	</body>
+
+</html>

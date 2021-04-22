@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>SM2加密</title>
+    <script>
+        document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <style>
+        h5 {
+            padding: 5px 0 0 10px;
+        }
+
+        .mui-input-group {
+            margin-top: 55px;
+        }
+
+        #result {
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">SM2 加密</h1>
+    </header>
+
+    <form class="mui-input-group">
+        <div class="mui-input-row">
+            <label>密码：</label>
+            <input type="text" placeholder="请输入要加密的密码" value="11111" id="pwd">
+        </div>
+
+        <div class="mui-input-row">
+            <label>公钥</label>
+            <input type="text" placeholder="请输入公钥"
+                value="0452712EBA7FE2C9615F6DE59C6EF697F085BD52B25952597DD35014BB8F201987F8D818EFAE710DBEC08FE2E4C7E3E0113EEBAB4B0E8B044E1A3CC8B149D76BE7" id="pubkey">
+        </div>
+
+        <div class="mui-button-row" id="btnlist">
+            <button type="button" class="mui-btn mui-btn-primary btn-confirm">确认</button>&nbsp;&nbsp;
+            <button type="button" class="mui-btn mui-btn-danger btn-reset">重置</button>
+        </div>
+    </form>
+
+    <h5>加密结果：</h5>
+    <div class="mui-input-row" style="margin: 10px 5px;">
+        <textarea id="result" rows="5"></textarea>
+    </div>
+
+    <script>
+        document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script>
+        var pwdEl = document.getElementById('pwd'),
+            pubkeyEl = document.getElementById('pubkey'),
+            resultEl = document.getElementById('result');
+
+        Util.loadJs('js/libs/crypto-js.js', 'js/utils/util.sm2.js', function () {
+            $('#btnlist').on('tap', '.btn-confirm', function () {
+                // 生成密文
+                generateCipher(pwdEl.value, pubkeyEl.value);
+            })
+            .on('tap', '.btn-reset', function () {
+                pwdEl.value = '11111';
+                pubkeyEl.value = '0452712EBA7FE2C9615F6DE59C6EF697F085BD52B25952597DD35014BB8F201987F8D818EFAE710DBEC08FE2E4C7E3E0113EEBAB4B0E8B044E1A3CC8B149D76BE7';
+                resultEl.value = '';
+            });
+        });
+
+        /**
+         * 生成密文
+         * @param {String} pwd 密码
+         * @param {String} pubkey 公钥
+         */ 
+        function generateCipher (pwd, pubkey) {
+            resultEl.value = Util.sm2.encrypt(pwd, pubkey, 0);
+        }
+    </script>
+</body>
+
+</html>

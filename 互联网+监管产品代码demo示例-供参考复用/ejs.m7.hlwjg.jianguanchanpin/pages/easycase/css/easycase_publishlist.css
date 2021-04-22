@@ -1,0 +1,28 @@
+/**
+ * 作者： 袁莉
+ * 创建时间： 2019/10/18
+ * 版本： [1.0, 2019/10/18]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：简易案件-处罚事项列表
+ */
+
+html,
+body {
+	background: #f5f5f5;
+}
+
+.main-ul-items {
+	padding: 0 10px;
+	background: #fff;
+}
+
+.main-li-item {
+	padding: 11px 0;
+	color: #333;
+	font-size: 16px;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.main-li-item:last-child {
+	border-bottom: none;
+}

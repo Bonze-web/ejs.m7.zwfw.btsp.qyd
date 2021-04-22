@@ -1,0 +1,59 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：抄送移交
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>抄送移交</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/risk_transfer.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-input-group" id="form">
+        <div class="mui-table-view-cell" id="handleperson">
+            <div class="mui-navigate-right">
+                <div>移交给</div>
+                <input type="text" readonly placeholder="请选择将任务移交给" id="targetuserguid">
+            </div>
+        </div>
+        <div class="feedbackyj">
+            反馈意见
+        </div>
+        <textarea name="" id="sendbz" cols="30" rows="5" placeholder="请输入反馈意见内容"></textarea>
+    </div>
+
+    <div class="base-btn">
+        <div id="cancel">取消</div>
+        <div id="submit">确定</div>
+    </div>
+</body>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/risk_transfer.js'
+    ]);
+</script>
+
+</html>

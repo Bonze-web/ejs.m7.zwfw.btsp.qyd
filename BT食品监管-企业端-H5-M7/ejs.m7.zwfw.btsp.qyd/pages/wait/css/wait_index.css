@@ -1,0 +1,63 @@
+.page_bg {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+}
+.exceed {
+    display: flex;
+    padding: 12px;
+}
+.exceed .gonna,
+.exceed .already {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 0;
+    border-radius: 3px;
+}
+.exceed .gonna img,
+.exceed .already img {
+    margin-right: 4px;
+}
+.exceed .gonna {
+    margin-right: 8px;
+    background-color: #fff8ef;
+}
+.exceed .already {
+    background-color: #fff4f4;
+}
+
+.exceed_list_box {
+    position: relative;
+    overflow-y: scroll;
+    height: calc(100vh - 63px);
+}
+.exceed_list {
+    padding: 14px 10px;
+    border-bottom: #f3f3f3 1px solid;
+}
+.exceed_list .clamp2 img {
+    margin-right: 8px;
+}
+.exceed_list_title {
+    font-size: 17px;
+}
+.other_msg {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #666666;
+    line-height: 25px;
+}
+
+.ejs-f9-content #header .ejs-right-a-0 {
+    /* min-width: 38px !important;
+    min-height: 38px !important;
+    line-height: 38px !important; */
+    background-size: auto 20px !important;
+}
+

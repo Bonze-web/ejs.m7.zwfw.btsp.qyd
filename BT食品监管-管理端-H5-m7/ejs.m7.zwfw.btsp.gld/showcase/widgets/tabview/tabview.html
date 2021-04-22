@@ -1,0 +1,139 @@
+<!-- 
+        作者：郭天琦
+        创建时间: 2017/06/06
+        版本: [1.0, 2017/06/06 ]
+        版权: 江苏国泰新点软件有限公司
+        描述：tabview使用demo
+-->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <title>tabView实例</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+        <script>
+            SrcBoot.output([
+                './tabview.css'
+            ]);
+        </script>
+    </head>
+
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">tabView实例</h1>
+        </header>
+
+        <div class="mui-content em-tabview" id="em-tabview">
+            <div class="clearfix em-tabview-head" data-role="head">
+                <div class="em-tabview-title l" data-target="title1">标题1</div>
+                <div class="em-tabview-title l" data-target="title2">标题2</div>
+                <div class="em-tabview-title l" data-target="title3">标题3</div>
+            </div>
+
+            <div data-role="body" class="em-tabview-body">
+                <ul class="mui-table-view" data-id="title1">
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title1
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title1
+                        </a>
+                    </li>
+
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title1
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title1
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="mui-table-view" data-id="title2">
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title2
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title2
+                        </a>
+                    </li>
+
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title2
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title2
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="mui-table-view" data-id="title3">
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title3
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title3
+                        </a>
+                    </li>
+
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title3
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            title3
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+
+        <script>
+            "use strict";
+
+            Util.loadJs([
+                'js/widgets/tabview/tabview.js'
+            ], initPage);
+
+            function initPage() {
+                // 使用代码
+                new TabView({
+                    container: '#em-tabview',
+                    activeCls: 'cur',
+                    isSwipe: true,
+                    itemClick: function() {
+                        console.log(this);
+                    }
+                });
+            }
+        </script>
+    </body>
+
+</html>

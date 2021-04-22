@@ -1,0 +1,319 @@
+<!--
+    作者：彭屹尧
+    创建时间：2019-11.20
+    版本：[1.0, 2019-11-20]
+    版权：江苏国泰新点软件有限公司
+    描述：临时检查 详情页
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>随机检查</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/temporary_details.css'
+        ]);
+    </script>
+
+    <style>
+        .color-grey {
+            color: #666;
+        }
+
+        .img-list img {
+            width: 60px;
+            height: 70px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <!--基本信息-->
+        <div class="content-contrainer" id="baselist">
+            <div class="baseinfo">
+                <div class="baseinfo-title">任务基本信息</div>
+                <ul class="mui-table-view" id="baseList">
+                </ul>
+            </div>
+
+            <!-- 监管行为信息 -->
+            <div class="baseinfo">
+                <div class="baseinfo-title">监管行为信息</div>
+                <ul class="mui-table-view action" id="actionList">
+                </ul>
+            </div>
+
+            <!-- 监管事项信息 -->
+            <div class="baseinfo">
+                <div class="baseinfo-title">监管事项信息</div>
+                <ul class="mui-table-view action" id="supervisionList">
+                </ul>
+            </div>
+
+            <!-- 执法人员信息 -->
+            <div class="baseinfo lawenforcer mb50">
+                <div class="baseinfo-title">执法人员信息</div>
+                <ul class="mui-table-view action" id="checkList">
+
+                </ul>
+            </div>
+        </div>
+
+        <!--操作按钮-->
+        <div class="operation mui-hidden">
+            <button class="l mui-hidden" id="btn-handle">办&nbsp;&nbsp;结</button>
+            <button class="l btn-receive" id="btn-receive">接&nbsp;&nbsp;收</button>
+        </div>
+
+        <div id="mask" class="mask mui-hidden">
+            <div id="mask-people" class="mask-people mui-hidden">
+                <div class="person-info-title">执法人员详情<i class="close-wrap"></i></div>
+                <ul class="mask-people-items" id="checkDetail">
+                    <!-- <li class="unit-item">
+                        <div class="color-grey">执法证照片：</div>
+                        <div class="img-list">
+                            <img src="./img/img_icon_file.png" data-preview-src="./img/img_icon_file.png" alt="">
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 基本信息模板 -->
+    <script type="text/x-tpl" id="base-template">
+			{{#baseInfo}}
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">任务名称：</div>
+				<div class="unit-item-right" id="">{{taskname}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">任务编号：</div>
+				<div class="unit-item-right" id="">{{taskcode}}</div>
+			</li>
+			<!-- <li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">所属活动名称：</div>
+				<div class="unit-item-right" id="">{{activityname}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">计划启动时间：</div>
+				<div class="unit-item-right" id="">{{planstartdate}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">计划结束时间：</div>
+				<div class="unit-item-right" id="">{{planenddate}}</div>
+			</li> -->
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人：</div>
+				<div class="unit-item-right" id="">{{administrativecp}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人性质：</div>
+				<div class="unit-item-right" id="">{{administrativecpna}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人证件类型：</div>
+				<div class="unit-item-right" id="">{{administrativecpcetype}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">行政相对人证件编码：</div>
+				<div class="unit-item-right" id="">{{administrativecpuicode}}</div>
+			</li>
+			{{/baseInfo}}
+		</script>
+
+    <!-- 监管事项信息模板 -->
+    <script type="text/x-tpl" id="supervision-template">
+			{{#supervisionInfo}}
+			<li class="mui-table-view-cell unit-item mt5" data-rowguid="{{rowguid}}" data-catalogid="{{catalogid}}">
+				<div class="action-item">
+					<div class="action-item-title txt-over">
+						<span class="bold font16 mr10">事项名称：{{superviseitem}}</span>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left em-item-left">实施清单编号：</div>
+						<div class="unit-item-right em-item-right">{{superviseitemimplementcode}}</div>
+					</div>
+				</div>
+			</li>
+			{{/supervisionInfo}}
+		</script>
+
+    <!-- 执法人员信息模板 -->
+    <script type="text/x-tpl" id="checker-template">
+
+
+			{{#checkInfo}}
+			<li class="mui-table-view-cell check-item unit-item mt5">
+
+				<div class="action-item">
+					<div class="action-item-title" data-checkguid="{{rowguid}}">
+						<i></i>
+						<span class="bold font16 mr10 text-ellipsis">{{name}}</span>
+						<span class="r color-blackgreen">执法证号：{{code}}</span>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">所属主体：</div>
+						<div class="unit-item-right">{{subject}}</div>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">联系电话：</div>
+						<div class="unit-item-right color-blue tel" data-contacttel="{{contacttel}}">{{contacttel}}</div>
+					</div>
+				</div>
+
+			</li>
+			{{/checkInfo}}
+		</script>
+
+    <!-- 监管行为信息模板 -->
+    <script type="text/x-tpl" id="action-template">
+			{{#bhvobjList}}
+			<li class="mui-table-view-cell check-item unit-item mt5">
+
+				<div class="action-item">
+					<div class="action-item-title">
+						<i></i>
+						<span class="bold font16 mr10">{{createuser}}</span>
+						<span class="r color-blackgreen"></span>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">监管对象名称：</div>
+						<div class="unit-item-right">{{objname}}</div>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">监管对象类别：</div>
+						<div class="unit-item-right">{{objtype}}</div>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">添加时间：</div>
+						<div class="unit-item-right">{{createdate}}</div>
+					</div>
+					<div class="action-item-cont">
+						<div class="unit-item-left">检查结果：</div>
+						<div class="unit-item-right">{{checkresult}}</div>
+					</div>
+				</div>
+
+			</li>
+			{{/bhvobjList}}
+		</script>
+
+    <!-- 执法人员详细信息模板 -->
+    <script type="text/x-tpl" id="checkDetail-template">
+			{{#checkDetailInfo}}
+			<li class="mui-table-view-cell staffinfo unit-item">
+				<div class="unit-item-left">姓名：</div>
+				<div class="unit-item-right" id="">{{name}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">身份证号码：</div>
+				<div class="unit-item-right" id="">{{idnumber}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">性别：</div>
+				<div class="unit-item-right" id="">{{sex}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">民族：</div>
+				<div class="unit-item-right" id="">{{nation}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">出生日期：</div>
+				<div class="unit-item-right" id="">{{birthdate}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">政治面貌：</div>
+				<div class="unit-item-right" id="">{{politicalstatus}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">学历专业：</div>
+				<div class="unit-item-right" id="">{{academicqualifications}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">最高学历：</div>
+				<div class="unit-item-right" id="">{{highesteducation}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">所属主体：</div>
+				<div class="unit-item-right" id="">{{subject}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">职级：</div>
+				<div class="unit-item-right" id="">{{rank}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法人员性质：</div>
+				<div class="unit-item-right" id="">{{lawstafftype}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法证号：</div>
+				<div class="unit-item-right" id="">{{code}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">发证机关：</div>
+				<div class="unit-item-right" id="">{{licenceissuingauthority}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">证件有效期：</div>
+				<div class="unit-item-right" id="">{{validitydocuments}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法类别：</div>
+				<div class="unit-item-right" id="">{{enforcementtype}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">执法区域：</div>
+				<div class="unit-item-right" id="">{{enforcementarea}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">是否监督人员：</div>
+				<div class="unit-item-right" id="">{{supervisionstaff}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">是否具有法律职业资格：</div>
+				<div class="unit-item-right" id="">{{qualificationlegalpro}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">联系电话：</div>
+				<div class="unit-item-right" id="">{{contacttel}}</div>
+			</li>
+			<li class="mui-table-view-cell unit-item">
+				<div class="unit-item-left">数据状态：</div>
+				<div class="unit-item-right" id="">{{status}}</div>
+			</li>
+			<li class="unit-item">
+				<div class="color-grey">执法证照片：</div>
+				<div class="img-list">
+					{{#attachlist}}
+					<img src="{{attachpath}}" data-preview-src="{{attachpath}}" alt=""> {{/attachlist}}
+				</div>
+			</li>
+
+			{{/checkDetailInfo}}
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/temporary_details.js',
+        ]);
+    </script>
+
+</body>
+
+</html>

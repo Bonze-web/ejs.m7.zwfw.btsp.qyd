@@ -1,0 +1,67 @@
+<!--
+        作者：孙尊路
+        创建时间：2017-08-18 10:17:27
+        版本： [1.0, 2017/8/7]
+        版权： 江苏国泰新点软件有限公司
+        描述：  详情
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>信息详情</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            //滚到TOP，弹出火箭筒
+            '../common/libs/animate.css',
+            './css/notice_detail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content">
+
+        <!--顶部标题、发布人、发布时间等信息-->
+        <ul class="mui-table-view" id="topContent"></ul>
+        <!--详情-->
+
+        <div class="mui-table-view em-content">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--模板:顶部标题、发布人、发布时间等信息-->
+    <script type="text/template" id="top-Template">
+        <li class="mui-table-view-cell em-table-view-cell mui-active">
+            <div class="em-info-title">{{title}}</div>
+            <div class="em-info-author">
+                <span>发 &nbsp;布&nbsp; 者:</span>{{infopublisher}}
+            </div>
+            <div class="em-info-date">
+                <span>发布时间:</span>{{infodate}}</div>
+        </li>
+    </script>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/notice_detail.js',
+        ]);
+    </script>
+</body>
+
+</html>

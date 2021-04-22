@@ -1,0 +1,112 @@
+<!-- 
+        作者：丁力
+        创建时间：2019-9-7 20:56:23
+        版本： [1.0, 201-09-07]
+        版权： 江苏国泰新点软件有限公司
+        描述：添加整改复查
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>添加整改信息</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/common_nodata.css',
+            './css/reform_apply.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content mui-hidden">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell remove-mui-active flex">
+                <span class="em-lable">监管对象类别</span>
+                <input type="text" class="choice-input" id="objtype" value="" disabled="disabled" />
+            </li>
+            <li class="mui-table-view-cell remove-mui-active flex">
+                <span class="em-lable">监管对象</span>
+                <input type="text" class="choice-input" id="objname" value="" disabled="disabled" />
+            </li>
+            <li class="mui-table-view-cell remove-mui-active flex">
+                <span class="red">*</span><span class="em-lable">检查时间</span>
+                <input type="text" class="choice-input" id="checkdate" value="" disabled="disabled" />
+            </li>
+            <!--<li class="mui-table-view-cell flex timebox">
+	            	<span class="em-choice flex">
+	            		<span class="red">*</span><span class="em-lable">检查时间</span>
+	                	<input type="text" class="choice-input" id="checkdate" value="" placeholder="请选择完成时间" readonly="readonly"/>
+	            	</span>
+	                <a class="mui-navigate-right"></a>
+	            </li>-->
+            <li class="mui-table-view-cell flex statusbox">
+                <span class="em-choice flex">
+                    <span class="red">*</span><span class="em-lable">整改结果状态</span>
+                    <input type="text" class="choice-input txt-over" style="color: black !important;"
+                        id="checkresultstatusname" value="" placeholder="请选择整改结果状态" readonly="readonly" />
+                </span>
+                <a class="mui-navigate-right"></a>
+            </li>
+            <li class="mui-table-view-cell remove-mui-active flex">
+                <span class="red">*</span><span class="em-lable">整改结果</span>
+                <input type="text" id="checkresult" value="" placeholder="请输入" />
+            </li>
+            <li class="mui-table-view-cell flex" onclick="showFileChoose_all.click()">
+                <div class="em-lable">整改相关附件</div>
+                <div class="em-form-content">
+                    <span class="em-attach-tips">共&nbsp;<span class="em-attach-count">0</span>&nbsp;个附件</span>
+                </div>
+                <div class="em-form-icon">
+                    <span class="mui-icon mui-icon-paperclip"></span>
+                </div>
+            </li>
+            <li class="mui-table-view-cell em-attach-wrapper em-transition-vertical">
+                <div
+                    class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view em-attach-view" id="em-attach-list">
+
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button type="button" class="mui-btn mui-btn-blue em-save">保存</button>
+    </div>
+    <input type="file" class="fileChoose mui-hidden" id="showFileChoose_all" filetype="All" />
+    <script type="text/template" id="btntemplate">
+			<div class="mui-input-row mui-radio mui-left">
+				<label class="em-con">{{itemtext}}</label>
+				<input name="radio1" type="radio" value="{{itemvalue}}">
+			</div>
+		</script>
+
+    <!--选择附件模板-->
+    <script type="text/template" id="em-attach-view">
+			<li class="mui-table-view-cell" attachindex="{{attachindex}}" attachguid="{{attachguid}}">
+				<img id="test" src="{{attachicon}}" />
+				<p class="em-attach-name mui-ellipsis">{{attachfilename}}</p>
+				<p class="em-attach-size">{{attachlength}}</p>
+			</li>
+		</script>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/reform_apply.js'
+        ]);
+    </script>
+</body>
+
+</html>

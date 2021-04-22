@@ -1,0 +1,401 @@
+/*
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 14:17:51
+ * @修改时间: 2021-04-17 12:38:19
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+ */
+.em-tab-top{
+    width: 100vw;
+    overflow-x: scroll;
+    margin-bottom: 8px;
+}
+ .swiper-container {
+    height: 100%;
+ }
+.em-tabview-head {
+    width: 100%;
+    padding: 13px 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+.em-tabview-title {
+    float: left;
+    white-space: nowrap;
+    padding: 0 12px;
+}
+.em-tabview-body {
+    position: absolute;
+    top: 100px;
+    text-align: center;
+}
+.cur {
+    position: relative;
+    color: #3c80e6;
+}
+.cur::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    height: 1px;
+    width: 60%;
+    background-color: #3c80e6;
+}
+
+.myswiper_box {
+    width: 100%;
+    position :  absolute ;
+    top :  55px ;
+    bottom :  0px ;
+    left :  0px ;
+}
+
+
+/* 基础信息 */
+.head_photo {
+    /* padding: 17px 10px 25px; */
+    padding: 0 10px;
+    padding-bottom: 25px;
+    background-color: #fff;
+}
+.head_photo_title {
+    position: relative;
+    font-size: 16px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #666666;
+    line-height: 52px;
+    /* float: left; */
+    /* display: inline-block; */
+}
+.head_photo_title::before {
+    content: "*";
+    position: absolute;
+    left: 66px;
+    top: 0px;
+    color: #e03f3f;
+}
+/* 新增照片 */
+.photo_change_box {
+    display: flex;
+}
+.add_image {
+    width: 80px;
+    height: 80px;
+}
+.add_image img {
+    width: 100%;
+    height: 100%;
+}
+.img_door {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    position: relative;
+}
+.img_door img {
+    width: 100%;
+    height: 100%;
+}
+.delete_img {
+    position: absolute;
+    right: -6px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    background: url("../image/business_btn_delete.png") no-repeat;
+    background-size: 100% 100%;
+}
+.img_door .fail_img {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: url("../image/business_icon_fail.png") no-repeat center 15px;
+    background-size: 20px 20px;
+    background-color: rgba(0, 0, 0,.6);
+    color: #fff;
+
+}
+.img_door .fail_img span {
+    position: absolute;
+    top: 44px;
+    line-height: 17px;
+    width: 100%;
+    font-size: 11px;
+    text-align: center;
+}
+/* 管理制度 */
+.institution {
+    margin-top: 8px;
+    /* padding: 0 10px; */
+    background-color: #fff;
+}
+.head_alone_title {
+    padding: 0 10px;
+}
+.head_alone_title::before {
+    left: 76px;
+}
+.appendix {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.appendix img {
+    width: 18px;
+    height: 18px;
+}
+
+/* 附件盒子 */
+.file_box {
+    width: auto;
+    margin-left: 10px;
+    padding-bottom: 15px;
+    overflow: auto;
+    display: flex;
+}
+.file_img_box {
+    /* display: inline-block; */
+    position: relative;
+    width: 119px;
+    height: 90px;
+    border: solid #eff0f2 2px;
+    border-radius: 3px;
+}
+.file_img_box img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 31px;
+    height: 31px;
+}
+.file_name_box {
+    padding-top: 45px;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 12px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #2E3033;
+}
+.file_size_box {
+    display: block;
+    font-size: 11px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #8A8F99;
+    text-align: center;
+    margin-top: -3px;
+}
+
+.file_img_box .fail_img {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: url("../image/business_icon_fail.png") no-repeat center 15px;
+    background-size: 20px 20px;
+    background-color: rgba(0, 0, 0,.6);
+    color: #fff;
+
+}
+.file_img_box .fail_img span {
+    position: absolute;
+    top: 44px;
+    line-height: 17px;
+    width: 100%;
+    font-size: 11px;
+    text-align: center;
+}
+.file_box .swiper-slide {
+    width: 119px !important;
+    margin:  0 10px;
+}
+.swiper-file {
+    padding-top: 15px;
+}
+
+/* 保存 */
+.conserve {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 16px;
+    background-color: #fff;
+    color: #5892ea;
+    text-align: center;
+    padding: 14px 0;
+}
+.conserve:active {
+    background-color: #5892ea;
+    color: #fff;
+}
+
+.boxes_things {
+    position: relative;
+    height: 100%;
+}
+.empty_data {
+    position: absolute;
+    left: 50%;
+    top: 130px;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.empty_data .empty {
+    margin-top: 10px;
+    color: #3c80e6;
+    font-weight: bold;
+    font-size: 15px;
+}
+.empty_person {
+    margin-top: 10px;
+    color: #b8cae6;
+    font-size: 13px;
+}
+.add_person {
+    background-color: #3c80e6;
+    color: #fff;
+    width: 240px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+}
+.add_person:active {
+    background-color: #8baee4;
+    color: #3c80e6;
+}
+.business_person_add {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.alone_add_person {
+    width: calc(100% - 20px);
+    margin:  10px auto;
+}
+/*  列表 */
+.list_msg_box {
+    background-color: #fff;
+    border-radius: 6px;
+    margin: 0 10px;
+}
+.list_msg {
+    display: flex;
+    padding: 20px 0;
+    position: relative;
+}
+.list_msg::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    background-color: #f3f3f3;
+    width: 90%;
+    height: 1px;
+}
+.list_btn_delete {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+.list_btn_delete .btn_delete_img {
+    width: 20px;
+    height: 20px;
+}
+.resume {
+    flex:1;
+}
+.resume_name {
+    font-size: 17px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #333333;
+    line-height: 17px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.resume_license {
+    margin-top: 10px;
+    font-size: 13px;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #999999;
+    line-height: 17px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.business_btn_edit {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.business_btn_edit img {
+    width: 17px;
+    height: 17px;
+}
+.business_data_wrong_bg {
+    width: 75px;
+    height: 75px;
+}
+
+.boxes_things .set_up {
+    width: 100%;
+    position: absolute;
+    background-color: #fff;
+    height: 44px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    color: #3c80e6;
+}
+.boxes_things .set_up .self_inspection {
+    color: #666666;
+}
+.boxes_things .set_up .business_left {
+    width: 6px;
+    height: 10px;
+    margin-left: 15px;
+}
+
+.information_list {
+    padding-top: 44px;
+}
+
+.certInfo {
+    padding-top: 6px;
+    font-size: 12px;
+    color: #ff6c00;
+}
+
+.photo_box {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.license_sex {
+    margin-right: 15px;
+}
+
+.list-item {
+    padding-top: 1px;
+}

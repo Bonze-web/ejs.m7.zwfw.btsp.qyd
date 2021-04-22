@@ -1,0 +1,164 @@
+<!--
+ * @作者: 李波
+ * @创建时间: 2021-04-01 08:55:44
+ * @修改时间: 2021-04-01 10:45:44
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述: 营业日
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>2021年</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/record_calendarcheck.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content">
+        <div class="calendar-month">
+            <input type="checkbox">
+            <span>1月</span>
+        </div>
+        <div class="calendar-day">
+            <div>
+                <input type="checkbox">
+                <div>今天</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>15日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>14日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>13日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>今天</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>15日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>14日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>13日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>今天</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>15日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>14日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>13日</div>
+            </div>
+        </div>
+
+        <div class="calendar-month">
+            <input type="checkbox">
+            <span>2月</span>
+        </div>
+        <div class="calendar-day">
+            <div>
+                <input type="checkbox">
+                <div>今天</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>15日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>14日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>13日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>今天</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>15日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>14日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>13日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>今天</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>15日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>14日</div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <div>13日</div>
+            </div>
+        </div>
+
+        <div class="calendar-choose">
+            <div class="calendar-choose-tips">
+                <span>已选:</span>
+                <span>1个</span>
+            </div>
+            <div>
+                <button class="calendar-choose-work">设为营业日</button>
+                <button class="calendar-choose-rest">设为休息日</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+
+<script>
+    SrcBoot.output([
+        './js/record_calendarcheck.js'
+    ]);
+</script>
+
+</html>

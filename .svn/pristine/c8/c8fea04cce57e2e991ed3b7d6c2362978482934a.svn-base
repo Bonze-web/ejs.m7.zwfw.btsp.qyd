@@ -1,0 +1,73 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/16
+	版本： [1.0, 2019/10/16]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-待登记-添加相关材料
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>添加相关材料</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_todo_add_files.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="tip">
+				<div class="tip-title">材料说明:</div>
+				<input class="tip-text" type="text" id="tip-text" placeholder="请输入" />
+			</div>
+			<div class="add-file">
+				添加文件
+				<input id="fileslect" type="file">
+			</div>
+			<ul class="file-ul-items" id="files-listdata">
+				<!--<li class="file-li-item">
+					<img class="file-img" src="./css/img/img_icon_edit.png" />
+					<div class="file-info">
+						<span class="file-name">文件名</span>
+						<span class="file-size">123KB</span>
+					</div>
+					<span class="file-del"><i></i></span>
+				</li>-->
+			</ul>
+
+			<div class="footer">
+				<button class="btn-save" id="btn-save">保存</button>
+			</div>
+		</div>
+		<script type="text/x-mustache" id="pic-template">
+			<li class="file-li-item">
+				<img class="file-img" src="{{attachicon}}" />
+				<div class="file-info">
+					<span class="file-name">{{attachname}}</span>
+					<span class="file-size">{{attachsize}}</span>
+				</div>
+				<span class="file-del" data-index="{{index}}"><i></i></span>
+			</li>
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_todo_add_files.js'
+			]);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,272 @@
+/**
+ * 作者：解宇
+ * 创建时间：2019-12-5
+ * 版本：[1.0, 2019-12-5]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：异常名录-列表
+ **/
+
+html,
+body {
+	background: rgba(245, 245, 245, 1);
+}
+
+.mui-content {
+	background: #fff;
+	border-top: 1px solid rgba(229, 229, 229, 1);
+}
+
+button {
+	padding: 0;
+	border: 0;
+}
+
+.color-666 {
+	color: #666;
+}
+
+.color-333 {
+	color: #333;
+}
+
+.color-red {
+	color: red;
+}
+
+.mui-badge {
+	padding: 2px 6px 1px 6px !important;
+	line-height: 1.2 !important;
+}
+
+.weight {
+	font-weight: bold;
+}
+
+.mb0 {
+	margin-bottom: 0 !important;
+}
+
+
+/*是否显示*/
+
+.isshow0 {
+	display: none;
+}
+
+.isshow1 {
+	display: inline-block;
+}
+
+
+/*标签颜色*/
+
+.status1 {
+	background: #668FCC;
+}
+
+.status2 {
+	background: #EB8262;
+}
+
+
+/* 头部切换 */
+
+.head {
+	display: flex;
+	width: 100%;
+	overflow-y: hidden;
+	overflow-x: auto;
+	height: 45px;
+	color: #333;
+	font-size: 14px;
+	background: #fff;
+	border-bottom: 1px solid rgba(229, 229, 229, 1);
+	white-space: nowrap;
+}
+
+.head .headitem {
+	width: 33.333%;
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	line-height: 45px;
+	text-align: center;
+}
+
+.head .head-item .head-item-title {
+	display: inline-block;
+	width: 70px;
+	line-height: 40px;
+}
+
+.head .headactive {
+	color: #406de9;
+	border-bottom: 2px solid #406de9;
+}
+
+
+/*二级tab*/
+
+.second {
+	width: calc(100% - 30px);
+	height: 36px;
+	padding: 4px;
+	margin: 10px 0 10px 15px;
+	border-bottom: 1px solid #efeff4;
+	border-radius: 4px;
+	font-size: 16px;
+	background: rgba(245, 245, 245, 1);
+	text-align: center;
+}
+
+.second .seconditem {
+	width: 33%;
+	height: 28px;
+	line-height: 28px;
+}
+
+.second .seconditem:nth-child(2) {
+	width: 34%;
+}
+
+.second .secondactive {
+	background: #fff;
+	color: #406de9;
+	border-radius: 4px;
+}
+
+
+/*折叠*/
+
+.collapse-btn {
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.collapse-btn .collapse-txt {
+	color: #406de9;
+}
+
+.status-open i {
+	display: inline-block;
+	width: 9px;
+	height: 8px;
+	background-image: url(../img/img_icon_down.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-left: 4px;
+}
+
+.status-close i {
+	display: inline-block;
+	width: 9px;
+	height: 8px;
+	background-image: url(../img/img_icon_up.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-left: 4px;
+}
+
+
+/* 列表 */
+
+.minirefresh-theme-default .minirefresh-upwrap {
+	background: #f5f5f5;
+}
+
+.listdata {
+	width: 100%;
+	font-size: 14px;
+	color: #333;
+	background: rgba(245, 245, 245, 1);
+}
+
+.listitem {
+	position: relative;
+	padding: 10px 10px 10px 0;
+	border-top: .5px solid #e0e0e0;
+	background: #fff;
+}
+
+.mui-table-view-cell:after {
+	background: transparent !important;
+}
+
+.mui-table-view-cell:last-child {
+	margin-bottom: 0;
+}
+
+.listitem:first-child {
+	border: none;
+}
+
+.listdata .title {
+	margin-bottom: 10px;
+	font-size: 17px;
+	padding: 2px 0;
+	color: #000;
+}
+
+.btn-status {
+	display: inline-block;
+	position: absolute;
+	bottom: 30px;
+	right: 15px;
+	padding: 0 13px;
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+	line-height: 26px;
+	border-radius: 4px;
+}
+
+.check-title {
+	font-size: 16px;
+	color: #000;
+	font-weight: bold;
+	margin-bottom: 5px !important;
+}
+
+.check-wrap {
+	padding-left: 10px;
+	border-left: 2px solid #cedbef;
+	margin: 15px 0 16px 0;
+}
+
+
+/*收缩区域*/
+
+.collapse-wrap {
+	padding: 10px;
+	background: rgba(251, 246, 245, 1);
+	border-radius: 4px;
+}
+
+
+/*按钮-接收*/
+
+.btn-recive,
+.btn-feedback {
+	width: calc(100% - 30px);
+	height: 35px;
+	line-height: 35px;
+	color: #4285f4;
+	background: #cedbef;
+	margin-left: 15px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+
+/*已办结-状态icon*/
+
+.check-status {
+	padding: 2px 5px;
+	color: #fff;
+	border: 0;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: normal;
+	margin-right: 5px;
+}

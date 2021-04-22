@@ -1,0 +1,129 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-03-31 10:59:30
+ * @修改时间: 2021-03-31 20:39:53
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>module2</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/home_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+   <div class="mui-content fullscreen">
+       <!-- 顶部 -->
+        <div class="header_box">
+            <!-- 搜索框 -->
+            <div class="search_box">
+                <img src="./image/home_icon_search.png" class="home_icon_search">
+                <input type="text" placeholder="请输入关键字搜索">
+            </div>
+            <!-- 扫一扫 -->
+            <div class="scan_box">
+                <img src="./image/home_icon_scan.png" alt="">
+            </div>
+            <!-- 消息盒子 -->
+            <div class="message_box">
+                <img src="./image/home_btn_message.png" alt="">
+            </div>
+        </div>
+        <!-- 头部信息 -->
+        <div class="article">
+            <div class="headline_box">
+                <div class="headline">
+                    <img src="./image/home_icon_company.png" alt="">
+                    <span>新疆生产建设兵团建设工程</span>
+                </div>
+                <img src="./image/home_btn_more.png" class="home_btn_more">
+            </div>
+            <div class="credited">
+                <div class="credited_code">
+                    社会统一信用代码: <span></span>
+                </div>
+                <div class="credited_grade">
+                    风险等级:
+                </div>
+            </div>
+        </div>
+        <!-- 通知公告 -->
+        <div class="circular">
+            <img src="./image/home_icon_notice.png" class="home_icon_notice">
+            <div class="caption">此处为标题此处为标题此处为标题此处为标题此处为标题</div>
+            <img src="./image/home_btn_more.png" class="home_btn_more">
+        </div>
+        <!-- 待办 -->
+        <div class="backlog">
+            <!-- 查看所有 -->
+            <div class="backlog_head">
+                <div class="back_quantum">
+                    待办 · <span>34</span>
+                </div>
+                <img src="./image/home_btn_more.png" class="home_btn_more">
+            </div>
+            <!-- 查看列表 -->
+            <div class="backlog_list">
+                <div class="backlog_list_item">
+                    <div class="item_title_box">
+                        <div class="item_title">此处为标题此处为标题此处为标题</div>
+                        <div class="reexamine">[整改复查]</div>
+                    </div>
+                    <div class="item_content">
+                        <div>专项检查</div>
+                        <div>今天 7:09</div>
+                    </div>
+                </div>
+                <div class="backlog_list_item">
+                    <div class="item_title_box">
+                        <div class="item_title">此处为标题此处为标题此处为标题</div>
+                        <div class="reexamine">[整改复查]</div>
+                    </div>
+                    <div class="item_content">
+                        <div>专项检查</div>
+                        <div>今天 7:09</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 今日已记 -->
+        <div class="present">
+            <div class="present_title_box">
+                <div class="present_msg_box">
+                    <span class="present_title">今日已记</span>
+                    <span class="present_content">2021-03-15 营业日</span>
+                </div>
+                <img src="./image/home_btn_more.png" class="home_btn_more">
+            </div>
+            <div class="service_box">
+                <div class="service_item">
+                    <div class="item">
+                        <img src="./image/home_icon_menu.png" alt="">
+                        每日菜谱
+                    </div>
+                    <img src="./image/home_icon_add.png" alt="">
+                </div>
+            </div>
+        </div>
+   </div>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+</body>
+
+</html>

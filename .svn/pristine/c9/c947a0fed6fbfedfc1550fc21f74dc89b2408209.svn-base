@@ -1,0 +1,363 @@
+/**
+ * 作者： 张金锁
+ * 创建时间： 2021/04/09 13:41:36
+ * 版本： [1.0]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：编辑留样
+ */
+(function (doc, Util) {
+    'use strict';
+    var title = Util.getExtraDataByKey('title') || '';
+    var pripid = Util.getExtraDataByKey('pripid') || '';
+    var addUuid = Util.getExtraDataByKey('uuid') || '';
+    var isAdd = Util.getExtraDataByKey('isAdd') || ''; //1：新增  0：修改
+    var time = Util.getExtraDataByKey('time') || '';
+    var updateHandler = Util.getExtraDataByKey('handler') || '';
+    var rowguid = Util.getExtraDataByKey('rowguid') || '';
+    var remain_img = Util.getExtraDataByKey('remain_img') || ''; //留样图片(附件地址)
+    // console.log(title);
+    // console.log(isAdd);
+    // console.log(rowguid);
+    // console.log(remain_img);
+
+    var mealtimes = ''; //餐次
+    var handler = ''; //留样人
+    var remain_date = ''; //留样时间
+    var foodList = []; //菜名、留样数量的列表
+
+    Util.loadJs(['js/widgets/fileinput/fileinput.js', 'js/utils/util.charset.js'], function () {
+        initPage();
+    });
+
+    /*
+     * @description 初始化页面
+     */
+    function initPage() {
+        ejs.navigator.setTitle(Util.charset.base64.decode(title));
+        if (isAdd == 0) {
+            //修改食品留样
+            $('.em-time').text(time);
+            $('.em-time').addClass('em-time-chosen');
+            $('.em-handlername').val(Util.charset.base64.decode(updateHandler));
+            getFlavaData();
+            fileUpload(remain_img);
+            // var imgList = $('.em-img-list').find('.em-imgs-item');
+            // console.log(imgList);
+            // $.each(imgList, function (index, el) {
+            //     fileUpload(remain_img);
+            // });
+        } else {
+            //新增食品留样
+            fileUpload(addUuid);
+        }
+        initListeners();
+    }
+
+    /*
+     * @description 点击事件
+     */
+    function initListeners() {
+        $('body')
+            //选择留样时间
+            .on('tap', '.em-choosetime', function () {
+                var nowTime = getNowTime();
+                ejs.ui.pickTime({
+                    title: 'pickTime',
+                    datetime: nowTime,
+                    h5UI: false, // 是否强制使用H5-UI效果，默认false
+                    success: function (result) {
+                        $('.em-time').text(result.time);
+                        $('.em-time').addClass('em-time-chosen');
+                    },
+                    error: function (err) {}
+                });
+            })
+            //留样菜品新增
+            .on('tap', '.em-btn', function () {
+                var addFlava =
+                    '<li class="em-item"><img src="./image/img_delete.png" class="em-delete" /><div class="em-item-detial em-border-bottom"><div class="em-title"><span>菜名</span></div><div class="em-content"><input class="em-content-input foodname" placeholder="请输入菜名" /></div></div><div class="em-item-detial"><div class="em-title"><span>留样数量</span></div><div class="em-content"><input class="em-content-input amount" placeholder="请输入具体数字" /><span class="em-time-chosen">g</span></div></div></li>';
+                $('.em-list').append(addFlava);
+            })
+            //留样菜品删除
+            .on('tap', '.em-delete', function (item) {
+                ejs.ui.confirm({
+                    title: '确认删除',
+                    message: '确认删除？',
+                    buttonLabels: ['取消', '确定'],
+                    cancelable: 1,
+                    h5UI: false,
+                    success: function (result) {
+                        //点击确定
+                        if (result.which == 1) {
+                            item.target.parentNode.remove();
+                        }
+                    },
+                    error: function (err) {}
+                });
+            })
+            //删除留样图片
+            .on('tap', '.em-attach-delete', function (item) {
+                ejs.ui.confirm({
+                    title: '确认删除',
+                    message: '确认删除？',
+                    buttonLabels: ['取消', '确定'],
+                    cancelable: 1,
+                    h5UI: false,
+                    success: function (result) {
+                        //点击确定
+                        if (result.which == 1) {
+                            item.target.parentNode.remove();
+                            if (isAdd == 0) {
+                                //修改
+
+                                attachDelete(remain_img);
+                            } else {
+                                //新增
+                                attachDelete(addUuid);
+                            }
+                        }
+                    },
+                    error: function (err) {}
+                });
+            })
+            //保存
+            .on('tap', '.em-save', function () {
+                if (isAdd == 1) {
+                    //新增
+                    addData();
+                } else {
+                    //修改
+                    saveData();
+                }
+            });
+    }
+
+    /*
+     * @description 获取留样菜名及数量
+     */
+    function getFlavaData() {
+        Util.ajax({
+            url: Config.serverUrl + 'foodopt/getfoodoptremainfoodinfo',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    remainguid: rowguid
+                }
+            }),
+            headers: { 'Content-Type': 'application/json' },
+            success: function (result) {
+                if (result.custom.code == 1) {
+                    var tmpInfo = result.custom.foodoptremainfoodinfo,
+                        template = document.getElementById('template').innerHTML,
+                        html = '';
+                    if (tmpInfo && Array.isArray(tmpInfo) && tmpInfo.length > 0) {
+                        $.each(tmpInfo, function (index, item) {
+                            item.index = index;
+                            html += Mustache.render(template, item);
+                        });
+                    } else {
+                        ejs.ui.toast('数据不存在或返回数据的格式错误！');
+                    }
+                    document.getElementById('em-list').innerHTML = html;
+                } else {
+                    ejs.ui.toast(result.custom.text);
+                }
+            },
+            error: function (error) {
+                console.log('返回结果：' + JSON.stringify(error));
+            }
+        });
+    }
+
+    /*
+     * @description 附件上传初始化
+     */
+    function fileUpload(addUuid) {
+        new FileInput({
+            container: '#file1',
+            isMulti: false,
+            type: 'Image_Camera',
+            success: function (b64, file, detail) {
+                upLoadAttaches(b64, file.name, addUuid);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    }
+
+    /*
+     * @description 新增食品留样
+     */
+    function addData() {
+        if (title == '早餐') {
+            mealtimes = '1';
+        } else if (title == '午餐') {
+            mealtimes = '2';
+        } else {
+            mealtimes = '3';
+        }
+        handler = $('.em-handlername').val();
+        remain_date = $('.em-time').text();
+        var array = document.getElementById('em-list').getElementsByTagName('li');
+        $.each(array, function (index, item) {
+            var foodName = $(item).find('.foodname').val();
+            var amount = $(item).find('.amount').val();
+            foodList.push({
+                foodName: foodName,
+                amount: amount
+            });
+        });
+        Util.ajax({
+            url: Config.serverUrl + 'foodopt/getfoodoptremainadd',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    mealtimes: mealtimes,
+                    handler: handler,
+                    remain_date: remain_date,
+                    remain_img: addUuid,
+                    foodList: foodList,
+                    pripid: pripid
+                }
+            }),
+            headers: { 'Content-Type': 'application/json' },
+            success: function (result) {
+                if (result.custom.code == 1) {
+                    ejs.ui.toast('新增成功！');
+                } else {
+                    ejs.ui.toast(result.custom.text);
+                }
+            },
+            error: function (error) {
+                console.log('返回结果：' + JSON.stringify(error));
+            }
+        });
+    }
+
+    /*
+     * @description 修改食品留样
+     */
+    function saveData() {
+        if (title == '早餐') {
+            mealtimes = '1';
+        } else if (title == '午餐') {
+            mealtimes = '2';
+        } else {
+            mealtimes = '3';
+        }
+        handler = $('.em-content-input').val();
+        remain_date = $('.em-time').text();
+        var array = document.getElementById('em-list').getElementsByTagName('li');
+        $.each(array, function (index, item) {
+            var foodguid = $(item).attr('rowguid');
+            var foodName = $(item).find('.foodname').val();
+            var amount = $(item).find('.amount').val();
+            foodList.push({
+                foodguid: foodguid,
+                foodName: foodName,
+                amount: amount
+            });
+        });
+        Util.ajax({
+            url: Config.serverUrl + 'foodopt/getfoodoptremainupdate',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    rowguid: rowguid,
+                    mealtimes: mealtimes,
+                    handler: handler,
+                    remain_date: remain_date,
+                    remain_img: remain_img,
+                    foodList: foodList,
+                    pripid: pripid
+                }
+            }),
+            headers: { 'Content-Type': 'application/json' },
+            success: function (result) {
+                if (result.custom.code == 1) {
+                    ejs.ui.toast('修改成功！');
+                } else {
+                    ejs.ui.toast(result.custom.text);
+                }
+            },
+            error: function (error) {
+                console.log('返回结果：' + JSON.stringify(error));
+            }
+        });
+    }
+
+    /*
+     * @description 附件上传
+     */
+    function upLoadAttaches(b64, attachname, addUuid) {
+        var outshow =
+            '<li class="em-img-item em-imgs-item"><img src="./image/img_delete.png" class="em-attach-delete" /><img src="' +
+            b64 +
+            '" class="em-add-img" /></li>';
+        $('.em-img-list').append(outshow);
+        Util.ajax({
+            url: Config.serverUrl + 'commonInter/attachUpload',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    attachname: attachname,
+                    clientguid: addUuid
+                }
+            }),
+            headers: { 'Content-Type': 'application/json' },
+            success: function (result) {
+                if (result.custom.code == 1) {
+                } else {
+                    ejs.ui.toast(result.custom.text);
+                }
+            },
+            error: function (error) {
+                console.log('返回结果：' + JSON.stringify(error));
+            }
+        });
+    }
+
+    /*
+     * @description 附件删除
+     */
+    function attachDelete(addUuid) {
+        Util.ajax({
+            url: Config.serverUrl + 'commonInter/attachDelete',
+            data: JSON.stringify({
+                token: 'Epoint_WebSerivce_**##0601',
+                params: {
+                    clientguid: addUuid
+                }
+            }),
+            headers: { 'Content-Type': 'application/json' },
+            success: function (result) {
+                if (result.status.code == 1) {
+                } else {
+                    ejs.ui.toast(result.status.text);
+                }
+            },
+            error: function (error) {
+                console.log('返回结果：' + JSON.stringify(error));
+            }
+        });
+    }
+
+    /*
+     * @description 获取当前时间
+     */
+    function getNowTime() {
+        var date = new Date(),
+            hour = date.getHours(),
+            minutes = date.getMinutes();
+
+        if (hour >= 0 && hour <= 9) {
+            hour = '0' + hour;
+        }
+        if (minutes >= 0 && minutes <= 9) {
+            minutes = '0' + minutes;
+        }
+        var nowtime = hour + ':' + minutes;
+        return nowtime;
+    }
+})(document, window.Util);

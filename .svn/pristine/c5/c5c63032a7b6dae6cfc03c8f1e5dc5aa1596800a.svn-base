@@ -1,0 +1,87 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：企业主体库
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>企业主体库</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/market_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <!-- <button class="search">搜索</button> -->
+    <div class="daily-tab">
+        <div class="active" data-url="foodopt/getfoodoptbasiclist">食品经营企业</div>
+        <div data-url="foodpdt/getfoodpdtbasiclist">食品生产企业</div>
+    </div>
+    <div id="minirefresh" class="minirefresh-wrap">
+        <div class="minirefresh-scroll">
+            <ul class="listdata bg-white" id="listdata">
+            </ul>
+        </div>
+    </div>
+</body>
+
+<!-- 渲染 列表 -->
+<script type="text/template" id="item-template">
+    <li class="list-item" data-operator="{{operator}}" data-pripid="{{pripid}}" >
+        <div class="title-row">
+            {{operator}}
+        </div>
+        <div class="row">
+            许可证编号：{{certificate_code}}
+        </div>
+        <div class="row">
+            社会统一信用代码：{{pripid}}
+        </div>
+        <div class="row {{scstyle}}">
+            所属团场：{{organization}}
+        </div>
+        <div class="row {{jystyle}}" >
+            <div class="flex-1 text-ellipsis">
+                主体业态：{{obj_state}}
+            </div>
+            <div class="flex-1 text-ellipsis">
+                主体业态明细：{{obj_detail}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="flex-1 text-ellipsis">
+                状态：{{status}}
+            </div>
+            <div class="flex-1 text-ellipsis {{scstyle}}">
+                风险等级：{{risk_level}}
+            </div>
+        </div>
+    </li>
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/market_index.js'
+    ]);
+</script>
+
+</html>

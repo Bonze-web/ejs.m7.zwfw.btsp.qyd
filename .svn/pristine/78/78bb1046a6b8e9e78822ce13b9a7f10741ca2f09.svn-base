@@ -1,0 +1,110 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：风险分级评定反馈
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>风险分级评定反馈</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/risk_feedback.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="feed-title hidden">
+        <div class="feed-text">风险分级评定总分</div>
+        <div class="feed-grey">
+            <span class="text-blue" id="grade"></span>
+            分
+        </div>
+    </div>
+    <div class="bg-white checkbox">
+        <button class="addcheck hidden">+ 添加检查项</button>
+        <ul class="checklist" id="checktitle">
+            <li class="checktitle">
+                <div class="flex-1">序号</div>
+                <div class="flex-2 text-ellipsis">检查项</div>
+                <div class="flex-2 text-ellipsis">检查内容</div>
+                <div class="flex-1 text-blue">分值</div>
+            </li>
+        </ul>
+        <div id="minirefresh" class="minirefresh-wrap hidden">
+            <div class="minirefresh-scroll">
+                <ul class="checklist padding-10" id="listdata">
+                    <!-- <li class="checkitem bg-white">
+                        <div class="flex-1">{{index}}</div>
+                        <div class="flex-2 text-ellipsis">{{checkitem}}</div>
+                        <div class="flex-2 text-ellipsis">{{checkcontent}}</div>
+                        <div class="flex-1 text-blue">{{checkgrade}}</div>
+                    </li>
+                    <li class="checkitem bg-white">
+                        <div class="flex-1">{{index}}</div>
+                        <div class="flex-2 text-ellipsis">{{checkitem}}</div>
+                        <div class="flex-2 text-ellipsis">{{checkcontent}}</div>
+                        <div class="flex-1 text-blue">{{checkgrade}}</div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <ul class="checklist hidden" id="dynamicscorelist">
+            <li class="checktitle">
+                <div class="flex-1">序号</div>
+                <div class="flex-2 text-ellipsis">检查项</div>
+                <div class="flex-2 text-ellipsis">检查内容</div>
+                <div class="flex-1 text-blue">分值</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="base-btn hidden">
+        <div>保存</div>
+        <div>提交审核</div>
+    </div>
+</body>
+<!-- 渲染 列表 -->
+<script type="text/template" id="item-template">
+    <li class="checkitem bg-white">
+        <div class="flex-1">{{index}}</div>
+        <div class="flex-2 text-ellipsis">{{checkitem}}</div>
+        <div class="flex-2 text-ellipsis">{{checkcontent}}</div>
+        <div class="flex-1 text-blue">{{checkgrade}}</div>
+    </li>
+</script>
+<!-- 渲染 列表 -->
+<script type="text/template" id="item-tpl">
+    {{#recordList}}
+    <li class="checkitem">
+        <div class="flex-1">{{index}}</div>
+        <div class="flex-2 text-ellipsis">{{checkitem}}</div>
+        <div class="flex-2 text-ellipsis">{{checkcontent}}</div>
+        <div class="flex-1 text-blue">{{grade}}</div>
+    </li>
+    {{/recordList}}
+</script>
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/risk_feedback.js'
+    ]);
+</script>
+
+</html>

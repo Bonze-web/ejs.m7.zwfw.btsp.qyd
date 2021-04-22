@@ -1,0 +1,86 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/16
+	版本： [1.0, 2019/10/16]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-待登记-选择监管行为
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>选择监管行为</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_todo_regulatory_behavior.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div id="minirefresh" class="minirefresh-wrap">
+				<div class="minirefresh-scroll">
+					<ul class="main-ul-items" id="listdata">
+
+					</ul>
+				</div>
+			</div>
+			<div class="footer clearfix">
+				<div class="check-all l" id="check-all">
+					<span class="check footer-check" id="footer-check"></span>
+					<span class="check-all-text">全选</span>
+				</div>
+				<div class="register r">
+					<span class="btn-register" id="btn-register">登记案件</span>
+				</div>
+			</div>
+		</div>
+		<script type="text/x-mustache" id="item-template">
+			<li class="main-li-item canselect{{canselect}}" data-rowguid="{{rowguid}}">
+				<div class="main-left">
+					<span class="check check-item"></span>
+				</div>
+				<div class="main-right">
+					<div class="main-right-title clearfix">
+						<label class="l">{{checklepname}}</label>
+						<span class="r">{{checkdate}}</span>
+					</div>
+					<div class="main-right-list clearfix">
+						<label class="l">监管对象类别</label>
+						<span class="r">{{objtype}}</span>
+					</div>
+					<div class="main-right-list clearfix">
+						<label class="l">监管对象名称</label>
+						<span class="r">{{objname}}</span>
+					</div>
+					<div class="main-right-list clearfix">
+						<label class="l">监察事项</label>
+						<span class="r">{{itemname}}</span>
+					</div>
+					<div class="main-right-list clearfix">
+						<label class="l">检查结果</label>
+						<span class="r">{{checkresultstatus}}</span>
+					</div>
+				</div>
+			</li>
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_todo_regulatory_behavior.js'
+			]);
+		</script>
+	</body>
+
+</html>

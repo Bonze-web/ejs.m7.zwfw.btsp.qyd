@@ -1,0 +1,26 @@
+body,
+html {
+    background-color: #f5f5f5;
+}
+
+/* 列表 */
+.list-item {
+    padding: 0 15px 10px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 17px;
+    color: #000000;
+    word-break: break-all;
+}
+
+.row {
+    font-size: 13px;
+    color: #666666;
+    word-break: break-all;
+}

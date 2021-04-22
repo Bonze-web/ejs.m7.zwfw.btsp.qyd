@@ -1,0 +1,140 @@
+<!--
+	作者 :libo
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：日常检查-待接受详情
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>日常检查详情</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/dailycheck_getdetail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="detail-status">待接受</div>
+
+    <div id="em-tabview-con" class="em-tabview">
+        <div class="em-tabview-head" data-role="head">
+            <div class="em-tabview-title" data-target="title1">基本信息</div>
+            <div class="em-tabview-title" data-target="title2">检查要点</div>
+        </div>
+
+        <div class="em-tabview-body" data-role="body">
+            <div class="em-tabview-content" data-id="title1">
+                <ul class="detail-container">
+                    <li class="detail-line">
+                        <span>任务名称</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>任务编号</span>
+                        <span>111</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法主体</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>检查对象类型</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>统一社会信用代码</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>执法人员</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划开始时间</span>
+                        <span>计划名称</span>
+                    </li>
+                    <li class="detail-line">
+                        <span>计划结束时间</span>
+                        <span>计划名称</span>
+                    </li>
+                </ul>
+
+                <div class="detail-file">
+                    <div class="file-title">附件</div>
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                </div>
+
+                <div class="base-btn">
+                    <div>移交</div>
+                    <div>接受</div>
+                </div>
+            </div>
+            <div class="em-tabview-content" data-id="title2">
+                <div class="detail-file">
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                    <div class="file-info">
+                        <div class="file-info-icon"></div>
+                        <div class="file-info-name">
+                            <div>附件名称.docx</div>
+                            <div>1.73M</div>
+                        </div>
+                        <div class="file-info-downloadicon"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/dailycheck_getdetail.js'
+    ]);
+</script>
+
+</html>

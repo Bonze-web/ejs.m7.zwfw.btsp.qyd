@@ -1,0 +1,46 @@
+{
+  "controls": [{
+    "data": [{
+      "py": "",
+      "text": "\u95EE\u9898",
+      "value": "1"
+    }, {
+      "py": "",
+      "text": "\u5EFA\u8BAE",
+      "value": "2"
+    }, {
+      "py": "",
+      "text": "\u54A8\u8BE2",
+      "value": "3"
+    }],
+    "id": "sex",
+    "value": "1"
+  }, {
+    "id": "postCode",
+    "value": "11"
+  }, {
+    "id": "information",
+    "value": "1"
+  }, {
+    "data": {
+      "files": []
+    },
+    "id": "epm-0"
+  }, {
+    "data": "{\"lockdttm\":\"\",\"pviguid\":\"244be4a6-0287-4921-8dc6-051d6a89a6f1\",\"acthtml\":\"\u63D0\u4EA4\",\"isshowlockbut\":false,\"btn\":[{\"isrequireopinion\":true,\"isshowoperationpage\":true,\"operationguid\":\"30b42898-67dc-45a1-b928-665d9b68968a\",\"transitionguid\":\"\",\"defaultopinion\":\"\",\"text\":\"\u9001\u4E0B\u4E00\u6B65\",\"operationtype\":\"Pass\",\"btnid\":\"btn_30b42898-67dc-45a1-b928-665d9b68968a\",\"click\":\"AjaxOperation('30b42898-67dc-45a1-b928-665d9b68968a','','Pass','','');return false;\"}],\"info\":\"\",\"lockTimeControl\":\"\"}",
+    "id": "handlecontrols",
+    "value": ""
+  }, {
+    "id": "_common_hidden_viewdata",
+    "value": "{\"epoint_user_loginid\":\"74F5D3EEEFAE460A8D67299663001464\",\"WorkItemGuid\":\"1dce3dec-e6cc-4c0f-b30f-855eb8e69ee8\",\"pageUrl\":\"1C433AE6FC36767B0E8643DA2316536615B38B1544B4975B8AFE9D7C76A23F0800ECFC097CA0C25CB29FEE614EB23F0E03D6EC0844B4BD42B19EC0674F981D0E3BC683504DE8B951B29FEA7D4FC6273403D9F0197C8EC25D83FA916B48B22F1600B3EC2B798E974380F9ED2162B2230F17C6FF51518DBA519FE9C76562B1021A14D28A57479EB61A9CF9E52061A2385100D5DD56448DA1459DFEFE494EC623110AD9E80F7F8C9F19B1FAF52861A23B0903D5F408478EB65C8AF9FE7B758C595300FBF80E518EB2529DEAFD6563B13C5203D6F357478DA21D8AFAF125669B2B1A3BB3F40F7EEAB546B4FAC87A7CA10E5117C5E00953A39C529CF9FD24759F301717C5F80B478ACA4089C0FD6660A2241903EBF719538DB5409FEAE12063A633173BB3E8527F9EAD5D89FA957D7CA63F2516C2EC21508AAD6A9FEEF25762A63C570BC2EF56538AAD6E9EC4F25262A63C5708E8EC25529AAD6A82C4F12462AD0D5613EC8B154791AD5B8AFAC0204DA2385A03EBFB5047B393419EE9ED65759F021914E88A5344B390529CFAE122759F241717FBD60A509D974589C0ED24628F230B13EFF413479DCA6F9FE9ED2261A102530BC4F750529D90189DF8E12463B1012416D4E356508CBD6A9EE9E12361A10D200BD0875E1DD9FB28\",\"ProcessVersionInstanceGuid\":\"244be4a6-0287-4921-8dc6-051d6a89a6f1\",\"moduleguid\":\"f07f8b42-b932-4b93-a7b3-79b09fbb972a\"}"
+  }],
+  "custom": {
+    "rowguid": "9449fab9-37e4-43ee-8151-e79691d61097"
+  },
+  "status": {
+    "code": "1",
+    "text": "",
+    "url": "",
+    "state": "error"
+  }
+}

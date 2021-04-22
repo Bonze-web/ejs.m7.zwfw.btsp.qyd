@@ -1,0 +1,75 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-07 09:39:29
+ * @修改时间: 2021-04-07 15:06:21
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>食品留样</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/samples_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="mui-content">
+        <!-- 早餐 -->
+        <div class="breakfast">
+            <div class="breakfast_title">
+                早餐
+            </div>
+            <div class="more">
+                <img src="./image/samples_right.png" class="samples_right">
+            </div>
+        </div>
+        <div class="breakfast_detailed">
+            <div class="breakfast_detailed_time">
+                <span>10:30</span> <span>张三</span>
+            </div>
+            <div class="breakfast_detailed_list">
+                <span>小米粥</span>
+                <span>馒头</span>
+                <span>小米粥</span>
+                <span>馒头</span>
+            </div>
+        </div>
+        <!-- 午餐 -->
+        <div class="breakfast lunch">
+            <div class="breakfast_title">
+                午餐
+            </div>
+            <div class="more">
+                <img src="./image/samples_right.png" class="samples_right">
+            </div>
+        </div>
+        <!-- 晚餐 -->
+        <div class="breakfast dinner">
+            <div class="breakfast_title">
+                晚餐
+            </div>
+            <div class="more">
+                <img src="./image/samples_right.png" class="samples_right">
+            </div>
+        </div>
+    </div>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+</body>
+
+</html>

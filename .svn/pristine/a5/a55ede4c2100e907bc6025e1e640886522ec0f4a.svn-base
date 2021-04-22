@@ -1,0 +1,84 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：企业主体库-详情
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title></title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/market_detail.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div id="detail"></div>
+</body>
+
+<!-- <img src="{{{com_logo}}" alt=""> -->
+<!-- 渲染 详情 -->
+<script type="text/template" id="detail-tpl">
+    <div class="bg-nav">
+        <div class="img-header">
+        </div>
+        <div class="flex-1">
+            <div class="title">
+                {{operator}}
+            </div>
+            <div class="text-key">
+                统一社会信用代码：{{pripid}}
+            </div>
+            <div class="text-key">
+                风险等级：<span class="grade-A">{{risk_level}}</span>
+            </div>
+            <div class="btn-box">
+                <button data-url="">基本信息</button>
+                <button data-url="../record/record_index.html" class="{{jystyle}}">营业信息</button>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="info-row" data-url="">
+            <img src="./css/images/icon_supervise.png" alt="">
+            <div class="flex-1">监督信息</div>
+            <span class="mui-icon mui-icon-arrowright"></span>
+        </div>
+        <div class="info-row" data-url="">
+            <img src="./css/images/icon_warning.png" alt="">
+            <div class="flex-1">预警信息</div>
+            <span class="mui-icon mui-icon-arrowright"></span>
+        </div>
+        <div class="info-row {{jystyle}}" data-url="../record/record_index.html">
+            <img src="./css/images/icon_daily.png" alt="">
+            <div class="flex-1 ">日常记录</div>
+            <span class="mui-icon mui-icon-arrowright"></span>
+        </div>
+    </div>
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/market_detail.js'
+    ]);
+</script>
+
+</html>

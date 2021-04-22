@@ -1,0 +1,102 @@
+<!--
+	作者 :黄赟博
+	创建时间 :2017/06/14 10:11:36
+	版本 :[1.0, 2017/5/24]
+	版权：江苏国泰新点软件有限公司
+	描述：资料下载
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>资料下载详情</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/material_detail.css',
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<!-- <li class="mui-table-view-cell em-table-view-cell mui-active">
+				<div class="em-info-title">{{title}}</div>
+				<div class="em-info-author">
+					<span>发 &nbsp;布&nbsp; 者:</span>{{postusername}}
+					<span class="em-list-read">
+						<i></i>
+						<span class="em-read-num">{{readnum}}</span>
+					</span>
+				</div>
+				<div class="em-info-date">
+					<span>发布时间:</span>{{infodate}}</div>
+			</li> -->
+			<div id="content" class="content">
+
+			</div>
+			<button class="em-save mui-hidden" id="collect">收藏</button>
+			<!--附件模块-->
+			<div class="mui-table-view mui-hidden">
+				<div id="attachlist">
+
+				</div>
+			</div>
+		</div>
+		<!--附件模板-->
+		<script type="text/template" id="tmp01">
+			<!-- <li class="mui-table-view-cell" url="{{attUrl}}">
+				<div class="attach_listtitle"><img src="{{attachIcon}}" /><span class="mui-ellipsis">{{attFileName}}</span></div>
+			</li> -->
+
+		</script>
+		<script type="text/template" id="tmp02">
+			<div class="mui-table-view-cell em-table-view-cell head_msg ">
+				<div class="em-info-title info-title clamp2">{{title}}</div>
+				<div class="em-info-author info-author">
+					<span>发 &nbsp;布&nbsp; 者:</span> {{operateusername}}
+					<span class="em-list-read">
+						<i></i>
+						<span class="em-read-num">{{}}</span>
+					</span>
+				</div>
+				<div class="em-info-date info-date">
+					<span>发布时间:</span> {{pubdate}}</div>
+				</div>
+				<div class="infocontent">
+					{{#attachList}}
+						<div class="papers">
+							<div class="papers_img">
+								{{myattachname}}
+							</div>
+							<div class="papers_box">
+								<div class="papers_">{{attachname}}</div>
+								<!-- <div>1.2M</div> -->
+							</div>
+							<div class="download_box" id="download_box" myUrl="{{attachurl}}" attachname="{{attachname}}">
+								<img src="./image/download.png" alt="" >
+							</div>
+						</div>
+					{{/attachList}}
+
+				</div>
+			</div>
+		</script>
+	</body>
+	<script>
+		document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+	</script>
+	<script>
+		SrcBoot.output([
+			'./js/material_detail.js'
+		]);
+	</script>
+
+</html>

@@ -1,0 +1,121 @@
+<!-- 
+	作者： 袁莉
+	创建时间： 2019/10/15
+	版本： [1.0, 2019/10/15]
+	版权： 江苏国泰新点软件有限公司
+	描述： 简易案件-待登记-案件登记
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>案件登记</title>
+		<script>
+			document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+		<script>
+			SrcBoot.output([
+				'./css/easycase_todo_register.css'
+			]);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="baseinfo" id="baseinfo">
+
+			</div>
+			<div class="check-casedetil mui-table-view-cell" id="check-casedetail">
+				<a class="mui-navigate-right">查看任务基本详情</a>
+			</div>
+			<div class="main-part">
+				<div class="part-title">
+					登记案件列表
+				</div>
+				<div class="part-operation">
+					<div class="operation-tip mui-hidden">
+						共有<i class="num-content" id="num-all">0</i>个监管行为，已添加<i class="num-content" id="num-have">0</i>个监管行为
+					</div>
+					<button class="add-supervision" id="add-supervision">+&nbsp;&nbsp;案件登记</button>
+				</div>
+				<ul class="main-ul-items" id="case-lists">
+
+				</ul>
+			</div>
+			<div class="btn-content">
+				<button class="btn-next" id="btn-check">送审核</button>
+			</div>
+
+		</div>
+
+		<!--案件基本详情模板-->
+		<script type="text/x-mustache" id="baseinfo-template">
+			<div class="baseinfo-title">
+				{{taskname}}
+			</div>
+			<div class="baseinfo-list">
+				<label>任务编号：</label>
+				<span>{{taskcode}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label class="baseinfo-list-name">行政相对人名称：</label>
+				<span class="baseinfo-list-info">{{administrativecp}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>执法人员：</label>
+				<span>{{lepusernames}}</span>
+			</div>
+			<div class="baseinfo-list">
+				<label>计划日期：</label>
+				<span>{{planstartdate}}至{{planenddate}}</span>
+			</div>
+		</script>
+
+		<!--登记案件列表-->
+		<script type="text/x-mustache" id="case-template">
+			{{#caseinfolist}}
+			<li class="main-li-item" data-caseguid="{{caseguid}}">
+				<div class="li-title">
+					<div class="li-title-name clearfix">
+						<label class="l">案件编号:</label>
+						<span class="r">{{flowcode}}</span>
+					</div>
+					<div class="li-title-action">
+						<span class="edit-action" data-caseguid="{{caseguid}}"><i></i></span>
+						<span class="del-action" data-caseguid="{{caseguid}}"><i></i></span>
+					</div>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">案件来源:</label>
+					<span class="r">{{source}}</span>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">案发时间:</label>
+					<span class="r">{{occurdate}}</span>
+				</div>
+				<div class="li-list clearfix">
+					<label class="l">案情摘要:</label>
+					<span class="r">{{summary}}</span>
+				</div>
+				<div class="li-tips">
+					关联<i class="num-content">{{linkbscnum}}</i>个监管行为
+				</div>
+			</li>
+			{{/caseinfolist}}
+		</script>
+
+		<script>
+			document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+		</script>
+
+		<script>
+			SrcBoot.output([
+				'./js/easycase_todo_register.js'
+			]);
+		</script>
+	</body>
+
+</html>

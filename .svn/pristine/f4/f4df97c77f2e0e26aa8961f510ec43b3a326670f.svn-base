@@ -1,0 +1,61 @@
+<!-- 
+        作者：guotq
+        创建时间: 2017/07/11
+        版本: [1.0, 2017/07/11 ]
+        版权: 江苏国泰新点软件有限公司
+        描述： H5 的 File Input 组件
+-->
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no">
+        <title>File Input</title>
+        <script>
+            document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+    </head>
+
+    <body>
+        <input type="file" id="showFileChoose_image_camera" />
+        <img id="showImg" width="320" />
+
+        <script>
+            document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+        </script>
+        <script>
+            "use strict";
+
+            Util.loadJs([
+                'js/widgets/fileinput/fileinput.js',
+            ], function() {
+                initPage();
+            });
+
+            /**
+             * 页面初始化请走这个函数
+             */
+            function initPage() {
+                var showImg = document.getElementById('showImg');
+                
+                new FileInput({
+                    container: '#showFileChoose_image_camera',
+                    isMulti: false,
+                    type: 'Image_Camera',
+                    success: function(b64, file, detail) {
+                        console.log("选择:" + b64);
+                        console.log("fileName:" + file.name);
+                        showImg.setAttribute('src', b64);
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+
+            }
+        </script>
+    </body>
+
+</html>

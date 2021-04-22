@@ -1,0 +1,86 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：市场主体库搜索
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>市场主体库搜索</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/market_search.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-input-group" id="form">
+        <div class="mui-input-row" id="nameSet">
+            <label>经营者名称</label>
+            <input type="text" placeholder="请输入" id="operator">
+        </div>
+        <div class="mui-input-row">
+            <label>统一社会信用代码</label>
+            <input type="text" placeholder="请输入" id="pripid">
+        </div>
+        <div class="mui-input-row jystyle" id="objstate">
+            <label>主体业态</label>
+            <input type="text" placeholder="请选择" readonly id="obj_state" data-objstate="">
+            <span class="mui-icon mui-icon-arrowright"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>经营性质</label>
+            <input type="text" placeholder="请输入" id="economy_type">
+        </div>
+        <div class="mui-input-row jystyle">
+            <label>所属师</label>
+            <input type="text" placeholder="请输入" id="division">
+        </div>
+        <div class="mui-input-row" id="tuanSet">
+            <label>所属团场</label>
+            <input type="text" placeholder="请输入" id="regiment">
+        </div>
+        <div class="check-result">
+            <div class="check-result-name check-name">状态</div>
+            <div class="check-result-choose" id="choose">
+                <div class="active" id="choose-all">全部</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="base-btn">
+        <div id="reset">重置</div>
+        <div id="search">搜索</div>
+    </div>
+</body>
+<!-- 渲染 选择 -->
+<script type="text/template" id="choose-tpl">
+    {{#list}}
+    <div data-value="{{itemvalue}}">{{itemtext}}</div>
+    {{/list}}
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/market_search.js'
+    ]);
+</script>
+
+</html>

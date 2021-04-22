@@ -1,0 +1,102 @@
+<!-- 
+        作者：彭屹尧
+        创建时间：2019-11-20
+        版本： [1.0, 2019-11-20]
+        版权： 江苏国泰新点软件有限公司
+        描述： 临时检查 列表页
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>随机检查</title>
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            '../common/common_nodata.css',
+            '../common/todo_index.css',
+            './css/temporary_list.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="mui-content">
+
+        <!-- 头部切换 -->
+        <div class="add"><img src="./img/img_icon_write.png" alt=""></div>
+
+        <!-- 列表 -->
+        <div class="mui-content">
+            <div id="minirefresh" class="minirefresh-wrap">
+                <div class="minirefresh-scroll">
+                    <ul class="listdata" id="listdata">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--附近任务模板-->
+        <script type="text/x-templ-mustache" id="item-template">
+				<li class="mui-table-view-cell" data-status="{{status}}" data-rowguid="{{rowguid}}">
+					<p class="check-title">{{check_action_name}}</p>
+					<div class="check-wrap">
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>任务编码：</span>
+								<span>{{check_action_code}}</span>
+							</div>
+						</div>
+						<div class="check-cell">
+							<div class="check-cell-item">
+								<span>执法人员姓名：</span>
+								<span>{{lepname}}</span>
+							</div>
+						</div>
+						
+					</div>	
+				</li>
+            </script>
+
+        <!--附近企业模板-->
+        <script type="text/x-templ-mustache" id="item-template">
+            <li class="mui-table-view-cell" data-status="{{status}}" data-rowguid="{{rowguid}}">
+                <p class="check-title">{{check_action_name}}</p>
+                <div class="check-wrap">
+                    <div class="check-cell">
+                        <div class="check-cell-item">
+                            <span>任务编码：</span>
+                            <span>{{check_action_code}}</span>
+                        </div>
+                    </div>
+                    <div class="check-cell">
+                        <div class="check-cell-item">
+                            <span>执法人员姓名：</span>
+                            <span>{{lepname}}</span>
+                        </div>
+                    </div>
+                    
+                </div>	
+            </li>
+        </script>
+
+    </div>
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './js/temporary_list.js'
+        ]);
+    </script>
+</body>
+
+</html>

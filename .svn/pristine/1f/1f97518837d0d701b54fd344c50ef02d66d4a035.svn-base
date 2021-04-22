@@ -1,0 +1,307 @@
+/**
+ * 作者：解宇
+ * 创建时间：2019-9-5
+ * 版本：[1.0, 2019-9-5]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：检查任务-添加监管行为
+ **/
+
+.line-height50 {
+  line-height: 50px;
+}
+
+.borderbt {
+  border-bottom: 1px solid #c8c7cc;
+}
+
+textarea {
+  padding: 4px 0 10px 0;
+  font-size: 15px;
+  border: 0;
+}
+
+.mui-radio input[type='radio']:before,
+.mui-checkbox input[type='checkbox']:before {
+  font-size: 25px;
+}
+
+.mui-radio label {
+  font-size: 15px;
+  padding: 9px 15px;
+}
+
+.mui-radio:nth-child(3) {
+  margin-left: 15px;
+}
+
+.mui-radio.mui-left label,
+.mui-checkbox.mui-left label {
+  padding-left: 30px !important;
+}
+
+.mui-radio.mui-left input[type='radio'],
+.mui-checkbox.mui-left input[type='checkbox'] {
+  left: 0;
+}
+
+/*查看检查内容*/
+
+.look-checkcont {
+  font-size: 15px;
+  color: #3c80e6;
+  line-height: 15px;
+}
+
+/*检查结果*/
+
+.action-item-chooseitem {
+  display: inline-block;
+  width: 20%;
+  color: #3c80e6;
+  background: #f3f8ff;
+  border-radius: 25px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.sel-active {
+  background: #3c80e6;
+  color: #fff;
+}
+
+.action-item-chooseitem:nth-child(1),
+.action-item-chooseitem:nth-child(3) {
+  margin: 0 3.4%;
+}
+
+/*操作按钮*/
+
+.operation button:nth-child(1) {
+  width: 100% !important;
+  background: #3c80e6;
+  color: #fff;
+}
+
+.operation button:nth-child(2) {
+  background: #3c80e6;
+}
+
+.check-info-title {
+  position: relative;
+  background: #fff;
+  height: 44px;
+  line-height: 30px;
+  padding: 7px 10px 7px 0;
+  color: #666666;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  text-indent: 10px;
+}
+
+.check-info-title::before {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 0;
+  width: 4px;
+  content: '';
+  background-color: #3c80e6;
+}
+
+/*监管事项信息状态*/
+
+.action-item-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 15px;
+}
+
+.status0 {
+  color: red;
+}
+
+.status1 {
+  color: green;
+}
+
+.check-info-cont {
+  color: #000;
+  font-size: 16px;
+  text-align: left;
+}
+
+/*icon-添加附件*/
+
+.icon-attach {
+  display: inline-block;
+  width: 15px;
+  height: 17px;
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  background-image: url(../img/img_icon_attach.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*附件列表*/
+
+.em-transition-vertical {
+  overflow: hidden;
+  height: 0px;
+  transition: height 150ms linear;
+  -webkit-transition-duration: height 150ms linear;
+  -moz-transition: height 150ms linear;
+  -o-transition-property: height 150ms linear;
+}
+
+.em-attach-wrapper.mui-table-view-cell {
+  position: relative;
+  overflow: hidden;
+  padding: 0px 0px;
+  -webkit-touch-callout: none;
+  display: flex;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.em-attach-view.mui-table-view:before,
+.em-attach-view.mui-table-view:after,
+.em-attach-view .mui-table-view-cell:before,
+.em-attach-view .mui-table-view-cell:after {
+  height: 0px;
+}
+
+.em-attach-wrapper .mui-slider-indicator.mui-segmented-control {
+  position: relative;
+  bottom: auto;
+  height: 105px;
+}
+
+.em-attach-view .mui-table-view-cell {
+  float: left;
+  display: block;
+  text-align: center;
+}
+
+.em-attach-view .mui-table-view-cell img {
+  width: 30px;
+  height: 30;
+  vertical-align: middle;
+}
+
+.em-attach-view .mui-table-view-cell .em-attach-name {
+  display: block;
+  font-size: 13px;
+  color: #666666;
+  width: 80px;
+}
+
+.em-attach-view .mui-table-view-cell .em-attach-size {
+  display: block;
+  font-size: 12px;
+  color: #999999;
+}
+
+.em-form-content {
+  width: calc(100vw - 145px);
+  margin-left: 15px;
+}
+
+.em-attach-tips {
+  font-size: 14px;
+  color: #666666;
+}
+
+.em-attach-count {
+  color: #3c80e6;
+}
+
+.em-form-icon {
+  float: right;
+  width: 25px;
+  text-align: right;
+  color: #3c80e6;
+}
+
+.mui-icon.mui-icon-paperclip {
+  transform-style: preserve-3d;
+  transform: rotateZ(225deg) rotateX(180deg);
+  -webkit-transform: rotateZ(225deg) rotateX(180deg);
+  color: #3c80e6;
+}
+
+/*附件上传进度条加载*/
+
+body > .mui-progressbar {
+  position: absolute;
+  z-index: 10000;
+  top: 0px;
+  left: 0;
+  border-radius: 0;
+  background: #f5f5f5;
+}
+
+.mui-progressbar span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 150ms;
+  transition: 150ms;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  background: #3c80e6;
+}
+
+.action-item-res {
+  padding: 5px 15px !important;
+}
+
+.add-attach {
+  padding-top: 5px !important;
+}
+
+.em-attach-view {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  text-align: initial !important;
+}
+
+.mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+  width: 100% !important;
+}
+
+.em-attach-view .mui-table-view-cell {
+  display: inline-block !important;
+  text-align: center;
+  float: none !important;
+}
+
+.img-row {
+  /* position: absolute; */
+  margin-top: 5px;
+  width: 10px;
+  height: 17px;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+
+.unit-item-left{
+	width: 110px;
+}
+
+.unit-item-right{
+	width: calc(100% - 110px);
+	white-space:normal;
+	word-break:break-all;
+	word-wrap: break-word;
+}

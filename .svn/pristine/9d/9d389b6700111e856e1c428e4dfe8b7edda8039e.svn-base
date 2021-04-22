@@ -1,0 +1,81 @@
+<!--
+	作者 :lujun
+	创建时间 :2021/03/31
+	版本 :[1.0, 2021/03/31]
+	版权：江苏国泰新点软件有限公司
+	描述：我的收藏
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- H5页面窗口自动调整到设备宽度，并控制用户缩放页面 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>我的收藏</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/collection_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="daily-tab">
+        <div class="active">通知公告</div>
+        <div>应用名称</div>
+        <div>应用名称</div>
+    </div>
+
+    <div id="minirefresh" class="minirefresh-wrap">
+        <div class="minirefresh-scroll">
+            <ul class="listdata bg-white" id="listdata">
+                <li class="list-item">
+                    <div class="item-l">
+                        <div class="title text-ellipsis">
+                            主标题信息主标题信息主标题信息主标题信息主标题信息
+                        </div>
+                        <div class="row">
+                            <span>健康证到期预警</span>
+                            <span>2021-03-26</span>
+                        </div>
+                    </div>
+                    <div class="collection">
+                        <img src="./css/images/icon_collect.png" alt="">
+                        <div>取消收藏</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/x-tpl" id="item-template">
+        <li class="list-item" id="{{guid}}">
+            <h3 class="msg-title">
+                {{title}}
+            </h3>
+            <span class="msg-fs14 msg-date">
+                {{date}}
+            </span>
+        </li>
+    </script>
+
+<script>
+    document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+</script>
+<script>
+    SrcBoot.output([
+        './js/collection_index.js'
+    ]);
+</script>
+
+</html>

@@ -1,0 +1,832 @@
+/**
+ * 作者：解宇
+ * 创建时间：2019-9-5
+ * 版本：[1.0, 2019-9-5]
+ * 版权：江苏国泰新点软件有限公司
+ * 描述：检查任务-详情
+ **/
+
+
+/* 字体颜色 */
+
+.color-blue {
+	color: #3c80e6 !important;
+}
+
+.color-gray {
+	color: #999;
+}
+
+.color-red {
+	color: #d00324;
+}
+
+.color-blackgreen {
+	color: #3e5f8f;
+}
+
+.pb12 {
+	padding-bottom: 12px;
+}
+
+.mt5 {
+	margin-top: 5px;
+}
+
+.mb50 {
+	margin-bottom: 44px !important;
+}
+
+.font16 {
+	font-size: 16px;
+}
+
+.width80 {
+	display: inline-block;
+	width: 80%;
+}
+
+.width100 {
+	display: inline-block;
+	width: 100%;
+}
+
+.borderb0 {
+	border-bottom: 0 !important;
+}
+
+textarea {
+	padding: 4px 0 10px 0;
+	font-size: 15px;
+	border: 0;
+}
+
+.w-100 {
+	width: 140px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+
+/*字体加粗*/
+
+.bold {
+	font-weight: bold;
+}
+
+
+/*超文本省略号*/
+
+.txt-over {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/* 基本信息标签标题 */
+
+.baseinfo {
+	position: relative;
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+.baseinfo:last-child {
+	margin-bottom: 0;
+}
+
+.baseinfo-title,
+.basedetail-title {
+	position: relative;
+	background: #fff;
+	height: 44px;
+	line-height: 30px;
+	padding: 7px 10px 7px 12px;
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #c8c7cc;
+	text-indent: 10px;
+}
+
+.basedetail-title i {
+	width: 13px;
+	height: 15px;
+	display: inline-block;
+	background-image: url(../img/img_icon_file.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-right: 5px;
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+
+.baseinfo-title::before {
+	position: absolute;
+	top: 14px;
+	bottom: 14px;
+	left: 11px;
+	width: 4px;
+	content: '';
+	background-color: #3c80e6;
+}
+
+
+/* 基本信息详情 */
+
+.unit-item {
+	font-size: 15px;
+	overflow: hidden;
+	min-height: 44px;
+	line-height: 30px;
+	padding: 7px 15px;
+}
+
+.unit-item-left {
+	float: left;
+	width: 150px;
+	color: #666;
+	font-size: 15px;
+	text-align: left;
+}
+
+.supervise-title {
+	color: #666;
+}
+
+.unit-item-right {
+	float: left;
+	width: calc(100% - 150px);
+	color: #333;
+	text-align: left;
+}
+
+.supervise-cont {
+	color: #333;
+}
+
+
+/* 检查人员 */
+
+.person-item {
+	position: relative;
+}
+
+.person-item-left {
+	float: left;
+	width: 90px;
+	font-size: 17px;
+}
+
+.person-item-right {
+	float: left;
+	width: calc(100% - 90px);
+	font-size: 17px;
+}
+
+
+/* 检查内容 */
+
+.title {
+	color: #333;
+	padding: 11px;
+	font-size: 17px;
+	border-bottom: 1px solid #ececec;
+}
+
+.bg-grey {
+	background-color: #f5f5f5;
+}
+
+.title::after {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	content: '';
+	top: 11px;
+	right: 11px;
+	background: url(../img/up.png) no-repeat right;
+	background-size: 20px;
+	background-position: 50% 50%;
+}
+
+.down {
+	color: #3c80e6;
+	padding: 11px;
+	font-size: 17px;
+	border-bottom: 1px solid #ececec;
+}
+
+.down::after {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	content: '';
+	top: 11px;
+	right: 11px;
+	background: url(../img/down.png) no-repeat right;
+	background-size: 20px;
+	background-position: 50% 50%;
+}
+
+.title:active {
+	position: relative;
+	z-index: 1;
+	opacity: 0.7;
+}
+
+
+/*检查结果*/
+
+.ispass {
+	height: 15px;
+	width: 15px;
+	display: inline-block;
+	background-image: url(../img/img_icon_nopass.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-right: 5px;
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+
+.checkstatus1 {
+	height: 15px;
+	width: 15px;
+	display: inline-block;
+	background-image: url(../img/img_icon_pass.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-right: 5px;
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+
+
+/*文本框*/
+
+.item-value {
+	width: 100% !important;
+	height: 30px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	font-size: 15px !important;
+	border: none !important;
+}
+
+.arrow,
+.list .arrow {
+	padding-right: 20px;
+	background: url(../img/img_arrow.png) no-repeat -webkit-calc(100% - 0px) center;
+	background-size: 10px 17px;
+}
+
+
+/*按钮-添加监管行为*/
+
+.btn-addaction {
+	width: calc(100% - 30px);
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	color: #4285f4;
+	background: #ecf4ff;
+	margin: 12px 0 5px 15px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.mui-table-view:before,
+.action .mui-table-view-cell:after {
+	background: none;
+}
+
+.action {
+	padding-bottom: 10px !important;
+}
+
+
+/*监管行为item*/
+
+.action-item {
+	position: relative;
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+
+/*监管行为title*/
+
+.action-item-title {
+	width: 100%;
+	line-height: normal;
+	padding: 10px 15px;
+	background: #fafafa;
+}
+
+.action-item-title>i {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	background-image: url(../img/img_icon_person.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-right: 5px;
+}
+
+
+/*监管事项信息状态*/
+
+.action-item-status {
+	position: absolute;
+	top: 0;
+	right: 15px;
+	font-size: 15px;
+}
+
+.status0 {
+	color: red;
+}
+
+.status1 {
+	color: green;
+}
+
+
+/*监管行为cont*/
+
+.action-item-cont {
+	padding: 0 15px;
+}
+
+
+/*监管事项-删除*/
+
+.edit-action {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: absolute;
+	top: 9px;
+	right: 55px;
+	background: #fff;
+	border: 1px solid #ececec;
+	border-radius: 3px;
+}
+
+.del-action {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: absolute;
+	top: 9px;
+	right: 15px;
+	background: #fff;
+	border: 1px solid #ececec;
+	border-radius: 3px;
+}
+
+.edit-action i {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	background-image: url(../img/img_icon_edit.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+.del-action i {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	background-image: url(../img/img_icon_del.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+
+/*单选按钮*/
+
+.mui-radio.mui-left label,
+.mui-checkbox.mui-left label {
+	padding-left: 38px !important;
+}
+
+.mui-radio.mui-left input[type='radio'],
+.mui-checkbox.mui-left input[type='checkbox'] {
+	left: 0 !important;
+}
+
+
+/*操作按钮*/
+
+.operation {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 44px;
+	line-height: 44px;
+	z-index: 10;
+}
+
+.operation button {
+	width: 50%;
+	height: 100%;
+	border: 0;
+	color: #fff;
+	font-size: 17px;
+	font-weight: bold;
+	border-radius: 0;
+}
+
+.operation button:nth-child(1) {
+	color: #3c80e6;
+	background: #fff;
+}
+
+.operation button:nth-child(2) {
+	background: #3c80e6;
+}
+
+.operation button:nth-child(3) {
+	background: #64a2ff;
+}
+
+.operation .btn-receive {
+	width: 100%;
+}
+
+
+/*模态框-执法人员详情*/
+
+.mui-popover {
+	position: fixed !important;
+}
+
+.mui-popover.mui-popover-action .mui-table-view {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 !important;
+	border-radius: 0 !important;
+	background: #fff !important;
+}
+
+.mui-popover .mui-table-view {
+	max-height: 400px !important;
+}
+
+.person-info-title {
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 15px;
+	font-size: 16px;
+	color: #000;
+	background: #fafafa;
+}
+
+.person-info-title i {
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	background-image: url(../img/img_icon_close.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.person-wrap {
+	overflow-y: scroll;
+}
+
+
+/*================人员详情=================*/
+
+.mask-people {
+	position: relative;
+	top: 35%;
+	z-index: 20;
+	height: 65%;
+	background: #fff;
+	overflow-y: scroll;
+}
+
+.mask-people-items {
+	padding-left: 10px;
+	max-height: 388px;
+	overflow-y: auto;
+}
+
+
+/*蒙版部分样式*/
+
+.mask {
+	position: fixed;
+	top: 0;
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	background: rgb(0, 0, 0, .4);
+}
+
+
+/*签名*/
+
+.check-content {
+	padding: 11px 15px;
+	background: #fff;
+}
+
+.check-main-title {
+	margin-bottom: 10px;
+	font-size: 17px;
+	color: #333;
+}
+
+.check-sub {
+	width: 100%;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+.check-sub-item {
+	position: relative;
+	padding: 11px 15px;
+	font-size: 15px;
+	color: #333;
+	overflow: hidden;
+}
+
+.check-sub-item:not(:last-child) {
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.check-sub-item-title {
+	color: #666;
+}
+
+.check-sub-item-title.persona,
+.check-sub-item-title.camera {
+	overflow: hidden;
+}
+
+.red {
+	color: #ff0000;
+}
+
+.hg {
+	position: absolute;
+	width: 60px;
+	height: 24px;
+	border-radius: 2px;
+	right: 85px;
+	top: calc(50% - 12px);
+	font-size: 15px;
+	text-align: center;
+	background: #fff;
+	color: #3c80e6;
+}
+
+.itemresult[data-result="1"] .hg,
+.itemresult[data-result="0"] .bhg {
+	color: #fff !important;
+	background: #3c80e6 !important;
+}
+
+.bhg {
+	position: absolute;
+	width: 60px;
+	height: 24px;
+	border-radius: 2px;
+	right: 15px;
+	top: calc(50% - 12px);
+	color: #3c80e6;
+	font-size: 15px;
+	text-align: center;
+	background: #fff;
+}
+
+.check-sub-item input[type="text"] {
+	width: 100%;
+	height: 45px;
+	border: 0;
+	border-radius: 0;
+	margin-top: 10px;
+	background: #f5f5f5;
+	font-size: 12px !important;
+}
+
+.check-sub-item input[type="text"]::placeholder {
+	background: url(./images/img_icon_write.png) no-repeat 0 4px;
+	background-size: 15px 15px;
+	text-indent: 25px;
+}
+
+.attachlist {
+	overflow: hidden;
+}
+
+.attachitem {
+	position: relative;
+	float: left;
+	width: calc(26% - 3px);
+	height: 0;
+	padding-bottom: calc(26% - 3px);
+	margin-right: 11%;
+	margin-top: 10px;
+	background: #f5f5f5;
+}
+
+.attachitem:nth-child(3n+3) {
+	margin-right: 9px;
+}
+
+.attachadd {
+	background: url(./images/img_icon_attachadd.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.attachdel {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	top: -9px;
+	right: -9px;
+	background: url(./images/img_icon_attachdel.png) no-repeat;
+	background-size: 18px 18px;
+}
+
+.save-btn {
+	width: 90%;
+	height: 45px;
+	margin: 10px 5%;
+	font-size: 18px;
+	color: #fff;
+	background: #3c80e6;
+}
+
+.tab-fake {
+	height: 40px;
+}
+
+.check-result input[type='text'] {
+	position: absolute;
+	right: 35px;
+	top: 12px;
+	width: calc(100% - 120px);
+	height: auto;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	background: #fff;
+	text-align: right;
+	color: #333;
+	font-size: 15px;
+}
+
+.check-result::after {
+	position: absolute;
+	right: 15px;
+	top: 13px;
+	width: 8px;
+	height: 8px;
+	margin-top: 5px;
+	margin-right: 5px;
+	border-top: 1px solid #d1d1d1;
+	border-right: 1px solid #d1d1d1;
+	transform: rotate(45deg);
+	content: '';
+}
+
+.half-width {
+	position: relative;
+	float: left;
+	width: 50%;
+	border-bottom: 0 !important;
+}
+
+.half-width:not(:last-child)::after {
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	right: 0;
+	width: 1px;
+	background: #e0e0e0;
+	content: '';
+}
+
+.half-width input[type='text']::placeholder {
+	text-indent: 0;
+	background-image: none;
+}
+
+.check-sub-item-both {
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.date {
+	position: relative;
+}
+
+.date::after {
+	position: absolute;
+	width: 17px;
+	height: 18px;
+	right: 20px;
+	top: calc(50% - 11px);
+	background: url(./images/img_icon_date.png) no-repeat;
+	background-size: 100% 100%;
+	content: '';
+}
+
+.gotop {
+	position: fixed;
+	bottom: 80px;
+	right: 10px;
+	width: 36px;
+	height: 36px;
+	background: url(./images/img_icon_gotop.png) no-repeat;
+	background-size: 100% 100%;
+	z-index: 100;
+}
+
+.color-grey {
+	color: #666;
+}
+
+/*返回顶部*/
+.return {
+	position: fixed;
+	right: 2%;
+	bottom: 7%;
+	width: 48px;
+	height: 48px;
+	background: url(../img/img_icon_uptotop.png);
+	background-size: 100% 100%;
+	cursor: pointer;
+}
+
+.img-list img {
+	width: 60px;
+	height: 70px;
+	margin-right: 20px;
+}
+
+.check-sub-item-sign {
+	width: 100%;
+	height: 130px;
+	text-align: center;
+	line-height: 130px;
+	font-size: 15px;
+	color: #999;
+}
+
+.check-person,
+.check-camera {
+	float: right;
+	top: 11px;
+	width: calc(100% - 160px);
+	font-size: 15px;
+	color: #333;
+	text-align: right;
+}
+
+.showimg-camera,
+.showimg-camera img {
+	width: 100%;
+}
+
+
+/*是否签名*/
+
+.issign0,
+.isshow0 {
+	display: block;
+}
+
+.issign1,
+.isshow1 {
+	display: none;
+}

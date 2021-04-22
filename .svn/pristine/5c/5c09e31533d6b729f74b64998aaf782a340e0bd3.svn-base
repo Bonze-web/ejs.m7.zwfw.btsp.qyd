@@ -1,0 +1,43 @@
+<!--
+ * @作者: 吴松泽
+ * @创建时间: 2020-11-13 10:11:36
+ * @修改时间: 2020-11-13 17:07:34
+ * @最后修改: 吴松泽
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>PDF签章</title>
+    <script>
+        document.write("<script src='../../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.worker.js"></script>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">PDF签章</h1>
+    </header>
+
+    <div class="mui-content">
+<canvas id="pdf-canvas"></canvas>
+        </div>
+    </div>
+
+    <script>
+        document.write("<script src='../../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+
+    <script src="./index.js">
+
+    </script>
+</body>
+
+</html>

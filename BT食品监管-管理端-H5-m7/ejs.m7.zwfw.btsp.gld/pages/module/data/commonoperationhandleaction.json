@@ -1,0 +1,13 @@
+{
+    "controls": [{
+        "id": "_common_hidden_viewdata",
+        "value": "{\"epoint_user_loginid\":\"E7916790C057D1085C509495A46D7793\"}"
+    }],
+    "custom": "{\"processversioninstanceguid\":\"82979133-7f9a-4a01-8e61-d1fda8a117b7\",\"nextsteplist\":{\"issinglecheck\":false,\"data\":[{\"ischeckuser\":true,\"stepname\":\"\u9886\u5BFC\u6279\u793A\",\"checked\":true,\"stepguid\":\"d2520f86-381b-42fd-bdb2-3cc9aca83eb2\"},{\"ischeckuser\":true,\"stepname\":\"\u5904\u5BA4\u529E\u7406\",\"checked\":false,\"stepguid\":\"7a217c63-3df4-4c99-8d49-bb51cce45389\"}]},\"operationname\":\"\u5206\u9001\",\"transitionguid\":\"d2520f86-381b-42fd-bdb2-3cc9aca83eb2\",\"activityinstanceguid\":\"73a5d5f3-57cf-45f8-93a5-6a08745228bf\",\"activityname\":\"\u5206\u9001\",\"opinion\":{\"required\":false}}",
+    "status": {
+        "code": "1",
+        "text": "",
+        "url": "",
+        "state": "error"
+    }
+}

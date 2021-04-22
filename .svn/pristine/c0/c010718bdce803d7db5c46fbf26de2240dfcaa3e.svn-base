@@ -1,0 +1,234 @@
+/**
+ * 作者： 张金锁
+ * 创建时间： 2021/04/09 13:41:36
+ * 版本： [1.0]
+ * 版权： 江苏国泰新点软件有限公司
+ * 描述：编辑留样
+ */
+html,
+body {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+/* 留样时间、留样人 */
+.em-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 53px;
+    padding: 18px 13px;
+    background-color: #fff;
+}
+
+.em-title {
+    display: flex;
+    flex-direction: row;
+    width: 75px;
+    font-size: 16px;
+    color: #666;
+}
+
+.em-must {
+    color: #e03f3f;
+}
+
+.em-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 75px);
+    padding-left: 20px;
+}
+
+.em-time {
+    font-size: 16px;
+    color: #bcbcbc;
+}
+
+.em-time-chosen {
+    color: #333 !important;
+}
+
+.em-content > img {
+    width: 6px;
+    height: 11px;
+}
+
+.em-line {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+}
+
+.em-line::after {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    z-index: 1;
+    width: calc(100% - 24px);
+    height: 1px;
+    content: '';
+    background-color: #e6e6e6;
+}
+
+.em-content-input {
+    font-size: 16px;
+    color: #333;
+    border: none;
+}
+
+.em-content-input::-webkit-input-placeholder {
+    color: #bcbcbc;
+}
+
+/* 留样菜品 */
+.em-flava-title {
+    padding: 0 12px;
+    font-size: 14px;
+    color: #666;
+}
+
+.em-flava-main {
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.em-btn {
+    width: 100%;
+    height: 44px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #3c80e6;
+    border-radius: 5px;
+    border: none;
+}
+
+.em-item {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 13px 0;
+    border-radius: 4px;
+    border: solid 1px #e6e6e6;
+}
+
+.em-item0 .em-delete {
+    display: none !important;
+}
+
+.em-delete {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+}
+
+.em-item-detial {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    padding: 0 10px;
+    background-color: #fff;
+}
+
+.em-border-bottom {
+    position: relative;
+    z-index: 1;
+}
+
+.em-border-bottom::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background-color: #e6e6e6;
+}
+
+/* 留样图片 */
+.em-img-space {
+    padding: 5px 12px;
+    margin-bottom: 55px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.em-img-title {
+    font-size: 16px;
+    line-height: 52px;
+    color: #666;
+}
+
+.em-img-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.em-img-item {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border-radius: 1px;
+}
+
+.em-add {
+    position: relative;
+    bottom: 80px;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    border-radius: 1px;
+}
+
+.em-photo {
+    position: relative;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+}
+
+.em-add-img {
+    width: 80px;
+    height: 80px;
+}
+
+.em-attach-delete {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    z-index: 3;
+    width: 15px;
+    height: 15px;
+}
+
+/* 保存 */
+.em-save {
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    width: 100%;
+    height: 44px;
+    padding: 0;
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 44px;
+    color: #3c80e6;
+    background-color: #fff;
+    border: none;
+}

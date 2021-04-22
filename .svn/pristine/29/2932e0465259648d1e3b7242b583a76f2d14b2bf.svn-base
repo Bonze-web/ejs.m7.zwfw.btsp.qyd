@@ -1,0 +1,60 @@
+<!--
+ * @作者: 杨宗标
+ * @创建时间: 2021-04-01 11:35:51
+ * @修改时间: 2021-04-01 16:02:23
+ * @版本: [1.0]
+ * @版权: 国泰新点软件股份有限公司
+ * @描述:
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <title>营业信息</title>
+    <script>
+        document.write("<script src='../../js/cssboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            './css/business_index.css'
+        ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="mui-content">
+        <div class="em-tab-top">
+            <div class="em-tabview-head" data-role="head">
+                <div class="em-tabview-title" data-target="title1">基本信息</div>
+                <div class="em-tabview-title" data-target="title2">从业人员信息</div>
+                <div class="em-tabview-title" data-target="title3">食品安全管理人员</div>
+                <div class="em-tabview-title" data-target="title4">自查记录</div>
+                <div class="em-tabview-title" data-target="title4">自查记录</div>
+            </div>
+        </div>
+
+            <div class="em-tabview-body" data-role="body">
+                <div class="em-tabview-content" data-id="title1">内容1</div>
+                <div class="em-tabview-content" data-id="title2">内容2</div>
+                <div class="em-tabview-content" data-id="title3">内容3</div>
+                <div class="em-tabview-content" data-id="title4">内容4</div>
+            </div>
+    </div>
+
+    <script>
+        document.write("<script src='../../js/jsboot.js?" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script>
+        SrcBoot.output([
+            'js/widgets/tabview/tabview.js',
+            './js/business_index.js'
+        ]);
+    </script>
+</body>
+
+</html>
